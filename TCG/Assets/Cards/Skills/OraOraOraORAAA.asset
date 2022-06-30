@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f400c91674b4b459602b0b0ecd84f1, type: 3}
+  m_Name: OraOraOraORAAA
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 3da8ae5dc5c080546895db3d71848697, type: 3}
+  Name: OraOraOraORAAA
+  Describ: Fast but low damage attacks
+  PlusDam: -3
+  PlusDef: 0
+  Self: 0
+  Heal: 0
+  Animation: {fileID: 11400000, guid: 9f88d7d3405d22e448f098a687afbc07, type: 2}
