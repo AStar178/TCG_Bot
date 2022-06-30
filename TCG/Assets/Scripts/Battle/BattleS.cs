@@ -31,6 +31,7 @@ public class BattleS : MonoBehaviour
     #region Misc
 
     AbilitySetter AS;
+    public GameObject Popup;
 
     #endregion
 
@@ -63,6 +64,20 @@ public class BattleS : MonoBehaviour
         PDef.text = PlayerDef.ToString();
         EDam.text = EnemyAtk.ToString();
         EDef.text = EnemyDef.ToString();
+    }
+
+    public void DamPop(GameObject Targ, string dam, bool Heal = false)
+    {
+        Vector3 trans = new Vector3(Targ.transform.position.x, Targ.transform.position.y + 3, Targ.transform.position.z);
+        GameObject j = Instantiate(Popup, trans, Quaternion.identity);
+        j.GetComponent<TextMeshPro>().text = dam;
+        if (Heal == false)
+        { j.GetComponent<TextMeshPro>().color = Color.red; } else j.GetComponent<TextMeshPro>().color = Color.green;
+        j.transform.DOMoveY(j.transform.position.y + 2, 1);
+        j.transform.DOScaleX(0, 1);
+        j.transform.DOScaleY(0, 1);
+        Destroy(j, 1);
+
     }
 
     public void changeColor(Color color, SpriteRenderer knight)

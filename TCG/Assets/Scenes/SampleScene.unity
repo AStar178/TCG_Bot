@@ -2336,6 +2336,7 @@ MonoBehaviour:
   EnemyAtk: 0
   EnemyDef: 0
   rng: 0
+  Popup: {fileID: 7150606482557823874, guid: 5cfd4176eed20f34385fcdade4045225, type: 3}
 --- !u!4 &1927322087
 Transform:
   m_ObjectHideFlags: 0

@@ -19,4 +19,4 @@ MonoBehaviour:
   PlusDef: 0
   Self: 0
   Heal: 0
-  Animation: {fileID: 11400000, guid: 96039b2198b597d4f87f3c5af7242793, type: 2}
+  Animation: {fileID: 11400000, guid: 0631f1f69afeaf647b0f3be8c0edecc4, type: 2}
