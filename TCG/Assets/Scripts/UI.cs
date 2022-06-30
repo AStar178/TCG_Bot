@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    public GameObject AttackButton;
-    public GameObject Skill1Button;
-    public GameObject Skill2Button;
-    public GameObject Skill3Button;
+    public List<GameObject> Attack_Buttom = new List<GameObject>();
 }

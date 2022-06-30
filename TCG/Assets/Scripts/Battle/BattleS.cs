@@ -90,15 +90,15 @@ public class BattleS : MonoBehaviour
 
     void SkillTurn()
     {
-        Util.UI.AttackButton.GetComponent<Image>().sprite = Util.PlayerBag.PCards[0].skills[0].icon;
-        Util.UI.Skill1Button.GetComponent<Image>().sprite = Util.PlayerBag.PCards[0].skills[1].icon;
-        Util.UI.Skill2Button.GetComponent<Image>().sprite = Util.PlayerBag.PCards[0].skills[2].icon;
-        Util.UI.Skill3Button.GetComponent<Image>().sprite = Util.PlayerBag.PCards[0].skills[3].icon;
 
-        AS.SkillLister(Util.PlayerBag.PCards[0].skills[0], Util.UI.AttackButton.GetComponent<Button>());
-        AS.SkillLister(Util.PlayerBag.PCards[0].skills[1], Util.UI.Skill1Button.GetComponent<Button>());
-        AS.SkillLister(Util.PlayerBag.PCards[0].skills[2], Util.UI.Skill2Button.GetComponent<Button>());
-        AS.SkillLister(Util.PlayerBag.PCards[0].skills[3], Util.UI.Skill3Button.GetComponent<Button>());
+        for (int i = 0; i < Util.PlayerBag.PCards[0].skills.Count; i++)
+        {
+            
+            Util.UI.Attack_Buttom[i].GetComponent<Image>().sprite = Util.PlayerBag.PCards[0].skills[i].icon;
+            AS.SkillLister(Util.PlayerBag.PCards[0].skills[i], Util.UI.Attack_Buttom[i].GetComponent<Button>());
+
+        }
+       
 
     }
 

@@ -6,10 +6,7 @@ using DG.Tweening;
 
 public abstract class MeleeAttack : Ability
 {
-    public virtual void PAttack(BattleS battle)
-    {
-        PlayerAttack(battle);
-    }
+    public virtual void PAttack(BattleS battle) => PlayerAttack(battle);
 
     async void PlayerAttack(BattleS battle)
     {
@@ -33,10 +30,7 @@ public abstract class MeleeAttack : Ability
         tween.Kill();
     }
 
-    public virtual void EAttack(BattleS battle)
-    {
-        EnemyAttack(battle);
-    }
+    public virtual void EAttack(BattleS battle) => EnemyAttack(battle);
 
     async void EnemyAttack(BattleS battle)
     {

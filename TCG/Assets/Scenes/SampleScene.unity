@@ -1132,10 +1132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca85dc0b24524544a03316716231b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackButton: {fileID: 2047067921}
-  Skill1Button: {fileID: 1994779701}
-  Skill2Button: {fileID: 11482757}
-  Skill3Button: {fileID: 565540390}
+  Attack_Buttom:
+  - {fileID: 2047067921}
+  - {fileID: 1994779701}
+  - {fileID: 11482757}
+  - {fileID: 565540390}
 --- !u!1 &937716225
 GameObject:
   m_ObjectHideFlags: 0
