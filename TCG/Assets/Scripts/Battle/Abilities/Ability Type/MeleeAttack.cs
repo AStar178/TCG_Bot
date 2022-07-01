@@ -15,8 +15,7 @@ public abstract class MeleeAttack : Ability
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 4, Util.Setting.Speed * 0.125f);
         battle.PlayerKnight.gameObject.transform.DORotate(new Vector3(0,0,-16), Util.Setting.Speed * .5f);
         await tween.AsyncWaitForCompletion();
-        battle.EnemyDef -= battle.PlayerAtk;
-        battle.DamPop(battle.EnemyKnight.gameObject, battle.PlayerAtk.ToString());
+        battle.DamageEnemy(battle.PlayerAtk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
@@ -36,7 +35,7 @@ public abstract class MeleeAttack : Ability
     {
         Tween tween = battle.EnemyKnight.gameObject.transform.DOMoveX(battle.transform.position.x - 4, Util.Setting.Speed);
         await tween.AsyncWaitForCompletion();
-        battle.PlayerDef -= battle.EnemyAtk;
+        battle.DamagePlayer(battle.EnemyAtk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.PlayerKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);

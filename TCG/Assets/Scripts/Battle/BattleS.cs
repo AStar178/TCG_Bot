@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using UnityEngine;
+using System;
 
 public class BattleS : MonoBehaviour
 {
@@ -16,16 +17,22 @@ public class BattleS : MonoBehaviour
     public TextMeshPro PDef;
     public TextMeshPro EDam;
     public TextMeshPro EDef;
+    [Space]
+    public Action<float> AngerChangeEvent;
     #endregion
 
     #region PlayerStat
     public int PlayerAtk;
     public int PlayerDef;
+    public int Anger;
+    [Range(0 , 100)]
+    public int Ult_Point;
 
     public int EnemyAtk;
     public int EnemyDef;
 
     public int rng;
+    private int Ult_Ponit_Max = 100;
     #endregion
 
     #region Misc
@@ -41,6 +48,39 @@ public class BattleS : MonoBehaviour
         BattleStart();
     }
 
+    internal void DamageEnemy(int value)
+    {
+        EnemyDef -= value;
+        Ult(Anger);
+        DamPop(EnemyKnight.gameObject, value.ToString());
+    }
+    internal void DamageTarget(GameObject target , int value)
+    {
+        EnemyDef -= value;
+        Ult(Anger);
+        DamPop(target.gameObject, value.ToString());
+    }
+    internal void DamagePlayer(int value)
+    {
+        PlayerDef -= value;
+        DamPop(PlayerKnight.gameObject, value.ToString());
+    }
+    
+    private void Ult(int Anger_Point)
+    {
+        Ult_Point += (int)Anger;
+
+        Ult_Point = Mathf.Min(Ult_Point , Ult_Ponit_Max);
+        AngerChangeEvent?.Invoke(Ult_Point);
+        if (Ult_Point == Ult_Ponit_Max) 
+            ULTREADY();
+    }
+
+    private void ULTREADY()
+    {
+        
+    }
+
     void BattleStart()
     {
         PlayerKnight.sprite = Util.PlayerBag.PCards[0].shape;
@@ -49,6 +89,7 @@ public class BattleS : MonoBehaviour
 
         PlayerAtk = Util.PlayerBag.PCards[0].attack;
         PlayerDef = Util.PlayerBag.PCards[0].deff;
+        Anger = Util.PlayerBag.PCards[0].Anger;
 
         EnemyAtk = EnemyCard.attack;
         EnemyDef = EnemyCard.deff;
@@ -79,6 +120,8 @@ public class BattleS : MonoBehaviour
         Destroy(j, 1);
 
     }
+
+   
 
     public void changeColor(Color color, SpriteRenderer knight)
     {
@@ -116,6 +159,7 @@ public class BattleS : MonoBehaviour
 
     void RNG(int a, int b)
     {
-        rng = Random.Range(a, b);
+        rng = UnityEngine.Random.Range(a, b);
     }
+    
 }

@@ -24,6 +24,8 @@ public class KnightCardN : ScriptableObject
     int Oar;
     [SerializeField]
     int Lvl;
+    [SerializeField]
+    int Character_Anger_Point;
     [Space]
     [SerializeField]
     List<Skill> Skill;
@@ -37,5 +39,6 @@ public class KnightCardN : ScriptableObject
     public int deff => Deff;
     public int oar => Oar;
     public int lvl => Lvl;
+    public int Anger => Character_Anger_Point;
     public List<Skill> skills => Skill;
 }
