@@ -6,7 +6,7 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
-[Ll]ogs/
+/[Ll]ogs/
 [Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
@@ -77,3 +77,6 @@ Privacy
 Security
 Status
 Docs
+TCG/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+*.log
+*.log
