@@ -56,8 +56,7 @@ public class TripleAttack : Ability
 
     async void TokeDamage(BattleS battle, int atk, Transform target)
     {
-        battle.EnemyDef -= atk;
-        battle.DamPop(target.gameObject, (atk).ToString());
+        battle.DamageTarget(target.gameObject , atk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.09f);

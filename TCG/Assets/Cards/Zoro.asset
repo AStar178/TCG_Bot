@@ -20,6 +20,7 @@ MonoBehaviour:
   Deff: 1
   Oar: 0
   Lvl: 3
+  Character_Anger_Point: 10
   Skill:
   - {fileID: 11400000, guid: f1d34ab02a2bd5c44b9b7968da977308, type: 2}
   - {fileID: 11400000, guid: c3758635890656c47b1755a5c8ebd6e6, type: 2}

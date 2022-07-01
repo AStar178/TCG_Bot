@@ -6,10 +6,7 @@ using DG.Tweening;
 
 public abstract class MeleeAttack : Ability
 {
-    public virtual void PAttack(BattleS battle)
-    {
-        PlayerAttack(battle);
-    }
+    public virtual void PAttack(BattleS battle) => PlayerAttack(battle);
 
     async void PlayerAttack(BattleS battle)
     {
@@ -18,8 +15,7 @@ public abstract class MeleeAttack : Ability
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 4, Util.Setting.Speed * 0.125f);
         battle.PlayerKnight.gameObject.transform.DORotate(new Vector3(0,0,-16), Util.Setting.Speed * .5f);
         await tween.AsyncWaitForCompletion();
-        battle.EnemyDef -= battle.PlayerAtk;
-        battle.DamPop(battle.EnemyKnight.gameObject, battle.PlayerAtk.ToString());
+        battle.DamageEnemy(battle.PlayerAtk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
@@ -33,16 +29,13 @@ public abstract class MeleeAttack : Ability
         tween.Kill();
     }
 
-    public virtual void EAttack(BattleS battle)
-    {
-        EnemyAttack(battle);
-    }
+    public virtual void EAttack(BattleS battle) => EnemyAttack(battle);
 
     async void EnemyAttack(BattleS battle)
     {
         Tween tween = battle.EnemyKnight.gameObject.transform.DOMoveX(battle.transform.position.x - 4, Util.Setting.Speed);
         await tween.AsyncWaitForCompletion();
-        battle.PlayerDef -= battle.EnemyAtk;
+        battle.DamagePlayer(battle.EnemyAtk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.PlayerKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
