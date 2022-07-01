@@ -23,13 +23,13 @@ public class TripleAttack : Ability
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(target.position.x + 1, Util.Setting.Speed * 0.125f);
         target.transform.DOMoveY(target.position.y + 2, Util.Setting.Speed * 0.25f);
         await tween.AsyncWaitForCompletion();
-        TokeDamage(battle, atk - 1, target);
+        TokeDamage(battle, atk - 2, target);
         await Task.Delay(12);
         battle.PlayerKnight.flipX = true;
         battle.PlayerKnight.gameObject.transform.DORotate(new Vector3(0, 0, 16), Util.Setting.Speed);
         tween = Attacker.DOMoveX(target.position.x - 1, Util.Setting.Speed * 0.125f);
         tween = Attacker.DOMoveY(target.position.y, Util.Setting.Speed * 0.125f);
-        TokeDamage(battle, atk - 1, target);
+        TokeDamage(battle, atk - 2, target);
         await tween.AsyncWaitForCompletion();
 
         battle.PlayerKnight.flipX = false;
@@ -46,7 +46,7 @@ public class TripleAttack : Ability
         tween = target.DOJump(new Vector3(5.5f, -3.5f, 0), 0.5f, 1, Util.Setting.Speed * 0.125f);
         Attacker.DOJump(new Vector3(1.5f, -3.5f, 0), 0.5f, 1, Util.Setting.Speed * 0.125f);
         await tween.AsyncWaitForCompletion();
-        TokeDamage(battle, atk + Random.Range(2,5), target);
+        TokeDamage(battle, atk + Random.Range(1,6), target);
         battle.PlayerKnight.flipX = false;
         tween = Attacker.DOMoveX(-5.5f, Util.Setting.Speed * .25f);
         Attacker.DORotate(new Vector3(0, 0, 0), Util.Setting.Speed);

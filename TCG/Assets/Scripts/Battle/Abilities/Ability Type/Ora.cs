@@ -14,10 +14,7 @@ public class Ora : Ability
 
     async void PlayerAttack(BattleS battle)
     {
-        float ma = (float)3.8/(float)battle.PlayerAtk;
-        float Value_Atk = 1f - ma;
-        float atk = (Value_Atk) * 100;
-        int atkint = (int)atk;
+        int atk = battle.PlayerAtk / 4;
         
 
         Tween tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 3, Util.Setting.Speed * .25f);
@@ -25,7 +22,7 @@ public class Ora : Ability
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 4, Util.Setting.Speed * 0.0125f);
         battle.PlayerKnight.gameObject.transform.DORotate(new Vector3(0, 0, -16), Util.Setting.Speed * 0.0125f);
         await tween.AsyncWaitForCompletion();
-        battle.DamageEnemy(atkint);
+        battle.DamageEnemy(atk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
@@ -35,7 +32,7 @@ public class Ora : Ability
         await tween.AsyncWaitForCompletion();
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 4, Util.Setting.Speed * 0.0125f);
         await tween.AsyncWaitForCompletion();
-        battle.DamageEnemy(atkint);
+        battle.DamageEnemy(atk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
@@ -45,7 +42,7 @@ public class Ora : Ability
         await tween.AsyncWaitForCompletion();
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 4, Util.Setting.Speed * 0.0125f);
         await tween.AsyncWaitForCompletion();
-        battle.DamageEnemy(atkint);
+        battle.DamageEnemy(atk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
@@ -55,7 +52,7 @@ public class Ora : Ability
         await tween.AsyncWaitForCompletion();
         tween = battle.PlayerKnight.gameObject.transform.DOMoveX(battle.transform.position.x + 4.4f, Util.Setting.Speed * 0.0125f);
         await tween.AsyncWaitForCompletion();
-        battle.DamageEnemy(atkint + 3);
+        battle.DamageEnemy(atk + 3);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
         battle.EnemyKnight.transform.DOShakePosition(.1f);
