@@ -18,6 +18,7 @@ public class AbilitySetter : MonoBehaviour
     Slash SlashN = new Slash();
     Ora Ora = new Ora();
     TripleAttack TripleAttack = new TripleAttack();
+    FireBall FireBall = new FireBall();
 
     #endregion
 
@@ -36,12 +37,18 @@ public class AbilitySetter : MonoBehaviour
         }
         if (s.animation.a == "TripleAttack")
         {
-            battle.ability = Ora;
+            battle.ability = TripleAttack;
             skill.onClick.AddListener(ATripleAttack);
+        }
+        if (s.animation.a == "FireBall")
+        {
+            battle.ability = FireBall;
+            skill.onClick.AddListener(AFireBall);
         }
 
     }
 
+    #region Ability
     public void ASlashN()
     {
         SlashN.PAttack(battle);
@@ -54,4 +61,9 @@ public class AbilitySetter : MonoBehaviour
     {
         TripleAttack.PAttack(battle);
     }
+    public void AFireBall()
+    {
+        FireBall.PAttack(battle);
+    }
+    #endregion
 }

@@ -39,6 +39,7 @@ public class BattleS : MonoBehaviour
 
     AbilitySetter AS;
     public GameObject Popup;
+    public GameObject dummy;
 
     #endregion
 
@@ -65,7 +66,9 @@ public class BattleS : MonoBehaviour
         PlayerDef -= value;
         DamPop(PlayerKnight.gameObject, value.ToString());
     }
-    
+
+    #region Ult
+
     private void Ult(int Anger_Point)
     {
         Ult_Point += (int)Anger;
@@ -80,6 +83,8 @@ public class BattleS : MonoBehaviour
     {
         
     }
+
+    #endregion
 
     void BattleStart()
     {
@@ -121,7 +126,12 @@ public class BattleS : MonoBehaviour
 
     }
 
-   
+    public GameObject Dummy(float x, float y, float z)
+    {
+        GameObject g = Instantiate(dummy);
+        g.transform.position = new Vector3 (x, y, z);
+        return g;
+    }
 
     public void changeColor(Color color, SpriteRenderer knight)
     {
@@ -143,16 +153,6 @@ public class BattleS : MonoBehaviour
         }
        
 
-    }
-
-    #endregion
-
-    #region Skills Skillz
-
-
-    public void SlashN()
-    {
-        //testo.PAttack(this);
     }
 
     #endregion

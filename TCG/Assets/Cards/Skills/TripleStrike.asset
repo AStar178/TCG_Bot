@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32f400c91674b4b459602b0b0ecd84f1, type: 3}
-  m_Name: BackStab
+  m_Name: TripleStrike
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 4e04a49f752e74d4da24c8edeb5e98c9, type: 3}
-  Name: BackStab
-  Describ: '"Beware the knife may have posion"'
+  Name: TripleStrike
+  Describ: Kick the target to air and follow it by 2 other strikes
   PlusDam: 2
   PlusDef: 0
   Self: 0

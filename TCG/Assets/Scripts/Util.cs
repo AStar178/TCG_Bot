@@ -7,6 +7,7 @@ public class Util : MonoBehaviour
     public static CardBag PlayerBag;
     public static Setting Setting;
     public static UI UI;
+    public static int Speed;
 
     private void Awake()
     {
@@ -15,5 +16,6 @@ public class Util : MonoBehaviour
         UI = gameObject.GetComponent<UI>();
 
         Setting.Speed = 1 / Setting.Speed;
+        Speed = Setting.Speed;
     }
 }

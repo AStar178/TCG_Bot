@@ -2505,12 +2505,13 @@ MonoBehaviour:
   EDef: {fileID: 1121067676}
   PlayerAtk: 0
   PlayerDef: 0
-  Anger: 0
+  Anger: 5
   Ult_Point: 0
   EnemyAtk: 0
   EnemyDef: 0
   rng: 0
   Popup: {fileID: 7150606482557823874, guid: 5cfd4176eed20f34385fcdade4045225, type: 3}
+  dummy: {fileID: 6133994415140704450, guid: 9f806c953e9e9414f86b60d12afe3a82, type: 3}
 --- !u!4 &1927322087
 Transform:
   m_ObjectHideFlags: 0
