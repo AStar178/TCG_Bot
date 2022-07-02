@@ -19,6 +19,7 @@ public class BattleS : MonoBehaviour
     public TextMeshPro EDef;
     [Space]
     public Action<float> AngerChangeEvent;
+    public EventUserBattelS events;
     #endregion
 
     #region PlayerStat
@@ -40,6 +41,7 @@ public class BattleS : MonoBehaviour
     AbilitySetter AS;
     public GameObject Popup;
     public GameObject dummy;
+    public GameObject ExpEffect;
 
     #endregion
 
@@ -66,6 +68,16 @@ public class BattleS : MonoBehaviour
         PlayerDef -= value;
         DamPop(PlayerKnight.gameObject, value.ToString());
     }
+    internal void ExpEffectUse(Transform target , float shakeTime , float ShakeAmount)
+    {
+        var exp = Instantiate(ExpEffect , target.position , Quaternion.identity);
+
+
+        var shake = new Vector2(shakeTime , ShakeAmount);
+        events.shake.Rasise(shake);
+
+        Destroy(exp , 3);
+    }
 
     #region Ult
 
@@ -81,7 +93,7 @@ public class BattleS : MonoBehaviour
 
     private void ULTREADY()
     {
-        
+        ExpEffectUse(EnemyKnight.transform , 10 , 10);
     }
 
     #endregion
