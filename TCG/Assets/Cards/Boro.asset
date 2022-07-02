@@ -20,5 +20,5 @@ MonoBehaviour:
   Deff: 25
   Oar: 0
   Lvl: 3
-  Character_Anger_Point: 10
+  AngerPoint: 10
   Skill: []

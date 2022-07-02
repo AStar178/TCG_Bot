@@ -23,12 +23,15 @@ public class FireBall : Ability
         tween = Attacker.DOMoveX(Attacker.position.x - .5f, Util.Speed * .125f);
         Attacker.DOMoveY(Attacker.position.y - Random.Range(-.5f, .6f), Util.Speed * .125f);
         await tween.AsyncWaitForCompletion();
-        GameObject s = battle.Dummy(-4.5f, Attacker.position.y, Attacker.position.z);
+        GameObject s = battle.Dummy(-4.5f, Attacker.position.y, Attacker.position.z, Color.red);
         tween = Attacker.DOMoveX(Attacker.position.x + .5f, Util.Speed * .25f);
         Attacker.DOMoveY(-3.3f, Util.Speed * .25f);
         s.transform.DOMoveX(target.position.x, (Util.Speed * .5f) / Time.fixedTime);
-        s.transform.DOMoveY(target.position.y, (Util.Speed * .5f) / Time.fixedTime);
-
+        tween = s.transform.DOMoveY(target.position.y, (Util.Speed * .5f) / Time.fixedTime);
+        await tween.AsyncWaitForCompletion();
+        GameObject p = battle.Particl(s.transform.position.x, s.transform.position.y, s.transform.position.z, .5f);
+        battle.destroy(s);
+        TokeDamage(battle, atk, target);
         //tween.Kill();
     }
 
@@ -37,8 +40,11 @@ public class FireBall : Ability
         battle.DamageTarget(target.gameObject , atk);
         battle.changAttribiutText();
         battle.changeColor(Color.red, battle.EnemyKnight);
-        battle.EnemyKnight.transform.DOShakePosition(.09f);
-        await Task.Delay(12);
+        Tween tween = target.DOMoveX(target.position.x + 1, Util.Speed * .125f);
+        target.DOMoveY(target.position.y - Random.Range(-0.5f, .6f), Util.Speed * .125f);
+        await tween.AsyncWaitForCompletion();
+        target.DOMoveX(target.position.x - 1, Util.Speed * .125f);
+        target.DOMoveY(-3.3f, Util.Speed * .125f);
         battle.changeColor(Color.white, battle.EnemyKnight);
     }
 

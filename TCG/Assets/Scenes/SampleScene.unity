@@ -1168,6 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PCards:
+  - {fileID: 11400000, guid: cc08c5747401cff4988963761a263070, type: 2}
   - {fileID: 11400000, guid: 0af3ec39ed4cba54b8a169615ee76c64, type: 2}
 --- !u!4 &918800098
 Transform:
@@ -2505,11 +2506,12 @@ MonoBehaviour:
   EDef: {fileID: 1121067676}
   PlayerAtk: 0
   PlayerDef: 0
-  Anger: 5
+  Anger: 10
   Ult_Point: 0
   EnemyAtk: 0
   EnemyDef: 0
   rng: 0
+  particl: {fileID: 2369807700021954240, guid: 359d6af7ea84a6f45847d13f71066a51, type: 3}
   Popup: {fileID: 7150606482557823874, guid: 5cfd4176eed20f34385fcdade4045225, type: 3}
   dummy: {fileID: 6133994415140704450, guid: 9f806c953e9e9414f86b60d12afe3a82, type: 3}
 --- !u!4 &1927322087

@@ -38,6 +38,7 @@ public class BattleS : MonoBehaviour
     #region Misc
 
     AbilitySetter AS;
+    public GameObject particl;
     public GameObject Popup;
     public GameObject dummy;
 
@@ -126,10 +127,24 @@ public class BattleS : MonoBehaviour
 
     }
 
-    public GameObject Dummy(float x, float y, float z)
+    public GameObject Dummy(float x, float y, float z, Color color)
     {
         GameObject g = Instantiate(dummy);
+        g.GetComponent<SpriteRenderer>().color = color;
         g.transform.position = new Vector3 (x, y, z);
+        return g;
+    }
+
+    public void destroy(GameObject g)
+    {
+        Destroy(g);
+    }
+
+    public GameObject Particl(float x, float y, float z, float Time)
+    {
+        GameObject g = Instantiate(particl);
+        g.transform.position = new Vector3(x, y, z);
+        Destroy(g, Time);
         return g;
     }
 
