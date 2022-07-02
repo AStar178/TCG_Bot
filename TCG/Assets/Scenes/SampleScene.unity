@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ae3cb852aaca2438fd0a2194f9d9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeFull: 2
+  TimeFull: 0.03
 --- !u!114 &486403401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776447, y: 1}
+    m_SensorSize: {x: 1.7769784, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2840,9 +2840,9 @@ MonoBehaviour:
   EnemyAtk: 0
   EnemyDef: 0
   rng: 0
-  particl: {fileID: 2369807700021954240, guid: 359d6af7ea84a6f45847d13f71066a51, type: 3}
+  particl: {fileID: 4633601090902944384, guid: 6f0f7352f6985b6439b46f4bbf74259a, type: 3}
   Popup: {fileID: 7150606482557823874, guid: 5cfd4176eed20f34385fcdade4045225, type: 3}
-  dummy: {fileID: 6133994415140704450, guid: 9f806c953e9e9414f86b60d12afe3a82, type: 3}
+  dummy: {fileID: 8465249156890840134, guid: be3fd50e26236014f936d9220a09ca06, type: 3}
   ExpEffect: {fileID: 4633601090902944384, guid: 6f0f7352f6985b6439b46f4bbf74259a, type: 3}
 --- !u!4 &1927322087
 Transform:

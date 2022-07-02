@@ -26,15 +26,16 @@ public class FireBall : Ability
         GameObject s = battle.Dummy(-4.5f, Attacker.position.y, Attacker.position.z, Color.red);
         tween = Attacker.DOMoveX(Attacker.position.x + .5f, Util.Speed * .25f);
         Attacker.DOMoveY(-3.3f, Util.Speed * .25f);
-        s.transform.DOMoveX(target.position.x, (Util.Speed * .5f) / Time.fixedTime);
-        tween = s.transform.DOMoveY(target.position.y, (Util.Speed * .5f) / Time.fixedTime);
+        s.transform.DOMoveX(target.position.x, (Util.Speed * .5f));
+        tween = s.transform.DOMoveY(target.position.y, (Util.Speed * .5f));
         await tween.AsyncWaitForCompletion();
         GameObject p = battle.Particl(s.transform.position.x, s.transform.position.y, s.transform.position.z, .5f);
         battle.destroy(s);
         TokeDamage(battle, atk, target);
-        //tween.Kill();
+        
+        
     }
-
+    
     async void TokeDamage(BattleS battle, int atk, Transform target)
     {
         battle.DamageTarget(target.gameObject , atk);
