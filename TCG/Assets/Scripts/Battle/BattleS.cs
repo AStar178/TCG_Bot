@@ -142,7 +142,9 @@ public class BattleS : MonoBehaviour
     public GameObject Dummy(float x, float y, float z, Color color)
     {
         GameObject g = Instantiate(dummy);
-        g.GetComponent<SpriteRenderer>().color = color;
+        if (g.TryGetComponent<SpriteRenderer>(out var sprite))
+            g.GetComponent<SpriteRenderer>().color = color;
+
         g.transform.position = new Vector3 (x, y, z);
         return g;
     }
