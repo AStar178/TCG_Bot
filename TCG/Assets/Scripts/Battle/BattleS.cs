@@ -37,12 +37,13 @@ public class BattleS : MonoBehaviour
     #endregion
 
     #region Misc
-
+    [Space]
     AbilitySetter AS;
     public GameObject particl;
     public GameObject Popup;
     public GameObject dummy;
     public GameObject ExpEffect;
+    public GameObject FireBallEffect;
 
     #endregion
 
@@ -139,9 +140,9 @@ public class BattleS : MonoBehaviour
 
     }
 
-    public GameObject Dummy(float x, float y, float z, Color color)
+    public GameObject Dummy(GameObject Dumy,float x, float y, float z, Color color)
     {
-        GameObject g = Instantiate(dummy);
+        GameObject g = Instantiate(Dumy);
         if (g.TryGetComponent<SpriteRenderer>(out var sprite))
             g.GetComponent<SpriteRenderer>().color = color;
 

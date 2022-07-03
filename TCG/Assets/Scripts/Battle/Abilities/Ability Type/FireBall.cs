@@ -20,10 +20,10 @@ public class FireBall : Ability
         Tween tween = Attacker.DORotate(new Vector3(0, 0, -16), Util.Speed * .25f);
         await tween.AsyncWaitForCompletion();
         Attacker.DORotate(new Vector3(0, 0, 0), Util.Speed * .125f);
-        tween = Attacker.DOMoveX(Attacker.position.x - .5f, Util.Speed * .125f);
+        tween = Attacker.DOMoveX(Attacker.position.x - .5f, Util.Speed * .0125f);
         Attacker.DOMoveY(Attacker.position.y - Random.Range(-.5f, .6f), Util.Speed * .125f);
         await tween.AsyncWaitForCompletion();
-        GameObject s = battle.Dummy(-4.5f, Attacker.position.y, Attacker.position.z, Color.red);
+        GameObject s = battle.Dummy(battle.FireBallEffect,-4.5f, Attacker.position.y, Attacker.position.z, Color.white);
         tween = Attacker.DOMoveX(Attacker.position.x + .5f, Util.Speed * .25f);
         Attacker.DOMoveY(-3.3f, Util.Speed * .25f);
         s.transform.DOMoveX(target.position.x, (Util.Speed * .5f));
