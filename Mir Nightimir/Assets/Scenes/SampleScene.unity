@@ -691,6 +691,8 @@ GameObject:
   - component: {fileID: 466595307}
   - component: {fileID: 466595310}
   - component: {fileID: 466595309}
+  - component: {fileID: 466595311}
+  - component: {fileID: 466595312}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -775,6 +777,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5276313, y: 0.81302166}
   m_EdgeRadius: 0
+--- !u!114 &466595311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466595306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyState: {fileID: 466595312}
+  MaxHp: 0
+  Currenthp: 0
+--- !u!114 &466595312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466595306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyHp: {fileID: 466595311}
+  tei: {fileID: 466595309}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,10 +888,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.045433894
-    y: -0.17583407
-    width: 0.9086778
-    height: 1.3525698
+    x: 0.035921205
+    y: 0.08551724
+    width: 0.9269988
+    height: 0.82758623
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1341,6 +1373,8 @@ GameObject:
   - component: {fileID: 955869194}
   - component: {fileID: 955869191}
   - component: {fileID: 955869193}
+  - component: {fileID: 955869196}
+  - component: {fileID: 955869195}
   m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
@@ -1412,8 +1446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07667b9ec1af6fe40aac0b7a29cd5195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
+  DelayDamageTakeTime: 0
 --- !u!61 &955869194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1440,6 +1476,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6242688, y: 0.78804904}
   m_EdgeRadius: 0
+--- !u!114 &955869195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955869189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7406ab7a84713ee489c62bafafe940d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &955869196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955869189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee4701f87a44924a88ff87dd0825c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  PlayerWeaponManger: {fileID: 955869195}
 --- !u!1 &1094031803
 GameObject:
   m_ObjectHideFlags: 0
