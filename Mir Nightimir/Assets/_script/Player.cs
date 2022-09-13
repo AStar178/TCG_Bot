@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] public State PlayerState;
     [SerializeField] public PlayerMoveMent PlayerMoveMent;
     [SerializeField] public PlayerTarget PlayerTarget;
+    [SerializeField] public PlayerWeaponManger PlayerWeaponManger;
     [SerializeField] public PlayerHp PlayerHp;
 
     private void Awake() => Singleton = this;
@@ -18,6 +19,9 @@ public class Player : MonoBehaviour
         PlayerHp.MaxHp = PlayerState.MaxHpAmount;
         PlayerHp.Currenthp = PlayerState.MaxHpAmount;
         PlayerTarget.Raduis = PlayerState.AggroRange;
+        PlayerWeaponManger.AttackSpeed = PlayerState.AttackSpeed;
+        PlayerWeaponManger.AmoroReduse = PlayerState.Ad_DefenceReduser;
+        PlayerWeaponManger.MagicReduse = PlayerState.MagicReset;
     }
 
 }

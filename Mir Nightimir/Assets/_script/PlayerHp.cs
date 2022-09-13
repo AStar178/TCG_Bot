@@ -9,25 +9,31 @@ public class PlayerHp : MonoBehaviour, IHpValue
     public float Currenthp;
     public float DelayDamageTakeTime;
     float delayTime;
+    public float Amoro;
+    public float MagicResest;
+
     private void Start() {
         Currenthp = MaxHp;
     }
     private void Update() {
 
-        if (delayTime <= 0)
+        if (delayTime < 0)
             return;
     
         delayTime -= Time.deltaTime;
     }
     public void HpValueChange(Damage damage)
     {
-        if (delayTime >= 0)
+
+        if (delayTime > 0)
             return;
         
 
         delayTime = DelayDamageTakeTime;
-        float AdDamageAmount = 100 - player.PlayerState.Ap_Defence;
+        float AdDamageAmount = 100 - Amoro;
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
+        float ApDamageAmount = 100 - MagicResest;
+        Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
 
     }
 }

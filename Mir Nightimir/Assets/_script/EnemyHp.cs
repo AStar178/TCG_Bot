@@ -8,11 +8,15 @@ public class EnemyHp : MonoBehaviour , IHpValue
 
     public float MaxHp;
     public float Currenthp;
+    public float Amoro;
+    public float MagicResest;
 
     public void HpValueChange(Damage damage)
     {
-        float AdDamageAmount = 100 - EnemyState.State.Ap_Defence;
+        float AdDamageAmount = 100 - Amoro;
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
+        float ApDamageAmount = 100 - MagicResest;
+        Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
     }
 
 }

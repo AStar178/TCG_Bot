@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerTarget : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerTarget : MonoBehaviour
     [SerializeField] public Player Player;
     [SerializeField] public float Raduis;
     [SerializeField] public LayerMask EnemyLayer;
+
     void Update()
     {
         if (target == null)
@@ -17,7 +19,6 @@ public class PlayerTarget : MonoBehaviour
             FindTarget();
             return;
         }
-
         AttackTarget(); 
     }
 
@@ -28,12 +29,24 @@ public class PlayerTarget : MonoBehaviour
 
         if (collider2D != null)
         {
-            
+            target = collider2D.gameObject.transform;
         }        
+
     }
 
     private void AttackTarget()
     {
+        if ( !target.TryGetComponent<IHpValue>(out var Hp) ) { return; }
+        if ( Vector2.Distance(transform.position , target.position) > Raduis ) { return; }
+
+
+        PlayerWeaponManger.DealDamage(Hp);
+    }
+    #if UNITY_EDITOR
+    private void OnDrawGizmosSelected() {
+        
+        Handles.DrawWireDisc(transform.position , Vector3.forward , Raduis);
 
     }
+    #endif
 }
