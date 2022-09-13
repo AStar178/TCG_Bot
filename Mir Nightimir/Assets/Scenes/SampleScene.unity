@@ -690,9 +690,10 @@ GameObject:
   - component: {fileID: 466595308}
   - component: {fileID: 466595307}
   - component: {fileID: 466595310}
-  - component: {fileID: 466595309}
+  - component: {fileID: 466595313}
   - component: {fileID: 466595312}
   - component: {fileID: 466595311}
+  - component: {fileID: 466595314}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -737,21 +738,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &466595309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466595306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d84a760bc47d3648a4f25653bd0d7ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
-  Speed: 0
-  Range: 0
 --- !u!61 &466595310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -805,9 +791,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   EnemyHp: {fileID: 466595311}
-  tei: {fileID: 466595309}
+  tei: {fileID: 466595314}
+--- !u!114 &466595313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466595306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  Speed: 0
+  Range: 0
+  target: {fileID: 0}
+--- !u!114 &466595314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466595306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  Speed: 0
+  Range: 0
+  target: {fileID: 0}
+  STBS: 1
+  project: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,10 +909,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.035921205
-    y: 0.08551724
-    width: 0.9269988
-    height: 0.82758623
+    x: 0.045433894
+    y: -0.17583407
+    width: 0.9086778
+    height: 1.3525698
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1362,6 +1382,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &928336888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928336890}
+  - component: {fileID: 928336889}
+  m_Layer: 0
+  m_Name: Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &928336889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928336888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fddff0efaa8b841a120ae364e51c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
+--- !u!4 &928336890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928336888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.066196874, y: -0.016754251, z: 0.11620445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955869189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1516,7 @@ MonoBehaviour:
   player: {fileID: 616022487}
   MaxHp: 0
   Currenthp: 0
-  DelayDamageTakeTime: 0.25
+  DelayDamageTakeTime: 0.5
 --- !u!61 &955869194
 BoxCollider2D:
   m_ObjectHideFlags: 0
