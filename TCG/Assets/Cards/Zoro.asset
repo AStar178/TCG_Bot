@@ -15,7 +15,7 @@ MonoBehaviour:
   Shape: {fileID: 21300000, guid: 93ec32fd01b0d194e9bd3df850cebfc5, type: 3}
   Name: Zoro
   Description: Just Passing by my friend
-  Type: {fileID: 11400000, guid: 3a5d973b481b0b845bfefafc410699ac, type: 2}
+  Type: {fileID: 11400000, guid: 899675982ad2dea4eb24905fddd1e232, type: 2}
   Attack: 4
   Deff: 1
   Oar: 0
