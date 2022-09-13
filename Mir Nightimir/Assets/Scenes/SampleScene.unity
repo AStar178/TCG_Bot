@@ -889,10 +889,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.035921205
+    y: 0.08551724
+    width: 0.9269988
+    height: 0.82758623
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1033,6 +1033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerState: {fileID: 11400000, guid: 548e9d27bbe653c43ab24a3019dc14c4, type: 2}
   PlayerMoveMent: {fileID: 955869191}
+  PlayerTarget: {fileID: 955869196}
   PlayerHp: {fileID: 955869193}
 --- !u!1 &619394800
 GameObject:
@@ -1447,7 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07667b9ec1af6fe40aac0b7a29cd5195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 616022487}
   MaxHp: 0
   Currenthp: 0
   DelayDamageTakeTime: 0
@@ -1503,6 +1504,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   PlayerWeaponManger: {fileID: 955869195}
+  Player: {fileID: 616022487}
+  Raduis: 0
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1094031803
 GameObject:
   m_ObjectHideFlags: 0
