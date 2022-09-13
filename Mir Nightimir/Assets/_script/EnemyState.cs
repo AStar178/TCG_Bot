@@ -9,7 +9,6 @@ public class EnemyState : MonoBehaviour {
     private void Start() {
         EnemyHp.MaxHp = State.MaxHpAmount;
         EnemyHp.Currenthp = State.MaxHpAmount;
-        tei.Speed = State.MoveSpeed;
     }
 
 }
