@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AdDamage: 1
   ApDamage: 1
-  Ap_Defence: 1
-  Mp_Defence: 0
-  Ap_DefenceReduser: 1
+  AttackSpeed: 100
+  Amoro: 1
+  MagicReset: 1
+  Ad_DefenceReduser: 1
   Mp_DefenceReduser: 1
   MaxHpAmount: 1
   MoveSpeed: 2
+  AggroRange: 1
