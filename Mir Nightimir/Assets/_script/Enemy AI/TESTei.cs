@@ -1,20 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class TESTei : MonoBehaviour
+public abstract class TESTei : MonoBehaviour
 {
     public State state;
     public float Speed;
     public float Range;
-    GameObject target;
+    public GameObject target;
+
+    private void Awake()
+    {
+        awake();
+    }
+
+    public virtual void awake()
+    {
+
+    }
 
     private void Start()
+    {
+        start();
+    }
+
+    public virtual void start()
     {
         target = FindObjectOfType<PlayerMoveMent>().gameObject;
     }
 
     private void Update()
+    {
+        update();
+    }
+
+    public virtual void update()
     {
         if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
         { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
@@ -30,4 +51,13 @@ public class TESTei : MonoBehaviour
             Debug.Log("Naaaaaaaaaaaaaaaaaaaa~");
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+
+        Handles.DrawWireDisc(transform.position, Vector3.forward, Range);
+
+    }
+#endif
 }
