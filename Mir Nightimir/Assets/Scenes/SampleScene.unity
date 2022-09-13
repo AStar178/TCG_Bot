@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 466595309}
   - component: {fileID: 466595312}
   - component: {fileID: 466595311}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d84a760bc47d3648a4f25653bd0d7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 0
   Range: 0
 --- !u!61 &466595310
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 466595311}
   tei: {fileID: 466595309}
 --- !u!1 &519420028
@@ -1204,7 +1204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684678354}
   - component: {fileID: 684678355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   player: {fileID: 616022487}
   MaxHp: 0
   Currenthp: 0
-  DelayDamageTakeTime: 0
+  DelayDamageTakeTime: 0.25
 --- !u!61 &955869194
 BoxCollider2D:
   m_ObjectHideFlags: 0
