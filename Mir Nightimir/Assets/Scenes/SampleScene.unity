@@ -691,8 +691,8 @@ GameObject:
   - component: {fileID: 466595307}
   - component: {fileID: 466595310}
   - component: {fileID: 466595309}
-  - component: {fileID: 466595311}
   - component: {fileID: 466595312}
+  - component: {fileID: 466595311}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -749,8 +749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d84a760bc47d3648a4f25653bd0d7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 3
-  Speed: 1
+  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  Speed: 0
+  Range: 0
 --- !u!61 &466595310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -804,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   EnemyHp: {fileID: 466595311}
   tei: {fileID: 466595309}
 --- !u!1 &519420028
@@ -888,10 +889,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.035921205
-    y: 0.08551724
-    width: 0.9269988
-    height: 0.82758623
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

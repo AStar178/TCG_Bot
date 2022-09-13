@@ -5,6 +5,8 @@ using UnityEngine;
 public class TESTei : MonoBehaviour
 {
     public State state;
+    public float Speed;
+    public float Range;
     GameObject target;
 
     private void Start()
@@ -14,7 +16,7 @@ public class TESTei : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= state.AggroRange)
+        if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
         { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, state.MoveSpeed * Time.deltaTime); }
     }
 
