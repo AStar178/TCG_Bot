@@ -40,7 +40,7 @@ public class PlayerTarget : MonoBehaviour
         if ( Vector2.Distance(transform.position , target.position) > Raduis ) { return; }
 
 
-        PlayerWeaponManger.DealDamage(Hp);
+        PlayerWeaponManger.DealDamage(Hp , target);
     }
     #if UNITY_EDITOR
     private void OnDrawGizmosSelected() {
