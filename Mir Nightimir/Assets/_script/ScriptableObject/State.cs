@@ -11,4 +11,5 @@ public class State : ScriptableObject
     public float Mp_DefenceReduser;
     public float MaxHpAmount;
     public float MoveSpeed;
+    public float AggroRange;
 }

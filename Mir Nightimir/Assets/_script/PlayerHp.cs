@@ -16,14 +16,14 @@ public class PlayerHp : MonoBehaviour, IHpValue
 
         if (delayTime <= 0)
             return;
-        
-
+    
         delayTime -= Time.deltaTime;
     }
     public void HpValueChange(Damage damage)
     {
         if (delayTime >= 0)
             return;
+        
 
         delayTime = DelayDamageTakeTime;
         float AdDamageAmount = 100 - player.PlayerState.Ap_Defence;
