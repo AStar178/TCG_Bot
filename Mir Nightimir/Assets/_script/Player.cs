@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     {
         PlayerMoveMent.moveSpeed = PlayerState.MoveSpeed;
         PlayerHp.MaxHp = PlayerState.MaxHpAmount;
+        PlayerHp.Currenthp = PlayerState.MaxHpAmount;
     }
 
 }
