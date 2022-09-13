@@ -23,10 +23,12 @@ public class PlayerTarget : MonoBehaviour
 
     private void FindTarget()
     {
-        
+        if (Physics2D.OverlapCircle( transform.position , Raduis , EnemyLayer ))
+        {
+            
+        }        
     }
 
-    
     private void AttackTarget()
     {
 
