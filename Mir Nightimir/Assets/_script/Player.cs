@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public static Player Singleton;
     [SerializeField] public State PlayerState;
     [SerializeField] public PlayerMoveMent PlayerMoveMent;
+    [SerializeField] public PlayerTarget PlayerTarget;
     [SerializeField] public PlayerHp PlayerHp;
 
     private void Awake() => Singleton = this;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
         PlayerMoveMent.moveSpeed = PlayerState.MoveSpeed;
         PlayerHp.MaxHp = PlayerState.MaxHpAmount;
         PlayerHp.Currenthp = PlayerState.MaxHpAmount;
+        PlayerTarget.Raduis = PlayerState.AggroRange;
     }
 
 }
