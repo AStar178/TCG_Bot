@@ -17,7 +17,7 @@ public class TESTei : MonoBehaviour
     private void Update()
     {
         if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
-        { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, state.MoveSpeed * Time.deltaTime); }
+        { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
