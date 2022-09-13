@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,9 +67,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -8985,8 +8985,8 @@ TextureImporter:
       colored_286: -342658023
       colored_256: 1798361188
       colored_89: 2011508787
-      colored_0: -1052522249
       colored_343: -461461891
+      colored_0: -1052522249
       colored_266: -1286683634
       colored_243: -1245743228
       colored_341: -394981521
@@ -9059,8 +9059,8 @@ TextureImporter:
       colored_69: 1695462635
       colored_60: 284597384
       colored_91: 1550725848
-      colored_134: -1064506995
       colored_367: 726783675
+      colored_134: -1064506995
       colored_231: -2119615799
       colored_306: -1222199850
       colored_331: 1117448966
@@ -9203,12 +9203,12 @@ TextureImporter:
       colored_162: -86774222
       colored_44: 1335287802
       colored_67: -842149458
-      colored_139: 1895591911
       colored_416: -1620591811
       colored_164: 800696015
-      colored_235: -1899868193
+      colored_139: 1895591911
       colored_26: -542968687
       colored_212: -149729223
+      colored_235: -1899868193
       colored_359: 1746195225
       colored_323: -193846306
       colored_50: 1401406159
@@ -9252,13 +9252,13 @@ TextureImporter:
       colored_111: -290750806
       colored_103: 1930056947
       colored_40: -77242362
-      colored_264: -749694441
+      colored_355: -348488492
       colored_289: -1256135190
       colored_38: 1239033185
-      colored_355: -348488492
       colored_369: -448108603
-      colored_213: -450745157
       colored_390: 189880116
+      colored_213: -450745157
+      colored_264: -749694441
       colored_70: -1615205419
       colored_137: 821359829
       colored_222: 1893951733

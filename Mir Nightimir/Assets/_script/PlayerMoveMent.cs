@@ -26,6 +26,7 @@ public class PlayerMoveMent : MonoBehaviour
     private void SpriteUpdaye()
     {
         if (new Vector2(movementX , movementY).normalized == Vector2.zero) { return; }
+        
         if (Vector2.Dot(new Vector2(movementX , movementY).normalized , Vector2.right) < -0.1f)
         {
             SpriteRenderer.flipX = true;
