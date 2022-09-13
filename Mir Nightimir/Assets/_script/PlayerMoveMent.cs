@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMoveMent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Rigidbody2D body3d;
+    [SerializeField] float moveSpeed;
+    float movementX;
+    float movementY;
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        movementX = Input.GetAxisRaw("Horizontal");
+        movementY = Input.GetAxisRaw("Vertical");
+
+        body3d.velocity = new Vector2(movementX , movementY).normalized * moveSpeed;
     }
 }
