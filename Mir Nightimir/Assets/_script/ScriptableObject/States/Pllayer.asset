@@ -19,4 +19,4 @@ MonoBehaviour:
   Ap_DefenceReduser: 1
   Mp_DefenceReduser: 1
   MaxHpAmount: 1
-  MoveSpeed: 1
+  MoveSpeed: 2
