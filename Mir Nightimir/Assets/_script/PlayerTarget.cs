@@ -23,7 +23,10 @@ public class PlayerTarget : MonoBehaviour
 
     private void FindTarget()
     {
-        if (Physics2D.OverlapCircle( transform.position , Raduis , EnemyLayer ))
+
+        Collider2D collider2D = Physics2D.OverlapCircle( transform.position , Raduis , EnemyLayer );
+
+        if (collider2D != null)
         {
             
         }        
