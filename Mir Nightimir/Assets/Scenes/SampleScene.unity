@@ -779,6 +779,8 @@ MonoBehaviour:
   EnemyState: {fileID: 466595312}
   MaxHp: 0
   Currenthp: 0
+  Amoro: 0
+  MagicResest: 0
 --- !u!114 &466595312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,7 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  state: {fileID: 11400000, guid: 24024a00585164549af26fd305e19e20, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -1054,6 +1056,7 @@ MonoBehaviour:
   PlayerState: {fileID: 11400000, guid: 548e9d27bbe653c43ab24a3019dc14c4, type: 2}
   PlayerMoveMent: {fileID: 955869191}
   PlayerTarget: {fileID: 955869196}
+  PlayerWeaponManger: {fileID: 955869195}
   PlayerHp: {fileID: 955869193}
 --- !u!1 &619394800
 GameObject:
@@ -1517,6 +1520,8 @@ MonoBehaviour:
   MaxHp: 0
   Currenthp: 0
   DelayDamageTakeTime: 0.5
+  Amoro: 0
+  MagicResest: 0
 --- !u!61 &955869194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1555,6 +1560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7406ab7a84713ee489c62bafafe940d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackSpeed: 0
+  DamageAd: 0
+  DamageAp: 0
+  AmoroReduse: 0
+  MagicReduse: 0
 --- !u!114 &955869196
 MonoBehaviour:
   m_ObjectHideFlags: 0
