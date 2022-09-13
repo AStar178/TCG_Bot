@@ -19,7 +19,7 @@ public class PlayerWeaponManger : MonoBehaviour
 
     public void DealDamage(IHpValue enemyHp)
     {
-        if (attackSpeed < 0) { return; }
+        if (attackSpeed > 0) { return; }
 
         attackSpeed = 100/AttackSpeed;
         Damage damage = new Damage();
@@ -30,6 +30,7 @@ public class PlayerWeaponManger : MonoBehaviour
         damage.ApDamage = MagicReduse;
 
         enemyHp.HpValueChange(damage);
+        Debug.Log("DAAD");
     }
 
 

@@ -11,6 +11,8 @@ public class EnemyState : MonoBehaviour {
         EnemyHp.Currenthp = State.MaxHpAmount;
         tei.Speed = State.MoveSpeed;
         tei.Range = State.AggroRange;
+        EnemyHp.Amoro = State.Amoro;
+        EnemyHp.MagicResest = State.MagicReset;
     }
 
 }

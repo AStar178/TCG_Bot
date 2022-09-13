@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
         PlayerWeaponManger.AttackSpeed = PlayerState.AttackSpeed;
         PlayerWeaponManger.AmoroReduse = PlayerState.Ad_DefenceReduser;
         PlayerWeaponManger.MagicReduse = PlayerState.MagicReset;
+        PlayerWeaponManger.DamageAd = PlayerState.AdDamage;
+        PlayerWeaponManger.DamageAp = PlayerState.ApDamage;
     }
 
 }
