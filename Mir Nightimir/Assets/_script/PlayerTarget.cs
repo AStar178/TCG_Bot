@@ -22,16 +22,10 @@ public class PlayerTarget : MonoBehaviour
         AttackTarget(); 
     }
 
-    public virtual Transform FindTarget()
+    public Transform FindTarget()
     {
-
-        Collider2D collider2D = Physics2D.OverlapCircle( transform.position , Raduis , EnemyLayer );
-
-        if (collider2D != null)
-        {
-            return collider2D.gameObject.transform;
-        }        
-        return null;
+        if (PlayerWeaponManger.CurrentWeapons == null) { return null; }
+        return PlayerWeaponManger.CurrentWeapons.SelectedTarget(Raduis , EnemyLayer);
     }
 
     private  void AttackTarget()

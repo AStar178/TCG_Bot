@@ -16,6 +16,10 @@ public class Meleewepos : AbilityWeapons
 
         enemyHp.HpValueChange(damage);
         var s = Instantiate(GetPWM().OnMeeleHit , pos.position , Quaternion.identity);
+        bool pornOnline = false;
+        if (damage.AdDamage < damage.ApDamage)
+            pornOnline = true;
+        GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , pornOnline );
         Destroy(s , 6);
     }
     

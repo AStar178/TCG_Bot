@@ -67,6 +67,6 @@ public class RangeED : TESTei
             await Task.Yield();
         }
         tween.Kill();
-        Destroy(b , .5f);
+        Destroy(b);
     }
 }

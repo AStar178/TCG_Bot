@@ -1,4 +1,8 @@
 using UnityEngine;
+using System;
+using TMPro;
+using DG.Tweening;
+using System.Threading.Tasks;
 
 public class PlayerWeaponManger : MonoBehaviour 
 {    
@@ -8,8 +12,30 @@ public class PlayerWeaponManger : MonoBehaviour
     public float DamageAp;
     public float AmoroReduse;
     public float MagicReduse;
-    [SerializeField] private AbilityWeapons CurrentWeapons;
+    public Action<int , Vector2 , bool> OnDealDamage;
+    [SerializeField] public AbilityWeapons CurrentWeapons;
+    [SerializeField] public GameObject TextFonstDamage;
     [HideInInspector] public float attackSpeed;
+    [SerializeField] Color[] TextColors; 
+    private void OnEnable() {
+        OnDealDamage += OnDealDamageFuncens;
+    }
+    private void OnDisable() {
+        OnDealDamage -= OnDealDamageFuncens;
+    }
+
+    private void OnDealDamageFuncens(int obj , Vector2 pos , bool ap)
+    {   
+        var Texts = Instantiate(TextFonstDamage , pos , Quaternion.identity);
+        var fonts = Texts.GetComponentInChildren<TMP_Text>();
+        fonts.text = obj.ToString();
+        fonts.color = TextColors[0];
+        if (ap == true)
+            fonts.color = TextColors[1];
+        
+        Tween tween = Texts.transform.DOMove(pos += new Vector2(0 , 0.75f) , .5f);
+        KillTween( .5f , tween , Texts.transform.gameObject.transform.gameObject );
+    }
 
     private void Start() {
         if (CurrentWeapons == null) { return; }
@@ -27,6 +53,7 @@ public class PlayerWeaponManger : MonoBehaviour
     }
     public void DealDamage(IHpValue enemyHp , Transform pos)
     {
+
         CurrentWeapons.DealDamage(enemyHp , pos); 
     }
     public void SweichWeapon(GameObject newWeapons)
@@ -34,6 +61,18 @@ public class PlayerWeaponManger : MonoBehaviour
         CurrentWeapons.StopAbilityWp();
         var newweapos = Instantiate(newWeapons , transform.position , Quaternion.identity);
         CurrentWeapons = newWeapons.GetComponent<AbilityWeapons>();
+    }
+    
+    private async void KillTween(float v, Tween tween , GameObject b)
+    {
+        float zz = v;
+        while (zz > 0)
+        {
+            zz -= Time.deltaTime;
+            await Task.Yield();
+        }
+        tween.Kill();
+        Destroy(b);
     }
 
 }
