@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public class PlayerWeaponManger : MonoBehaviour 
 {    
     public GameObject OnMeeleHit;
+    public GameObject OnMagicHit;
     public float AttackSpeed;
     public float DamageAd;
     public float DamageAp;
@@ -33,8 +34,8 @@ public class PlayerWeaponManger : MonoBehaviour
         if (ap == true)
             fonts.color = TextColors[1];
         
-        Tween tween = Texts.transform.DOMove(pos += new Vector2(0 , 0.75f) , .5f);
-        KillTween( .5f , tween , Texts.transform.gameObject.transform.gameObject );
+        Tween tween = Texts.transform.DOMove(pos += new Vector2(0 , 1.25f) , 1f);
+        KillTween( 1f , tween , Texts.transform.gameObject.transform.gameObject );
     }
 
     private void Start() {

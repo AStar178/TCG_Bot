@@ -5,7 +5,11 @@ public abstract class AbilityWeapons : MonoBehaviour
 {
     private Player player;
     protected Player GetPlayer() => player;
-    protected PlayerWeaponManger GetPWM() => player.PlayerWeaponManger;
+    public PlayerWeaponManger GetPWM() => player.PlayerWeaponManger;
+    public virtual bool CoustomTargetSelect(Transform target)
+    {
+        return true;
+    }
     public virtual Transform SelectedTarget(float Raduis , LayerMask EnemyLayer)
     {
         Collider2D collider2D = Physics2D.OverlapCircle( transform.position , Raduis , EnemyLayer );

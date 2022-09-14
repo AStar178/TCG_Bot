@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13715439}
   - component: {fileID: 13715440}
+  - component: {fileID: 13715441}
   m_Layer: 6
   m_Name: weapons
   m_TagString: Untagged
@@ -151,7 +152,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 136189973}
   m_Father: {fileID: 955869190}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,6 +169,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81053d90b9b38994e9a3a0874ec8267e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Raduis: 1.4
+  sprite: {fileID: -1317030293, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+--- !u!114 &13715441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13715438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e5ee8af444c98408b6ea94a8d9e730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Raduis: 2.1
+  sprite: {fileID: 1008483382, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
+  spawnPos: {fileID: 136189973}
 --- !u!1 &28646145
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +743,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &136189972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136189973}
+  m_Layer: 6
+  m_Name: Bulletpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136189973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136189972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.211, y: 0.203, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 13715439}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &466595306
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,9 +1006,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.035921205
+    x: 0.03699422
     y: 0.08551724
-    width: 0.9269988
+    width: 0.9248555
     height: 0.82758623
   near clip plane: 0.3
   far clip plane: 1000
@@ -1689,12 +1740,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnMeeleHit: {fileID: 3001144307840372890, guid: 70892bdeb782bde4bbf89aefb8c962d6, type: 3}
+  OnMagicHit: {fileID: 0}
   AttackSpeed: 0
   DamageAd: 0
   DamageAp: 0
   AmoroReduse: 0
   MagicReduse: 0
-  CurrentWeapons: {fileID: 13715440}
+  CurrentWeapons: {fileID: 13715441}
   TextFonstDamage: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   attackSpeed: 0
   TextColors:
@@ -1715,7 +1767,7 @@ MonoBehaviour:
   target: {fileID: 0}
   PlayerWeaponManger: {fileID: 955869195}
   Player: {fileID: 616022487}
-  Raduis: 1.3
+  Raduis: 2
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 128

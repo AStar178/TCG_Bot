@@ -3,12 +3,25 @@ using UnityEngine;
 
 public class Meleewepos : AbilityWeapons 
 {
-    float Raduis = 1.4f;
+    [SerializeField] float Raduis = 1.4f;
+    [SerializeField] Sprite sprite;
+    public override bool CoustomTargetSelect(Transform target)
+    {
+        Vector2 dir = ChooseDir();
+        if ( Vector2.Dot( (Vector2)( target.position - transform.position ).normalized , dir ) < 0.1f ) { return false; } 
+        return true;
+    }
+    public override void StartAbilityWp(Player newplayer)
+    {
+        base.StartAbilityWp(newplayer);
+
+        GetPlayer().PlayerTarget.Raduis = Raduis;
+        GetPlayer().PlayerMoveMent.SpriteRenderer.sprite = sprite;
+    }
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
         if (GetPWM().attackSpeed > 0) { return; }
-        Vector2 dir = ChooseDir();
-        if ( Vector2.Dot( (Vector2)(pos.position - transform.position).normalized , dir ) < 0.1f ) { return; } 
+        
 
         GetPWM().attackSpeed = 100/GetPWM().AttackSpeed;
         Damage damage = new Damage();

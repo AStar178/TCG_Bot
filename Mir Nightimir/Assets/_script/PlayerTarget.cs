@@ -32,6 +32,7 @@ public class PlayerTarget : MonoBehaviour
     {
         if ( !target.TryGetComponent<IHpValue>(out var Hp) ) { return; }
         if ( Vector2.Distance(transform.position , target.position) > Raduis ) { return; }
+        if ( PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect(target) == false ) { return; }
 
         PlayerWeaponManger.DealDamage(Hp , target);
     }
