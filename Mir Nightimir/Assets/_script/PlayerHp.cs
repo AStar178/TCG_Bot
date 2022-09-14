@@ -33,26 +33,25 @@ public class PlayerHp : MonoBehaviour, IHpValue
         if (delayTime > 0)
             return;
         
-        SpriteRendererOnTakeDamageEffect();
+
         delayTime = DelayDamageTakeTime;
         float AdDamageAmount = 100 - Amoro;
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
         float ApDamageAmount = 100 - MagicResest;
         Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
-
+        SpriteRendererOnTakeDamageEffect();
     }
 
     private async void SpriteRendererOnTakeDamageEffect()
     {
-        float hey = 0.1f;
-        print("Yse");
+        float hey = 0.2f;
         while (delayTime > 0)
         {
             hey -= Time.deltaTime;
             if ( hey <  0)
             {
-                hey = 0.1f;
                 Sprite2();
+                hey = 0.1f;
             }
 
             await Task.Yield();
@@ -61,6 +60,7 @@ public class PlayerHp : MonoBehaviour, IHpValue
 
     private void Sprite2()
     {
+
         if (spriteRenderer.enabled == true)
         {
             spriteRenderer.enabled = false;
