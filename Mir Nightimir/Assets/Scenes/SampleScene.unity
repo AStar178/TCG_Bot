@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13715438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13715439}
+  - component: {fileID: 13715440}
+  m_Layer: 6
+  m_Name: weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &13715439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13715438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 955869190}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &13715440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13715438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81053d90b9b38994e9a3a0874ec8267e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &28646145
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 466595311}
   tei: {fileID: 466595314}
 --- !u!114 &466595313
@@ -824,12 +868,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 24024a00585164549af26fd305e19e20, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
   STBS: 1
-  project: {fileID: 0}
+  project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,10 +955,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.045433894
-    y: -0.17583407
-    width: 0.9086778
-    height: 1.3525698
+    x: 0.035921205
+    y: 0.08551724
+    width: 0.9269988
+    height: 0.82758623
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1465,6 +1509,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 870744598}
+  - {fileID: 13715439}
   m_Father: {fileID: 616022486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1560,11 +1605,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7406ab7a84713ee489c62bafafe940d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMeeleHit: {fileID: 3001144307840372890, guid: 70892bdeb782bde4bbf89aefb8c962d6, type: 3}
   AttackSpeed: 0
   DamageAd: 0
   DamageAp: 0
   AmoroReduse: 0
   MagicReduse: 0
+  CurrentWeapons: {fileID: 13715440}
+  attackSpeed: 0
 --- !u!114 &955869196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,7 +1631,7 @@ MonoBehaviour:
   Raduis: 0
   EnemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &1094031803
 GameObject:
   m_ObjectHideFlags: 0
