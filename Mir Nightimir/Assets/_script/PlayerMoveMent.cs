@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerMoveMent : MonoBehaviour
 {
     [SerializeField] Rigidbody2D body3d;
-    [SerializeField] SpriteRenderer SpriteRenderer;
+    [SerializeField] public SpriteRenderer SpriteRenderer;
     [HideInInspector] public float moveSpeed;
     float movementX;
     float movementY;
