@@ -955,10 +955,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.035921205
+    y: 0.08551724
+    width: 0.9269988
+    height: 0.82758623
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1469,6 +1469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dae82fc3a8bfb542a75afb390fca732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomChestSpawnerManger: {fileID: 1507572142}
+  spriteRenderer: {fileID: 741349593}
+  upgrateObject: {fileID: 0}
 --- !u!1 &870744597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,11 +2012,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac7576f9e25a4c4fb092684e8385bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commanIteams: []
-  GreenIteams: []
-  RareIteams: []
-  EpicIteams: []
-  LegenderyIteams: []
+  commanIteams:
+  - {fileID: 0}
+  commanColor: {r: 0.20754719, g: 0.15509021, b: 0, a: 1}
+  GreenIteams:
+  - {fileID: 0}
+  GreenColor: {r: 0.03921567, g: 0.99607843, b: 0.041883692, a: 1}
+  RangeGreen: 87
+  RareIteams:
+  - {fileID: 0}
+  RareColor: {r: 0, g: 0.94248676, b: 1, a: 1}
+  RangeRare: 45
+  EpicIteams:
+  - {fileID: 0}
+  EpicColor: {r: 0.80887604, g: 0, b: 1, a: 1}
+  RangeEpic: 35
+  LegenderyIteams:
+  - {fileID: 0}
+  LegenderyColor: {r: 1, g: 0.6090461, b: 0, a: 1}
+  RangeLegendery: 30
 --- !u!4 &1507572143
 Transform:
   m_ObjectHideFlags: 0
