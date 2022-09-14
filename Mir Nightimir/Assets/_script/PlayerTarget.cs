@@ -16,25 +16,25 @@ public class PlayerTarget : MonoBehaviour
     {
         if (target == null)
         {
-            FindTarget();
+            target = FindTarget();
             return;
         }
         AttackTarget(); 
     }
 
-    private void FindTarget()
+    public virtual Transform FindTarget()
     {
 
         Collider2D collider2D = Physics2D.OverlapCircle( transform.position , Raduis , EnemyLayer );
 
         if (collider2D != null)
         {
-            target = collider2D.gameObject.transform;
+            return collider2D.gameObject.transform;
         }        
-
+        return null;
     }
 
-    private void AttackTarget()
+    private  void AttackTarget()
     {
         if ( !target.TryGetComponent<IHpValue>(out var Hp) ) { return; }
         if ( Vector2.Distance(transform.position , target.position) > Raduis ) { return; }
