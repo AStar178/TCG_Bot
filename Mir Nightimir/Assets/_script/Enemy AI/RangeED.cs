@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -37,10 +39,8 @@ public class RangeED : TESTei
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
                 Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
-                if (tween != null)
-                    tween.Kill();
                 tween = B.transform.DOMove(targetPos, .5f);
-                Destroy(B, .5f);
+                KillTween(.5f , tween , B);
                 if (FixSecond >= FixSecondN)
                 {
                     TBS = STBS;
@@ -56,5 +56,17 @@ public class RangeED : TESTei
                 TBS -= Time.deltaTime;
             }
         }
+    }
+
+    private async void KillTween(float v, Tween tween , GameObject b)
+    {
+        float zz = v;
+        while (zz > 0)
+        {
+            zz -= Time.deltaTime;
+            await Task.Yield();
+        }
+        tween.Kill();
+        Destroy(b , .5f);
     }
 }
