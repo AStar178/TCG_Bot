@@ -955,10 +955,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.035921205
-    y: 0.08551724
-    width: 0.9269988
-    height: 0.82758623
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1562,6 +1562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 616022487}
+  spriteRenderer: {fileID: 870744599}
   MaxHp: 0
   Currenthp: 0
   DelayDamageTakeTime: 0.5
