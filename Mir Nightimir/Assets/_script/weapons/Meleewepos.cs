@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Meleewepos : AbilityWeapons 
 {
+    float Raduis = 1.4f;
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
         if (GetPWM().attackSpeed > 0) { return; }

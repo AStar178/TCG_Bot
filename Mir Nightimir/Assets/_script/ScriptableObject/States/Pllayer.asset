@@ -21,4 +21,4 @@ MonoBehaviour:
   Mp_DefenceReduser: 1
   MaxHpAmount: 1
   MoveSpeed: 2
-  AggroRange: 1
+  AggroRange: 1.3

@@ -1715,7 +1715,7 @@ MonoBehaviour:
   target: {fileID: 0}
   PlayerWeaponManger: {fileID: 955869195}
   Player: {fileID: 616022487}
-  Raduis: 0
+  Raduis: 1.3
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 128
