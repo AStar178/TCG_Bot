@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnMeeleHit: {fileID: 3001144307840372890, guid: 70892bdeb782bde4bbf89aefb8c962d6, type: 3}
-  OnMagicHit: {fileID: 0}
+  OnMagicHit: {fileID: 903061095572501512, guid: 36b6adf0e4ea43c4c913ecd414e4592b, type: 3}
   AttackSpeed: 0
   DamageAd: 0
   DamageAp: 0

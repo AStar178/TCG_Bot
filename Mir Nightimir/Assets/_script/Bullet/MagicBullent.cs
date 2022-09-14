@@ -23,11 +23,11 @@ public class MagicBullent : MonoBehaviour
 
 
         hpValue.HpValueChange(damage);
-        var s = Instantiate(magic.GetPWM().OnMagicHit , transform.position , Quaternion.identity);
+        var s = Instantiate(magic.GetPWM().OnMagicHit , other.transform.position , Quaternion.identity);
         bool pornOnline = false;
         if (damage.AdDamage < damage.ApDamage)
             pornOnline = true;
-        magic.GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , transform.position , pornOnline );
+        magic.GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , pornOnline );
         Destroy(s , 6);
         Destroy(this.gameObject);
     }
