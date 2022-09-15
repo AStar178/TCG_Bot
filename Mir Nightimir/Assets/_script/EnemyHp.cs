@@ -16,7 +16,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
     [SerializeField] SpriteRenderer spriteRenderer;
     public void HpValueChange(Damage damage)
     {
-        delayTime = DelayDamageTakeTime;
+
         float AdDamageAmount = 100 - Amoro;
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
         float ApDamageAmount = 100 - MagicResest;
@@ -24,11 +24,14 @@ public class EnemyHp : MonoBehaviour , IHpValue
         SpriteRendererOnTakeDamageEffect();
     }
     private void Update() {
+        if (delayTime < 0) { spriteRenderer.enabled = true; return; }
         delayTime -= Time.deltaTime;
     }
     private async void SpriteRendererOnTakeDamageEffect()
     {
-        float hey = 0.3f;
+        if (delayTime > 0) { return; }
+        delayTime = DelayDamageTakeTime;
+        float hey = 0.2f;
         while (delayTime > 0)
         {
             hey -= Time.deltaTime;
