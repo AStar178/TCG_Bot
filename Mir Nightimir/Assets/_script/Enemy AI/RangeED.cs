@@ -17,7 +17,6 @@ public class RangeED : TESTei
     bool ATTACK = false;
 
     public GameObject project;
-    Tween tween;
     public override void start()
     {
         base.start();
@@ -40,7 +39,7 @@ public class RangeED : TESTei
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
                 Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
                 SetupBullet(B);
-                tween = B.transform.DOMove(targetPos, .5f);
+                var tween = B.transform.DOMove(targetPos, .5f);
                 KillTween(.5f , tween , B);
                 if (FixSecond >= FixSecondN)
                 {

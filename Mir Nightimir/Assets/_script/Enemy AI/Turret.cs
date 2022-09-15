@@ -21,7 +21,6 @@ public class Turret : MonoBehaviour
     bool ATTACK = false;
 
     public GameObject project;
-    Tween tween;
 
     public void Start()
     {
@@ -44,7 +43,7 @@ public class Turret : MonoBehaviour
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
                 SetupBullet( B );
-                tween = B.transform.DOMove(Tar.transform.position, .5f);
+                var tween = B.transform.DOMove(Tar.transform.position, .5f);
 
                 KillTween(.5f , tween , B);
                 if (FixSecond >= FixSecondN)
