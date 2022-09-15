@@ -9,7 +9,7 @@ public class RangeED : TESTei
 {
     float shot;
     float timeBShot; 
-
+    [SerializeField] int PlayerLayer = 7;
     private float TBS;
     public float STBS;
     private float FixSecond;
@@ -37,6 +37,7 @@ public class RangeED : TESTei
             if (TBS <= 0)
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
+                B.layer = PlayerLayer;
                 Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
                 SetupBullet(B);
                 var tween = B.transform.DOMove(targetPos, .5f);
@@ -60,7 +61,6 @@ public class RangeED : TESTei
     private void SetupBullet(GameObject b)
     {
         Damage damage = new Damage();
-
         damage.AdDamage = state.AdDamage;
         damage.ApDamage = state.ApDamage;
         damage.Ad_DefenceReduser = state.Ad_DefenceReduser;
