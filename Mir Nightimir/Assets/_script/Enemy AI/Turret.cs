@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
     public float STBS;
     private float FixSecond;
     private float FixSecondN;
+    public float BulletSpeed = 1;
     bool ATTACK = false;
 
     public GameObject project;
@@ -27,7 +28,6 @@ public class Turret : MonoBehaviour
         STBS = 1 / stat.AttackSpeed;
         Range = stat.AggroRange;
         // set bullet damage
-
         project = EnemyStatic.project;
     }
 
@@ -43,7 +43,9 @@ public class Turret : MonoBehaviour
             if (TBS <= 0)
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
+                SetupBullet(B , Tar.transform);
                 tween = B.transform.DOMove(Tar.transform.position, .5f);
+
                 KillTween(.5f , tween , B);
                 if (FixSecond >= FixSecondN)
                 {
@@ -60,6 +62,20 @@ public class Turret : MonoBehaviour
                 TBS -= Time.deltaTime;
             }
         }
+    }
+
+    private void SetupBullet(GameObject b , Transform target)
+    {
+        Damage damage = new Damage();
+
+        damage.AdDamage = stat.AdDamage;
+        damage.ApDamage = stat.ApDamage;
+        damage.Ad_DefenceReduser = stat.Ad_DefenceReduser;
+        damage.ApDamage = stat.Mp_DefenceReduser;
+        var bullet = b.AddComponent<EnemyBullent>();
+        bullet.damage = damage;
+        bullet.target = target;
+        bullet.Speed = BulletSpeed;
     }
 
     private async void KillTween(float v, Tween tween , GameObject b)
