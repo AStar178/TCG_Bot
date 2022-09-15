@@ -22,3 +22,6 @@ MonoBehaviour:
   MaxHpAmount: 1
   MoveSpeed: 2
   AggroRange: 1.3
+  MaxMana: 10
+  ManaRejyAmount: 3
+  TimeToGetMana: 5
