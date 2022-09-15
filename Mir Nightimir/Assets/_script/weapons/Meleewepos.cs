@@ -5,11 +5,21 @@ public class Meleewepos : AbilityWeapons
 {
     [SerializeField] float Raduis = 1.4f;
     [SerializeField] Sprite sprite;
+    bool canAttack;
     public override bool CoustomTargetSelect(Transform target)
     {
         Vector2 dir = ChooseDir();
-        if ( Vector2.Dot( (Vector2)( target.position - transform.position ).normalized , dir ) < 0.1f ) { return false; } 
+        if ( Vector2.Dot( (Vector2)( target.position - transform.position ).normalized , dir ) < 0.1f ) { return false; }
+        if ( canAttack == false ) { return false; } 
         return true;
+    }
+    public override void UpdateAbilityWp()
+    {
+        if ( Input.GetKeyDown( KeyCode.Space ) )
+            canAttack = true;
+        
+        if ( Input.GetKeyUp( KeyCode.Space ) )
+            canAttack = false;
     }
     public override void StartAbilityWp(Player newplayer)
     {
