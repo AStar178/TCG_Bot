@@ -39,6 +39,7 @@ public class RangeED : TESTei
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
                 Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
+                SetupBullet(B);
                 tween = B.transform.DOMove(targetPos, .5f);
                 KillTween(.5f , tween , B);
                 if (FixSecond >= FixSecondN)
@@ -57,7 +58,17 @@ public class RangeED : TESTei
             }
         }
     }
+    private void SetupBullet(GameObject b)
+    {
+        Damage damage = new Damage();
 
+        damage.AdDamage = state.AdDamage;
+        damage.ApDamage = state.ApDamage;
+        damage.Ad_DefenceReduser = state.Ad_DefenceReduser;
+        damage.ApDamage = state.Mp_DefenceReduser;
+        var bullet = b.AddComponent<EnemyBullent>();
+        bullet.damage = damage;
+    }
     private async void KillTween(float v, Tween tween , GameObject b)
     {
         float zz = v;

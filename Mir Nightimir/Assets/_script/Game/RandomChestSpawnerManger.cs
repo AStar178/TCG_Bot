@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RandomChestSpawnerManger : MonoBehaviour 
 {
@@ -84,6 +88,18 @@ public class RandomChestSpawnerManger : MonoBehaviour
 
         return commanIteams[id];
     }
+
+
+    #if UNITY_EDITOR
+    void OnApplicationQuit()
+       {
+
+            var constructor = SynchronizationContext.Current.GetType().GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] {typeof(int)}, null);
+            var newContext = constructor.Invoke(new object[] {Thread.CurrentThread.ManagedThreadId });
+            SynchronizationContext.SetSynchronizationContext(newContext as SynchronizationContext);  
+           
+       }
+    #endif
 }
 public enum RareyValue
     {

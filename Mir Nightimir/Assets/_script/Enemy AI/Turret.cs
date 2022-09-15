@@ -43,7 +43,7 @@ public class Turret : MonoBehaviour
             if (TBS <= 0)
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
-                SetupBullet(B , Tar.transform);
+                SetupBullet( B );
                 tween = B.transform.DOMove(Tar.transform.position, .5f);
 
                 KillTween(.5f , tween , B);
@@ -64,7 +64,7 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void SetupBullet(GameObject b , Transform target)
+    private void SetupBullet(GameObject b)
     {
         Damage damage = new Damage();
 
@@ -74,8 +74,6 @@ public class Turret : MonoBehaviour
         damage.ApDamage = stat.Mp_DefenceReduser;
         var bullet = b.AddComponent<EnemyBullent>();
         bullet.damage = damage;
-        bullet.target = target;
-        bullet.Speed = BulletSpeed;
     }
 
     private async void KillTween(float v, Tween tween , GameObject b)

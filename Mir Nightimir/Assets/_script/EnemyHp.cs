@@ -24,9 +24,10 @@ public class EnemyHp : MonoBehaviour , IHpValue
         SpriteRendererOnTakeDamageEffect();
     }
     private void Update() {
-        if (delayTime < 0) { spriteRenderer.enabled = true; return; }
+        if (delayTime < 0) { spriteRenderer.enabled = true;  return; }
         delayTime -= Time.deltaTime;
     }
+
     private async void SpriteRendererOnTakeDamageEffect()
     {
         if (delayTime > 0) { return; }
