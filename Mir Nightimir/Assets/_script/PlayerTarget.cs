@@ -31,7 +31,7 @@ public class PlayerTarget : MonoBehaviour
     private  void AttackTarget()
     {
         if ( !target.TryGetComponent<IHpValue>(out var Hp) ) { return; }
-        if ( Vector2.Distance(transform.position , target.position) > Raduis ) { return; }
+        if ( Vector2.Distance(transform.position , target.position) > Raduis ) { target = null; return; }
         if ( PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect(target) == false ) { return; }
 
         PlayerWeaponManger.DealDamage(Hp , target);

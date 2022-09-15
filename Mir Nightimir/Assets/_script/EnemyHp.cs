@@ -27,6 +27,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
             if (OnDieEffect != null)
             {
                 var objett = Instantiate(OnDieEffect , transform.position , Quaternion.identity);
+                //
                 Destroy(OnDieEffect , 6);
             }
             Destroy(this.gameObject);

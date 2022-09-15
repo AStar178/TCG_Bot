@@ -6,12 +6,11 @@ using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : TESTei
 {
     public State stat;
     public LayerMask TarLayer;
     private Collider2D Tar;
-    public float Range;
 
     private float TBS;
     public float STBS;
@@ -26,7 +25,6 @@ public class Turret : MonoBehaviour
     {
         STBS = 1 / stat.AttackSpeed;
         Range = stat.AggroRange;
-        // set bullet damage
         project = EnemyStatic.project;
     }
 
