@@ -1009,10 +1009,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.038106237
+    y: 0.08551724
+    width: 0.92378753
+    height: 0.82758623
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1537,7 +1537,10 @@ GameObject:
   - component: {fileID: 839581866}
   - component: {fileID: 839581865}
   - component: {fileID: 839581864}
-  m_Layer: 0
+  - component: {fileID: 839581868}
+  - component: {fileID: 839581867}
+  - component: {fileID: 839581869}
+  m_Layer: 7
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,13 +1559,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d832d2d469d194482d46541103f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: {fileID: 0}
+  Speed: 0
+  Range: 0
+  target: {fileID: 0}
   stat: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   TarLayer:
     serializedVersion: 2
     m_Bits: 64
-  Range: 0
   STBS: 0
-  BulletSpeed: 1
+  BulletSpeed: 2
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
 --- !u!212 &839581865
 SpriteRenderer:
@@ -1584,7 +1590,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a3f7d159520758a4ba7d534a08185a58, type: 2}
+  - {fileID: 2100000, guid: 195c5d7fdf8ffcf40a6fa32f4fa91926, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1631,6 +1637,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839581867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839581863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyHp: {fileID: 839581868}
+  tei: {fileID: 839581864}
+--- !u!114 &839581868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839581863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyState: {fileID: 839581867}
+  MaxHp: 0
+  Currenthp: 0
+  Amoro: 0
+  MagicResest: 0
+  DelayDamageTakeTime: 0
+  spriteRenderer: {fileID: 839581865}
+  OnDieEffect: {fileID: 0}
+--- !u!61 &839581869
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839581863}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.75}
+    newSize: {x: 0.75, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.75}
+  m_EdgeRadius: 0
 --- !u!1 &870744597
 GameObject:
   m_ObjectHideFlags: 0
