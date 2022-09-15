@@ -21,7 +21,6 @@ public class MagicBullent : MonoBehaviour
         
         if (!other.TryGetComponent(out IHpValue hpValue)) { return; } 
 
-
         hpValue.HpValueChange(damage);
         var s = Instantiate(magic.GetPWM().OnMagicHit , other.transform.position , Quaternion.identity);
         bool pornOnline = false;

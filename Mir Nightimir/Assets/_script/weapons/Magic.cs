@@ -27,7 +27,7 @@ public class Magic : AbilityWeapons
         damage.ApDamage = GetPWM().DamageAp * 1.1f;
         damage.Ad_DefenceReduser = GetPWM().AmoroReduse;
         damage.ApDamage = GetPWM().MagicReduse;
-
+        damage.PlayerRefernce = GetPlayer();
 
         var Bullet = Instantiate(MagicBullit , spawnPos.position , Quaternion.identity);
         var cp = Bullet.GetComponent<MagicBullent>();

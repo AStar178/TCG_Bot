@@ -15,6 +15,8 @@ public class EnemyHp : MonoBehaviour , IHpValue
     float delayTime;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] GameObject OnDieEffect;
+    [SerializeField] int xpAmount;
+    [SerializeField] int coinsAmount;
     public void HpValueChange(Damage damage)
     {
 
@@ -29,6 +31,8 @@ public class EnemyHp : MonoBehaviour , IHpValue
                 var objett = Instantiate(OnDieEffect , transform.position , Quaternion.identity);
                 Destroy(OnDieEffect , 6);
             }
+            if (damage.PlayerRefernce != null)
+                damage.PlayerRefernce.GiveStuff( xpAmount , coinsAmount );
             Destroy(this.gameObject);
             return;
         }

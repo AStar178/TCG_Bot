@@ -30,8 +30,12 @@ public class Player : MonoBehaviour
 
     private void LevelUp()
     {
-        CurrentXp -= XpMax;
-        CurrentLevel++;
+        while (CurrentXp >= XpMax)
+        {
+            CurrentXp -= XpMax;
+            CurrentLevel++;
+        }
+
     }
 
     private void Awake() => Singleton = this;

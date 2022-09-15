@@ -40,6 +40,7 @@ public class Meleewepos : AbilityWeapons
         damage.ApDamage = GetPWM().DamageAp;
         damage.Ad_DefenceReduser = GetPWM().AmoroReduse;
         damage.ApDamage = GetPWM().MagicReduse;
+        damage.PlayerRefernce = GetPlayer();
 
         enemyHp.HpValueChange(damage);
         var s = Instantiate(GetPWM().OnMeeleHit , pos.position , Quaternion.identity);

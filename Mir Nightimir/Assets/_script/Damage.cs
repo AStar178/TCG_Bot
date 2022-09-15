@@ -6,5 +6,5 @@ public struct Damage
     public float ApDamage;
     public float Ad_DefenceReduser;
     public float Mp_DefenceReduser;
-    public GameObject PlayerRefernce;
+    public Player PlayerRefernce;
 }
