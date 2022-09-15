@@ -32,7 +32,10 @@ public abstract class AbilityWeapons : MonoBehaviour
     {
         
     }
-
+    public virtual void AbilityWeaponsUseAbility()
+    {
+        
+    }
     public virtual void StopAbilityWp()
     {
         Destroy(this.gameObject);

@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
         PlayerWeaponManger.MagicReduse = PlayerState.MagicReset;
         PlayerWeaponManger.DamageAd = PlayerState.AdDamage;
         PlayerWeaponManger.DamageAp = PlayerState.ApDamage;
+        PlayerWeaponManger.MaxMana = PlayerState.MaxMana;
+        PlayerWeaponManger.CurrentMana = PlayerState.MaxMana;
+        PlayerWeaponManger.ManaRejyAmount = PlayerState.ManaRejyAmount;
+        PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
     }
 
 }

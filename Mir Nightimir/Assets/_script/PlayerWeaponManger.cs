@@ -13,11 +13,16 @@ public class PlayerWeaponManger : MonoBehaviour
     public float DamageAp;
     public float AmoroReduse;
     public float MagicReduse;
+    public float CurrentMana;
+    public float MaxMana;
+    public float ManaRejyAmount;
+    public float TimeToGetMana;
     public Action<int , Vector2 , bool> OnDealDamage;
     [SerializeField] public AbilityWeapons CurrentWeapons;
     [SerializeField] public GameObject TextFonstDamage;
     [HideInInspector] public float attackSpeed;
     [SerializeField] Color[] TextColors; 
+    float TimezzzzManas;
     private void OnEnable() {
         OnDealDamage += OnDealDamageFuncens;
     }
@@ -45,6 +50,13 @@ public class PlayerWeaponManger : MonoBehaviour
     }
     private void Update() 
     {
+        TimezzzzManas -= Time.deltaTime;
+        if (TimezzzzManas < 0)
+        {
+            CurrentMana += ManaRejyAmount;
+            CurrentMana = Mathf.Clamp(CurrentMana , 0 , MaxMana);
+            TimezzzzManas = TimeToGetMana;
+        }
         if(attackSpeed > 0)
         {
             attackSpeed -= Time.deltaTime;

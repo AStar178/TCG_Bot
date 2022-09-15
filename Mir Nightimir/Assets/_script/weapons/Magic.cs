@@ -24,7 +24,7 @@ public class Magic : AbilityWeapons
         Damage damage = new Damage();
 
         damage.AdDamage = GetPWM().DamageAd * 0.1f;
-        damage.ApDamage = GetPWM().DamageAp * 1.5f;
+        damage.ApDamage = GetPWM().DamageAp * 1.1f;
         damage.Ad_DefenceReduser = GetPWM().AmoroReduse;
         damage.ApDamage = GetPWM().MagicReduse;
 

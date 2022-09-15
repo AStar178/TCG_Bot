@@ -13,4 +13,7 @@ public class State : ScriptableObject
     public float MaxHpAmount;
     public float MoveSpeed;
     public float AggroRange;
+    public float MaxMana;
+    public float ManaRejyAmount;
+    public float TimeToGetMana;
 }
