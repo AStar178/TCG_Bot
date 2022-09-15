@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   EnemyHp: {fileID: 466595311}
   tei: {fileID: 466595314}
 --- !u!114 &466595313
@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -1009,10 +1009,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.038106237
-    y: 0.08551724
-    width: 0.92378753
-    height: 0.82758623
+    x: 0.045433894
+    y: -0.17583407
+    width: 0.9086778
+    height: 1.3525698
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d832d2d469d194482d46541103f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 0}
+  state: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
   EnemyHp: {fileID: 839581868}
   tei: {fileID: 839581864}
 --- !u!114 &839581868
