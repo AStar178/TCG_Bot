@@ -877,6 +877,7 @@ MonoBehaviour:
   MagicResest: 0
   DelayDamageTakeTime: 0.5
   spriteRenderer: {fileID: 684678355}
+  OnDieEffect: {fileID: 0}
 --- !u!114 &466595312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,10 +1009,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.038106237
-    y: 0.08551724
-    width: 0.92378753
-    height: 0.82758623
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1353,7 +1354,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684678353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1669,7 +1670,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870744597}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

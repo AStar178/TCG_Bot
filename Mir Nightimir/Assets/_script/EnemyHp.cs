@@ -14,6 +14,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
     public float DelayDamageTakeTime;
     float delayTime;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] GameObject OnDieEffect;
     public void HpValueChange(Damage damage)
     {
 
@@ -21,6 +22,16 @@ public class EnemyHp : MonoBehaviour , IHpValue
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
         float ApDamageAmount = 100 - MagicResest;
         Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
+        if (Currenthp <= 0)
+        {
+            if (OnDieEffect != null)
+            {
+                var objett = Instantiate(OnDieEffect , transform.position , Quaternion.identity);
+                Destroy(OnDieEffect , 6);
+            }
+            Destroy(this.gameObject);
+            return;
+        }
         SpriteRendererOnTakeDamageEffect();
     }
     private void Update() {
@@ -32,7 +43,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
     {
         if (delayTime > 0) { return; }
         delayTime = DelayDamageTakeTime;
-        float hey = 0.2f;
+        float hey = 0.1f;
         while (delayTime > 0)
         {
             hey -= Time.deltaTime;

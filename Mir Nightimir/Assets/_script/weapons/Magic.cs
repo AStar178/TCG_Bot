@@ -20,7 +20,7 @@ public class Magic : AbilityWeapons
         if (GetPWM().attackSpeed > 0) { return; }
         
 
-        GetPWM().attackSpeed = 100/GetPWM().AttackSpeed;
+        GetPWM().attackSpeed = 100/GetPWM().AttackSpeed * 2f;
         Damage damage = new Damage();
 
         damage.AdDamage = GetPWM().DamageAd * 0.1f;
