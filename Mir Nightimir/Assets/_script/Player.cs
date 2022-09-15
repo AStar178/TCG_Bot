@@ -10,11 +10,12 @@ public class Player : MonoBehaviour
     [SerializeField] public PlayerTarget PlayerTarget;
     [SerializeField] public PlayerWeaponManger PlayerWeaponManger;
     [SerializeField] public PlayerHp PlayerHp;
+    public int CurrentLevel = 1;
 
     private void Awake() => Singleton = this;
 
     private void Start()
-    {
+    { //
         PlayerMoveMent.moveSpeed = PlayerState.MoveSpeed;
         PlayerHp.MaxHp = PlayerState.MaxHpAmount;
         PlayerHp.Currenthp = PlayerState.MaxHpAmount;
