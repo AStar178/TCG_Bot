@@ -11,6 +11,7 @@ public class PlayerTarget : MonoBehaviour
     [SerializeField] public Player Player;
     [SerializeField] public float Raduis;
     [SerializeField] public LayerMask EnemyLayer;
+    [SerializeField] public SpriteRenderer TargetIcon;
 
     void Update()
     {
