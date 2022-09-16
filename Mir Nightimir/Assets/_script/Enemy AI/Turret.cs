@@ -66,6 +66,7 @@ public class Turret : MonoBehaviour
     {
         Damage damage = new Damage();
 
+        b.layer = 7;
         damage.AdDamage = stat.AdDamage;
         damage.ApDamage = stat.ApDamage;
         damage.Ad_DefenceReduser = stat.Ad_DefenceReduser;
