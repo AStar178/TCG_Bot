@@ -7,6 +7,8 @@ public class EnemyState : MonoBehaviour {
     public TESTei tei;
 
     private void Start() {
+        //tei = gameObject.GetComponent<TESTei>();
+
         EnemyHp.MaxHp = State.MaxHpAmount;
         EnemyHp.Currenthp = State.MaxHpAmount;
         tei.Speed = State.MoveSpeed;

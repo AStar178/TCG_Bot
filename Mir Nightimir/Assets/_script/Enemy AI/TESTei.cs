@@ -16,6 +16,7 @@ public abstract class TESTei : MonoBehaviour
     public bool Lung;
     public float LungRange;
     public float LungCooldown;
+    [HideInInspector]
     public float lungColdown;
     public bool NoChase;
 
@@ -37,6 +38,7 @@ public abstract class TESTei : MonoBehaviour
     public virtual void start()
     {
         target = FindObjectOfType<PlayerMoveMent>().gameObject;
+        lungColdown = LungCooldown;
     }
 
     public void Update()
