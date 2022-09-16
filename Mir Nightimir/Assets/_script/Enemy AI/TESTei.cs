@@ -55,28 +55,36 @@ public abstract class TESTei : MonoBehaviour
         }
         if (Coward == true)
         {
-            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= CowardenessRange)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime);
-                NoChase = true;
-            }
-            else NoChase = false;
+            Cowar();
         }
         if (Lung == true)
         {
-            if (lungColdown > 0)
-                lungColdown = lungColdown - Time.deltaTime;
+            Lun();
+        }
+    }
+    public void Cowar()
+    {
+        if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= CowardenessRange)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime);
+            NoChase = true;
+        }
+        else NoChase = false;
+    }
+    public void Lun()
+    {
+        if (lungColdown > 0)
+            lungColdown = lungColdown - Time.deltaTime;
 
-            if (lungColdown <= 0)
+        if (lungColdown <= 0)
+        {
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= LungRange)
             {
-                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= LungRange)
-                {
-                    lungColdown = LungCooldown;
-                    gameObject.transform.DOMove(target.transform.position, 1 / (Speed * 2));
-                    NoChase = true;
-                    new WaitForSeconds(1 / Speed);
-                    NoChase = false;
-                }
+                lungColdown = LungCooldown;
+                gameObject.transform.DOMove(target.transform.position, 1 / (Speed * 2));
+                NoChase = true;
+                new WaitForSeconds(1 / Speed);
+                NoChase = false;
             }
         }
     }
