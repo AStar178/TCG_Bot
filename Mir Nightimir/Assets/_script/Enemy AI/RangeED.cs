@@ -33,15 +33,6 @@ public class RangeED : TESTei
             if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= 1 + Range * 0.1f)
             { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime); }
         }
-        if (Coward == true)
-        {
-            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= CowardenessRange)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime);
-                NoChase = true;
-            }
-            else NoChase = false;
-        }
         if (ATTACK == true)
         {
             if (TBS <= 0)
@@ -69,22 +60,14 @@ public class RangeED : TESTei
         }
         if (Lung == true)
         {
-            if (lungColdown > 0)
-                lungColdown = lungColdown - Time.deltaTime;
-
-            if (lungColdown <= 0)
-            {
-                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= LungRange)
-                {
-                    lungColdown = LungCooldown;
-                    gameObject.transform.DOMove(target.transform.position, 1 / (Speed * 2));
-                    NoChase = true;
-                    new WaitForSeconds(1 / Speed);
-                    NoChase = false;
-                }
-            }
+            Lun();
+        }
+        if (Coward == true)
+        {
+            Cowar();
         }
     }
+
     private void SetupBullet(GameObject b)
     {
         Damage damage = new Damage();
