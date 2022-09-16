@@ -9,7 +9,7 @@ public class PlayerMoveMent : MonoBehaviour
 {
     [SerializeField] Rigidbody2D body3d;
     [SerializeField] public SpriteRenderer SpriteRenderer;
-    [HideInInspector] public float moveSpeed;
+    public float moveSpeed;
     [SerializeField] private Transform BulletSpawnPos;
     [SerializeField] private Vector2 pos;
     float movementX;
