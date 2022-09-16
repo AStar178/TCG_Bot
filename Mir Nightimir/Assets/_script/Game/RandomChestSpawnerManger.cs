@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,8 +27,28 @@ public class RandomChestSpawnerManger : MonoBehaviour
     public int MoneyLegendery;
     [SerializeField] Color LegenderyColor;
     [Range(0 , 100)] [SerializeField] int RangeLegendery;
+    [SerializeField] GameObject Cheast;
+    [SerializeField] float x;
+    [SerializeField] float y;
+    private void Start() {
+        
+        var chestAmount = Random.Range( 23 , 30 );
 
+        Vector2 posin = new Vector2( transform.position.x , transform.position.y );
+        for (int i = 0; i < chestAmount; i++)
+        {   
+            posin.x = Random.value > 0.5f ?
+            -Random.Range(0 - transform.position.x , x/2 - transform.position.x):
+            Random.Range(0 + transform.position.x , x/2 + transform.position.x);
+            posin.y = Random.value > 0.5f ?
+            -Random.Range(0 - transform.position.y , y/2 - transform.position.y):
+            Random.Range(0 + transform.position.y , y/2 + transform.position.y);
 
+            var gameObject = Instantiate( Cheast , new Vector2 ( posin.x , posin.y ) , Quaternion.identity );
+            gameObject.transform.SetParent( transform );
+        }
+
+    }
     public Color ChooseRandomIteam( out RareyValue RareyValue2 , out AbilityPowerUps UpgradeObject , out int money )
     {
         if ( Random.value >= ( RangeGreen * .01f ) )
@@ -109,6 +130,11 @@ public class RandomChestSpawnerManger : MonoBehaviour
             SynchronizationContext.SetSynchronizationContext(newContext as SynchronizationContext);  
            
        }
+    private void OnDrawGizmosSelected() {
+        
+        Handles.DrawWireCube( transform.position , new Vector2( x , y ) );
+
+    }
     #endif
 }
 public enum RareyValue
