@@ -923,8 +923,8 @@ MonoBehaviour:
   DelayDamageTakeTime: 0.5
   spriteRenderer: {fileID: 684678355}
   OnDieEffect: {fileID: 0}
-  xpAmount: 0
-  coinsAmount: 0
+  xpAmount: 6
+  coinsAmount: 6
 --- !u!114 &466595312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,6 +961,7 @@ MonoBehaviour:
   Lung: 0
   LungRange: 0
   LungCooldown: 0
+  lungColdown: 0
   NoChase: 0
 --- !u!114 &466595314
 MonoBehaviour:
@@ -978,11 +979,12 @@ MonoBehaviour:
   Speed: 0
   Range: 0
   target: {fileID: 0}
-  Coward: 1
+  Coward: 0
   CowardenessRange: 2
-  Lung: 0
-  LungRange: 0
-  LungCooldown: 0
+  Lung: 1
+  LungRange: 5
+  LungCooldown: 2
+  lungColdown: 0
   NoChase: 0
   PlayerLayer: 7
   STBS: 1
@@ -1745,8 +1747,8 @@ MonoBehaviour:
   DelayDamageTakeTime: 0
   spriteRenderer: {fileID: 839581865}
   OnDieEffect: {fileID: 0}
-  xpAmount: 0
-  coinsAmount: 0
+  xpAmount: 5
+  coinsAmount: 5
 --- !u!61 &839581869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2202,7 +2204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 10
+  strength: 0
 --- !u!1 &1325678762
 GameObject:
   m_ObjectHideFlags: 3
@@ -2459,7 +2461,7 @@ MonoBehaviour:
   - {fileID: 463866372}
   MoneyGreen: 10
   GreenColor: {r: 0.03921567, g: 0.99607843, b: 0.041883692, a: 1}
-  RangeGreen: 87
+  RangeGreen: 50
   RareIteams:
   - {fileID: 463866372}
   MoneyRare: 20
