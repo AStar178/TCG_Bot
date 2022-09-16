@@ -87,17 +87,17 @@ public class Player : MonoBehaviour
 
     private void RESETFORREAL()
     {
-        PlayerMoveMent.moveSpeed *= ( dexterity * 0.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : ( dexterity * 0.25f );
-        PlayerHp.MaxHp *= ( vitality * 1.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : ( vitality * 1.25f );
-        PlayerHp.Amoro *= ( vitality * 0.6f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : ( vitality * 0.6f );
-        PlayerHp.MagicResest *= ( intelligence * 0.4 ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : ( intelligence * 0.4f );
+        PlayerMoveMent.moveSpeed = ( dexterity * 0.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerMoveMent.moveSpeed *= ( dexterity * 0.25f );
+        PlayerHp.MaxHp = ( vitality * 1.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerHp.MaxHp *= ( vitality * 1.25f );
+        PlayerHp.Amoro = ( vitality * 0.6f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerHp.Amoro  *= ( vitality * 0.6f );
+        PlayerHp.MagicResest = ( intelligence * 0.4 ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerHp.MagicResest *= ( intelligence * 0.4f );
         PlayerWeaponManger.AttackSpeed *= ( dexterity );
         PlayerWeaponManger.AmoroReduse *= strength;
         PlayerWeaponManger.MagicReduse *= intelligence;
         PlayerWeaponManger.DamageAd *= strength;
         PlayerWeaponManger.DamageAp *= intelligence;
-        PlayerWeaponManger.MaxMana *= ( Fart * 0.5f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : ( Fart * 0.5f );
-        PlayerWeaponManger.ManaRejyAmount *= ( Fart * 0.75f) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : ( Fart * 0.75f );
+        PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerWeaponManger.MaxMana *= ( Fart * 0.5f );
+        PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerWeaponManger.ManaRejyAmount *= ( Fart * 0.75f );
 
         PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
     }
