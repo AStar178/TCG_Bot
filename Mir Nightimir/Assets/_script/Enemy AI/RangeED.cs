@@ -42,7 +42,6 @@ public class RangeED : TESTei
             }
             else NoChase = false;
         }
-
         if (ATTACK == true)
         {
             if (TBS <= 0)
@@ -66,6 +65,21 @@ public class RangeED : TESTei
             else
             {
                 TBS -= Time.deltaTime;
+            }
+        }
+        if (Lung == true)
+        {
+            if (lungColdown > 0)
+                lungColdown = lungColdown - Time.deltaTime;
+
+            if (lungColdown <= 0)
+            {
+                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= LungRange)
+                    lungColdown = LungCooldown;
+                gameObject.GetComponent<Rigidbody2D>().DOJump(target.transform.position,.2f, 1,1 / Speed);
+                NoChase = true;
+                new WaitForSeconds(1 / Speed);
+                NoChase = false;
             }
         }
     }
