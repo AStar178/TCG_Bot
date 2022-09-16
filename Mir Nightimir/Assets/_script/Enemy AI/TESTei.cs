@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using DG.Tweening;
 
 public abstract class TESTei : MonoBehaviour
 {
@@ -15,10 +16,10 @@ public abstract class TESTei : MonoBehaviour
     public bool Lung;
     public float LungRange;
     public float LungCooldown;
-    [HideInInspector]
+    public float lungColdown;
     public bool NoChase;
 
-    private void Awake()
+    public void Awake()
     {
         awake();
     }
@@ -28,7 +29,7 @@ public abstract class TESTei : MonoBehaviour
 
     }
 
-    private void Start()
+    public void Start()
     {
         start();
     }
@@ -38,7 +39,7 @@ public abstract class TESTei : MonoBehaviour
         target = FindObjectOfType<PlayerMoveMent>().gameObject;
     }
 
-    private void Update()
+    public void Update()
     {
         update();
     }
@@ -59,9 +60,26 @@ public abstract class TESTei : MonoBehaviour
             }
             else NoChase = false;
         }
+        if (Lung == true)
+        {
+            if (lungColdown > 0)
+                lungColdown = lungColdown - Time.deltaTime;
+
+            if (lungColdown <= 0)
+            {
+                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= LungRange)
+                {
+                    lungColdown = LungCooldown;
+                    gameObject.transform.DOMove(target.transform.position, 1 / (Speed * 2));
+                    NoChase = true;
+                    new WaitForSeconds(1 / Speed);
+                    NoChase = false;
+                }
+            }
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<IHpValue>(out var Hp))
         {
@@ -72,7 +90,7 @@ public abstract class TESTei : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
 
         Handles.DrawWireDisc(transform.position, Vector3.forward, Range);

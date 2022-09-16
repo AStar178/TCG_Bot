@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
   m_Name: Pllayer
   m_EditorClassIdentifier: 
-  AdDamage: 1
+  AdDamage: 3
   ApDamage: 1
-  AttackSpeed: 100
+  AttackSpeed: 150
   Amoro: 1
   MagicReset: 1
   Ad_DefenceReduser: 1
