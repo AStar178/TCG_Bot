@@ -10,6 +10,14 @@ public abstract class TESTei : MonoBehaviour
     public float Range;
     public GameObject target;
 
+    public bool Coward;
+    public float CowardenessRange;
+    public bool Lung;
+    public float LungRange;
+    public float LungCooldown;
+    [HideInInspector]
+    public bool NoChase;
+
     private void Awake()
     {
         awake();
@@ -37,8 +45,20 @@ public abstract class TESTei : MonoBehaviour
 
     public virtual void update()
     {
-        if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
-        { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
+        if (NoChase == false)
+        {
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
+            { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
+        }
+        if (Coward == true)
+        {
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= CowardenessRange)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime);
+                NoChase = true;
+            }
+            else NoChase = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

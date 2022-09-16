@@ -6,11 +6,12 @@ using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
 
-public class Turret : TESTei
+public class Turret : MonoBehaviour
 {
     public State stat;
     public LayerMask TarLayer;
     private Collider2D Tar;
+    public float Range;
 
     private float TBS;
     public float STBS;

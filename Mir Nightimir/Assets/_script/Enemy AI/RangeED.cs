@@ -25,12 +25,23 @@ public class RangeED : TESTei
 
     public override void update()
     {
-        if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
-        { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); ATTACK = true; }
-        else ATTACK = false;
-        if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= 1 + Range * 0.1f)
-        { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime); }
-
+        if (NoChase == false)
+        {
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
+            { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); ATTACK = true; }
+            else ATTACK = false;
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= 1 + Range * 0.1f)
+            { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime); }
+        }
+        if (Coward == true)
+        {
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= CowardenessRange)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime);
+                NoChase = true;
+            }
+            else NoChase = false;
+        }
 
         if (ATTACK == true)
         {
