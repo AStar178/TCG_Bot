@@ -37,18 +37,26 @@ public class RandomChestSpawnerManger : MonoBehaviour
         Vector2 posin = new Vector2( transform.position.x , transform.position.y );
         for (int i = 0; i < chestAmount; i++)
         {   
-            posin.x = Random.value > 0.5f ?
+            TryToGetSpawnChest( posin );
+        }
+
+    }
+
+    private void TryToGetSpawnChest(Vector2 posin)
+    {
+        posin.x = Random.value > 0.5f ?
             -Random.Range(0 - transform.position.x , x/2 - transform.position.x):
             Random.Range(0 + transform.position.x , x/2 + transform.position.x);
             posin.y = Random.value > 0.5f ?
             -Random.Range(0 - transform.position.y , y/2 - transform.position.y):
             Random.Range(0 + transform.position.y , y/2 + transform.position.y);
 
-            var gameObject = Instantiate( Cheast , new Vector2 ( posin.x , posin.y ) , Quaternion.identity );
-            gameObject.transform.SetParent( transform );
-        }
+            if (Physics2D.OverlapBox( posin , Vector2.one , 0 ) != null) { TryToGetSpawnChest( new Vector2( transform.position.x , transform.position.y ) ); return; }
 
+            var gameObject = Instantiate( Cheast , posin , Quaternion.identity );
+            gameObject.transform.SetParent( transform );
     }
+
     public Color ChooseRandomIteam( out RareyValue RareyValue2 , out AbilityPowerUps UpgradeObject , out int money )
     {
         if ( Random.value >= ( RangeGreen * .01f ) )
