@@ -32,13 +32,13 @@ public class PlayerTarget : MonoBehaviour
 
     private  void AttackTarget()
     {
-        if ( !target.TryGetComponent<IHpValue>(out var Hp) ) { TargetIcon.enabled = false; return; }
-        if ( Vector2.Distance(transform.position , target.position) > Raduis ) { TargetIcon.enabled = false; target = null; return; }
-        if ( PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect(target) == false ) { TargetIcon.enabled = false; target = null; return; }
+        if ( !target.TryGetComponent<IHpValue>( out var Hp ) ) { TargetIcon.enabled = false; return; }
+        if ( Vector2.Distance( transform.position , target.position ) > Raduis ) { TargetIcon.enabled = false; target = null; return; }
+        if ( PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect( target , out var CostumTarget ) == false ) { TargetIcon.enabled = false; target = null; return; }
         TargetIcon.enabled = true;
         
         TargetIcon.transform.position = new Vector2 ( target.position.x + -0.54f , target.position.y + 0.54f );
-        PlayerWeaponManger.DealDamage(Hp , target);
+        PlayerWeaponManger.DealDamage(Hp , CostumTarget);
     }
     #if UNITY_EDITOR
     private void OnDrawGizmosSelected() {

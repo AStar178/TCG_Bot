@@ -6,13 +6,29 @@ public class Meleewepos : AbilityWeapons
     [SerializeField] float Raduis = 1.4f;
     [SerializeField] Sprite sprite;
     bool canAttack;
-    public override bool CoustomTargetSelect(Transform target)
+    public override bool CoustomTargetSelect( Transform target , out Transform CostumTarget )
     {
         Vector2 dir = ChooseDir();
-        if ( Vector2.Dot( (Vector2)( target.position - transform.position ).normalized , dir ) < 0.1f ) { return false; }
-        if ( canAttack == false ) { return false; } 
+        if ( canAttack == false ) { CostumTarget = target; return false; }
+        if ( Vector2.Dot( (Vector2)( target.position - transform.position ).normalized , dir ) < 0.1f ) { CostumTarget = CoustomTargetSelecting(); return CostumTarget != null ? true : false; }
+        CostumTarget = target; 
         return true;
     }
+
+    private Transform CoustomTargetSelecting()
+    {
+        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll( transform.position , Raduis , GetTarget().EnemyLayer );
+
+
+        for (int i = 0; i < collider2Ds.Length; i++)
+        {
+            if ( Vector2.Dot( (Vector2)( collider2Ds[i].transform.position - transform.position ).normalized , ChooseDir() ) > 0.1f )
+                return collider2Ds[i].transform;
+        }
+
+        return null;
+    }
+
     public override void UpdateAbilityWp()
     {
         if ( Input.GetKeyDown( KeyCode.Space ) )

@@ -6,8 +6,10 @@ public abstract class AbilityWeapons : MonoBehaviour
     private Player player;
     protected Player GetPlayer() => player;
     public PlayerWeaponManger GetPWM() => player.PlayerWeaponManger;
-    public virtual bool CoustomTargetSelect(Transform target)
+    public PlayerTarget GetTarget() => player.PlayerTarget;
+    public virtual bool CoustomTargetSelect( Transform target , out Transform CostumTarget )
     {
+        CostumTarget = target;
         return true;
     }
     public virtual Transform SelectedTarget(float Raduis , LayerMask EnemyLayer)
