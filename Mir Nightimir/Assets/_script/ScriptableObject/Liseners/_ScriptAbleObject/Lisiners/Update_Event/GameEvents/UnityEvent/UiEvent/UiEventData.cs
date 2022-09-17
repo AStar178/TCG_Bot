@@ -7,6 +7,7 @@ public struct UiEventData
     public int MaxMana;
     public int CurrentXp;
     public int MaxXp;
+    public int CurrentLevel;
     public int CoinsAmount;
 
     

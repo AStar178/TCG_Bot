@@ -32,7 +32,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
                 Destroy(OnDieEffect , 6);
             }
             if (damage.PlayerRefernce != null)
-                damage.PlayerRefernce.GiveStuff( xpAmount , coinsAmount );
+                damage.PlayerRefernce.GiveStuff( xpAmount + Random.Range( 0 , 100 ) , coinsAmount + Random.Range( 0 , 10 ) );
             Destroy(this.gameObject);
             return;
         }

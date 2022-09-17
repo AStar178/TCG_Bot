@@ -56,6 +56,7 @@ public class PlayerWeaponManger : MonoBehaviour
             CurrentMana += ManaRejyAmount;
             CurrentMana = Mathf.Clamp(CurrentMana , 0 , MaxMana);
             TimezzzzManas = TimeToGetMana;
+            Player.Singleton.UpdateUI();
         }
         if(attackSpeed > 0)
         {
@@ -64,6 +65,18 @@ public class PlayerWeaponManger : MonoBehaviour
 
         CurrentWeapons.UpdateAbilityWp();
     }
+
+    internal void CreatCoustomTextPopup(string v, Vector3 position)
+    {
+        var text = Instantiate( TextFonstDamage , position , Quaternion.identity );
+        TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
+        tMP_Text.text = v;
+        tMP_Text.color = Color.yellow;
+        Tween tween = tMP_Text.transform.DOMoveY(position.y += 1.25f , 1f);
+        KillTween( 1f , tween , tMP_Text.transform.gameObject.transform.gameObject );
+        Destroy( text , 2 );
+    }
+
     public void DealDamage(IHpValue enemyHp , Transform pos)
     {
 

@@ -39,6 +39,7 @@ public class PlayerHp : MonoBehaviour, IHpValue
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
         float ApDamageAmount = 100 - MagicResest;
         Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
+        player.UpdateUI();
         SpriteRendererOnTakeDamageEffect();
     }
 

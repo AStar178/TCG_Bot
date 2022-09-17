@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UiStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private TMP_Text hp;
+    [SerializeField] private TMP_Text mama;
+    [SerializeField] private TMP_Text xp;
+    [SerializeField] private TMP_Text coins;
+    [SerializeField] private TMP_Text Level;
+
+    public void OnUpgrate(UpgrateEventData data)
     {
-        
+
+    }
+    
+    public void OnStat(UiEventData data)
+    {
+        hp.text = $"{data.CurrentHP}/{data.MaxHp}";
+        mama.text = $"{data.CurrentMana}/{data.MaxMana}";
+        xp.text = $"{data.CurrentXp}/{data.MaxXp}";
+        coins.text = $"{data.CoinsAmount}";
+        Level.text = data.CurrentLevel.ToString();
     }
 }

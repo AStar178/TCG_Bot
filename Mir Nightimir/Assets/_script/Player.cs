@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] public PlayerWeaponManger PlayerWeaponManger;
     [SerializeField] public PlayerHp PlayerHp;
     [SerializeField] public List<AbilityPowerUps> abilityPowerUps;
+    [SerializeField] public UiEvent uiEvent;
+    [SerializeField] public GameObject OnLevelEffect;
     [SerializeField] Transform PowerUps;
     public int CurrentLevel = 1;
     public int XpMax = 100;
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
             LevelUp();
 
         CurrentCoins += coins;
+        UpdateUI();
     }
 
     private void LevelUp()
@@ -41,7 +44,17 @@ public class Player : MonoBehaviour
         {
             CurrentXp -= XpMax;
             CurrentLevel++;
+            if (OnLevelEffect != null)
+                OnLevelEffectFunc();
         }
+
+    }
+
+    private void OnLevelEffectFunc()
+    {
+        var yes = Instantiate( OnLevelEffect , PlayerHp.transform.position , Quaternion.identity );
+        PlayerWeaponManger.CreatCoustomTextPopup( "LEVEL UP" , PlayerHp.transform.position );
+        Destroy( yes , 6 );
 
     }
 
@@ -88,18 +101,20 @@ public class Player : MonoBehaviour
     private void RESETFORREAL()
     {
         PlayerMoveMent.moveSpeed = ( dexterity * 0.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerMoveMent.moveSpeed *= ( dexterity * 0.25f );
-        PlayerHp.MaxHp = ( vitality * 1.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerHp.MaxHp *= ( vitality * 1.25f );
-        PlayerHp.Amoro = ( vitality * 0.6f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerHp.Amoro  *= ( vitality * 0.6f );
-        PlayerHp.MagicResest = ( intelligence * 0.4 ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerHp.MagicResest *= ( intelligence * 0.4f );
+        PlayerHp.MaxHp = ( vitality * 0.9f ) < PlayerHp.MaxHp ? PlayerHp.MaxHp : PlayerHp.MaxHp *= ( vitality * 1.25f );
+        PlayerHp.Amoro = ( vitality * 0.6f ) < PlayerHp.Amoro  ? PlayerHp.Amoro  : PlayerHp.Amoro  *= ( vitality * 0.6f );
+        PlayerHp.MagicResest = ( intelligence * 0.4 ) < PlayerHp.MagicResest ? PlayerHp.MagicResest : PlayerHp.MagicResest *= ( intelligence * 0.4f );
         PlayerWeaponManger.AttackSpeed *= ( dexterity );
         PlayerWeaponManger.AmoroReduse *= strength;
         PlayerWeaponManger.MagicReduse *= intelligence;
         PlayerWeaponManger.DamageAd *= strength;
         PlayerWeaponManger.DamageAp *= intelligence;
-        PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerWeaponManger.MaxMana *= ( Fart * 0.5f );
-        PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerWeaponManger.ManaRejyAmount *= ( Fart * 0.75f );
+        PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerWeaponManger.MaxMana ? PlayerWeaponManger.MaxMana : PlayerWeaponManger.MaxMana *= ( Fart * 0.5f );
+        PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerWeaponManger.ManaRejyAmount ? PlayerWeaponManger.ManaRejyAmount : PlayerWeaponManger.ManaRejyAmount *= ( Fart * 0.75f );
 
         PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
+
+        UpdateUI();
     }
 
     private void ResetStrons()
@@ -119,5 +134,24 @@ public class Player : MonoBehaviour
         PlayerWeaponManger.CurrentMana = PlayerState.MaxMana;
         PlayerWeaponManger.ManaRejyAmount = PlayerState.ManaRejyAmount;
         PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
+
+
+
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        UiEventData uiEventData = new UiEventData();
+        uiEventData.CurrentHP = (int)PlayerHp.Currenthp;
+        uiEventData.MaxHp = (int)PlayerHp.MaxHp;
+        uiEventData.CurrentMana = (int)PlayerWeaponManger.CurrentMana;
+        uiEventData.MaxMana = (int)PlayerWeaponManger.MaxMana;
+        uiEventData.CurrentXp = (int)CurrentXp;
+        uiEventData.MaxXp = (int)XpMax;
+        uiEventData.CurrentLevel = CurrentLevel;
+        uiEventData.CoinsAmount = CurrentCoins;
+
+        uiEvent.Rasise( uiEventData );
     }
 }
