@@ -32,7 +32,7 @@ public class RandomChestSpawnerManger : MonoBehaviour
     [SerializeField] float y;
     private void Start() {
         
-        var chestAmount = Random.Range( 23 , 30 );
+        var chestAmount = Random.Range( 67 , 101 );
 
         Vector2 posin = new Vector2( transform.position.x , transform.position.y );
         for (int i = 0; i < chestAmount; i++)
