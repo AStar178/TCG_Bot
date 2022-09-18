@@ -28,10 +28,14 @@ public class PlayerHp : MonoBehaviour, IHpValue
 
         delayTime -= Time.deltaTime;
     }
-    public void HpValueChange(Damage damage)
+    public void HpValueChange(Damage damage , out DamageResult result)
     {
         if (delayTime > 0)
+        {
+            result = DamageResult.Flaid;
             return;
+        }
+            
         
 
         delayTime = DelayDamageTakeTime;
@@ -40,6 +44,7 @@ public class PlayerHp : MonoBehaviour, IHpValue
         float ApDamageAmount = 100 - ( MagicResest - damage.Mp_DefenceReduser );
         Currenthp -= damage.ApDamage * ( ApDamageAmount / 100 ) ;
         Currenthp = Mathf.Clamp( Currenthp , 0 , MaxHp );
+        result = DamageResult.DealadDamaged;
         player.OnHpChanged();
         player.UpdateUI();
         SpriteRendererOnTakeDamageEffect();

@@ -17,7 +17,7 @@ public class PlayerWeaponManger : MonoBehaviour
     public float MaxMana;
     public float ManaRejyAmount;
     public float TimeToGetMana;
-    public Action<int , Vector2 , bool> OnDealDamage;
+    public Action<int , Vector2 , bool , DamageResult> OnDealDamage;
     [SerializeField] public AbilityWeapons CurrentWeapons;
     [SerializeField] public GameObject TextFonstDamage;
     [HideInInspector] public float attackSpeed;
@@ -30,11 +30,12 @@ public class PlayerWeaponManger : MonoBehaviour
         OnDealDamage -= OnDealDamageFuncens;
     }
 
-    private void OnDealDamageFuncens(int obj , Vector2 pos , bool ap)
+    private void OnDealDamageFuncens(int obj , Vector2 pos , bool ap , DamageResult result)
     {   
+
         var Texts = Instantiate(TextFonstDamage , pos , Quaternion.identity);
         var fonts = Texts.GetComponentInChildren<TMP_Text>();
-        fonts.text = obj.ToString();
+        fonts.text = result != DamageResult.DealadDamaged ? result.ToString() : obj.ToString();
         fonts.color = TextColors[0];
         if (ap == true)
             fonts.color = TextColors[1];
@@ -66,7 +67,7 @@ public class PlayerWeaponManger : MonoBehaviour
         CurrentWeapons.UpdateAbilityWp();
     }
 
-    internal void CreatCoustomTextPopup(string v, Vector3 position)
+    internal void CreatCoustomTextPopup( string v , Vector3 position )
     {
         var text = Instantiate( TextFonstDamage , position , Quaternion.identity );
         TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();

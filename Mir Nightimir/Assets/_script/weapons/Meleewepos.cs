@@ -58,12 +58,12 @@ public class Meleewepos : AbilityWeapons
         damage.ApDamage = GetPWM().MagicReduse;
         damage.PlayerRefernce = GetPlayer();
 
-        enemyHp.HpValueChange(damage);
+        enemyHp.HpValueChange(damage , out var result);
         var s = Instantiate(GetPWM().OnMeeleHit , pos.position , Quaternion.identity);
         bool pornOnline = false;
         if (damage.AdDamage < damage.ApDamage)
             pornOnline = true;
-        GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , pornOnline );
+        GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , pornOnline , result );
         Destroy(s , 6);
     }
 

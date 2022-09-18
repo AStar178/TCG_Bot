@@ -12,6 +12,8 @@ public class EnemyHp : MonoBehaviour , IHpValue
     public float Amoro;
     public float MagicResest;
     public float DelayDamageTakeTime;
+    [Range( 0 , 100 )]
+    [SerializeField] private float BlockChanse;
     float delayTime;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] GameObject OnDieEffect;
@@ -26,8 +28,9 @@ public class EnemyHp : MonoBehaviour , IHpValue
         MagicResest = EnemyState.MagicReset;
 
     }
-    public void HpValueChange(Damage damage)
+    public void HpValueChange( Damage damage , out DamageResult result )
     {
+        if ( Random.value < BlockChanse / 100 ) { result = DamageResult.Block; return; }
 
         float AdDamageAmount = 100 - ( Amoro - damage.Ad_DefenceReduser );
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
@@ -43,8 +46,10 @@ public class EnemyHp : MonoBehaviour , IHpValue
             if (damage.PlayerRefernce != null)
                 damage.PlayerRefernce.GiveStuff( xpAmount + Random.Range( 0 , 100 ) , coinsAmount + Random.Range( 0 , 10 ) );
             Destroy(this.gameObject);
+            result = DamageResult.Killed;
             return;
         }
+        result = DamageResult.DealadDamaged;
         SpriteRendererOnTakeDamageEffect();
         
     }

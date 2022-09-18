@@ -95,7 +95,7 @@ public abstract class TESTei : MonoBehaviour
         {
             Damage damage = new Damage();
             damage.AdDamage = state.AdDamage;
-            Hp.HpValueChange(damage);
+            Hp.HpValueChange(damage , out var result);
         }
     }
 
