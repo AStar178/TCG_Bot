@@ -68,7 +68,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -8534,9 +8534,9 @@ TextureImporter:
       colored_30: 194852648
       colored_234: -152591333
       colored_147: 1421538039
-      colored_265: -923748291
       colored_285: 233180179
       colored_174: -2053904068
+      colored_265: -923748291
       colored_183: 271897378
       colored_110: 1043274824
       colored_227: 997133470

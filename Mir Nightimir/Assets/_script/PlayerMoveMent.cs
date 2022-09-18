@@ -22,7 +22,18 @@ public class PlayerMoveMent : MonoBehaviour
     
         body3d.velocity = new Vector2(movementX , movementY).normalized * moveSpeed;
         SpriteUpdaye();
+        CheatOpean();
+    }
 
+    private void CheatOpean()
+    {
+        if ( Input.GetKeyDown( KeyCode.E ) )
+        {
+            var Chest = Physics2D.OverlapCircle( transform.position , 1 );
+            if ( Chest.TryGetComponent<Chests>( out Chests coins ) )
+                coins.Purchist( Player.Singleton );
+        }
+    
     }
 
     private void SpriteUpdaye()
