@@ -19,9 +19,10 @@ public class EnemyHp : MonoBehaviour , IHpValue
     [SerializeField] GameObject OnDieEffect;
     [SerializeField] int xpAmount;
     [SerializeField] int coinsAmount;
+    [SerializeField] DamageResult resultOfBlocked;
     public void HpValueChange( Damage damage , out DamageResult result )
     {
-        if ( Random.value < BlockChanse / 100 ) { result = DamageResult.Block; return; }
+        if ( Random.value < BlockChanse / 100 ) { result = resultOfBlocked; return; }
 
         float AdDamageAmount = 100 - ( Amoro - damage.Ad_DefenceReduser );
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
@@ -35,7 +36,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
                 Destroy(OnDieEffect , 6);
             }
             if (damage.PlayerRefernce != null)
-                damage.PlayerRefernce.GiveStuff( xpAmount + Random.Range( 0 , 100 ) , coinsAmount + Random.Range( 0 , 10 ) );
+                damage.PlayerRefernce.GiveStuff( xpAmount == 0 ? 0 : + Random.Range( 0 , 100 ) , coinsAmount == 0 ? 0 : + Random.Range( 0 , 10 ) );
             Destroy(this.gameObject);
             result = DamageResult.Killed;
             return;

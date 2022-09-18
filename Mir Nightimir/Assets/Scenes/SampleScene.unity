@@ -65055,7 +65055,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463866373}
-  - component: {fileID: 463866372}
   m_Layer: 0
   m_Name: powerupsCommans
   m_TagString: Untagged
@@ -65063,18 +65062,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &463866372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463866371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &463866373
 Transform:
   m_ObjectHideFlags: 0
@@ -65198,6 +65185,7 @@ MonoBehaviour:
   OnDieEffect: {fileID: 0}
   xpAmount: 20
   coinsAmount: 6
+  resultOfBlocked: 0
 --- !u!114 &466595312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65296,7 +65284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 0}
+  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
@@ -65307,6 +65295,7 @@ MonoBehaviour:
   OnDieEffect: {fileID: 0}
   xpAmount: 20
   coinsAmount: 6
+  resultOfBlocked: 0
 --- !u!114 &470841538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65319,7 +65308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 470841537}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -65335,7 +65324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -65348,8 +65337,8 @@ MonoBehaviour:
   NoChase: 0
   Slugs: {fileID: 2573341647957285371, guid: 130fca7e25e12054490f867088c5967b, type: 3}
   Hp: {fileID: 470841537}
-  Cooldown: 10
-  afkD: 6
+  Cooldown: 3
+  afkD: 10
   LowSummonHealth: 30
   Healing: 4
   MinionSpeed: 0.35
@@ -65641,9 +65630,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0012840268
+    y: 0.0027586208
     width: 1
-    height: 0.99640477
+    height: 0.9931035
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -65790,8 +65779,8 @@ MonoBehaviour:
   PlayerWeaponManger: {fileID: 955869195}
   PlayerHp: {fileID: 955869193}
   abilityPowerUps:
-  - {fileID: 1308843649}
-  uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  - {fileID: 0}
+  uiEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}
   PowerUps: {fileID: 1308843648}
   CurrentLevel: 1
@@ -65975,7 +65964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efd7dbea873f1640abd7a500f15b7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  gameEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
@@ -66412,7 +66401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d832d2d469d194482d46541103f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
+  stat: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Range: 0
   STBS: 0
   BulletSpeed: 2
@@ -66504,7 +66493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 0}
+  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
@@ -66515,6 +66504,7 @@ MonoBehaviour:
   OnDieEffect: {fileID: 0}
   xpAmount: 40
   coinsAmount: 5
+  resultOfBlocked: 0
 --- !u!61 &839581869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66553,7 +66543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 839581868}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -119730,6 +119720,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308843648}
+  - component: {fileID: 1308843650}
   - component: {fileID: 1308843649}
   m_Layer: 6
   m_Name: PowerUps
@@ -119762,9 +119753,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308843647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fc413447bcd151438fa47575f7fbfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  Name: 
+  Discripsen: 
+  strengthzz: 10
+--- !u!114 &1308843650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308843647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abe83aaa1bd0cd4c848e976430bf1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  Name: 
+  Discripsen: 
+  AttackSpeedBuff: 20
 --- !u!1 &1325678762
 GameObject:
   m_ObjectHideFlags: 3
@@ -120131,7 +120142,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 195c5d7fdf8ffcf40a6fa32f4fa91926, type: 2}
+  - {fileID: 2100000, guid: 930379f990890e3429102b2a12311f8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120223,26 +120234,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commanIteams:
-  - {fileID: 463866372}
+  - {fileID: 0}
   Moneycomman: 5
   commanColor: {r: 0.20754719, g: 0.15509021, b: 0, a: 1}
   GreenIteams:
-  - {fileID: 463866372}
+  - {fileID: 0}
   MoneyGreen: 10
   GreenColor: {r: 0.03921567, g: 0.99607843, b: 0.041883692, a: 1}
   RangeGreen: 50
   RareIteams:
-  - {fileID: 463866372}
+  - {fileID: 0}
   MoneyRare: 20
   RareColor: {r: 0, g: 0.94248676, b: 1, a: 1}
   RangeRare: 45
   EpicIteams:
-  - {fileID: 463866372}
+  - {fileID: 0}
   MoneyEpic: 40
   EpicColor: {r: 0.80887604, g: 0, b: 1, a: 1}
   RangeEpic: 35
   LegenderyIteams:
-  - {fileID: 463866372}
+  - {fileID: 0}
   MoneyLegendery: 80
   LegenderyColor: {r: 1, g: 0.6090461, b: 0, a: 1}
   RangeLegendery: 30

@@ -11,5 +11,6 @@ public enum DamageResult
     Block ,
     Flaid ,
     DealadDamaged ,
+    Miss ,
     Killed
 }

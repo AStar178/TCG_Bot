@@ -202,11 +202,12 @@ MonoBehaviour:
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
-  BlockChanse: 14
+  BlockChanse: 51
   spriteRenderer: {fileID: 2573341647705990374}
   OnDieEffect: {fileID: 0}
   xpAmount: 0
   coinsAmount: 10
+  resultOfBlocked: 3
 --- !u!114 &5867443394263635040
 MonoBehaviour:
   m_ObjectHideFlags: 0
