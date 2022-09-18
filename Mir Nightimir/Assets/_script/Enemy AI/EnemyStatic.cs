@@ -12,6 +12,6 @@ public class EnemyStatic : MonoBehaviour
     private void Awake()
     {
         project = Project;
-        TextPrefab = textPrefab;
+        textPrefab = TextPrefab;
     }
 }
