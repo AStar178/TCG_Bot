@@ -15,6 +15,8 @@ public class PlayerMoveMent : MonoBehaviour
     float movementX;
     float movementY;
 
+    public LayerMask ChestLayer;
+
     void Update()
     {
         movementX = Input.GetAxisRaw("Horizontal");
@@ -30,7 +32,7 @@ public class PlayerMoveMent : MonoBehaviour
         if ( Input.GetKeyDown( KeyCode.E ) )
         {
             print ("e");
-            var Chest = Physics2D.OverlapCircle( transform.position , 1 );
+            var Chest = Physics2D.OverlapCircle( transform.position , 1 , ChestLayer );
             if ( Chest.TryGetComponent<Chests>( out Chests coins ) )
             {
                 print ("E");
