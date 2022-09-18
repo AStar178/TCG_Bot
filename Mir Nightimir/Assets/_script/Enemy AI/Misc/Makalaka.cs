@@ -10,10 +10,19 @@ public class Makalaka : MonoBehaviour
     public float Speed;
     public float Healing;
     public EnemyHp BozzHP;
+    public SpriteRenderer SpriteRenderer;
 
     // Update is called once per frame
     void Update()
     {
+
+        if (target == null)
+        {
+            Destroy(gameObject);
+            CreatCoustomTextPopup("Dissapeared", gameObject.transform.position);
+            return;
+        }
+        
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime);
         if (Vector2.Distance(target.transform.position, transform.position) <= .5f)
         {
@@ -21,11 +30,19 @@ public class Makalaka : MonoBehaviour
             CreatCoustomTextPopup("+" + Healing, target.transform.position);
             Destroy(gameObject);
         }
-        if (target == null)
+        SpriteUpdaye();
+    }
+    private void SpriteUpdaye()
+    {
+        if ( Vector2.Dot( ( target.transform.position - transform.position ).normalized , Vector2.left) == 0 )
+            return;
+            
+        if (Vector2.Dot( ( target.transform.position - transform.position ).normalized , Vector2.left) < -0.1f)
         {
-            Destroy(gameObject);
-            CreatCoustomTextPopup("Dissapeared", gameObject.transform.position);
-        }
+            SpriteRenderer.flipX = true;       
+            return;
+        } 
+        SpriteRenderer.flipX = false;
     }
     public void CreatCoustomTextPopup(string v, Vector3 position)
     {

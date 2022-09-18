@@ -20,6 +20,7 @@ public class Turret : MonoBehaviour
     bool ATTACK = false;
     [SerializeField] bool Frendly = false;
     [SerializeField] EnemyHp enemyHp;
+    [SerializeField] SpriteRenderer renderers;
     public GameObject project;
 
     public LayerMask LayerMaskEnemy;
@@ -35,7 +36,8 @@ public class Turret : MonoBehaviour
     public void Update()
     {
         if (Frendly == false) { gameObject.layer = 7; }
-        Tar = Physics2D.OverlapCircle(transform.position, Range, Frendly ? LayerMaskFreandy : LayerMaskEnemy);
+        if (Frendly == true) { gameObject.layer = 0; }
+        Tar = Physics2D.OverlapCircle(transform.position, Range, Frendly ? LayerMaskEnemy : LayerMaskFreandy);
 
         if (Tar != null) { ATTACK = true; }
         else { ATTACK = false; }
@@ -64,6 +66,20 @@ public class Turret : MonoBehaviour
                 TBS -= Time.deltaTime;
             }
         }
+        if (Tar == null) { return; }
+        SpriteUpdaye();
+    }
+    private void SpriteUpdaye()
+    {
+        if ( Vector2.Dot( ( Tar.transform.position - transform.position ).normalized , Vector2.right) == 0 )
+            return;
+            
+        if (Vector2.Dot( ( Tar.transform.position - transform.position ).normalized , Vector2.right) < -0.1f)
+        {
+            renderers.flipX = true;       
+            return;
+        } 
+        renderers.flipX = false;
     }
 
     private void SetupBullet(GameObject b)

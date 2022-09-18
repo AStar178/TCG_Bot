@@ -27,7 +27,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
         float AdDamageAmount = 100 - ( Amoro - damage.Ad_DefenceReduser );
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
         float ApDamageAmount = 100 - ( MagicResest - damage.Mp_DefenceReduser );
-        Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
+        Currenthp -= damage.ApDamage * ( ApDamageAmount / 100 );
         if (Currenthp <= 0)
         {
             if (OnDieEffect != null)
@@ -46,7 +46,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
         
     }
     private void Update() {
-        if (delayTime < 0) { spriteRenderer.enabled = true;  return; }
+        if (delayTime < 0) { if ( spriteRenderer != null ) { spriteRenderer.enabled = true; }  return; }
         delayTime -= Time.deltaTime;
     }
 
@@ -70,7 +70,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
 
     private void Sprite2()
     {
-
+        if (spriteRenderer == null) { return; }
         if (spriteRenderer.enabled == true)
         {
             spriteRenderer.enabled = false;

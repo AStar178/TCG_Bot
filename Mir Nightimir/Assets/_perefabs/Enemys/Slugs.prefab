@@ -224,3 +224,4 @@ MonoBehaviour:
   Speed: 0
   Healing: 0
   BozzHP: {fileID: 2573341647957285252}
+  SpriteRenderer: {fileID: 2573341647705990374}

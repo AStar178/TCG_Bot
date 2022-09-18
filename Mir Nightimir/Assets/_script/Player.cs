@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
         {
             CurrentXp -= XpMax;
             CurrentLevel++;
+            XpMax = (int)(100 * ( CurrentXp * 0.4f ));
             if (OnLevelEffect != null)
                 OnLevelEffectFunc();
         }
@@ -119,7 +120,7 @@ public class Player : MonoBehaviour
         PlayerWeaponManger.DamageAp = PlayerState.ApDamage * intelligence + CurrentLevel * 0.1f;
         PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerState.MaxMana ? PlayerState.MaxMana : PlayerState.MaxMana * ( Fart * 0.5f ) + CurrentLevel * 0.1f;
         PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerState.ManaRejyAmount ? PlayerState.ManaRejyAmount : PlayerState.ManaRejyAmount * ( Fart * 0.75f ) + CurrentLevel * 0.1f;
-
+        
         PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
 
         UpdateUI();

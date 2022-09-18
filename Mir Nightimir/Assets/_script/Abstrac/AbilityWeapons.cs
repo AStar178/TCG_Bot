@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class AbilityWeapons : MonoBehaviour 
 {
     private Player player;
-    protected Player GetPlayer() => player;
+    public Player GetPlayer() => player;
     public PlayerWeaponManger GetPWM() => player.PlayerWeaponManger;
     public PlayerTarget GetTarget() => player.PlayerTarget;
     public virtual bool CoustomTargetSelect( Transform target , out Transform CostumTarget )

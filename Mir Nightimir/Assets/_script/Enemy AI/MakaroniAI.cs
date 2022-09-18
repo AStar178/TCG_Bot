@@ -72,7 +72,6 @@ public class MakaroniAI : TESTei
             }
         }
 
-
     }
 
     private async Task Wait(float Timez)

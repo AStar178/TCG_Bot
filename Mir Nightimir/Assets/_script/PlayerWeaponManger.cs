@@ -67,7 +67,7 @@ public class PlayerWeaponManger : MonoBehaviour
         CurrentWeapons.UpdateAbilityWp();
     }
 
-    internal void CreatCoustomTextPopup( string v , Vector3 position )
+    public void CreatCoustomTextPopup( string v , Vector3 position )
     {
         var text = Instantiate( TextFonstDamage , position , Quaternion.identity );
         TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
