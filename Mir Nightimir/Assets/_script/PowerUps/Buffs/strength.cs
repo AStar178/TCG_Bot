@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class Strong : AbilityPowerUps 
+public class strength : AbilityPowerUps 
 {
-    [SerializeField] float strength;
+    [SerializeField] float strengthzz;
     public override void OnPowerUp(Player player)
     {
         base.OnPowerUp(player);
 
 
-        player.strength += strength;
+        player.strength += strengthzz;
     }
 
 }

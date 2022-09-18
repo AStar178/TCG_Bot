@@ -35,4 +35,5 @@ public class Magic : AbilityWeapons
         cp.damage = damage; 
         cp.target = pos;
     }
+
 }

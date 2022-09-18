@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSpeed : AbilityPowerUps
+public class HpBuffs : AbilityPowerUps
 {
-    [SerializeField] int AttackSpeedBuff;
+    [SerializeField] int Hp;
+
+
     public override void OnPowerUp(Player player)
     {
         base.OnPowerUp(player);
 
-        player.AttackSpeedBuff += AttackSpeedBuff;
+        player.HpBuff += Hp;
     }
-
 }
