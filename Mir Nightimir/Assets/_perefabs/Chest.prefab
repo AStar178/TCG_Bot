@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4791731037326478407}
   - component: {fileID: 8895649073108216601}
   - component: {fileID: 8396046045693515446}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 5270480425408326802}
   - component: {fileID: 7168429678152515561}
   - component: {fileID: 4337595206438049410}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: MoneyChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}

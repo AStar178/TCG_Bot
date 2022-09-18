@@ -33,6 +33,7 @@ public class Chests : MonoBehaviour
         if (player.CurrentCoins < MoneyNeeded)
             return;
 
+        if ( player == null && upgrateObject != null ) { return; }
         player.CurrentCoins -= MoneyNeeded;
         player.AddPowerUp ( upgrateObject );
         Destroy(this.gameObject);

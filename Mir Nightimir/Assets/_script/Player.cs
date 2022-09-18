@@ -110,9 +110,9 @@ public class Player : MonoBehaviour
     {
 
         PlayerMoveMent.moveSpeed =  ( dexterity * 0.25f ) < PlayerState.MoveSpeed ? PlayerState.MoveSpeed : ( PlayerState.MoveSpeed + MoveSpeedBuff )  * ( dexterity * 0.25f ) + CurrentLevel * 0.1f;
-        PlayerHp.MaxHp = ( vitality * 0.9f ) < PlayerState.MaxHpAmount ? PlayerState.MaxHpAmount : ( PlayerState.MaxHpAmount + HpBuff ) * ( vitality * 1.25f ) + CurrentLevel * 0.1f;
-        PlayerHp.Amoro = ( vitality * 0.6f ) < PlayerState.Amoro  ? PlayerState.Amoro  : ( PlayerState.Amoro + AmoroBuff ) * ( vitality * 0.6f ) + CurrentLevel * 0.1f;
-        PlayerHp.MagicResest = ( intelligence * 0.4 ) < PlayerState.MagicReset ? PlayerState.MagicReset : ( PlayerState.MagicReset + MagicReseted ) * ( intelligence * 0.4f ) + CurrentLevel * 0.1f;
+        PlayerHp.MaxHp = ( PlayerState.MaxHpAmount + vitality * 0.9f + HpBuff ) < PlayerState.MaxHpAmount ? PlayerState.MaxHpAmount : ( PlayerState.MaxHpAmount + HpBuff ) * ( vitality * 1.25f ) + CurrentLevel * 0.1f;
+        PlayerHp.Amoro = ( PlayerState.Amoro + vitality * 0.6f + AmoroBuff ) < PlayerState.Amoro  ? PlayerState.Amoro  : ( PlayerState.Amoro + AmoroBuff ) * ( vitality * 0.6f ) + CurrentLevel * 0.1f;
+        PlayerHp.MagicResest = ( intelligence * 0.4 + MagicReseted ) < PlayerState.MagicReset ? PlayerState.MagicReset : ( PlayerState.MagicReset + MagicReseted ) * ( intelligence * 0.4f ) + CurrentLevel * 0.1f;
         PlayerWeaponManger.AttackSpeed = PlayerState.AttackSpeed * ( dexterity + ( AttackSpeedBuff * 0.25f ) ) + CurrentLevel * 0.1f;
         PlayerWeaponManger.AmoroReduse = PlayerState.Ad_DefenceReduser * strength + CurrentLevel * 0.1f;
         PlayerWeaponManger.MagicReduse = PlayerState.Mp_DefenceReduser * intelligence + ( MagicReduseBuff * 0.25f ) + CurrentLevel * 0.1f;

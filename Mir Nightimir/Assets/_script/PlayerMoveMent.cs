@@ -9,6 +9,7 @@ public class PlayerMoveMent : MonoBehaviour
 {
     [SerializeField] Rigidbody2D body3d;
     [SerializeField] public SpriteRenderer SpriteRenderer;
+    [SerializeField] Player player;
     public float moveSpeed;
     [SerializeField] private Transform BulletSpawnPos;
     [SerializeField] private Vector2 pos;
@@ -31,12 +32,10 @@ public class PlayerMoveMent : MonoBehaviour
     {
         if ( Input.GetKeyDown( KeyCode.E ) )
         {
-            print ("e");
             var Chest = Physics2D.OverlapCircle( transform.position , 1 , ChestLayer );
             if ( Chest.TryGetComponent<Chests>( out Chests coins ) )
             {
-                print ("E");
-                coins.Purchist( Player.Singleton );
+                coins.Purchist( player );
             }
                 
         }
