@@ -31,6 +31,7 @@ public class Makalaka : MonoBehaviour
             Destroy(gameObject);
         }
         SpriteUpdaye();
+        
     }
     private void SpriteUpdaye()
     {

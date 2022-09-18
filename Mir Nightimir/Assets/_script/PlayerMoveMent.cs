@@ -29,9 +29,14 @@ public class PlayerMoveMent : MonoBehaviour
     {
         if ( Input.GetKeyDown( KeyCode.E ) )
         {
+            print ("e");
             var Chest = Physics2D.OverlapCircle( transform.position , 1 );
             if ( Chest.TryGetComponent<Chests>( out Chests coins ) )
+            {
+                print ("E");
                 coins.Purchist( Player.Singleton );
+            }
+                
         }
     
     }
