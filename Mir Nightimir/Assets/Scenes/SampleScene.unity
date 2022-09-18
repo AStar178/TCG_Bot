@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13715439}
   - component: {fileID: 13715440}
+  - component: {fileID: 13715441}
   m_Layer: 6
   m_Name: weapons
   m_TagString: Untagged
@@ -169,6 +170,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Raduis: 1.4
   sprite: {fileID: -1317030293, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+--- !u!114 &13715441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13715438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e5ee8af444c98408b6ea94a8d9e730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Raduis: 2.1
+  sprite: {fileID: -796919478, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
+  spawnPos: {fileID: 136189973}
 --- !u!1 &28646145
 GameObject:
   m_ObjectHideFlags: 0
@@ -64971,8 +64988,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65308,7 +65325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   EnemyHp: {fileID: 470841537}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -65324,7 +65341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -65337,8 +65354,8 @@ MonoBehaviour:
   NoChase: 0
   Slugs: {fileID: 2573341647957285371, guid: 130fca7e25e12054490f867088c5967b, type: 3}
   Hp: {fileID: 470841537}
-  Cooldown: 3
-  afkD: 10
+  Cooldown: 10
+  afkD: 5
   LowSummonHealth: 30
   Healing: 4
   MinionSpeed: 0.35
@@ -65348,6 +65365,39 @@ MonoBehaviour:
   MaxX: 4
   MinY: -4
   MaxY: 4
+  PlayerLayer: 7
+  ShotTimer: 3
+  bulletColor: {r: 0.37169808, g: 0.96825075, b: 1, a: 1}
+  trailColor:
+    serializedVersion: 2
+    key0: {r: 0.37254903, g: 0.9686275, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  BulletSprite: {fileID: 21300000, guid: 9e32f4829fbdf46468955700bb8bfce7, type: 3}
 --- !u!61 &470841540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65473,8 +65523,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65630,9 +65680,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0027586208
+    y: 0.0012840268
     width: 1
-    height: 0.9931035
+    height: 0.99640477
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -65780,7 +65830,7 @@ MonoBehaviour:
   PlayerHp: {fileID: 955869193}
   abilityPowerUps:
   - {fileID: 0}
-  uiEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
+  uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}
   PowerUps: {fileID: 1308843648}
   CurrentLevel: 1
@@ -65964,7 +66014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efd7dbea873f1640abd7a500f15b7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
+  gameEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
@@ -66293,8 +66343,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66543,7 +66593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
   EnemyHp: {fileID: 839581868}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -66794,7 +66844,7 @@ MonoBehaviour:
   MaxMana: 0
   ManaRejyAmount: 0
   TimeToGetMana: 0
-  CurrentWeapons: {fileID: 13715440}
+  CurrentWeapons: {fileID: 13715441}
   TextFonstDamage: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   attackSpeed: 0
   TextColors:
@@ -119926,8 +119976,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -120405,8 +120455,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

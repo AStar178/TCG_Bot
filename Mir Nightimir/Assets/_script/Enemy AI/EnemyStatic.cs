@@ -26,7 +26,7 @@ public class EnemyStatic : MonoBehaviour
         KillTween(1f, tween, tMP_Text.transform.gameObject.transform.gameObject);
         Destroy(text, 2);
     }
-    private static async void KillTween(float v, Tween tween, GameObject b)
+    public static async void KillTween(float v, Tween tween, GameObject b)
     {
         float zz = v;
         while (zz > 0)

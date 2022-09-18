@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using DG.Tweening;
 
 public class MakaroniAI : TESTei
 {
     private bool afk;
     public GameObject Slugs;
     public EnemyHp Hp;
-
+    #region Summon
     public float Cooldown;
     private float time;
     private Vector2 rand;
@@ -26,10 +27,26 @@ public class MakaroniAI : TESTei
     public float MaxX;
     public float MinY;
     public float MaxY;
+    #endregion
+
+    #region Shot
+    [SerializeField] int PlayerLayer = 7;
+    private float TBS;
+    public float ShotTimer;
+    private float FixSecond;
+    private float FixSecondN;
+    private bool ATTACK = false;
+    public Color bulletColor;
+    public Gradient trailColor;
+    public Sprite BulletSprite;
+
+    private GameObject project;
+    #endregion
 
     public override void start()
     {
         base.start();
+        project = EnemyStatic.project;
         time = Cooldown;
     }
 
@@ -39,12 +56,48 @@ public class MakaroniAI : TESTei
         {
             if (NoChase == false)
             {
-                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range && Vector2.Distance(gameObject.transform.position, target.transform.position) > .35f)
+                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range &&
+                    Vector2.Distance(gameObject.transform.position, target.transform.position) > .35f)
                 { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
-            }
+                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range) { ATTACK = true; }
+                else { ATTACK = false; }
+        }
             if (Lung == true)
             {
                 Lun();
+            }
+            if (ATTACK == true)
+            {
+                if (TBS <= 0)
+                {
+                    if (FixSecond >= FixSecondN)
+                    {
+                        TBS = ShotTimer;
+                        FixSecond = 0;
+                    }
+                    else
+                    {
+                        FixSecond += Time.deltaTime;
+                    }
+                    GameObject B = Instantiate(project, transform.position, Quaternion.identity);
+                    B.layer = PlayerLayer;
+                    B.GetComponent<SpriteRenderer>().color = bulletColor;
+                    B.GetComponent<TrailRenderer>().colorGradient = trailColor;
+                    B.GetComponent<BoxCollider2D>().enabled = false;
+                    B.AddComponent<CircleCollider2D>().isTrigger = true;
+                    B.GetComponent<SpriteRenderer>().sprite = BulletSprite;
+                    B.gameObject.transform.DOScale(1, 1);
+                    await Wait(1);
+
+                    Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
+                    SetupBullet(B);
+                    var tween = B.transform.DOMove(targetPos, .5f);
+                    EnemyStatic.KillTween(.5f, tween, B);
+                }
+                else
+                {
+                    TBS -= Time.deltaTime;
+                }
             }
             if (time >= 0)
             {
@@ -71,8 +124,6 @@ public class MakaroniAI : TESTei
                 afk = false;
             }
         }
-
-
     }
 
     private async Task Wait(float Timez)
@@ -82,6 +133,18 @@ public class MakaroniAI : TESTei
             Timez -= Time.deltaTime;
             await Task.Yield();
         }
+    }
+
+    private void SetupBullet(GameObject b)
+    {
+        Damage damage = new Damage();
+        damage.AdDamage = state.AdDamage;
+        damage.ApDamage = state.ApDamage;
+        damage.Ad_DefenceReduser = state.Ad_DefenceReduser;
+        damage.ApDamage = state.Mp_DefenceReduser;
+        var bullet = b.AddComponent<EnemyBullent>();
+        bullet.damage = damage;
+        bullet.layerMask = 6;
     }
 
     private void randomVector2(Vector2 v2, float minX, float maxX, float minY, float maxY)

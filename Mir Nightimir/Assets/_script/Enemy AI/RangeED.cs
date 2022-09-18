@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class RangeED : TESTei
 {
-    float shot;
-    float timeBShot; 
     [SerializeField] int PlayerLayer = 7;
     private float TBS;
     public float STBS;
