@@ -50,7 +50,7 @@ public abstract class TESTei : MonoBehaviour
     {
         if (NoChase == false)
         {
-            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
+            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range && Vector2.Distance(gameObject.transform.position, target.transform.position) >= .35f)
             { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
         }
         if (Coward == true)
@@ -62,7 +62,7 @@ public abstract class TESTei : MonoBehaviour
             Lun();
         }
     }
-    public void Cowar()
+    public virtual void Cowar()
     {
         if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= CowardenessRange)
         {
@@ -71,7 +71,7 @@ public abstract class TESTei : MonoBehaviour
         }
         else NoChase = false;
     }
-    public void Lun()
+    public virtual void Lun()
     {
         if (lungColdown > 0)
             lungColdown = lungColdown - Time.deltaTime;
@@ -95,7 +95,7 @@ public abstract class TESTei : MonoBehaviour
         {
             Damage damage = new Damage();
             damage.AdDamage = state.AdDamage;
-            Hp.HpValueChange(damage , out var result);
+            Hp.HpValueChange(damage, out var result);
         }
     }
 
