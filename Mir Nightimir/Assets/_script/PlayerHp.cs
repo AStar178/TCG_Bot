@@ -35,10 +35,11 @@ public class PlayerHp : MonoBehaviour, IHpValue
         
 
         delayTime = DelayDamageTakeTime;
-        float AdDamageAmount = 100 - Amoro;
-        Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
-        float ApDamageAmount = 100 - MagicResest;
+        float AdDamageAmount = 100 - ( Amoro/damage.Ad_DefenceReduser );
+        Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 ) < 0 ? 0.01f : ( AdDamageAmount / 100 ) ;
+        float ApDamageAmount = 100 - ( MagicResest/damage.Mp_DefenceReduser );
         Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
+        player.OnHpChanged();
         player.UpdateUI();
         SpriteRendererOnTakeDamageEffect();
     }

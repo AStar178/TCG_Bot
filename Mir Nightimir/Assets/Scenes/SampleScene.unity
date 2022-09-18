@@ -65075,6 +65075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  Icon: {fileID: 0}
+  Name: 
+  Discripsen: 
   strength: 10
 --- !u!4 &463866373
 Transform:
@@ -65643,6 +65647,13 @@ MonoBehaviour:
   dexterity: 1
   intelligence: 1
   Fart: 1
+  MoveSpeedBuff: 0
+  HpBuff: 0
+  AmoroBuff: 0
+  MagicReseted: 0
+  AttackSpeedBuff: 0
+  MagicReduseBuff: 0
+  DamageAdBuff: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -65793,7 +65804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 22.6, y: -31}
+  m_AnchoredPosition: {x: 22.600006, y: -7.87}
   m_SizeDelta: {x: 223.8113, y: 234.2899}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &645314472
@@ -119575,7 +119586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
+  player1: {fileID: 0}
+  Icon: {fileID: 0}
+  Name: 
+  Discripsen: 
+  strength: 10
 --- !u!1 &1325678762
 GameObject:
   m_ObjectHideFlags: 3

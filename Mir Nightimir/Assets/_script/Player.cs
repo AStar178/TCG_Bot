@@ -25,7 +25,14 @@ public class Player : MonoBehaviour
     public float intelligence = 1;  //magic damage + magic resist
     public float Fart = 1; //mana , mana rejey
 
-
+   
+    public float MoveSpeedBuff;
+    public float HpBuff;
+    public float AmoroBuff; 
+    public float MagicReseted; 
+    public float AttackSpeedBuff; 
+    public float MagicReduseBuff; 
+    public float DamageAdBuff; 
 
     public void GiveStuff(int xp , int coins)
     {
@@ -62,8 +69,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        ResetStrons();
-
+        
         List<AbilityPowerUps> abilityPower = new List<AbilityPowerUps>(); 
         abilityPower.AddRange( PowerUps.GetComponents<AbilityPowerUps>() );
         abilityPowerUps = abilityPower;
@@ -71,7 +77,8 @@ public class Player : MonoBehaviour
         {
             abilityPower[i].OnPowerUp ( this );
         }
-        RESETFORREAL();
+
+        CulculateAllBuffs();
         
     }
     private void Update() {
@@ -85,8 +92,6 @@ public class Player : MonoBehaviour
     }
     public void AddPowerUp( AbilityPowerUps upgrateObject )
     {
-        ResetStrons();
-
         PowerUps.gameObject.AddComponent<AbilityPowerUps>();
         List<AbilityPowerUps> abilityPower = new List<AbilityPowerUps>(); 
         abilityPower.AddRange( PowerUps.GetComponents<AbilityPowerUps>() );
@@ -95,49 +100,41 @@ public class Player : MonoBehaviour
         {
             abilityPower[i].OnPowerUp ( this );
         }
-        RESETFORREAL();
+        
+        CulculateAllBuffs();
     }
 
-    private void RESETFORREAL()
+    public void CulculateBuffsAgain() => CulculateAllBuffs();
+
+    private void CulculateAllBuffs()
     {
-        PlayerMoveMent.moveSpeed = ( dexterity * 0.25f ) < PlayerMoveMent.moveSpeed ? PlayerMoveMent.moveSpeed : PlayerMoveMent.moveSpeed *= ( dexterity * 0.25f );
-        PlayerHp.MaxHp = ( vitality * 0.9f ) < PlayerHp.MaxHp ? PlayerHp.MaxHp : PlayerHp.MaxHp *= ( vitality * 1.25f );
-        PlayerHp.Amoro = ( vitality * 0.6f ) < PlayerHp.Amoro  ? PlayerHp.Amoro  : PlayerHp.Amoro  *= ( vitality * 0.6f );
-        PlayerHp.MagicResest = ( intelligence * 0.4 ) < PlayerHp.MagicResest ? PlayerHp.MagicResest : PlayerHp.MagicResest *= ( intelligence * 0.4f );
-        PlayerWeaponManger.AttackSpeed *= ( dexterity );
-        PlayerWeaponManger.AmoroReduse *= strength;
-        PlayerWeaponManger.MagicReduse *= intelligence;
-        PlayerWeaponManger.DamageAd *= strength;
-        PlayerWeaponManger.DamageAp *= intelligence;
-        PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerWeaponManger.MaxMana ? PlayerWeaponManger.MaxMana : PlayerWeaponManger.MaxMana *= ( Fart * 0.5f );
-        PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerWeaponManger.ManaRejyAmount ? PlayerWeaponManger.ManaRejyAmount : PlayerWeaponManger.ManaRejyAmount *= ( Fart * 0.75f );
+
+        PlayerMoveMent.moveSpeed =  ( dexterity * 0.25f ) < PlayerState.MoveSpeed ? PlayerState.MoveSpeed : ( PlayerState.MoveSpeed + MoveSpeedBuff )  * ( dexterity * 0.25f );
+        PlayerHp.MaxHp = ( vitality * 0.9f ) < PlayerState.MaxHpAmount ? PlayerState.MaxHpAmount : ( PlayerState.MaxHpAmount + HpBuff ) * ( vitality * 1.25f );
+        PlayerHp.Amoro = ( vitality * 0.6f ) < PlayerState.Amoro  ? PlayerState.Amoro  : ( PlayerState.Amoro + AmoroBuff ) * ( vitality * 0.6f );
+        PlayerHp.MagicResest = ( intelligence * 0.4 ) < PlayerState.MagicReset ? PlayerState.MagicReset : ( PlayerState.MagicReset + MagicReseted ) * ( intelligence * 0.4f );
+        PlayerWeaponManger.AttackSpeed = PlayerState.AttackSpeed * ( dexterity + ( AttackSpeedBuff * 0.25f ) );
+        PlayerWeaponManger.AmoroReduse = PlayerState.Ad_DefenceReduser * strength;
+        PlayerWeaponManger.MagicReduse = PlayerState.Mp_DefenceReduser * intelligence + ( MagicReduseBuff * 0.25f );
+        PlayerWeaponManger.DamageAd = PlayerState.AdDamage * strength + ( DamageAdBuff * 0.25f );
+        PlayerWeaponManger.DamageAp = PlayerState.ApDamage * intelligence;
+        PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerState.MaxMana ? PlayerState.MaxMana : PlayerState.MaxMana * ( Fart * 0.5f );
+        PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerState.ManaRejyAmount ? PlayerState.ManaRejyAmount : PlayerState.ManaRejyAmount * ( Fart * 0.75f );
 
         PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
 
         UpdateUI();
+
     }
 
-    private void ResetStrons()
+    public void OnHpChanged()
     {
-        PlayerMoveMent.moveSpeed = PlayerState.MoveSpeed;
-        PlayerHp.MaxHp = PlayerState.MaxHpAmount;
-        PlayerHp.Currenthp = PlayerState.MaxHpAmount;
-        PlayerHp.Amoro = PlayerState.Amoro;
-        PlayerHp.MagicResest = PlayerState.MagicReset;
-        PlayerTarget.Raduis = PlayerState.AggroRange;
-        PlayerWeaponManger.AttackSpeed = PlayerState.AttackSpeed;
-        PlayerWeaponManger.AmoroReduse = PlayerState.Ad_DefenceReduser;
-        PlayerWeaponManger.MagicReduse = PlayerState.MagicReset;
-        PlayerWeaponManger.DamageAd = PlayerState.AdDamage;
-        PlayerWeaponManger.DamageAp = PlayerState.ApDamage;
-        PlayerWeaponManger.MaxMana = PlayerState.MaxMana;
-        PlayerWeaponManger.CurrentMana = PlayerState.MaxMana;
-        PlayerWeaponManger.ManaRejyAmount = PlayerState.ManaRejyAmount;
-        PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
+        
+        for (int i = 0; i < abilityPowerUps.Count; i++)
+        {   
+            abilityPowerUps[i].OnHpChange();
+        }        
 
-
-
-        UpdateUI();
     }
 
     public void UpdateUI()

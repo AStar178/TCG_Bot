@@ -20,9 +20,9 @@ public class EnemyHp : MonoBehaviour , IHpValue
     public void HpValueChange(Damage damage)
     {
 
-        float AdDamageAmount = 100 - Amoro;
+        float AdDamageAmount = 100 - ( Amoro/damage.Ad_DefenceReduser );
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
-        float ApDamageAmount = 100 - MagicResest;
+        float ApDamageAmount = 100 - ( MagicResest/damage.Mp_DefenceReduser );
         Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
         if (Currenthp <= 0)
         {
@@ -37,6 +37,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
             return;
         }
         SpriteRendererOnTakeDamageEffect();
+        
     }
     private void Update() {
         if (delayTime < 0) { spriteRenderer.enabled = true;  return; }
