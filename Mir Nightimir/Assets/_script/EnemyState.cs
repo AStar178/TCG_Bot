@@ -9,7 +9,7 @@ public class EnemyState : MonoBehaviour {
     [HideInInspector]
     public Turret yurret;
 
-    private void Start() {
+    private void Awake() {
         gameObject.TryGetComponent<Turret>(out Turret nodle);
         gameObject.TryGetComponent<TESTei>(out TESTei Makaroni);
 
@@ -17,6 +17,7 @@ public class EnemyState : MonoBehaviour {
         EnemyHp.Currenthp = State.MaxHpAmount;
         EnemyHp.Amoro = State.Amoro;
         EnemyHp.MagicResest = State.MagicReset;
+
         if (nodle != null)
         {
             Turret b = gameObject.GetComponent<Turret>();
