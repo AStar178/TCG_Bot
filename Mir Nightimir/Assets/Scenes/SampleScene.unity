@@ -64971,8 +64971,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65075,6 +65075,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  Icon: {fileID: 0}
+  Name: 
+  Discripsen: 
+  strength: 10
 --- !u!4 &463866373
 Transform:
   m_ObjectHideFlags: 0
@@ -65102,9 +65107,9 @@ GameObject:
   - component: {fileID: 466595307}
   - component: {fileID: 466595310}
   - component: {fileID: 466595313}
+  - component: {fileID: 466595312}
   - component: {fileID: 466595311}
   - component: {fileID: 466595314}
-  - component: {fileID: 466595312}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -65209,10 +65214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 24024a00585164549af26fd305e19e20, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 466595311}
   tei: {fileID: 466595314}
-  yurret: {fileID: 0}
 --- !u!114 &466595313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65248,13 +65252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 24024a00585164549af26fd305e19e20, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 1
   Range: 5
   target: {fileID: 0}
-  Coward: 1
+  Coward: 0
   CowardenessRange: 2
-  Lung: 0
+  Lung: 1
   LungRange: 5
   LungCooldown: 2
   lungColdown: 0
@@ -65324,8 +65328,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65481,9 +65485,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0012840268
+    y: 0.0027586208
     width: 1
-    height: 0.99640477
+    height: 0.9931035
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -65631,7 +65635,7 @@ MonoBehaviour:
   PlayerHp: {fileID: 955869193}
   abilityPowerUps:
   - {fileID: 1308843649}
-  uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  uiEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}
   PowerUps: {fileID: 1308843648}
   CurrentLevel: 1
@@ -65800,7 +65804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 22.599976, y: -7.869995}
+  m_AnchoredPosition: {x: 22.600006, y: -7.87}
   m_SizeDelta: {x: 223.8113, y: 234.2899}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &645314472
@@ -65815,7 +65819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efd7dbea873f1640abd7a500f15b7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  gameEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
@@ -66144,8 +66148,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66232,8 +66236,7 @@ GameObject:
   - component: {fileID: 839581864}
   - component: {fileID: 839581868}
   - component: {fileID: 839581869}
-  - component: {fileID: 839581870}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66252,10 +66255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d832d2d469d194482d46541103f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
+  stat: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   TarLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   Range: 0
   STBS: 0
   BulletSpeed: 2
@@ -66339,7 +66342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 839581870}
+  EnemyState: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
@@ -66375,22 +66378,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4100126, y: 0.4872825}
   m_EdgeRadius: 0
---- !u!114 &839581870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839581863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
-  EnemyHp: {fileID: 0}
-  tei: {fileID: 0}
-  yurret: {fileID: 0}
 --- !u!1 &870744597
 GameObject:
   m_ObjectHideFlags: 0
@@ -119599,6 +119586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd75035f14b75140b384fb7c945293f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  Icon: {fileID: 0}
+  Name: 
+  Discripsen: 
+  strength: 10
 --- !u!1 &1325678762
 GameObject:
   m_ObjectHideFlags: 3
@@ -119749,8 +119741,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -120143,8 +120135,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 640eab094cd932949884124ce9fc698c, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 640eab094cd932949884124ce9fc698c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
