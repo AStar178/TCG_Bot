@@ -65187,12 +65187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 466595312}
+  EnemyState: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
+  BlockChanse: 0
   spriteRenderer: {fileID: 684678355}
   OnDieEffect: {fileID: 0}
   xpAmount: 20
@@ -65295,12 +65296,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 470841538}
+  EnemyState: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
+  BlockChanse: 0
   spriteRenderer: {fileID: 1451782204}
   OnDieEffect: {fileID: 0}
   xpAmount: 20
@@ -65346,16 +65348,16 @@ MonoBehaviour:
   NoChase: 0
   Slugs: {fileID: 2573341647957285371, guid: 130fca7e25e12054490f867088c5967b, type: 3}
   Hp: {fileID: 470841537}
-  Cooldown: 5
-  afkD: 3
+  Cooldown: 10
+  afkD: 6
   LowSummonHealth: 30
-  Healing: 2.5
+  Healing: 4
   MinionSpeed: 0.35
   MinSummon: 4
   MaxSummon: 6
-  MinX: 0
+  MinX: -4
   MaxX: 4
-  MinY: 0
+  MinY: -4
   MaxY: 4
 --- !u!61 &470841540
 BoxCollider2D:
@@ -65639,9 +65641,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 0.99954563
-    height: 1.0009017
+    y: 0.0012840268
+    width: 1
+    height: 0.99640477
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -66411,13 +66413,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
-  TarLayer:
-    serializedVersion: 2
-    m_Bits: 192
   Range: 0
   STBS: 0
   BulletSpeed: 2
+  Frendly: 0
+  enemyHp: {fileID: 0}
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
+  LayerMaskEnemy:
+    serializedVersion: 2
+    m_Bits: 0
+  LayerMaskFreandy:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &839581865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66497,12 +66504,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 839581870}
+  EnemyState: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0
+  BlockChanse: 0
   spriteRenderer: {fileID: 839581865}
   OnDieEffect: {fileID: 0}
   xpAmount: 40
