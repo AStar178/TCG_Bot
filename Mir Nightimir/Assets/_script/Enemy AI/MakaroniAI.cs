@@ -97,7 +97,7 @@ public class MakaroniAI : TESTei
                     B.GetComponent<SpriteRenderer>().sprite = BulletSprite;
                     B.gameObject.transform.DOScale(1, 1);
                     GameObject C = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
-                    Destroy(C, 6);
+                    C.transform.SetParent ( B.transform );
                     await Wait(1);
 
                     Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
@@ -137,9 +137,9 @@ public class MakaroniAI : TESTei
                 {
                     randomVector2(transform.position, MinX, MaxX, MinY, MaxY);
                     GameObject b = Instantiate(Slugs, rand, Quaternion.identity);
+                    GameObject c = Instantiate(GhosSpawn, b.transform.position, Quaternion.identity);
                     b.GetComponent<Makalaka>().target = gameObject; b.GetComponent<Makalaka>().Speed = MinionSpeed;
                     b.GetComponent<Makalaka>().Healing = Healing; b.GetComponent<Makalaka>().BozzHP = Hp;
-                    GameObject c = Instantiate(GhosSpawn, b.transform.position, Quaternion.identity);
                     Destroy(c, 6);
                 }
                 await Wait(afkD);
