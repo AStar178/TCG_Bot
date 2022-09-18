@@ -65353,11 +65353,18 @@ MonoBehaviour:
   lungColdown: 0
   NoChase: 0
   Slugs: {fileID: 2573341647957285371, guid: 130fca7e25e12054490f867088c5967b, type: 3}
+  Ghos: {fileID: 8482224905265213822, guid: aeceb54e7ac2646488c4e6b346f3adee, type: 3}
   Hp: {fileID: 470841537}
+  MagicSpawn: {fileID: 889587192077556572, guid: c34a150d56b09d248adb68a312c47d75, type: 3}
+  MagicHit: {fileID: 903061095572501512, guid: 36b6adf0e4ea43c4c913ecd414e4592b, type: 3}
+  SLimeSpawn: {fileID: 8210409536137246418, guid: aed647b65f1fb1343843d4127df68b13, type: 3}
+  GhosSpawn: {fileID: 8210409536137246418, guid: 9621c6feb1d2d394eb8e14ab877e5e92, type: 3}
+  CooldownF: 10
+  afkF: 0.25
   Cooldown: 10
   afkD: 5
   LowSummonHealth: 30
-  Healing: 4
+  Healing: 5
   MinionSpeed: 0.35
   MinSummon: 4
   MaxSummon: 6
@@ -65368,35 +65375,6 @@ MonoBehaviour:
   PlayerLayer: 7
   ShotTimer: 3
   bulletColor: {r: 0.37169808, g: 0.96825075, b: 1, a: 1}
-  trailColor:
-    serializedVersion: 2
-    key0: {r: 0.37254903, g: 0.9686275, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 0}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
   BulletSprite: {fileID: 21300000, guid: 9e32f4829fbdf46468955700bb8bfce7, type: 3}
 --- !u!61 &470841540
 BoxCollider2D:
@@ -65680,9 +65658,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0012840268
+    y: 0
     width: 1
-    height: 0.99640477
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -66457,6 +66435,7 @@ MonoBehaviour:
   BulletSpeed: 2
   Frendly: 0
   enemyHp: {fileID: 0}
+  renderers: {fileID: 0}
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
   LayerMaskEnemy:
     serializedVersion: 2

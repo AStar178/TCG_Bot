@@ -8,8 +8,20 @@ public class MakaroniAI : TESTei
 {
     private bool afk;
     public GameObject Slugs;
+    public GameObject Ghos;
     public EnemyHp Hp;
-    #region Summon
+    public GameObject MagicSpawn;
+    public GameObject MagicHit;
+    public GameObject SLimeSpawn;
+    public GameObject GhosSpawn;
+
+    #region Summon Fighter
+    public float CooldownF;
+    private float timeF;
+    public float afkF;
+    #endregion
+
+    #region Summon Healing
     public float Cooldown;
     private float time;
     private Vector2 rand;
@@ -37,7 +49,6 @@ public class MakaroniAI : TESTei
     private float FixSecondN;
     private bool ATTACK = false;
     public Color bulletColor;
-    public Gradient trailColor;
     public Sprite BulletSprite;
 
     private GameObject project;
@@ -47,7 +58,6 @@ public class MakaroniAI : TESTei
     {
         base.start();
         project = EnemyStatic.project;
-        time = Cooldown;
     }
 
     public override async void update()
@@ -82,17 +92,21 @@ public class MakaroniAI : TESTei
                     GameObject B = Instantiate(project, transform.position, Quaternion.identity);
                     B.layer = PlayerLayer;
                     B.GetComponent<SpriteRenderer>().color = bulletColor;
-                    B.GetComponent<TrailRenderer>().colorGradient = trailColor;
                     B.GetComponent<BoxCollider2D>().enabled = false;
                     B.AddComponent<CircleCollider2D>().isTrigger = true;
                     B.GetComponent<SpriteRenderer>().sprite = BulletSprite;
                     B.gameObject.transform.DOScale(1, 1);
+                    GameObject C = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
+                    Destroy(C, 6);
                     await Wait(1);
 
                     Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
                     SetupBullet(B);
                     var tween = B.transform.DOMove(targetPos, .5f);
                     EnemyStatic.KillTween(.5f, tween, B);
+                    await Wait(.48f);
+                    GameObject E = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
+                    Destroy(E, 6);
                 }
                 else
                 {
@@ -103,13 +117,19 @@ public class MakaroniAI : TESTei
             {
                 time = time - Time.deltaTime;
             }
+            if (timeF >= 0)
+            {
+                timeF = timeF - Time.deltaTime;
+            }
         }
 
         if (time <= 0)
         {
             if (LowSummonHealth >= Hp.Currenthp)
             {
+                Hp.Currenthp += Hp.MaxHp * 0.1f;
                 afk = true;
+                gameObject.SetActive(false);
                 time = Cooldown;
                 // Spawn Healing Orbs or Healing Minions
                 summon = Random.Range(MinSummon, MaxSummon);
@@ -119,10 +139,32 @@ public class MakaroniAI : TESTei
                     GameObject b = Instantiate(Slugs, rand, Quaternion.identity);
                     b.GetComponent<Makalaka>().target = gameObject; b.GetComponent<Makalaka>().Speed = MinionSpeed;
                     b.GetComponent<Makalaka>().Healing = Healing; b.GetComponent<Makalaka>().BozzHP = Hp;
+                    GameObject c = Instantiate(GhosSpawn, b.transform.position, Quaternion.identity);
+                    Destroy(c, 6);
                 }
                 await Wait(afkD);
+                gameObject.SetActive(true);
                 afk = false;
             }
+        }
+
+        if (timeF <= 0 && Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
+        {
+            afk = true;
+            gameObject.SetActive(false);
+            timeF = CooldownF;
+            // Spawn Healing Orbs or Healing Minions
+            summon = 3;
+            for (int i = 0; i < summon; i++)
+            {
+                randomVector2(transform.position, MinX, MaxX, MinY, MaxY);
+                GameObject b = Instantiate(Ghos, rand, Quaternion.identity);
+                GameObject c = Instantiate(Ghos, b.transform.position, Quaternion.identity);
+                Destroy(c, 6);
+            }
+            await Wait(afkF);
+            gameObject.SetActive(true);
+            afk = false;
         }
     }
 
