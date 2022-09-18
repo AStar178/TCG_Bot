@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 195c5d7fdf8ffcf40a6fa32f4fa91926, type: 2}
+  - {fileID: 2100000, guid: 930379f990890e3429102b2a12311f8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 2573341647957285249}
   - component: {fileID: 2573341647957285248}
   - component: {fileID: 2573341647957285255}
-  - component: {fileID: 2573341647957285254}
   - component: {fileID: 2573341647957285253}
   - component: {fileID: 2573341647957285252}
   - component: {fileID: 5867443394263635040}
@@ -156,7 +155,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04753399, y: -0.029708758}
+  m_Offset: {x: -0.002603799, y: -0.097637355}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -167,31 +166,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5276313, y: 0.81302166}
+  m_Size: {x: 0.62790686, y: 0.44103163}
   m_EdgeRadius: 0
---- !u!114 &2573341647957285254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573341647957285371}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
-  Speed: 0
-  Range: 0
-  target: {fileID: 0}
-  Coward: 0
-  CowardenessRange: 0
-  Lung: 0
-  LungRange: 0
-  LungCooldown: 0
-  lungColdown: 0
-  NoChase: 0
 --- !u!114 &2573341647957285253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 15786432000962644b0778b4b80fecb4, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 2573341647957285252}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -220,12 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 2573341647957285253}
+  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
+  BlockChanse: 14
   spriteRenderer: {fileID: 2573341647705990374}
   OnDieEffect: {fileID: 0}
   xpAmount: 0
@@ -244,3 +221,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Speed: 0
+  Healing: 0
+  BozzHP: {fileID: 2573341647957285252}
