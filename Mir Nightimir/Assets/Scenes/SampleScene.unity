@@ -66421,10 +66421,10 @@ MonoBehaviour:
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
   LayerMaskEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   LayerMaskFreandy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!212 &839581865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -120209,6 +120209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
+  TextPrefab: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
 --- !u!114 &1507572142
 MonoBehaviour:
   m_ObjectHideFlags: 0
