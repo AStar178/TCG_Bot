@@ -77,6 +77,7 @@ public class RangeED : TESTei
         damage.ApDamage = state.Mp_DefenceReduser;
         var bullet = b.AddComponent<EnemyBullent>();
         bullet.damage = damage;
+        bullet.layerMask = 6;
     }
     private async void KillTween(float v, Tween tween , GameObject b)
     {

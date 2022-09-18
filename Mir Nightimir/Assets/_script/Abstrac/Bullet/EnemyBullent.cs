@@ -14,8 +14,7 @@ public class EnemyBullent : MonoBehaviour
         if ( other.gameObject.layer != layerMask ) { return; }
 
         if ( !other.TryGetComponent(out IHpValue hpValue) ) { return; } 
-
-
+        if ( damage.GameObjectRefernce == hpValue ) { return; }
         hpValue.HpValueChange(damage);
 
         Destroy(this.gameObject);

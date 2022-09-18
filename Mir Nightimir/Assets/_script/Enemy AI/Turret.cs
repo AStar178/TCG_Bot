@@ -9,7 +9,6 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public State stat;
-    public LayerMask TarLayer;
     private Collider2D Tar;
     public float Range;
 
@@ -19,8 +18,12 @@ public class Turret : MonoBehaviour
     private float FixSecondN;
     public float BulletSpeed = 1;
     bool ATTACK = false;
-
+    [SerializeField] bool Frendly = false;
+    [SerializeField] EnemyHp enemyHp;
     public GameObject project;
+
+    public LayerMask LayerMaskEnemy;
+    public LayerMask LayerMaskFreandy;
 
     public void Start()
     {
@@ -31,7 +34,8 @@ public class Turret : MonoBehaviour
 
     public void Update()
     {
-        Tar = Physics2D.OverlapCircle(transform.position, Range, TarLayer);
+        if (Frendly == false) { gameObject.layer = 7; }
+        Tar = Physics2D.OverlapCircle(transform.position, Range, Frendly ? LayerMaskFreandy : LayerMaskEnemy);
 
         if (Tar != null) { ATTACK = true; }
         else { ATTACK = false; }
@@ -72,7 +76,8 @@ public class Turret : MonoBehaviour
         damage.ApDamage = stat.Mp_DefenceReduser < 0 ? 1 : stat.Mp_DefenceReduser;
         var bullet = b.AddComponent<EnemyBullent>();
         bullet.damage = damage;
-        bullet.layerMask = 6;
+        bullet.damage.GameObjectRefernce = enemyHp;
+        bullet.layerMask = Frendly ? 7 : 6;
     }
 
     private async void KillTween(float v, Tween tween , GameObject b)

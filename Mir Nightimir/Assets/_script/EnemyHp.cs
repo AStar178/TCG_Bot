@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyHp : MonoBehaviour , IHpValue
 { 
-    [SerializeField] EnemyState EnemyState;
+    [SerializeField] State EnemyState;
 
     public float MaxHp;
     public float Currenthp;
@@ -17,12 +17,21 @@ public class EnemyHp : MonoBehaviour , IHpValue
     [SerializeField] GameObject OnDieEffect;
     [SerializeField] int xpAmount;
     [SerializeField] int coinsAmount;
+    private void Start() 
+    {
+        
+        MaxHp = EnemyState.MaxHpAmount;
+        Currenthp = EnemyState.MaxHpAmount;
+        Amoro = EnemyState.Amoro;
+        MagicResest = EnemyState.MagicReset;
+
+    }
     public void HpValueChange(Damage damage)
     {
 
-        float AdDamageAmount = 100 - ( Amoro/damage.Ad_DefenceReduser );
+        float AdDamageAmount = 100 - ( Amoro - damage.Ad_DefenceReduser );
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
-        float ApDamageAmount = 100 - ( MagicResest/damage.Mp_DefenceReduser );
+        float ApDamageAmount = 100 - ( MagicResest - damage.Mp_DefenceReduser );
         Currenthp -= damage.ApDamage * ( AdDamageAmount / 100 );
         if (Currenthp <= 0)
         {
