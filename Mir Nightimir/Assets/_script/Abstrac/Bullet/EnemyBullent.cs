@@ -5,18 +5,15 @@ using UnityEngine;
 public class EnemyBullent : MonoBehaviour
 {
     public Damage damage;
-    bool yes;
-    float zzzz = 0.1f;
-    private void Update() 
-    {
-        zzzz -= Time.deltaTime;
-        if (zzzz < 0)
-            yes = true;
-    }
+    public int layerMask = 0;
+
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (yes == false) { return; }
-        if (!other.TryGetComponent(out IHpValue hpValue)) { return; } 
+        if ( 0 == layerMask ) { return; }
+
+        if ( other.gameObject.layer != layerMask ) { return; }
+
+        if ( !other.TryGetComponent(out IHpValue hpValue) ) { return; } 
 
 
         hpValue.HpValueChange(damage);

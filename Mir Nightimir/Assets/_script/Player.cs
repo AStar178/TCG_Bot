@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
     {
         
         List<AbilityPowerUps> abilityPower = new List<AbilityPowerUps>(); 
-        abilityPower.AddRange( PowerUps.GetComponents<AbilityPowerUps>() );
+        abilityPower.AddRange( PowerUps.GetComponentsInChildren<AbilityPowerUps>() );
         abilityPowerUps = abilityPower;
         for (int i = 0; i < abilityPower.Count; i++)
         {
@@ -90,16 +90,15 @@ public class Player : MonoBehaviour
         }
         
     }
-    public void AddPowerUp( AbilityPowerUps upgrateObject )
+    public void AddPowerUp( GameObject upgrateObject )
     {
-        PowerUps.gameObject.AddComponent<AbilityPowerUps>();
-        List<AbilityPowerUps> abilityPower = new List<AbilityPowerUps>(); 
-        abilityPower.AddRange( PowerUps.GetComponents<AbilityPowerUps>() );
-        abilityPowerUps = abilityPower;
-        for (int i = 0; i < abilityPower.Count; i++)
-        {
-            abilityPower[i].OnPowerUp ( this );
-        }
+        
+        var owo = Instantiate( upgrateObject );
+        owo.transform.SetParent( PowerUps );
+        var power = owo.GetComponent<AbilityPowerUps>();
+        abilityPowerUps.Add ( power );
+        power.OnPowerUp( this );
+        
         
         CulculateAllBuffs();
     }

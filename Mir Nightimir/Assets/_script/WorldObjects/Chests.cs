@@ -7,7 +7,7 @@ public class Chests : MonoBehaviour
 {
     [SerializeField] RandomChestSpawnerManger randomChestSpawnerManger;
     [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] AbilityPowerUps upgrateObject;
+    [SerializeField] GameObject upgrateObject;
     [SerializeField] TMPro.TMP_Text TMP_Text;
     private RareyValue Value;
     public int MoneyNeeded;

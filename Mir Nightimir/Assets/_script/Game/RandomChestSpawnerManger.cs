@@ -8,22 +8,22 @@ using Random = UnityEngine.Random;
 
 public class RandomChestSpawnerManger : MonoBehaviour 
 {
-    public List<AbilityPowerUps> commanIteams = new List<AbilityPowerUps>();
+    public List<GameObject> commanIteams = new List<GameObject>();
     public int Moneycomman;
     [SerializeField] Color commanColor;
-    public List<AbilityPowerUps> GreenIteams = new List<AbilityPowerUps>();
+    public List<GameObject> GreenIteams = new List<GameObject>();
     public int MoneyGreen;
     [SerializeField] Color GreenColor;
     [Range(0 , 100)] [SerializeField] int RangeGreen;
-    public List<AbilityPowerUps> RareIteams = new List<AbilityPowerUps>();
+    public List<GameObject> RareIteams = new List<GameObject>();
     public int MoneyRare;
     [SerializeField] Color RareColor;
     [Range(0 , 100)] [SerializeField] int RangeRare;
-    public List<AbilityPowerUps> EpicIteams = new List<AbilityPowerUps>();
+    public List<GameObject> EpicIteams = new List<GameObject>();
     public int MoneyEpic;
     [SerializeField] Color EpicColor;
     [Range(0 , 100)] [SerializeField] int RangeEpic;
-    public List<AbilityPowerUps> LegenderyIteams = new List<AbilityPowerUps>();
+    public List<GameObject> LegenderyIteams = new List<GameObject>();
     public int MoneyLegendery;
     [SerializeField] Color LegenderyColor;
     [Range(0 , 100)] [SerializeField] int RangeLegendery;
@@ -57,7 +57,7 @@ public class RandomChestSpawnerManger : MonoBehaviour
             gameObject.transform.SetParent( transform );
     }
 
-    public Color ChooseRandomIteam( out RareyValue RareyValue2 , out AbilityPowerUps UpgradeObject , out int money )
+    public Color ChooseRandomIteam( out RareyValue RareyValue2 , out GameObject UpgradeObject , out int money )
     {
         if ( Random.value >= ( RangeGreen * .01f ) )
         {
@@ -94,34 +94,34 @@ public class RandomChestSpawnerManger : MonoBehaviour
         return LegenderyColor * (6 * 3);  
     }
 
-    private AbilityPowerUps PickRandomLegenderyObject()
+    private GameObject PickRandomLegenderyObject()
     {
         var id = Random.Range(0 , LegenderyIteams.Count);
 
         return LegenderyIteams[id];
     }
-    private AbilityPowerUps PickRandomEpicObject()
+    private GameObject PickRandomEpicObject()
     {
         var id = Random.Range(0 , EpicIteams.Count);
 
         return EpicIteams[id];
     }
 
-    private AbilityPowerUps PickRandomRareObject()
+    private GameObject PickRandomRareObject()
     {
         var id = Random.Range(0 , RareIteams.Count);
 
         return RareIteams[id];
     }
 
-    private AbilityPowerUps PickRandomGreenObject()
+    private GameObject PickRandomGreenObject()
     {
         var id = Random.Range(0 , GreenIteams.Count);
 
         return GreenIteams[id];
     }
 
-    private AbilityPowerUps PickRandomCommanObject()
+    private GameObject PickRandomCommanObject()
     {
         var id = Random.Range(0 , commanIteams.Count);
 

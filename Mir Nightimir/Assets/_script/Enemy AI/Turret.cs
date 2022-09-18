@@ -66,13 +66,13 @@ public class Turret : MonoBehaviour
     {
         Damage damage = new Damage();
 
-        b.layer = 7;
         damage.AdDamage = stat.AdDamage;
         damage.ApDamage = stat.ApDamage;
-        damage.Ad_DefenceReduser = stat.Ad_DefenceReduser;
-        damage.ApDamage = stat.Mp_DefenceReduser;
+        damage.Ad_DefenceReduser = stat.Ad_DefenceReduser < 0 ? 1 : stat.Ad_DefenceReduser;
+        damage.ApDamage = stat.Mp_DefenceReduser < 0 ? 1 : stat.Mp_DefenceReduser;
         var bullet = b.AddComponent<EnemyBullent>();
         bullet.damage = damage;
+        bullet.layerMask = 6;
     }
 
     private async void KillTween(float v, Tween tween , GameObject b)
