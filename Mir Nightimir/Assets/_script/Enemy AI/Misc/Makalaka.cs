@@ -27,7 +27,7 @@ public class Makalaka : MonoBehaviour
         if (Vector2.Distance(target.transform.position, transform.position) <= .5f)
         {
             BozzHP.Currenthp = BozzHP.Currenthp + Healing;
-            CreatCoustomTextPopup("+" + Healing, target.transform.position);
+            EnemyStatic.CreatCoustomTextPopup("+" + Healing, target.transform.position, Color.green);
             Destroy(gameObject);
         }
         SpriteUpdaye();
