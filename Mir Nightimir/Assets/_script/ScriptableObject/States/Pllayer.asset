@@ -17,8 +17,8 @@ MonoBehaviour:
   AttackSpeed: 150
   Amoro: 1
   MagicReset: 1
-  Ad_DefenceReduser: 1
-  Mp_DefenceReduser: 1
+  Ad_DefenceReduser: 0
+  Mp_DefenceReduser: 0
   MaxHpAmount: 10
   MoveSpeed: 2
   AggroRange: 1.3
