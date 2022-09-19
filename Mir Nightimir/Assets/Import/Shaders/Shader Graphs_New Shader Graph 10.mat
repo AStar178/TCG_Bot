@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_New Shader Graph 9
+  m_Name: Shader Graphs_New Shader Graph 10
   m_Shader: {fileID: -6465566751694194690, guid: 0f9c2ee37bf64a34dba80c9d1e5b3a54, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -57,7 +57,7 @@ Material:
     - _QueueOffset: 0
     - _raduse: 1
     m_Colors:
-    - _Color: {r: 120.96718, g: 0.000011055649, b: 0, a: 0.21176471}
+    - _Color: {r: 0, g: 26.952015, b: 25.540915, a: 0.21176471}
     - _GridSize: {r: 20, g: 13.5, b: 0, a: 0}
     - _fernale_colort: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

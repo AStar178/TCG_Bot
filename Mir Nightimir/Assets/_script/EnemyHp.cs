@@ -13,7 +13,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
     public float MagicResest;
     public float DelayDamageTakeTime;
     [Range( 0 , 100 )]
-    [SerializeField] private float BlockChanse;
+    [SerializeField] public float BlockChanse;
     float delayTime;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] GameObject OnDieEffect;

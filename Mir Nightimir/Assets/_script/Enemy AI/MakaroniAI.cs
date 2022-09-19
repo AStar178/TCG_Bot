@@ -50,20 +50,30 @@ public class MakaroniAI : TESTei
     private bool ATTACK = false;
     public Color bulletColor;
     public Sprite BulletSprite;
+    private Vector3 LastPos;
 
     private GameObject project;
     #endregion
-
+    float speedy;
+    Color oldColor;
     public override void start()
     {
         base.start();
         project = EnemyStatic.project;
+        speedy = Speed;
+        oldColor = SpriteRenderer.material.GetColor( "_Color" );
     }
 
     public override async void update()
     {
+        if (SpriteRenderer != null)
+            SpriteFreeFire();
+
+        if (afk == true)
+            transform.position = LastPos;
         if (afk == false)
         {
+            LastPos = transform.position;
             if (NoChase == false)
             {
                 if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range &&
@@ -71,7 +81,7 @@ public class MakaroniAI : TESTei
                 { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
                 if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range) { ATTACK = true; }
                 else { ATTACK = false; }
-        }
+            }
             if (Lung == true)
             {
                 Lun();
@@ -90,23 +100,22 @@ public class MakaroniAI : TESTei
                         FixSecond += Time.deltaTime;
                     }
                     GameObject B = Instantiate(project, transform.position, Quaternion.identity);
+                    GameObject E = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
+                    Destroy(E, 4);
                     B.layer = PlayerLayer;
                     B.GetComponent<SpriteRenderer>().color = bulletColor;
                     B.GetComponent<BoxCollider2D>().enabled = false;
                     B.AddComponent<CircleCollider2D>().isTrigger = true;
+                    B.GetComponent<CircleCollider2D>().radius = 0.2f;
                     B.GetComponent<SpriteRenderer>().sprite = BulletSprite;
-                    B.gameObject.transform.DOScale(1, 1);
-                    GameObject C = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
-                    C.transform.SetParent ( B.transform );
-                    await Wait(1);
+                    B.gameObject.transform.DOScale(3, 3);
+                    await Wait(3);
 
                     Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
                     SetupBullet(B);
                     var tween = B.transform.DOMove(targetPos, .5f);
                     EnemyStatic.KillTween(.5f, tween, B);
                     await Wait(.48f);
-                    GameObject E = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
-                    Destroy(E, 6);
                 }
                 else
                 {
@@ -129,7 +138,9 @@ public class MakaroniAI : TESTei
             {
                 Hp.Currenthp += Hp.MaxHp * 0.1f;
                 afk = true;
-                gameObject.SetActive(false);
+                Hp.BlockChanse = 100;
+                SpriteRenderer.material.SetColor( "_Color" , Color.yellow * 10 );
+                Speed = 0;
                 time = Cooldown;
                 // Spawn Healing Orbs or Healing Minions
                 summon = Random.Range(MinSummon, MaxSummon);
@@ -143,7 +154,9 @@ public class MakaroniAI : TESTei
                     Destroy(c, 6);
                 }
                 await Wait(afkD);
-                gameObject.SetActive(true);
+                SpriteRenderer.material.SetColor( "_Color" , oldColor * 10 );
+                Speed = speedy;
+                Hp.BlockChanse = 0;
                 afk = false;
             }
         }
@@ -151,21 +164,34 @@ public class MakaroniAI : TESTei
         if (timeF <= 0 && Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
         {
             afk = true;
-            gameObject.SetActive(false);
+            Hp.BlockChanse = 100;
             timeF = CooldownF;
             // Spawn Healing Orbs or Healing Minions
             summon = 3;
             for (int i = 0; i < summon; i++)
             {
                 randomVector2(transform.position, MinX, MaxX, MinY, MaxY);
-                GameObject b = Instantiate(Ghos, rand, Quaternion.identity);
-                GameObject c = Instantiate(Ghos, b.transform.position, Quaternion.identity);
-                Destroy(c, 6);
+                GameObject b = Instantiate( Ghos, rand, Quaternion.identity);
+                //GameObject c = Instantiate(Ghos, b.transform.position, Quaternion.identity);
+                var effect = Instantiate( SLimeSpawn , b.transform.position , Quaternion.identity );
+                Destroy( effect , 6 );
+                //Destroy(c, 6);
             }
             await Wait(afkF);
-            gameObject.SetActive(true);
+            Hp.BlockChanse = 0;
             afk = false;
         }
+    }
+
+    private void SpriteFreeFire()
+    {
+            
+        if (Vector2.Dot( ( target.transform.position - transform.position ).normalized , Vector2.left ) < -0.1f)
+        {
+            SpriteRenderer.flipX = true;            
+            return;
+        } 
+        SpriteRenderer.flipX = false;
     }
 
     private async Task Wait(float Timez)

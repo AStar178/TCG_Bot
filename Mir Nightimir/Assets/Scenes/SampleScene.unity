@@ -64989,7 +64989,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65242,6 +65242,7 @@ MonoBehaviour:
   LungCooldown: 0
   lungColdown: 0
   NoChase: 0
+  SpriteRenderer: {fileID: 0}
 --- !u!114 &466595314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65265,6 +65266,7 @@ MonoBehaviour:
   LungCooldown: 2
   lungColdown: 0
   NoChase: 0
+  SpriteRenderer: {fileID: 0}
   PlayerLayer: 7
   STBS: 1
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
@@ -65312,7 +65314,7 @@ MonoBehaviour:
   OnDieEffect: {fileID: 0}
   xpAmount: 20
   coinsAmount: 6
-  resultOfBlocked: 0
+  resultOfBlocked: 1
 --- !u!114 &470841538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65325,7 +65327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 470841537}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -65341,7 +65343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 0
   Range: 0
   target: {fileID: 0}
@@ -65352,6 +65354,7 @@ MonoBehaviour:
   LungCooldown: 4
   lungColdown: 0
   NoChase: 0
+  SpriteRenderer: {fileID: 1451782204}
   Slugs: {fileID: 2573341647957285371, guid: 130fca7e25e12054490f867088c5967b, type: 3}
   Ghos: {fileID: 8482224905265213822, guid: aeceb54e7ac2646488c4e6b346f3adee, type: 3}
   Hp: {fileID: 470841537}
@@ -65360,9 +65363,9 @@ MonoBehaviour:
   SLimeSpawn: {fileID: 8210409536137246418, guid: aed647b65f1fb1343843d4127df68b13, type: 3}
   GhosSpawn: {fileID: 8210409536137246418, guid: 9621c6feb1d2d394eb8e14ab877e5e92, type: 3}
   CooldownF: 10
-  afkF: 0.25
+  afkF: 2
   Cooldown: 10
-  afkD: 5
+  afkD: 10
   LowSummonHealth: 30
   Healing: 5
   MinionSpeed: 0.35
@@ -65502,7 +65505,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65659,8 +65662,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.99999994
+    height: 0.99862075
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -65808,13 +65811,13 @@ MonoBehaviour:
   PlayerHp: {fileID: 955869193}
   abilityPowerUps:
   - {fileID: 0}
-  uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  uiEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}
   PowerUps: {fileID: 1308843648}
   CurrentLevel: 1
-  XpMax: 100
+  XpMax: 20
   CurrentXp: 0
-  CurrentCoins: 0
+  CurrentCoins: 20000
   strength: 1
   vitality: 1
   dexterity: 1
@@ -65992,7 +65995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efd7dbea873f1640abd7a500f15b7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  gameEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
@@ -66322,7 +66325,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66434,8 +66437,8 @@ MonoBehaviour:
   STBS: 0
   BulletSpeed: 2
   Frendly: 0
-  enemyHp: {fileID: 0}
-  renderers: {fileID: 0}
+  enemyHp: {fileID: 839581868}
+  renderers: {fileID: 839581865}
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
   LayerMaskEnemy:
     serializedVersion: 2
@@ -66572,7 +66575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   EnemyHp: {fileID: 839581868}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -66731,9 +66734,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body3d: {fileID: 955869192}
   SpriteRenderer: {fileID: 870744599}
+  player: {fileID: 616022487}
   moveSpeed: 1
   BulletSpawnPos: {fileID: 136189973}
   pos: {x: 0.211, y: 0.203}
+  ChestLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!50 &955869192
 Rigidbody2D:
   serializedVersion: 4
@@ -119749,8 +119756,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308843648}
-  - component: {fileID: 1308843650}
-  - component: {fileID: 1308843649}
   m_Layer: 6
   m_Name: PowerUps
   m_TagString: Untagged
@@ -119773,38 +119778,6 @@ Transform:
   m_Father: {fileID: 616022486}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1308843649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308843647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc413447bcd151438fa47575f7fbfdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Name: 
-  Discripsen: 
-  strengthzz: 10
---- !u!114 &1308843650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308843647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0abe83aaa1bd0cd4c848e976430bf1a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Name: 
-  Discripsen: 
-  AttackSpeedBuff: 20
 --- !u!1 &1325678762
 GameObject:
   m_ObjectHideFlags: 3
@@ -119956,7 +119929,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -120263,26 +120236,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commanIteams:
-  - {fileID: 0}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
+  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   Moneycomman: 5
   commanColor: {r: 0.20754719, g: 0.15509021, b: 0, a: 1}
   GreenIteams:
-  - {fileID: 0}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
+  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   MoneyGreen: 10
   GreenColor: {r: 0.03921567, g: 0.99607843, b: 0.041883692, a: 1}
   RangeGreen: 50
   RareIteams:
-  - {fileID: 0}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
+  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   MoneyRare: 20
   RareColor: {r: 0, g: 0.94248676, b: 1, a: 1}
   RangeRare: 45
   EpicIteams:
-  - {fileID: 0}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
+  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   MoneyEpic: 40
   EpicColor: {r: 0.80887604, g: 0, b: 1, a: 1}
   RangeEpic: 35
   LegenderyIteams:
-  - {fileID: 0}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
+  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   MoneyLegendery: 80
   LegenderyColor: {r: 1, g: 0.6090461, b: 0, a: 1}
   RangeLegendery: 30
@@ -120435,7 +120423,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

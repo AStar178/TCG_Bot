@@ -46,7 +46,7 @@ Material:
     - _QueueOffset: 0
     - _raduse: 1
     m_Colors:
-    - _Color: {r: 2.0917044, g: 8.366817, b: 7.8663054, a: 1}
+    - _Color: {r: 3.0117648, g: 11.984314, b: 11.294118, a: 1}
     - _fernale_colort: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &558882056795381987

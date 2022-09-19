@@ -33,6 +33,7 @@ public class PlayerMoveMent : MonoBehaviour
         if ( Input.GetKeyDown( KeyCode.E ) )
         {
             var Chest = Physics2D.OverlapCircle( transform.position , 1 , ChestLayer );
+            if ( Chest == null ) { return; }
             if ( Chest.TryGetComponent<Chests>( out Chests coins ) )
             {
                 coins.Purchist( player );

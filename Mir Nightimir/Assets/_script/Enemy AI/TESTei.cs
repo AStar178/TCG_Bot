@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public abstract class TESTei : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public abstract class TESTei : MonoBehaviour
     [HideInInspector]
     public float lungColdown;
     public bool NoChase;
-
+    [SerializeField] protected SpriteRenderer SpriteRenderer;
     public void Awake()
     {
         awake();
@@ -48,6 +49,8 @@ public abstract class TESTei : MonoBehaviour
 
     public virtual void update()
     {
+        if (SpriteRenderer != null)
+            SpriteFreeFire();
         if (NoChase == false)
         {
             if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range && Vector2.Distance(gameObject.transform.position, target.transform.position) >= .35f)
@@ -82,11 +85,23 @@ public abstract class TESTei : MonoBehaviour
             {
                 lungColdown = LungCooldown;
                 gameObject.transform.DOMove(target.transform.position, 1 / (Speed * 2));
+
                 NoChase = true;
                 new WaitForSeconds(1 / Speed);
                 NoChase = false;
             }
         }
+    }
+
+    private void SpriteFreeFire()
+    {
+            
+        if (Vector2.Dot( ( target.transform.position - transform.position ).normalized , Vector2.left ) < -0.1f)
+        {
+            SpriteRenderer.flipX = true;            
+            return;
+        } 
+        SpriteRenderer.flipX = false;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
