@@ -7,11 +7,15 @@ public class AbilityPowerUps : MonoBehaviour
     [SerializeField] Sprite Icon;
     [SerializeField] string Name;
     [SerializeField] string Discripsen;
+    protected Player GetPlayer() => player1;
     public virtual void OnPowerUp(Player player)
     {
         player1 = player;
     }
-
+    public virtual void OnFirstTime(Player player)
+    {
+        player1 = player;
+    }
     public virtual void OnDealDamage(Transform target , IHpValue targetHp) 
     {
 
@@ -25,6 +29,13 @@ public class AbilityPowerUps : MonoBehaviour
     {
 
     }
-    
+    public UpgrateEventData GetDataUI()
+    {
+        UpgrateEventData upgrateEventData = new UpgrateEventData();
+        upgrateEventData.Image = Icon;
+        upgrateEventData.Name = Name;
+        upgrateEventData.Discripsen = Discripsen;
+        return upgrateEventData;
+    }   
 
 }

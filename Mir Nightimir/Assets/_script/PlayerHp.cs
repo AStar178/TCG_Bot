@@ -32,7 +32,7 @@ public class PlayerHp : MonoBehaviour, IHpValue
     {
         if (delayTime > 0)
         {
-            result = DamageResult.Flaid;
+            result = DamageResult.Failed;
             return;
         }
             

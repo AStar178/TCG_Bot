@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327456406094553380}
-  - component: {fileID: 8632361296753364396}
+  - component: {fileID: -3949930529743172234}
   m_Layer: 0
-  m_Name: HpBuff
+  m_Name: Ap Buff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8632361296753364396
+--- !u!114 &-3949930529743172234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2757526517292265430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e392f309a08d22047b8c8db57982c728, type: 3}
+  m_Script: {fileID: 11500000, guid: f475fc9e29e76fa48adc1c81d766f68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 4fcd197ebbbbb9642b9f87d2c93f0c6d, type: 3}
-  Name: Hp+ I
-  Discripsen: Gives You Hp Buff
-  Hp: 1
+  Icon: {fileID: 21300000, guid: a10170e17a4c38f4f8896a4d3d0a3b50, type: 3}
+  Name: AP++
+  Discripsen: Ap give s you yes
+  Magiczz: 1

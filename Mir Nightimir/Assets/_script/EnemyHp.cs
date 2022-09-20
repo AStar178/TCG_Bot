@@ -35,10 +35,11 @@ public class EnemyHp : MonoBehaviour , IHpValue
                 var objett = Instantiate(OnDieEffect , transform.position , Quaternion.identity);
                 Destroy(OnDieEffect , 6);
             }
+            print(damage.PlayerRefernce == null);
             if (damage.PlayerRefernce != null)
                 damage.PlayerRefernce.GiveStuff( xpAmount == 0 ? 0 : + Random.Range( 0 , 100 ) , coinsAmount == 0 ? 0 : + Random.Range( 0 , 10 ) );
-            Destroy(this.gameObject);
             result = DamageResult.Killed;
+            Destroy(this.gameObject);
             return;
         }
         result = DamageResult.DealadDamaged;

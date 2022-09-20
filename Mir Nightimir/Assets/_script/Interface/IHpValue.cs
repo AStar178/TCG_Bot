@@ -9,7 +9,7 @@ public interface IHpValue
 public enum DamageResult 
 {
     Block ,
-    Flaid ,
+    Failed ,
     DealadDamaged ,
     Miss ,
     Killed

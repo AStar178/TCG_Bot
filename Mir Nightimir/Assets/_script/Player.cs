@@ -13,12 +13,14 @@ public class Player : MonoBehaviour
     [SerializeField] public PlayerHp PlayerHp;
     [SerializeField] public List<AbilityPowerUps> abilityPowerUps;
     [SerializeField] public UiEvent uiEvent;
+    [SerializeField] public UpgrateEvent upgrateEvent;
     [SerializeField] public GameObject OnLevelEffect;
+    [SerializeField] public Transform Body;
     [SerializeField] Transform PowerUps;
     public int CurrentLevel = 1;
     public int XpMax = 100;
-    public int CurrentXp = 0;
     public int CurrentCoins = 0;
+    public float CurrentXp = 0;
     public float strength = 1; //damage
     public float vitality = 1; //health + armor
     public float dexterity = 1; //attack speed (maybe + move ment speed)
@@ -33,10 +35,12 @@ public class Player : MonoBehaviour
     public float AttackSpeedBuff; 
     public float MagicReduseBuff; 
     public float DamageAdBuff; 
+    [Range(1 , 1000)]
+    public float XpGainBuff = 1;
 
     public void GiveStuff(int xp , int coins)
     {
-        CurrentXp += xp;
+        CurrentXp += ( xp * XpGainBuff );
 
         if (CurrentXp >= XpMax)
             LevelUp();
@@ -101,19 +105,32 @@ public class Player : MonoBehaviour
         var owo = Instantiate( upgrateObject );
         owo.transform.SetParent( PowerUps );
         var power = owo.GetComponent<AbilityPowerUps>();
+        CheakForWeHaveThisArealdy( power );
         abilityPowerUps.Add ( power );
         power.OnPowerUp( this );
         
         
         CulculateAllBuffs();
+        OnUpgrateUis( power );
+    }
+
+    private void CheakForWeHaveThisArealdy(AbilityPowerUps power)
+    {
+        for (int i = 0; i < abilityPowerUps.Count; i++)
+        {
+            if ( power.name == abilityPowerUps[i].name )
+            {
+                return;           
+            }
+        }
+        power.OnFirstTime( this );
     }
 
     public void CulculateBuffsAgain() => CulculateAllBuffs();
 
     private void CulculateAllBuffs()
     {
-
-        PlayerMoveMent.moveSpeed =  ( PlayerState.MoveSpeed * ( dexterity * 0.25 ) ) < PlayerState.MoveSpeed ? PlayerState.MoveSpeed : ( PlayerState.MoveSpeed + MoveSpeedBuff )  * ( dexterity * 0.25f ) + CurrentLevel * 0.1f;
+        PlayerMoveMent.moveSpeed =  ( PlayerState.MoveSpeed * ( ( dexterity * 0.25 ) + MoveSpeedBuff ) ) < PlayerState.MoveSpeed ? PlayerState.MoveSpeed : ( PlayerState.MoveSpeed )  * ( ( dexterity * 0.25f ) + MoveSpeedBuff ) + CurrentLevel * 0.1f;
         PlayerHp.MaxHp = ( PlayerState.MaxHpAmount * ( vitality * 0.9f + HpBuff ) ) < PlayerState.MaxHpAmount ? PlayerState.MaxHpAmount : ( PlayerState.MaxHpAmount + HpBuff ) * ( vitality * 1.25f ) + CurrentLevel * 0.1f;
         PlayerHp.Amoro = ( PlayerState.Amoro * ( vitality * 0.6f + AmoroBuff ) ) < PlayerState.Amoro  ? PlayerState.Amoro  : ( PlayerState.Amoro + AmoroBuff ) * ( vitality * 0.6f ) + CurrentLevel * 0.1f;
         PlayerHp.MagicResest = (  MagicReseted * ( intelligence * 0.4 ) ) < PlayerState.MagicReset ? PlayerState.MagicReset : ( PlayerState.MagicReset + MagicReseted ) * ( intelligence * 0.4f ) + CurrentLevel * 0.1f;
@@ -139,6 +156,7 @@ public class Player : MonoBehaviour
             abilityPowerUps[i].OnHpChange();
         }        
 
+        CulculateAllBuffs();
     }
 
     public void UpdateUI()
@@ -154,5 +172,11 @@ public class Player : MonoBehaviour
         uiEventData.CoinsAmount = CurrentCoins;
 
         uiEvent.Rasise( uiEventData );
+    }
+    private void OnUpgrateUis(AbilityPowerUps power)
+    {
+        var uy = power.GetDataUI();
+        upgrateEvent?.Rasise( uy );
+
     }
 }

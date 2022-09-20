@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2757526517292265430
+--- !u!1 &8593584095068623336
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1327456406094553380}
-  - component: {fileID: 8632361296753364396}
+  - component: {fileID: 6669798994243343965}
+  - component: {fileID: 1319320404420126367}
   m_Layer: 0
-  m_Name: HpBuff
+  m_Name: Amoro Buff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1327456406094553380
+--- !u!4 &6669798994243343965
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757526517292265430}
+  m_GameObject: {fileID: 8593584095068623336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.39565, y: 12.657132, z: -8.223904}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8632361296753364396
+--- !u!114 &1319320404420126367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757526517292265430}
+  m_GameObject: {fileID: 8593584095068623336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e392f309a08d22047b8c8db57982c728, type: 3}
+  m_Script: {fileID: 11500000, guid: d11e34df176b2f048be0c12c51e00cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 4fcd197ebbbbb9642b9f87d2c93f0c6d, type: 3}
-  Name: Hp+ I
-  Discripsen: Gives You Hp Buff
-  Hp: 1
+  Icon: {fileID: 21300000, guid: 4aa9a95199c53ab498e5f79d658013aa, type: 3}
+  Name: Amoro ++
+  Discripsen: Gives you Amoro
+  Amorozzz: 1
