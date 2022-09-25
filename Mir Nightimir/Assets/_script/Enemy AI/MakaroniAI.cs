@@ -42,7 +42,6 @@ public class MakaroniAI : TESTei
     #endregion
 
     #region Shot
-    [SerializeField] int PlayerLayer = 7;
     private float TBS;
     public float ShotTimer;
     private float FixSecond;
@@ -51,7 +50,7 @@ public class MakaroniAI : TESTei
     public Color bulletColor;
     public Sprite BulletSprite;
     private Vector3 LastPos;
-
+    [SerializeField] EnemyHp enemyHp;
     private GameObject project;
     #endregion
     float speedy;
@@ -102,7 +101,7 @@ public class MakaroniAI : TESTei
                     GameObject B = Instantiate(project, transform.position, Quaternion.identity);
                     GameObject E = Instantiate(MagicSpawn, B.transform.position, Quaternion.identity);
                     Destroy(E, 4);
-                    B.layer = PlayerLayer;
+                    B.layer = gameObject.layer;
                     B.GetComponent<SpriteRenderer>().color = bulletColor;
                     B.GetComponent<BoxCollider2D>().enabled = false;
                     B.AddComponent<CircleCollider2D>().isTrigger = true;
@@ -110,10 +109,9 @@ public class MakaroniAI : TESTei
                     B.GetComponent<SpriteRenderer>().sprite = BulletSprite;
                     B.gameObject.transform.DOScale(3, 3);
                     await Wait(3);
-
-                    Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
-                    SetupBullet(B);
-                    var tween = B.transform.DOMove(targetPos, .5f);
+                    Rpg.SetupBullet( B , state , enemyHp , this.gameObject );
+            
+                    var tween = B.transform.DOMove(target.transform.position , .5f);
                     EnemyStatic.KillTween(.5f, tween, B);
                     await Wait(.48f);
                 }
@@ -151,6 +149,7 @@ public class MakaroniAI : TESTei
                     GameObject c = Instantiate(GhosSpawn, b.transform.position, Quaternion.identity);
                     b.GetComponent<Makalaka>().target = gameObject; b.GetComponent<Makalaka>().Speed = MinionSpeed;
                     b.GetComponent<Makalaka>().Healing = Healing; b.GetComponent<Makalaka>().BozzHP = Hp;
+                    b.layer = gameObject.layer;
                     Destroy(c, 6);
                 }
                 await Wait(afkD);
@@ -174,6 +173,8 @@ public class MakaroniAI : TESTei
                 GameObject b = Instantiate( Ghos, rand, Quaternion.identity);
                 //GameObject c = Instantiate(Ghos, b.transform.position, Quaternion.identity);
                 var effect = Instantiate( SLimeSpawn , b.transform.position , Quaternion.identity );
+                b.GetComponent<TESTei>().ChangeTargetSelecting( targetLayerMask , targetLayer , gameObject.layer == (int)Rpg.EnemyTeam.Player ? Rpg.EnemyTeam.Player : Rpg.EnemyTeam.Enemy);
+                b.GetComponent<TESTei>().target = target;
                 Destroy( effect , 6 );
                 //Destroy(c, 6);
             }
@@ -185,7 +186,7 @@ public class MakaroniAI : TESTei
 
     private void SpriteFreeFire()
     {
-            
+        if (target == null) { return; }
         if (Vector2.Dot( ( target.transform.position - transform.position ).normalized , Vector2.left ) < -0.1f)
         {
             SpriteRenderer.flipX = true;            
@@ -203,17 +204,6 @@ public class MakaroniAI : TESTei
         }
     }
 
-    private void SetupBullet(GameObject b)
-    {
-        Damage damage = new Damage();
-        damage.AdDamage = state.AdDamage;
-        damage.ApDamage = state.ApDamage;
-        damage.Ad_DefenceReduser = state.Ad_DefenceReduser;
-        damage.ApDamage = state.Mp_DefenceReduser;
-        var bullet = b.AddComponent<EnemyBullent>();
-        bullet.damage = damage;
-        bullet.layerMask = 6;
-    }
 
     private void randomVector2(Vector2 v2, float minX, float maxX, float minY, float maxY)
     {

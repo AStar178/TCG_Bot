@@ -6,9 +6,11 @@ public class MagicBullent : MonoBehaviour
     public Transform target;
     [SerializeField] Rigidbody2D rigidbod;
     [SerializeField] float Speed = 1;
+    [SerializeField] bool yellow;
     private void Update() 
     {
-
+        if (yellow)
+            transform.rotation = Quaternion.Euler( transform.rotation.x + 0 , transform.rotation.y + 0 , transform.rotation.z + 0.1f );
         if (target == null) { return; }
 
 
@@ -26,12 +28,11 @@ public class MagicBullent : MonoBehaviour
         damage.Ad_DefenceReduser = magic.GetPWM().AmoroReduse;
         damage.Mp_DefenceReduser = magic.GetPWM().MagicReduse;
         damage.PlayerRefernce = magic.GetPlayer();
+        damage.type = magic.GetPlayer().DamageModifayer( hpValue , other.transform , damage );
         hpValue.HpValueChange(damage , out var result);
         var s = Instantiate(magic.GetPWM().OnMagicHit , other.transform.position , Quaternion.identity);
-        bool pornOnline = false;
-        if (damage.AdDamage < damage.ApDamage)
-            pornOnline = true;
-        magic.GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , pornOnline , result );
+  
+        magic.GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , damage.type , result );
         Destroy(s , 6);
         Destroy(this.gameObject);
     }

@@ -72,6 +72,27 @@ public class Player : MonoBehaviour
 
     }
 
+    public DamageType DamageModifayer( IHpValue hpValue , Transform target , Damage damage )
+    {
+        DamageType damageType = new DamageType();
+        damageType = DamageType.AD;
+
+        if (damage.AdDamage < damage.ApDamage)
+            damageType = DamageType.AP;
+        
+        for (int i = 0; i < abilityPowerUps.Count; i++)
+        {
+
+            DamageType damageType1 = abilityPowerUps[i].DamaModifayer( damage , target , hpValue );
+            if (damageType1 == DamageType.Critial)
+                damageType = DamageType.Critial;
+            
+        }
+
+        CulculateAllBuffs();
+        return damageType;
+    }
+
     private void Awake() => Singleton = this;
 
     private void Start()

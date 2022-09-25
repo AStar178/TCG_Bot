@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,8 @@ public class AbilityPowerUps : MonoBehaviour
     {
 
     }
+
+
     public UpgrateEventData GetDataUI()
     {
         UpgrateEventData upgrateEventData = new UpgrateEventData();
@@ -36,6 +39,10 @@ public class AbilityPowerUps : MonoBehaviour
         upgrateEventData.Name = Name;
         upgrateEventData.Discripsen = Discripsen;
         return upgrateEventData;
-    }   
+    }
 
+    public virtual DamageType DamaModifayer(Damage damage, Transform target, IHpValue hpValue )
+    {
+        return DamageType.AD;
+    }
 }

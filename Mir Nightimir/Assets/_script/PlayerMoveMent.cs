@@ -45,6 +45,23 @@ public class PlayerMoveMent : MonoBehaviour
 
     private void SpriteUpdaye()
     {
+        if (player.PlayerWeaponManger.CurrentWeapons.rotationLeftSprite)
+        {
+            if (new Vector2(movementX , movementY).normalized == Vector2.zero) { return; }
+
+            if ( Vector2.Dot(new Vector2(movementX , movementY).normalized , Vector2.left) == 0 )
+                return;
+            
+            if (Vector2.Dot(new Vector2(movementX , movementY).normalized , Vector2.left) < -0.1f)
+            {
+                SpriteRenderer.flipX = true;
+                BulletSpawnPos.localPosition = ( new Vector2( pos.x * -1 , pos.y ) );            
+                return;
+            } 
+            SpriteRenderer.flipX = false;
+            BulletSpawnPos.localPosition = pos;
+            return;
+        }
         if (new Vector2(movementX , movementY).normalized == Vector2.zero) { return; }
 
         if ( Vector2.Dot(new Vector2(movementX , movementY).normalized , Vector2.right) == 0 )

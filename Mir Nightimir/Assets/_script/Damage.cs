@@ -6,6 +6,13 @@ public struct Damage
     public float ApDamage;
     public float Ad_DefenceReduser;
     public float Mp_DefenceReduser;
+    public DamageType type;
     public Player PlayerRefernce;
     public IHpValue GameObjectRefernce;
+}
+public enum DamageType 
+{
+    AD ,
+    AP , 
+    Critial ,
 }

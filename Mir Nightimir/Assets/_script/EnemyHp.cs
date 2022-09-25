@@ -36,16 +36,73 @@ public class EnemyHp : MonoBehaviour , IHpValue
                 Destroy(OnDieEffect , 6);
             }
             print(damage.PlayerRefernce == null);
+            if (AreadyGiveXp == true && reve == false)
+            {
+                result = DamageResult.DEID;
+                return;
+            }
             if (damage.PlayerRefernce != null)
+            {
+                AreadyGiveXp = true;
                 damage.PlayerRefernce.GiveStuff( xpAmount == 0 ? 0 : + Random.Range( 0 , 100 ) , coinsAmount == 0 ? 0 : + Random.Range( 0 , 10 ) );
+            }
+
+                
             result = DamageResult.Killed;
-            Destroy(this.gameObject);
+            if (Player.Singleton.PlayerWeaponManger.CurrentWeapons.WeaponName == "Necromanser" && reve == false)
+            {
+                GraveStone();
+                return;
+            }
+                Destroy(this.gameObject);
             return;
         }
         result = DamageResult.DealadDamaged;
         SpriteRendererOnTakeDamageEffect();
         
     }
+    Sprite sprite;
+    bool reve;
+    bool AreadyGiveXp;
+    private void GraveStone()
+    {
+        sprite = spriteRenderer.sprite;
+        spriteRenderer.sprite = EnemyStatic.GraveStoneSprit;
+        gameObject.layer = (int)Rpg.allLayers.Grave;
+        if (TryGetComponent<TESTei>(out var tESTei))
+            tESTei.enabled = false;
+
+        Destoryreve();
+    }
+
+    private async void Destoryreve()
+    {
+        float waitTime = 15;
+        while (waitTime > 0)
+        {
+            waitTime -= Time.deltaTime;
+            await Task.Yield();
+        }
+        if (reve == false)
+            Destroy(this.gameObject);
+    }
+
+    public void NecromanserISHAHAHAH( LayerMask layerMask )
+    {
+        reve = true;
+        spriteRenderer.material.SetColor( "_Color" , Color.green * 10 );
+        spriteRenderer.sprite = sprite;
+        Currenthp = MaxHp;
+        if (TryGetComponent<TESTei>(out var tESTei))
+        {
+            tESTei.enabled = true;
+            List<int> list = new List<int>();
+            list.Add((int)Rpg.allLayers.enemylayer);
+            tESTei.ChangeTargetSelecting( layerMask , list , Rpg.EnemyTeam.Player );
+        }
+            
+    }
+
     private void Update() {
         if (delayTime < 0) { if ( spriteRenderer != null ) { spriteRenderer.enabled = true; }  return; }
         delayTime -= Time.deltaTime;

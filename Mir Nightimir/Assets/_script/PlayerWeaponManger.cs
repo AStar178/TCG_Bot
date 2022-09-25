@@ -17,7 +17,7 @@ public class PlayerWeaponManger : MonoBehaviour
     public float MaxMana;
     public float ManaRejyAmount;
     public float TimeToGetMana;
-    public Action<int , Vector2 , bool , DamageResult> OnDealDamage;
+    public Action<int , Vector2 , DamageType , DamageResult> OnDealDamage;
     [SerializeField] public AbilityWeapons CurrentWeapons;
     [SerializeField] public GameObject TextFonstDamage;
     [HideInInspector] public float attackSpeed;
@@ -30,18 +30,33 @@ public class PlayerWeaponManger : MonoBehaviour
         OnDealDamage -= OnDealDamageFuncens;
     }
 
-    private void OnDealDamageFuncens(int obj , Vector2 pos , bool ap , DamageResult result)
+    private void OnDealDamageFuncens(int obj , Vector2 pos , DamageType type , DamageResult result)
     {   
 
         var Texts = Instantiate(TextFonstDamage , pos , Quaternion.identity);
         var fonts = Texts.GetComponentInChildren<TMP_Text>();
         fonts.text = result != DamageResult.DealadDamaged ? result.ToString() : obj.ToString();
-        fonts.color = TextColors[0];
-        if (ap == true)
-            fonts.color = TextColors[1];
+        SetDamageColor( type , fonts );
         
         Tween tween = Texts.transform.DOMove(pos += new Vector2(0 , 1.25f) , 1f);
         KillTween( 1f , tween , Texts.transform.gameObject.transform.gameObject );
+    }
+
+    private void SetDamageColor(DamageType type, TMP_Text fonts)
+    {
+        if (type == DamageType.Critial)
+        {
+            fonts.color = TextColors[2];
+            fonts.transform.localScale *= 1.5f;
+            return;
+        }
+
+        if (type == DamageType.AD)
+            fonts.color = TextColors[0];
+
+        if (type == DamageType.AP)
+            fonts.color = TextColors[1];
+
     }
 
     private void Start() {
@@ -63,11 +78,23 @@ public class PlayerWeaponManger : MonoBehaviour
         {
             attackSpeed -= Time.deltaTime;
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+            CurrentWeapons.AbilityWeaponsUseAbility();
 
         CurrentWeapons.UpdateAbilityWp();
     }
 
-    public void CreatCoustomTextPopup( string v , Vector3 position )
+    public void CreatCoustomTextPopup( string v , Vector3 position , Color color )
+    {
+        var text = Instantiate( TextFonstDamage , position , Quaternion.identity );
+        TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
+        tMP_Text.text = v;
+        tMP_Text.color = color;
+        Tween tween = tMP_Text.transform.DOMoveY(position.y += 1.25f , 1f);
+        KillTween( 1f , tween , tMP_Text.transform.gameObject.transform.gameObject );
+        Destroy( text , 2 );
+    }
+    public void CreatCoustomTextPopup( string v , Vector3 position)
     {
         var text = Instantiate( TextFonstDamage , position , Quaternion.identity );
         TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
@@ -77,6 +104,7 @@ public class PlayerWeaponManger : MonoBehaviour
         KillTween( 1f , tween , tMP_Text.transform.gameObject.transform.gameObject );
         Destroy( text , 2 );
     }
+
 
     public void DealDamage(IHpValue enemyHp , Transform pos)
     {

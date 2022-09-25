@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class RangeED : TESTei
 {
-    [SerializeField] int PlayerLayer = 7;
     private float TBS;
     public float STBS;
     private float FixSecond;
@@ -15,6 +14,7 @@ public class RangeED : TESTei
     bool ATTACK = false;
 
     public GameObject project;
+    [SerializeField] EnemyHp enemyHp;
     public override void start()
     {
         base.start();
@@ -36,10 +36,9 @@ public class RangeED : TESTei
             if (TBS <= 0)
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
-                B.layer = PlayerLayer;
-                Vector3 targetPos = FindObjectOfType<PlayerMoveMent>().transform.position;
-                SetupBullet(B);
-                var tween = B.transform.DOMove(targetPos, .5f);
+                B.layer = gameObject.layer == (int)Rpg.EnemyTeam.Player ? (int)Rpg.EnemyTeam.Player : (int)Rpg.EnemyTeam.Enemy;
+                Rpg.SetupBullet(B , state , enemyHp , this.gameObject);
+                var tween = B.transform.DOMove(target.transform.position, .5f);
                 KillTween(.5f , tween , B);
                 if (FixSecond >= FixSecondN)
                 {
@@ -66,17 +65,7 @@ public class RangeED : TESTei
         }
     }
 
-    private void SetupBullet(GameObject b)
-    {
-        Damage damage = new Damage();
-        damage.AdDamage = state.AdDamage;
-        damage.ApDamage = state.ApDamage;
-        damage.Ad_DefenceReduser = state.Ad_DefenceReduser;
-        damage.ApDamage = state.Mp_DefenceReduser;
-        var bullet = b.AddComponent<EnemyBullent>();
-        bullet.damage = damage;
-        bullet.layerMask = 6;
-    }
+
     private async void KillTween(float v, Tween tween , GameObject b)
     {
         float zz = v;

@@ -12,5 +12,6 @@ public enum DamageResult
     Failed ,
     DealadDamaged ,
     Miss ,
-    Killed
+    Killed ,
+    DEID
 }

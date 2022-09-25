@@ -11,13 +11,10 @@ public class PlayerBullent : MonoBehaviour
 
         if ( !other.TryGetComponent(out IHpValue hpValue) ) { return; }
         
-
         hpValue.HpValueChange(damage , out var result);
+        
         var s = Instantiate(Effect , other.transform.position , Quaternion.identity);
-        bool pornOnline = false;
-        if (damage.AdDamage < damage.ApDamage)
-            pornOnline = true;
-        damage.PlayerRefernce.PlayerWeaponManger.OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , pornOnline , result );
+        damage.PlayerRefernce.PlayerWeaponManger.OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , damage.type , result );
         Destroy(s , 6);
         Destroy(this.gameObject);
     }

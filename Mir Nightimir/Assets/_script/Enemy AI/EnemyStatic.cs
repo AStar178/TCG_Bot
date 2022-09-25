@@ -10,11 +10,13 @@ public class EnemyStatic : MonoBehaviour
     public GameObject Project;
     public static GameObject textPrefab;
     public GameObject TextPrefab;
-
+    public static Sprite GraveStoneSprit;
+    public Sprite graveStoneSprit;
     private void Awake()
     {
         project = Project;
         textPrefab = TextPrefab;
+        GraveStoneSprit = graveStoneSprit;
     }
     public static void CreatCoustomTextPopup(string v, Vector3 position, Color color)
     {

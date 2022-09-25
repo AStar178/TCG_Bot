@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pllayer
   m_EditorClassIdentifier: 
   AdDamage: 1
-  ApDamage: 1
-  AttackSpeed: 150
+  ApDamage: 10
+  AttackSpeed: 600
   Amoro: 1
   MagicReset: 1
   Ad_DefenceReduser: 0

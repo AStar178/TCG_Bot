@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 13715439}
   - component: {fileID: 13715440}
-  - component: {fileID: 13715441}
   m_Layer: 6
   m_Name: weapons
   m_TagString: Untagged
@@ -165,27 +164,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 13715438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81053d90b9b38994e9a3a0874ec8267e, type: 3}
+  m_Script: {fileID: 11500000, guid: d0c41359ac02d7b408b40580a75c1473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Raduis: 1.4
-  sprite: {fileID: -1317030293, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
---- !u!114 &13715441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13715438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e5ee8af444c98408b6ea94a8d9e730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  WeaponName: Necromanser
+  rotationLeftSprite: 1
   Raduis: 2.1
-  sprite: {fileID: -796919478, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
-  MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
+  ManaCoust: 1
+  sprite: {fileID: 395712832, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  MagicBullit: {fileID: 2974763324393653679, guid: 921497d221513e046aba39f4f4f487f6, type: 3}
   spawnPos: {fileID: 136189973}
+  graves:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &20344384
 GameObject:
   m_ObjectHideFlags: 0
@@ -65318,8 +65309,6 @@ GameObject:
   - component: {fileID: 466595308}
   - component: {fileID: 466595307}
   - component: {fileID: 466595310}
-  - component: {fileID: 466595313}
-  - component: {fileID: 466595312}
   - component: {fileID: 466595311}
   - component: {fileID: 466595314}
   m_Layer: 7
@@ -65404,7 +65393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 0}
+  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
@@ -65416,46 +65405,6 @@ MonoBehaviour:
   xpAmount: 20
   coinsAmount: 6
   resultOfBlocked: 0
---- !u!114 &466595312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466595306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 24024a00585164549af26fd305e19e20, type: 2}
-  EnemyHp: {fileID: 466595311}
-  tei: {fileID: 466595314}
-  yurret: {fileID: 0}
---- !u!114 &466595313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466595306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
-  Speed: 0
-  Range: 0
-  target: {fileID: 0}
-  Coward: 0
-  CowardenessRange: 0
-  Lung: 0
-  LungRange: 0
-  LungCooldown: 0
-  lungColdown: 0
-  NoChase: 0
-  SpriteRenderer: {fileID: 0}
 --- !u!114 &466595314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65468,10 +65417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 24024a00585164549af26fd305e19e20, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 1
   Range: 5
+  MeleeAttackSpeed: 1
   target: {fileID: 0}
+  targetLayer: 060000000a000000
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 320
   Coward: 1
   CowardenessRange: 2
   Lung: 0
@@ -65479,10 +65433,10 @@ MonoBehaviour:
   LungCooldown: 2
   lungColdown: 0
   NoChase: 0
-  SpriteRenderer: {fileID: 0}
-  PlayerLayer: 7
+  SpriteRenderer: {fileID: 684678355}
   STBS: 1
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
+  enemyHp: {fileID: 466595311}
 --- !u!1 &470841536
 GameObject:
   m_ObjectHideFlags: 0
@@ -65559,7 +65513,12 @@ MonoBehaviour:
   state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   Speed: 0
   Range: 0
+  MeleeAttackSpeed: 1
   target: {fileID: 0}
+  targetLayer: 060000000a000000
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1088
   Coward: 0
   CowardenessRange: 0
   Lung: 1
@@ -65588,10 +65547,10 @@ MonoBehaviour:
   MaxX: 4
   MinY: -4
   MaxY: 4
-  PlayerLayer: 7
   ShotTimer: 3
   bulletColor: {r: 0.37169808, g: 0.96825075, b: 1, a: 1}
   BulletSprite: {fileID: 21300000, guid: 9e32f4829fbdf46468955700bb8bfce7, type: 3}
+  enemyHp: {fileID: 470841537}
 --- !u!61 &470841540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65636,7 +65595,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &470841542
@@ -65647,7 +65606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470841536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.73, y: 12.43, z: 0}
+  m_LocalPosition: {x: 30.8, y: 11.43, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -66629,6 +66588,7 @@ GameObject:
   - component: {fileID: 839581868}
   - component: {fileID: 839581870}
   - component: {fileID: 839581869}
+  - component: {fileID: 839581871}
   m_Layer: 7
   m_Name: Turret
   m_TagString: Untagged
@@ -66648,20 +66608,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d832d2d469d194482d46541103f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  Speed: 0
   Range: 0
+  MeleeAttackSpeed: 1
+  target: {fileID: 0}
+  targetLayer: 060000000a000000
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1088
+  Coward: 0
+  CowardenessRange: 0
+  Lung: 0
+  LungRange: 0
+  LungCooldown: 0
+  lungColdown: 0
+  NoChase: 0
+  SpriteRenderer: {fileID: 839581865}
+  stat: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
   STBS: 0
   BulletSpeed: 2
-  Frendly: 0
   enemyHp: {fileID: 839581868}
   renderers: {fileID: 839581865}
   project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
-  LayerMaskEnemy:
-    serializedVersion: 2
-    m_Bits: 128
-  LayerMaskFreandy:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!212 &839581865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66746,7 +66715,7 @@ MonoBehaviour:
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
-  DelayDamageTakeTime: 0
+  DelayDamageTakeTime: 0.5
   BlockChanse: 0
   spriteRenderer: {fileID: 839581865}
   OnDieEffect: {fileID: 0}
@@ -66795,6 +66764,27 @@ MonoBehaviour:
   EnemyHp: {fileID: 839581868}
   tei: {fileID: 0}
   yurret: {fileID: 0}
+--- !u!50 &839581871
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839581863}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &866795377
 GameObject:
   m_ObjectHideFlags: 0
@@ -66971,6 +66961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e5ee8af444c98408b6ea94a8d9e730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponName: 
+  rotationLeftSprite: 0
   Raduis: 2.1
   sprite: {fileID: 1008483382, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
@@ -67125,12 +67117,13 @@ MonoBehaviour:
   MaxMana: 0
   ManaRejyAmount: 0
   TimeToGetMana: 0
-  CurrentWeapons: {fileID: 13715441}
+  CurrentWeapons: {fileID: 13715440}
   TextFonstDamage: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   attackSpeed: 0
   TextColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 0.9335952, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &955869196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67151,6 +67144,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   TargetIcon: {fileID: 1124552055}
+  targetLayer: 07000000
 --- !u!1 &962619679
 GameObject:
   m_ObjectHideFlags: 0
@@ -120705,6 +120699,183 @@ Transform:
   m_Father: {fileID: 470841542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1467813520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467813526}
+  - component: {fileID: 1467813525}
+  - component: {fileID: 1467813524}
+  - component: {fileID: 1467813523}
+  - component: {fileID: 1467813522}
+  - component: {fileID: 1467813521}
+  m_Layer: 7
+  m_Name: Bazz (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1467813521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467813520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  MaxHp: 0
+  Currenthp: 0
+  Amoro: 0
+  MagicResest: 0
+  DelayDamageTakeTime: 0.5
+  BlockChanse: 0
+  spriteRenderer: {fileID: 1556330725}
+  OnDieEffect: {fileID: 0}
+  xpAmount: 20
+  coinsAmount: 6
+  resultOfBlocked: 1
+--- !u!114 &1467813522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467813520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyHp: {fileID: 1467813521}
+  tei: {fileID: 0}
+  yurret: {fileID: 0}
+--- !u!114 &1467813523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467813520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  Speed: 0
+  Range: 0
+  MeleeAttackSpeed: 1
+  target: {fileID: 0}
+  targetLayer: 060000000a000000
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1088
+  Coward: 0
+  CowardenessRange: 0
+  Lung: 1
+  LungRange: 4
+  LungCooldown: 4
+  lungColdown: 0
+  NoChase: 0
+  SpriteRenderer: {fileID: 1556330725}
+  Slugs: {fileID: 2573341647957285371, guid: 130fca7e25e12054490f867088c5967b, type: 3}
+  Ghos: {fileID: 8482224905265213822, guid: aeceb54e7ac2646488c4e6b346f3adee, type: 3}
+  Hp: {fileID: 1467813521}
+  MagicSpawn: {fileID: 889587192077556572, guid: c34a150d56b09d248adb68a312c47d75, type: 3}
+  MagicHit: {fileID: 903061095572501512, guid: 36b6adf0e4ea43c4c913ecd414e4592b, type: 3}
+  SLimeSpawn: {fileID: 8210409536137246418, guid: aed647b65f1fb1343843d4127df68b13, type: 3}
+  GhosSpawn: {fileID: 8210409536137246418, guid: 9621c6feb1d2d394eb8e14ab877e5e92, type: 3}
+  CooldownF: 10
+  afkF: 2
+  Cooldown: 10
+  afkD: 10
+  LowSummonHealth: 30
+  Healing: 5
+  MinionSpeed: 0.35
+  MinSummon: 4
+  MaxSummon: 6
+  MinX: -4
+  MaxX: 4
+  MinY: -4
+  MaxY: 4
+  ShotTimer: 3
+  bulletColor: {r: 0.37169808, g: 0.96825075, b: 1, a: 1}
+  BulletSprite: {fileID: 21300000, guid: 9e32f4829fbdf46468955700bb8bfce7, type: 3}
+  enemyHp: {fileID: 1467813521}
+--- !u!61 &1467813524
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467813520}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04753399, y: -0.029708758}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5276313, y: 0.81302166}
+  m_EdgeRadius: 0
+--- !u!50 &1467813525
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467813520}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!4 &1467813526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467813520}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32.51, y: 17.97, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1556330726}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1507572140
 GameObject:
   m_ObjectHideFlags: 0
@@ -120737,6 +120908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
   TextPrefab: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
+  graveStoneSprit: {fileID: 514612856, guid: 06a6531b5cfc4d848b81127cd49deb59, type: 3}
 --- !u!114 &1507572142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120750,17 +120922,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commanIteams:
-  - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
+  - {fileID: 8593584095068623336, guid: e3950369eed606040aa30409c7ccf0d3, type: 3}
+  - {fileID: 8593584095068623336, guid: 0a9aea3952bb06f41a97a8846894b668, type: 3}
+  - {fileID: 2757526517292265430, guid: f50a9c3ba5e89264cbe58c22c720c3c0, type: 3}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 2757526517292265430, guid: bf06b42b60ff8c449a308981f46da948, type: 3}
+  - {fileID: 2757526517292265430, guid: 9bfd16598f8ad9b4b9475a0616ea0da5, type: 3}
   Moneycomman: 5
   commanColor: {r: 0.20754719, g: 0.15509021, b: 0, a: 1}
   GreenIteams:
-  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
-  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 8593584095068623336, guid: e5ee50effd8868e42a1717fb41255c2b, type: 3}
   - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
   - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
-  - {fileID: 5461275095725942226, guid: 71ee004118b832f41be68ad6df1dbac5, type: 3}
-  - {fileID: 5461275095725942226, guid: 71ee004118b832f41be68ad6df1dbac5, type: 3}
-  - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
+  - {fileID: 39215392070717922, guid: e5798dacb9c8d944088df8ba864fd023, type: 3}
+  - {fileID: 39215392070717922, guid: 2afcc72f2e8b3894bbccf1c69367da9b, type: 3}
   MoneyGreen: 10
   GreenColor: {r: 0.03921567, g: 0.99607843, b: 0.041883692, a: 1}
   RangeGreen: 50
@@ -120811,6 +120987,90 @@ Transform:
   - {fileID: 463866373}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1556330724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556330726}
+  - component: {fileID: 1556330725}
+  m_Layer: 7
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1556330725
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556330724}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 930379f990890e3429102b2a12311f8f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 395712832, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1556330726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556330724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1467813526}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585574396
 GameObject:
