@@ -16,35 +16,32 @@ public class PlayerTarget : MonoBehaviour
 
     void Update()
     {
-        if (target == null)
-        {
-            TargetIcon.enabled = false;
-            target = FindTarget();
+        if ( PlayerWeaponManger.CurrentWeapons == null )
             return;
-        }
-        AttackTarget(); 
-    }
 
-    public Transform FindTarget()
-    {
-        if (PlayerWeaponManger.CurrentWeapons == null) { return null; }
-        return PlayerWeaponManger.CurrentWeapons.SelectedTarget(Raduis , EnemyLayer);
+        AttackTarget(); 
     }
 
     private void AttackTarget()
     {
-        if ( LayerCheak(target) == false ) { target = null; return; }
-        if ( !target.TryGetComponent<IHpValue>( out var Hp ) ) { TargetIcon.enabled = false; return; }
-        if ( Vector2.Distance( transform.position , target.position ) > Raduis ) { TargetIcon.enabled = false; target = null; return; }
-        if ( PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect( target , out var CostumTarget ) == false ) { TargetIcon.enabled = false; target = null; return; }
+        
+
+        if ( target == null ) { TargetIcon.enabled = false; target = null; target = PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect(); return; }
+        if ( PlayerWeaponManger.CurrentWeapons.CoustomRouls( target ) == false ) { TargetIcon.enabled = false; target = null; target = PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect(); return; }
+        if ( !target.TryGetComponent<IHpValue>( out var Hp ) ) { TargetIcon.enabled = false; target = null; return; }
+
+        if ( Vector2.Distance( transform.position , target.position ) > Raduis ) { TargetIcon.enabled = false; target = null; target = PlayerWeaponManger.CurrentWeapons.CoustomTargetSelect();  return; }
+        
         TargetIcon.enabled = true;
         
         TargetIcon.transform.position = new Vector2 ( target.position.x + -0.54f , target.position.y + 0.54f );
-        PlayerWeaponManger.DealDamage(Hp , CostumTarget);
+
+        PlayerWeaponManger.DealDamage(Hp , target);
+
     }
 
 
-    private bool LayerCheak(Transform other)
+    public bool LayerCheak(Transform other)
     {
         
         for (int i = 0; i < targetLayer.Count; i++)

@@ -3,36 +3,19 @@ using UnityEngine;
 
 public class SoulHunter : AbilityWeapons 
 {
-    [SerializeField] float Raduis = 1.4f;
     [SerializeField] Sprite sprite;
     [SerializeField] float MDeathTimer = 30;
     bool canAttack;
 
-    public override bool CoustomTargetSelect(Transform target, out Transform CostumTarget)
+    public override Transform CoustomTargetSelect()
     {
-        Vector2 dir = ChooseDir();
-        if (canAttack == false) { CostumTarget = target; return false; }
-        if (Vector2.Distance(transform.position, target.position) > 0.45f)
-        {
-            if (Vector2.Dot((Vector2)(target.position - transform.position).normalized, dir) < 0.1f) { CostumTarget = CoustomTargetSelecting(); return CostumTarget != null ? true : false; }
-        }
-        CostumTarget = target;
-        return true;
+        if (!canAttack)
+            return null;
+
+
+        return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
-    private Transform CoustomTargetSelecting()
-    {
-        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll( transform.position , Raduis , GetTarget().EnemyLayer );
-
-
-        for (int i = 0; i < collider2Ds.Length; i++)
-        {
-            if ( Vector2.Dot( (Vector2)( collider2Ds[i].transform.position - transform.position ).normalized , ChooseDir() ) > 0.1f )
-                return collider2Ds[i].transform;
-        }
-
-        return null;
-    }
 
     public override void UpdateAbilityWp()
     {
@@ -51,49 +34,30 @@ public class SoulHunter : AbilityWeapons
     }
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
-        if (GetPWM().attackSpeed > 0) { return; }
+        if (GetWeaponManger().attackSpeed > 0) { return; }
         
 
-        GetPWM().attackSpeed = 100/GetPWM().AttackSpeed;
+        GetWeaponManger().attackSpeed = 100/GetWeaponManger().AttackSpeed;
         Damage damage = new Damage();
 
-        damage.AdDamage = GetPWM().DamageAd / 2;
-        damage.ApDamage = GetPWM().DamageAp / 2;
-        damage.Ad_DefenceReduser = GetPWM().AmoroReduse;
-        damage.ApDamage = GetPWM().MagicReduse;
-        damage.PlayerRefernce = GetPlayer();
-        damage.type = GetPlayer().DamageModifayer( enemyHp , pos , damage );
+        damage = CreatDamage( GetWeaponManger().DamageAd / 2 , GetWeaponManger().DamageAp / 2 , GetWeaponManger().AmoroReduse , GetWeaponManger().MagicReduse );
+        print ( damage.ApDamage );
         enemyHp.HpValueChange(damage , out var result);
-
-
-        var s = Instantiate(GetPWM().OnMeeleHit , pos.position , Quaternion.identity);
         
-        GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
+
+        var s = Instantiate(GetWeaponManger().OnMeeleHit , pos.position , Quaternion.identity);
+        
+        GetWeaponManger().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
         Destroy(s , 6);
 
-        if (100 >= UnityEngine.Random.Range(1, 100))
+        if (0.75 < UnityEngine.Random.value)
         {
             GameObject b = Instantiate(EnemyStatic.soulHunterMinios, gameObject.transform);
             b.GetComponent<SoulHunterMinions>().player = gameObject;
             b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
-            b.GetComponent<SoulHunterMinions>().damage = Rpg.CreatDamage(GetWeaponManger().DamageAd, GetWeaponManger().DamageAp, GetWeaponManger().AmoroReduse, GetWeaponManger().MagicReduse, GetPlayer(), default, GetTarget().transform);
+            b.GetComponent<SoulHunterMinions>().damage = Rpg.CreatDamage(GetWeaponManger().DamageAd, GetWeaponManger().DamageAp, GetWeaponManger().AmoroReduse, GetWeaponManger().MagicReduse , GetPlayer() , default , GetPlayerTargetSelector().target.transform);
             b.GetComponent<SoulHunterMinions>().TimeToDeath = MDeathTimer;
         }
     }
 
-    private Vector2 ChooseDir()
-    {
-        if (rotationLeftSprite == false)
-        {
-            if (GetPlayer().PlayerMoveMent.SpriteRenderer.flipX == false)
-                return Vector2.right;
-
-            return Vector2.left;
-        }
-        if (GetPlayer().PlayerMoveMent.SpriteRenderer.flipX == false)
-            return Vector2.left;
-
-        return Vector2.right;
-
-    }
 }

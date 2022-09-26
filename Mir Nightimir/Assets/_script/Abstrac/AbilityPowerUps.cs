@@ -9,6 +9,7 @@ public class AbilityPowerUps : MonoBehaviour
     [SerializeField] string Name;
     [SerializeField] string Discripsen;
     protected Player GetPlayer() => player1;
+
     public virtual void OnPowerUp(Player player)
     {
         player1 = player;
@@ -41,8 +42,8 @@ public class AbilityPowerUps : MonoBehaviour
         return upgrateEventData;
     }
 
-    public virtual DamageType DamaModifayer(Damage damage, Transform target, IHpValue hpValue )
+    public virtual Damage DamaModifayer(Damage damage, Transform target, IHpValue hpValue )
     {
-        return DamageType.AD;
+        return damage;
     }
 }

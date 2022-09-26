@@ -72,25 +72,29 @@ public class Player : MonoBehaviour
 
     }
 
-    public DamageType DamageModifayer( IHpValue hpValue , Transform target , Damage damage )
+    public Damage DamageModifayer( IHpValue hpValue , Transform target , Damage damage )
     {
-        DamageType damageType = new DamageType();
-        damageType = DamageType.AD;
+        var trawe = new DamageType();
+        trawe = DamageType.AD;
+        var sdamage = damage;
 
         if (damage.AdDamage < damage.ApDamage)
-            damageType = DamageType.AP;
+            trawe = DamageType.AP;
         
         for (int i = 0; i < abilityPowerUps.Count; i++)
         {
 
-            DamageType damageType1 = abilityPowerUps[i].DamaModifayer( damage , target , hpValue );
-            if (damageType1 == DamageType.Critial)
-                damageType = DamageType.Critial;
+            var damages = abilityPowerUps[i].DamaModifayer( damage , target , hpValue );
+            sdamage = damages;
+            if (damages.type == DamageType.Critial)
+                trawe = DamageType.Critial;
             
+            sdamage.type = trawe;
         }
-
+        sdamage.type = trawe;
+        sdamage.type = trawe;
         CulculateAllBuffs();
-        return damageType;
+        return sdamage;
     }
 
     private void Awake() => Singleton = this;
@@ -199,5 +203,14 @@ public class Player : MonoBehaviour
         var uy = power.GetDataUI();
         upgrateEvent?.Rasise( uy );
 
+    }
+    public Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse, Transform pos )
+    {
+        Damage damage = new Damage();
+        damage = Rpg.CreatDamage(  ad , ap , amoroReduse , magicReduse , this , PlayerHp , pos );
+        var damage2 = DamageModifayer( PlayerHp , pos , damage );
+        print( damage2.type );
+
+        return damage2;
     }
 }

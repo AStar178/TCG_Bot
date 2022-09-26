@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AdDamage: 1
   ApDamage: 10
-  AttackSpeed: 600
+  AttackSpeed: 100
   Amoro: 1
   MagicReset: 1
   Ad_DefenceReduser: 0

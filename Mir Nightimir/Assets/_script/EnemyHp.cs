@@ -35,7 +35,6 @@ public class EnemyHp : MonoBehaviour , IHpValue
                 var objett = Instantiate(OnDieEffect , transform.position , Quaternion.identity);
                 Destroy(OnDieEffect , 6);
             }
-            print(damage.PlayerRefernce == null);
             if (AreadyGiveXp == true && reve == false)
             {
                 result = DamageResult.DEID;

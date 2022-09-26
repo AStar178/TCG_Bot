@@ -21,18 +21,11 @@ public class MagicBullent : MonoBehaviour
     {
         
         if (!other.TryGetComponent(out IHpValue hpValue)) { return; } 
-        Damage damage = new Damage();
-
-        damage.AdDamage = magic.GetPWM().DamageAd * 0.1f;
-        damage.ApDamage = magic.GetPWM().DamageAp * 1.1f;
-        damage.Ad_DefenceReduser = magic.GetPWM().AmoroReduse;
-        damage.Mp_DefenceReduser = magic.GetPWM().MagicReduse;
-        damage.PlayerRefernce = magic.GetPlayer();
-        damage.type = magic.GetPlayer().DamageModifayer( hpValue , other.transform , damage );
+        var damage = magic.CreatDamage( magic.GetWeaponManger().DamageAd , magic.GetWeaponManger().DamageAp , magic.GetWeaponManger().AmoroReduse , magic.GetWeaponManger().MagicReduse );
         hpValue.HpValueChange(damage , out var result);
-        var s = Instantiate(magic.GetPWM().OnMagicHit , other.transform.position , Quaternion.identity);
+        var s = Instantiate(magic.GetWeaponManger().OnMagicHit , other.transform.position , Quaternion.identity);
   
-        magic.GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , damage.type , result );
+        magic.GetWeaponManger().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , other.transform.position , damage.type , result );
         Destroy(s , 6);
         Destroy(this.gameObject);
     }

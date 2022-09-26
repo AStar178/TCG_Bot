@@ -14,7 +14,8 @@ public static class Rpg
         damage.Mp_DefenceReduser = magicReduse;
         damage.PlayerRefernce = player;
         damage.GameObjectRefernce = player.PlayerHp;
-        damage.type = player.DamageModifayer( hp , pos , damage );
+        damage = player.DamageModifayer( hp , pos , damage );
+
 
         return damage;
     }
@@ -68,6 +69,7 @@ public static class Rpg
         Enemy = 7
 
     }
+    
     public enum allLayers
     {
         player = 6,

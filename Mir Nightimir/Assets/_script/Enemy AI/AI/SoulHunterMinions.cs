@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Threading.Tasks;
+using System;
 
 public class SoulHunterMinions : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class SoulHunterMinions : MonoBehaviour
     public float MinY;
     public float MaxX;
     public float MaxY;
+    [SerializeField] SpriteRenderer renderers;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class SoulHunterMinions : MonoBehaviour
 
                 AttackCooldown = SetAttackCooldown;
                 GameObject B = Instantiate(EnemyStatic.project, target.transform.position, Quaternion.identity);
-                EnemyBullent bullet = B.GetComponent<EnemyBullent>();
+                EnemyBullent bullet = B.AddComponent<EnemyBullent>();
                 B.layer = gameObject.layer == (int)Rpg.EnemyTeam.Player ? (int)Rpg.EnemyTeam.Player : (int)Rpg.EnemyTeam.Enemy;
                 bullet.damage = damage;
                 bullet.damage.GameObjectRefernce = target.GetComponent<EnemyHp>();
@@ -84,8 +86,22 @@ public class SoulHunterMinions : MonoBehaviour
     {
         Vector3 PlayPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         EnemyStatic.randomVector2(RunTo, player.transform.position, MinX, MinY, MaxX, MaxY);
-        gameObject.transform.DOMove(PlayPos + RunTo, .5f);
+        gameObject.transform.DOMove(PlayPos + RunToCheak( RunTo ), .5f);
+
         await EnemyStatic.Wait(.7f);
         Run();
+    }
+
+    private Vector3 RunToCheak(Vector3 runTo)
+    {
+        if (Vector2.Distance( player.transform.position , transform.position ) < 2)
+        {
+            var s = (player.transform.position - transform.position).normalized;
+            var rand = Mathf.Atan2( s.y , s.x );
+            var news = rand * 0.75f;
+            var dir  = new Vector2( Mathf.Cos( news ) , Mathf.Sin( news ) );
+            return dir; 
+        }
+        return runTo;
     }
 }

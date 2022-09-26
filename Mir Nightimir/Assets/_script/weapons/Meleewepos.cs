@@ -3,30 +3,16 @@ using UnityEngine;
 
 public class Meleewepos : AbilityWeapons 
 {
-    [SerializeField] float Raduis = 1.4f;
     [SerializeField] Sprite sprite;
     bool canAttack;
-    public override bool CoustomTargetSelect( Transform target , out Transform CostumTarget )
+    public override Transform CoustomTargetSelect()
     {
-        Vector2 dir = ChooseDir();
-        if ( canAttack == false ) { CostumTarget = target; return false; }
-        if ( Vector2.Dot( (Vector2)( target.position - transform.position ).normalized , dir ) < 0.1f ) { CostumTarget = CoustomTargetSelecting(); return CostumTarget != null ? true : false; }
-        CostumTarget = target; 
-        return true;
+        return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
-    private Transform CoustomTargetSelecting()
+    public override bool CoustomRouls(Transform target)
     {
-        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll( transform.position , Raduis , GetTarget().EnemyLayer );
-
-
-        for (int i = 0; i < collider2Ds.Length; i++)
-        {
-            if ( Vector2.Dot( (Vector2)( collider2Ds[i].transform.position - transform.position ).normalized , ChooseDir() ) > 0.1f )
-                return collider2Ds[i].transform;
-        }
-
-        return null;
+        return CostumRoulsMeleeDefulit(target);
     }
 
     public override void UpdateAbilityWp()
@@ -37,6 +23,7 @@ public class Meleewepos : AbilityWeapons
         if ( Input.GetKeyUp( KeyCode.Space ) )
             canAttack = false;
     }
+
     public override void StartAbilityWp(Player newplayer)
     {
         base.StartAbilityWp(newplayer);
@@ -46,32 +33,19 @@ public class Meleewepos : AbilityWeapons
     }
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
-        if (GetPWM().attackSpeed > 0) { return; }
+        if (GetWeaponManger().attackSpeed > 0) { return; }
         
 
-        GetPWM().attackSpeed = 100/GetPWM().AttackSpeed;
-        Damage damage = new Damage();
-
-        damage.AdDamage = GetPWM().DamageAd;
-        damage.ApDamage = GetPWM().DamageAp;
-        damage.Ad_DefenceReduser = GetPWM().AmoroReduse;
-        damage.ApDamage = GetPWM().MagicReduse;
-        damage.PlayerRefernce = GetPlayer();
-        damage.type = GetPlayer().DamageModifayer( enemyHp , pos , damage );
+        GetWeaponManger().attackSpeed = 100/GetWeaponManger().AttackSpeed;
+        var damage = CreatDamage( GetWeaponManger().DamageAd , GetWeaponManger().DamageAp , GetWeaponManger().AmoroReduse , GetWeaponManger().MagicReduse );
+        print ( damage.ApDamage );
         enemyHp.HpValueChange(damage , out var result);
 
 
-        var s = Instantiate(GetPWM().OnMeeleHit , pos.position , Quaternion.identity);
+        var s = Instantiate(GetWeaponManger().OnMeeleHit , pos.position , Quaternion.identity);
         
-        GetPWM().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
+        GetWeaponManger().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
         Destroy(s , 6);
     }
 
-    private Vector2 ChooseDir()
-    {
-        if (GetPlayer().PlayerMoveMent.SpriteRenderer.flipX == false)
-            return Vector2.right;
-
-        return Vector2.left;
-    }
 }

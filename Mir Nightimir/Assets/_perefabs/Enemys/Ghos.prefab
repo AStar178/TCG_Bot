@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
+  state: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
+  State: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
   EnemyHp: {fileID: 8482224905265213821}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
+  EnemyState: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0

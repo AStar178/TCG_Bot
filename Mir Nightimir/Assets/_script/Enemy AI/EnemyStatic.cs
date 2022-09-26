@@ -14,6 +14,7 @@ public class EnemyStatic : MonoBehaviour
     public GameObject TextPrefab;
     public static Sprite GraveStoneSprit;
     public Sprite graveStoneSprit;
+    [SerializeField] Vector3 OffSet;
     private void Awake()
     {
         project = Project;
@@ -53,5 +54,10 @@ public class EnemyStatic : MonoBehaviour
             Timez -= Time.deltaTime;
             await Task.Yield();
         }
+    }
+    private void OnDrawGizmosSelected() {
+        
+        Gizmos.DrawLine(transform.position , (transform.position + Vector3.up - OffSet).normalized);
+
     }
 }

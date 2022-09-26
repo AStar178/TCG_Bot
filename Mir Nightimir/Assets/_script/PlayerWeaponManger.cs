@@ -26,6 +26,8 @@ public class PlayerWeaponManger : MonoBehaviour
     private void OnEnable() {
         OnDealDamage += OnDealDamageFuncens;
     }
+
+
     private void OnDisable() {
         OnDealDamage -= OnDealDamageFuncens;
     }
