@@ -170,7 +170,7 @@ MonoBehaviour:
   WeaponName: 'bonk '
   rotationLeftSprite: 0
   Type: 0
-  Raduis: 2
+  Raduis: 1.7
   FriendZoon: 0.6
   sprite: {fileID: -1317030293, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
 --- !u!1 &20344384
@@ -67139,7 +67139,7 @@ MonoBehaviour:
   target: {fileID: 0}
   PlayerWeaponManger: {fileID: 955869195}
   Player: {fileID: 616022487}
-  Raduis: 2
+  Raduis: 1.5
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -120955,7 +120955,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commanIteams:
-  - {fileID: 8903194203932834641, guid: 4dfa3adabe670fe4da4ccdf499524a45, type: 3}
+  - {fileID: 8593584095068623336, guid: e3950369eed606040aa30409c7ccf0d3, type: 3}
+  - {fileID: 8593584095068623336, guid: 0a9aea3952bb06f41a97a8846894b668, type: 3}
+  - {fileID: 2757526517292265430, guid: f50a9c3ba5e89264cbe58c22c720c3c0, type: 3}
+  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
+  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
+  - {fileID: 2757526517292265430, guid: bf06b42b60ff8c449a308981f46da948, type: 3}
+  - {fileID: 2757526517292265430, guid: 9bfd16598f8ad9b4b9475a0616ea0da5, type: 3}
   Moneycomman: 5
   commanColor: {r: 0.20754719, g: 0.15509021, b: 0, a: 1}
   GreenIteams:
@@ -120964,7 +120970,6 @@ MonoBehaviour:
   - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   - {fileID: 39215392070717922, guid: e5798dacb9c8d944088df8ba864fd023, type: 3}
   - {fileID: 39215392070717922, guid: 2afcc72f2e8b3894bbccf1c69367da9b, type: 3}
-  - {fileID: 8903194203932834641, guid: 4dfa3adabe670fe4da4ccdf499524a45, type: 3}
   MoneyGreen: 10
   GreenColor: {r: 0.03921567, g: 0.99607843, b: 0.041883692, a: 1}
   RangeGreen: 50

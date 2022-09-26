@@ -18,11 +18,18 @@ public class SaftyCircle : AbilityPowerUps
         if (stated == false) { damage.type = DamageType.AD; return damage; }
 
         if ( Vector2.Distance(GetPlayer().Body.position , target.position ) > 1.45f ) { damage.type = DamageType.AD; return damage; }
-
-        damage.AdDamage *= CritialAmount;
+        
+        if ( damage.AdDamage > damage.ApDamage )
+        {
+            damage.type = DamageType.Critial;
+            damage.AdDamage *= CritialAmount;
+            return damage;
+        }
+        
+        
         damage.ApDamage *= CritialAmount;
 
-        damage.type = DamageType.AD; return damage;
+        damage.type = DamageType.Critial; return damage;
     }
     bool stated;
     public override void OnFirstTime(Player player)

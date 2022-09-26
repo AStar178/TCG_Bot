@@ -7,6 +7,9 @@ public class Meleewepos : AbilityWeapons
     bool canAttack;
     public override Transform CoustomTargetSelect()
     {
+        if ( !canAttack )
+            return null;
+
         return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
@@ -38,7 +41,6 @@ public class Meleewepos : AbilityWeapons
 
         GetWeaponManger().attackSpeed = 100/GetWeaponManger().AttackSpeed;
         var damage = CreatDamage( GetWeaponManger().DamageAd , GetWeaponManger().DamageAp , GetWeaponManger().AmoroReduse , GetWeaponManger().MagicReduse );
-        print ( damage.ApDamage );
         enemyHp.HpValueChange(damage , out var result);
 
 

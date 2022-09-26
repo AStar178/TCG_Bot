@@ -89,9 +89,8 @@ public class Player : MonoBehaviour
             if (damages.type == DamageType.Critial)
                 trawe = DamageType.Critial;
             
-            sdamage.type = trawe;
         }
-        sdamage.type = trawe;
+        
         sdamage.type = trawe;
         CulculateAllBuffs();
         return sdamage;
