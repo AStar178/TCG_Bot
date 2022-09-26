@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1164876419, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.990566, g: 0.2840868, b: 0.2840868, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
+  state: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
   EnemyHp: {fileID: 8482224905265213821}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -225,13 +225,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
+  EnemyState: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
-  BlockChanse: 35
+  BlockChanse: 30
   spriteRenderer: {fileID: 8482224904236073207}
   OnDieEffect: {fileID: 0}
   xpAmount: 20

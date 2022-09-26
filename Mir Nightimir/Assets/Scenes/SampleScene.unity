@@ -65193,7 +65193,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65393,7 +65393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyState: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
@@ -65417,7 +65417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781188ae6fe4d24f89bb623f51ec429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
   Speed: 1
   Range: 5
   MeleeAttackSpeed: 1
@@ -65494,7 +65494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   EnemyHp: {fileID: 470841537}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -65510,7 +65510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -65677,7 +65677,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65834,8 +65834,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99999994
-    height: 0.99862075
+    width: 0.99954563
+    height: 1.0009017
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -65982,8 +65982,8 @@ MonoBehaviour:
   PlayerWeaponManger: {fileID: 955869195}
   PlayerHp: {fileID: 955869193}
   abilityPowerUps: []
-  uiEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
-  upgrateEvent: {fileID: 11400000, guid: 17f19836bb9178640a1095f42ebfb6c4, type: 2}
+  uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
+  upgrateEvent: {fileID: 11400000, guid: 0b458fec6cca3234fb314e744b34aa1d, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}
   Body: {fileID: 955869190}
   PowerUps: {fileID: 1308843648}
@@ -66169,7 +66169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efd7dbea873f1640abd7a500f15b7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 93e092a88118842468730f7ead50d891, type: 2}
+  gameEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
@@ -66500,7 +66500,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66608,7 +66608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d832d2d469d194482d46541103f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -66760,7 +66760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: f615166a6b0860b4db3df94f46cc142c, type: 2}
   EnemyHp: {fileID: 839581868}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -67004,6 +67004,7 @@ Transform:
   - {fileID: 136189973}
   - {fileID: 870744598}
   - {fileID: 13715439}
+  - {fileID: 970376710}
   m_Father: {fileID: 616022486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67117,7 +67118,7 @@ MonoBehaviour:
   MaxMana: 0
   ManaRejyAmount: 0
   TimeToGetMana: 0
-  CurrentWeapons: {fileID: 13715440}
+  CurrentWeapons: {fileID: 970376711}
   TextFonstDamage: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   attackSpeed: 0
   TextColors:
@@ -119862,6 +119863,55 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &970376709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970376710}
+  - component: {fileID: 970376711}
+  m_Layer: 6
+  m_Name: block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970376710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970376709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 955869190}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970376711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970376709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e28fbe318c1d8e4d94a3eef8016a6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponName: Soul Hunter
+  rotationLeftSprite: 1
+  Raduis: 3
+  sprite: {fileID: -580823831, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  MDeathTimer: 30
 --- !u!1 &1094031803
 GameObject:
   m_ObjectHideFlags: 0
@@ -120224,7 +120274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba8250d2aae30c459c22ffbd6152c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 17f19836bb9178640a1095f42ebfb6c4, type: 2}
+  gameEvent: {fileID: 11400000, guid: 0b458fec6cca3234fb314e744b34aa1d, type: 2}
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
@@ -120437,7 +120487,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -120732,7 +120782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyState: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
@@ -120756,7 +120806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   EnemyHp: {fileID: 1467813521}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -120772,7 +120822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -120907,6 +120957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
+  SoulHunterMinions: {fileID: 8482224905265213822, guid: 59e25b38b8569d249a8a336874eceaea, type: 3}
   TextPrefab: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   graveStoneSprit: {fileID: 514612856, guid: 06a6531b5cfc4d848b81127cd49deb59, type: 3}
 --- !u!114 &1507572142
@@ -121202,7 +121253,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

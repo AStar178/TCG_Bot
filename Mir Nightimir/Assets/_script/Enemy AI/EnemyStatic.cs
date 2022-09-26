@@ -8,6 +8,8 @@ public class EnemyStatic : MonoBehaviour
 {
     public static GameObject project;
     public GameObject Project;
+    public static GameObject soulHunterMinios;
+    public GameObject SoulHunterMinions;
     public static GameObject textPrefab;
     public GameObject TextPrefab;
     public static Sprite GraveStoneSprit;
@@ -15,6 +17,7 @@ public class EnemyStatic : MonoBehaviour
     private void Awake()
     {
         project = Project;
+        soulHunterMinios = SoulHunterMinions;
         textPrefab = TextPrefab;
         GraveStoneSprit = graveStoneSprit;
     }
@@ -38,5 +41,17 @@ public class EnemyStatic : MonoBehaviour
         }
         tween.Kill();
         Destroy(b);
+    }
+    public static void randomVector2(Vector2 rand,Vector2 v2, float minX, float maxX, float minY, float maxY)
+    {
+        rand = v2 + new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+    }
+    public static async Task Wait(float Timez)
+    {
+        while (Timez > 0)
+        {
+            Timez -= Time.deltaTime;
+            await Task.Yield();
+        }
     }
 }

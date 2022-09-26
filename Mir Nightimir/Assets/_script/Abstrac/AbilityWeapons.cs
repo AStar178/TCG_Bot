@@ -6,6 +6,7 @@ public abstract class AbilityWeapons : MonoBehaviour
     public string WeaponName;
     private Player player;
     public Player GetPlayer() => player;
+    public PlayerWeaponManger GetWeaponManger() => player.PlayerWeaponManger;
     public PlayerWeaponManger GetPWM() => player.PlayerWeaponManger;
     public PlayerTarget GetTarget() => player.PlayerTarget;
     public bool rotationLeftSprite;
