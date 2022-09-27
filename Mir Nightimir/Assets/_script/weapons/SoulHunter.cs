@@ -4,6 +4,7 @@ using UnityEngine;
 public class SoulHunter : AbilityWeapons 
 {
     [SerializeField] Sprite sprite;
+    [SerializeField] float SummonChance = 17;
     [SerializeField] float MDeathTimer = 30;
     bool canAttack;
 
@@ -50,7 +51,7 @@ public class SoulHunter : AbilityWeapons
         GetWeaponManger().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
         Destroy(s , 6);
 
-        if (UnityEngine.Random.Range(1,100) <= 100)
+        if (UnityEngine.Random.Range(1,100) <= SummonChance)
         {
             GameObject b = Instantiate(EnemyStatic.soulHunterMinios, gameObject.transform);
             b.GetComponent<SoulHunterMinions>().player = gameObject;
