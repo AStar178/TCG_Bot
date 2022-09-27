@@ -14,6 +14,8 @@ public class EnemyStatic : MonoBehaviour
     public GameObject TextPrefab;
     public static Sprite GraveStoneSprit;
     public Sprite graveStoneSprit;
+    public static GameObject magicBullet;
+    public GameObject MagicBullet;
     [SerializeField] Vector3 OffSet;
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class EnemyStatic : MonoBehaviour
         soulHunterMinios = SoulHunterMinions;
         textPrefab = TextPrefab;
         GraveStoneSprit = graveStoneSprit;
+        magicBullet = MagicBullet;
     }
     public static void CreatCoustomTextPopup(string v, Vector3 position, Color color)
     {
@@ -43,9 +46,10 @@ public class EnemyStatic : MonoBehaviour
         tween.Kill();
         Destroy(b);
     }
-    public static void randomVector2(Vector2 rand,Vector2 v2, float minX, float maxX, float minY, float maxY)
+    public static Vector2 randomVector2(Vector2 rand,Vector2 v2, float minX, float maxX, float minY, float maxY)
     {
         rand = v2 + new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        return rand;
     }
     public static async Task Wait(float Timez)
     {

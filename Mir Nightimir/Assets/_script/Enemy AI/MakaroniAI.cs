@@ -107,13 +107,9 @@ public class MakaroniAI : TESTei
                     B.AddComponent<CircleCollider2D>().isTrigger = true;
                     B.GetComponent<CircleCollider2D>().radius = 0.2f;
                     B.GetComponent<SpriteRenderer>().sprite = BulletSprite;
-                    B.gameObject.transform.DOScale(3, 3);
-                    await Wait(3);
-                    Rpg.SetupBullet( B , state , enemyHp , this.gameObject );
-            
-                    var tween = B.transform.DOMove(target.transform.position , .5f);
-                    EnemyStatic.KillTween(.5f, tween, B);
-                    await Wait(.48f);
+                    Rpg.SetupBullet(B, state, enemyHp, this.gameObject);
+                    B.AddComponent<MakaroniProject>().target = target.gameObject;
+                    B.GetComponent<MakaroniProject>().Starto();
                 }
                 else
                 {

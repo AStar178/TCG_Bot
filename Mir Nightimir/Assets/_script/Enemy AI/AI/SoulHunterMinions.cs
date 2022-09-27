@@ -7,9 +7,12 @@ using System;
 
 public class SoulHunterMinions : MonoBehaviour
 {
-    public GameObject target;
+    public Transform target;
     public GameObject player;
+    public Sprite ProjectileImage;
     [HideInInspector]
+    public AbilityWeapons Master;
+//    [HideInInspector]
     public float AttackCooldown;
     public float SetAttackCooldown;
     public Damage damage;
@@ -38,20 +41,26 @@ public class SoulHunterMinions : MonoBehaviour
 
         TimeToDeath -= Time.deltaTime;
 
+        var yes = Physics2D.OverlapCircle(transform.position, 4, Master.GetPlayer().PlayerTarget.EnemyLayer);
+        if (yes != null)
+        {
+            if (yes.TryGetComponent<EnemyHp>(out EnemyHp hp))
+                target = yes.transform;
+        }
+
         if (AttackCooldown <= 0)
         {
             if (target != null)
             {
-
                 AttackCooldown = SetAttackCooldown;
-                GameObject B = Instantiate(EnemyStatic.project, target.transform.position, Quaternion.identity);
-                EnemyBullent bullet = B.AddComponent<EnemyBullent>();
-                B.layer = gameObject.layer == (int)Rpg.EnemyTeam.Player ? (int)Rpg.EnemyTeam.Player : (int)Rpg.EnemyTeam.Enemy;
-                bullet.damage = damage;
-                bullet.damage.GameObjectRefernce = target.GetComponent<EnemyHp>();
-                bullet.layer = Get_BulitLayer(gameObject);
-                var tween = B.transform.DOMove(target.transform.position, .5f);
-                EnemyStatic.KillTween(.5f, tween, B);
+                var Bullet = Instantiate(EnemyStatic.magicBullet, target.position, Quaternion.identity);
+                var cp = Bullet.GetComponent<PlayerSimpBullet>();
+                if (ProjectileImage != null)
+                {
+                    Bullet.GetComponent<SpriteRenderer>().sprite = ProjectileImage;
+                }
+                cp.magic = Master;
+                cp.target = target;
             }
         }
         else { AttackCooldown -= Time.deltaTime; }
@@ -71,22 +80,11 @@ public class SoulHunterMinions : MonoBehaviour
         return list;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.TryGetComponent<EnemyHp>(out EnemyHp enemyHp);
-
-        if (enemyHp != null)
-        {
-            target = enemyHp.gameObject;
-        }
-        else target = null;
-    }
-
     async void Run()
     {
         Vector3 PlayPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         EnemyStatic.randomVector2(RunTo, player.transform.position, MinX, MinY, MaxX, MaxY);
-        gameObject.transform.DOMove(PlayPos + RunToCheak( RunTo ), .5f);
+        gameObject.transform.DOMove(PlayPos + RunToCheak(RunTo), .5f);
 
         await EnemyStatic.Wait(.7f);
         Run();
