@@ -12,5 +12,8 @@ public class HpBuffs : AbilityPowerUps
         base.OnPowerUp(player);
 
         player.HpBuff += Hp;
+        player.PlayerHp.Currenthp = player.PlayerHp.MaxHp;
+        GetPlayer().UpdateUI();
+
     }
 }

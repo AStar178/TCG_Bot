@@ -17,6 +17,7 @@ public abstract class AbilityWeapons : MonoBehaviour
     protected float Tau => 6.28318530718f;
     protected float PI => MathF.PI;
     [Range(0.3f , 6)] [SerializeField] protected float FriendZoon;
+    
     public virtual Transform CoustomTargetSelect()
     {
         if (Type == WeaponType.Range)
@@ -58,6 +59,10 @@ public abstract class AbilityWeapons : MonoBehaviour
         
     }
     public virtual void AbilityWeaponsUseAbility()
+    {
+        
+    }
+    public virtual void OnLevelUp()
     {
         
     }

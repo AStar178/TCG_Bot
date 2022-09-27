@@ -5,6 +5,7 @@ public class Meleewepos : AbilityWeapons
 {
     [SerializeField] Sprite sprite;
     bool canAttack;
+
     public override Transform CoustomTargetSelect()
     {
         if ( !canAttack )
@@ -37,7 +38,6 @@ public class Meleewepos : AbilityWeapons
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
         if (GetWeaponManger().attackSpeed > 0) { return; }
-        
 
         GetWeaponManger().attackSpeed = 100/GetWeaponManger().AttackSpeed;
         var damage = CreatDamage( GetWeaponManger().DamageAd , GetWeaponManger().DamageAp , GetWeaponManger().AmoroReduse , GetWeaponManger().MagicReduse );

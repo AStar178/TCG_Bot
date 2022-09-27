@@ -10,7 +10,7 @@ public class MagicBullent : MonoBehaviour
     private void Update() 
     {
         if (yellow)
-            transform.rotation = Quaternion.Euler( transform.rotation.x + 0 , transform.rotation.y + 0 , transform.rotation.z + 0.1f );
+            transform.localEulerAngles += Vector3.forward * ( 1f + Random.Range( -0.25f , 0.25f ) ) ;
         if (target == null) { return; }
 
 

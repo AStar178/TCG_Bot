@@ -1,9 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class Rpg
 {
+    public static float Tau => 6.28318530718f;
     public static Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse , Player player , IHpValue hp , Transform pos )
     {
         Damage damage = new Damage();
@@ -16,9 +17,38 @@ public static class Rpg
         damage.GameObjectRefernce = player.PlayerHp;
         damage = player.DamageModifayer( hp , pos , damage );
 
-
         return damage;
     }
+    
+    public static Vector2 TryToGetSpawnPos(Vector2 posin , Transform transform , int x , int y)
+    {
+        posin.x = Random.value > 0.5f ?
+            -Random.Range(0 - transform.position.x , x/2 - transform.position.x):
+            Random.Range(0 + transform.position.x , x/2 + transform.position.x);
+            posin.y = Random.value > 0.5f ?
+            -Random.Range(0 - transform.position.y , y/2 - transform.position.y):
+            Random.Range(0 + transform.position.y , y/2 + transform.position.y);
+
+        if (Physics2D.OverlapBox( posin , Vector2.one , 0 ) != null) { return TryToGetSpawnPos( new Vector2( transform.position.x , transform.position.y ) , transform , x , y ); }
+
+        return posin;
+    }
+
+    public static List<Vector2> CreatMultipleDir(int amount)
+    {
+        List<Vector2> vector2s = new List<Vector2>();
+
+        for (int i = 0; i < amount; i++)
+        {
+            var t = i/(float)amount;
+            var raduis = Tau * t;
+            Vector2 dir = new Vector2( Mathf.Cos( raduis ) , Mathf.Sin( raduis ) ).normalized;
+            vector2s.Add(dir);   
+        }
+
+        return vector2s;
+    }
+
     public static float HpMax( float currentHp , float MaxHP )
     {
         return currentHp / MaxHP;

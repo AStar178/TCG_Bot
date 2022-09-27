@@ -58,6 +58,10 @@ public class Player : MonoBehaviour
             XpMax = (int)( 100 * ( CurrentLevel * 0.2f ) );
             PlayerHp.Currenthp = PlayerHp.MaxHp;
             PlayerWeaponManger.CurrentMana = PlayerWeaponManger.MaxMana;
+
+            if (PlayerWeaponManger.CurrentWeapons != null)
+                PlayerWeaponManger.CurrentWeapons.OnLevelUp();
+        
             if (OnLevelEffect != null)
                 OnLevelEffectFunc();
         }
@@ -84,13 +88,13 @@ public class Player : MonoBehaviour
         for (int i = 0; i < abilityPowerUps.Count; i++)
         {
 
-            var damages = abilityPowerUps[i].DamaModifayer( damage , target , hpValue );
+            var damages = abilityPowerUps[i].DamaModifayer( sdamage , target , hpValue );
             sdamage = damages;
             if (damages.type == DamageType.Critial)
                 trawe = DamageType.Critial;
             
         }
-        
+
         sdamage.type = trawe;
         CulculateAllBuffs();
         return sdamage;
@@ -155,17 +159,17 @@ public class Player : MonoBehaviour
     private void CulculateAllBuffs()
     {
         PlayerMoveMent.moveSpeed =  ( PlayerState.MoveSpeed * ( ( dexterity * 0.25 ) + MoveSpeedBuff ) ) < PlayerState.MoveSpeed ? PlayerState.MoveSpeed : ( PlayerState.MoveSpeed )  * ( ( dexterity * 0.25f ) + MoveSpeedBuff ) + CurrentLevel * 0.1f;
-        PlayerHp.MaxHp = ( PlayerState.MaxHpAmount * ( vitality * 0.9f + HpBuff ) ) < PlayerState.MaxHpAmount ? PlayerState.MaxHpAmount : ( PlayerState.MaxHpAmount + HpBuff ) * ( vitality * 1.25f ) + CurrentLevel * 0.1f;
+        PlayerHp.MaxHp = ( PlayerState.MaxHpAmount * ( vitality * 0.9f + HpBuff ) ) < PlayerState.MaxHpAmount ? PlayerState.MaxHpAmount : ( PlayerState.MaxHpAmount + HpBuff ) * ( vitality * 0.9f ) + CurrentLevel * 0.1f;
         PlayerHp.Amoro = ( PlayerState.Amoro * ( vitality * 0.6f + AmoroBuff ) ) < PlayerState.Amoro  ? PlayerState.Amoro  : ( PlayerState.Amoro + AmoroBuff ) * ( vitality * 0.6f ) + CurrentLevel * 0.1f;
         PlayerHp.MagicResest = (  MagicReseted * ( intelligence * 0.4 ) ) < PlayerState.MagicReset ? PlayerState.MagicReset : ( PlayerState.MagicReset + MagicReseted ) * ( intelligence * 0.4f ) + CurrentLevel * 0.1f;
         PlayerWeaponManger.AttackSpeed = PlayerState.AttackSpeed * ( dexterity + ( AttackSpeedBuff * 0.25f ) ) + CurrentLevel * 0.1f;
         PlayerWeaponManger.AmoroReduse = PlayerState.Ad_DefenceReduser * strength + CurrentLevel * 0.1f;
         PlayerWeaponManger.MagicReduse = PlayerState.Mp_DefenceReduser * intelligence + ( MagicReduseBuff * 0.25f ) + CurrentLevel * 0.1f;
-        PlayerWeaponManger.DamageAd = PlayerState.AdDamage * strength + ( DamageAdBuff * 0.25f ) + CurrentLevel * 0.1f;
-        PlayerWeaponManger.DamageAp = PlayerState.ApDamage * intelligence + CurrentLevel * 0.1f;
-        PlayerWeaponManger.MaxMana = ( Fart * 0.5f ) < PlayerState.MaxMana ? PlayerState.MaxMana : PlayerState.MaxMana * ( Fart * 0.5f ) + CurrentLevel * 0.1f;
-        PlayerWeaponManger.ManaRejyAmount = ( Fart * 0.75f) < PlayerState.ManaRejyAmount ? PlayerState.ManaRejyAmount : PlayerState.ManaRejyAmount * ( Fart * 0.75f ) + CurrentLevel * 0.1f;
-        
+        PlayerWeaponManger.DamageAd = PlayerState.AdDamage * ( ( strength * 0.5f ) < 1 ? 1 : strength * 0.5f ) + ( DamageAdBuff * 0.25f ) + CurrentLevel * 0.1f;
+        PlayerWeaponManger.DamageAp = PlayerState.ApDamage * ( ( intelligence * 0.5f ) < 1 ? 1 : intelligence * 0.5f ) + CurrentLevel * 0.1f;
+        PlayerWeaponManger.MaxMana = PlayerState.MaxMana * ( ( Fart * 0.5f ) < 1 ? 1 : ( Fart * 0.5f ) ) + CurrentLevel * 0.1f;
+        PlayerWeaponManger.ManaRejyAmount = PlayerState.ManaRejyAmount * ( ( Fart * 0.75f ) < 1 ? 1 : ( Fart * 0.75f ) ) + CurrentLevel * 0.1f;
+    
         PlayerWeaponManger.TimeToGetMana = PlayerState.TimeToGetMana;
 
         UpdateUI();
@@ -208,7 +212,6 @@ public class Player : MonoBehaviour
         Damage damage = new Damage();
         damage = Rpg.CreatDamage(  ad , ap , amoroReduse , magicReduse , this , PlayerHp , pos );
         var damage2 = DamageModifayer( PlayerHp , pos , damage );
-        print( damage2.type );
 
         return damage2;
     }

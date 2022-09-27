@@ -9,10 +9,11 @@ public class Necromnacers : AbilityWeapons
     [SerializeField] GameObject MagicBullit;
     [SerializeField] Transform spawnPos;
     [SerializeField] LayerMask graves;
+
     public override void StartAbilityWp(Player newplayer)
     {
         base.StartAbilityWp(newplayer);
-
+        WeaponName = "Necromanser";
         GetPlayer().PlayerTarget.Raduis = Raduis;
         GetPlayer().PlayerMoveMent.SpriteRenderer.sprite = sprite;
     }
@@ -24,12 +25,12 @@ public class Necromnacers : AbilityWeapons
 
         GetWeaponManger().attackSpeed = 100/GetWeaponManger().AttackSpeed * 3f;
 
-
         var Bullet = Instantiate(MagicBullit , spawnPos.position , Quaternion.identity);
         var cp = Bullet.GetComponent<MagicBullent>();
         Destroy(Bullet , 10);
         cp.magic = this;
-        cp.target = pos;
+        cp.target = pos;   
+        
     }
 
     public override void AbilityWeaponsUseAbility()
@@ -51,6 +52,12 @@ public class Necromnacers : AbilityWeapons
             }
         }  
         GetPlayer().PlayerTarget.target = null;
+    }
+    private void OnDrawGizmosSelected() {
+
+        Gizmos.color = Color.green;
+
+        Gizmos.color = Color.white;
     }
 
 }
