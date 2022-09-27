@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1164876419, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  m_Sprite: {fileID: 261477404, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   m_Color: {r: 0.058823586, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -164,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
 --- !u!114 &3617695795580361044
 MonoBehaviour:
@@ -180,6 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   player: {fileID: 0}
+  ProjectileImage: {fileID: -888885421, guid: 06a6531b5cfc4d848b81127cd49deb59, type: 3}
+  Master: {fileID: 0}
   AttackCooldown: 0
   SetAttackCooldown: 0
   TimeToDeath: 0
@@ -187,3 +189,4 @@ MonoBehaviour:
   MinY: -3
   MaxX: 3
   MaxY: 3
+  renderers: {fileID: 0}

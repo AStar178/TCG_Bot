@@ -20,6 +20,7 @@ public class Turret : TESTei
     [SerializeField] EnemyHp enemyHp;
     [SerializeField] SpriteRenderer renderers;
     public GameObject project;
+    public Sprite ProjectileImage;
 
 
     public override void start()
@@ -42,6 +43,10 @@ public class Turret : TESTei
             if (TBS <= 0)
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
+                if (ProjectileImage != null)
+                {
+                    B.GetComponent<SpriteRenderer>().sprite = ProjectileImage;
+                }
                 Rpg.SetupBullet( B , stat , enemyHp , this.gameObject );
                 var tween = B.transform.DOMove(Tar.transform.position, .5f);
 

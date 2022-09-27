@@ -50,10 +50,11 @@ public class SoulHunter : AbilityWeapons
         GetWeaponManger().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
         Destroy(s , 6);
 
-        if (0.75 < UnityEngine.Random.value)
+        if (UnityEngine.Random.Range(1,100) <= 100)
         {
             GameObject b = Instantiate(EnemyStatic.soulHunterMinios, gameObject.transform);
             b.GetComponent<SoulHunterMinions>().player = gameObject;
+            b.GetComponent<SoulHunterMinions>().Master = this;
             b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
             b.GetComponent<SoulHunterMinions>().damage = Rpg.CreatDamage(GetWeaponManger().DamageAd, GetWeaponManger().DamageAp, GetWeaponManger().AmoroReduse, GetWeaponManger().MagicReduse , GetPlayer() , default , GetPlayerTargetSelector().target.transform);
             b.GetComponent<SoulHunterMinions>().TimeToDeath = MDeathTimer;

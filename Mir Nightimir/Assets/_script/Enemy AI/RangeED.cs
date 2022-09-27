@@ -11,6 +11,7 @@ public class RangeED : TESTei
     public float STBS;
     private float FixSecond;
     private float FixSecondN;
+    public Sprite ProjectileImage;
     bool ATTACK = false;
 
     public GameObject project;
@@ -36,6 +37,10 @@ public class RangeED : TESTei
             if (TBS <= 0)
             {
                 GameObject B = Instantiate(project, transform.position, Quaternion.identity);
+                if (ProjectileImage != null)
+                {
+                    B.GetComponent<SpriteRenderer>().sprite = ProjectileImage;
+                }
                 B.layer = gameObject.layer == (int)Rpg.EnemyTeam.Player ? (int)Rpg.EnemyTeam.Player : (int)Rpg.EnemyTeam.Enemy;
                 Rpg.SetupBullet(B , state , enemyHp , this.gameObject);
                 var tween = B.transform.DOMove(target.transform.position, .5f);
