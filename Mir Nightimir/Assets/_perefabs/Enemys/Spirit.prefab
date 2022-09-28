@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8482224904236073206}
   - component: {fileID: 8482224904236073207}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 195c5d7fdf8ffcf40a6fa32f4fa91926, type: 2}
+  - {fileID: 2100000, guid: 930379f990890e3429102b2a12311f8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1164876419, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
-  m_Color: {r: 0.990566, g: 0.2840868, b: 0.2840868, a: 1}
+  m_Sprite: {fileID: 1782145367, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  m_Color: {r: 0.058823586, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,11 +95,9 @@ GameObject:
   - component: {fileID: 8482224905265213816}
   - component: {fileID: 8482224905265213817}
   - component: {fileID: 8482224905265213818}
-  - component: {fileID: 8482224905265213819}
-  - component: {fileID: 8482224905265213820}
-  - component: {fileID: 8482224905265213821}
-  m_Layer: 7
-  m_Name: Ghos
+  - component: {fileID: -1562766699574200997}
+  m_Layer: 8
+  m_Name: Spirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00063091516, y: -0.09278534}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -166,9 +164,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62143743, y: 0.44426623}
+  m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
---- !u!114 &8482224905265213819
+--- !u!114 &-1562766699574200997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,68 +175,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8482224905265213822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b52518cc7338ef4191e5af446f204e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
-  Speed: 0
-  Range: 0
-  MeleeAttackSpeed: 1
   target: {fileID: 0}
-  targetLayer: 
-  targetLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  HitTheWall: 0
-  WallCheck: 0
-  Wall:
-    serializedVersion: 2
-    m_Bits: 4096
-  Coward: 0
-  CowardenessRange: 0
-  Lung: 0
-  LungRange: 0
-  LungCooldown: 0
-  lungColdown: 0
-  NoChase: 0
-  SpriteRenderer: {fileID: 8482224904236073207}
---- !u!114 &8482224905265213820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8482224905265213822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 8f1dab297bd5d1a4a9e8fbf05bdfc926, type: 2}
-  EnemyHp: {fileID: 8482224905265213821}
-  tei: {fileID: 0}
-  yurret: {fileID: 0}
---- !u!114 &8482224905265213821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8482224905265213822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 487a2649e96933a4393aa53ce0c1b1e2, type: 2}
-  MaxHp: 0
-  Currenthp: 0
-  Amoro: 0
-  MagicResest: 0
-  DelayDamageTakeTime: 0.5
-  BlockChanse: 30
-  spriteRenderer: {fileID: 8482224904236073207}
-  OnDieEffect: {fileID: 0}
-  xpAmount: 5
-  coinsAmount: 6
-  resultOfBlocked: 3
+  player: {fileID: 0}
+  ProjectileImage: {fileID: 0}
+  Master: {fileID: 0}
+  AttackCooldown: 0
+  SetAttackCooldown: 0
+  TimeToDeath: 0
+  MinX: -2
+  MinY: 2
+  MaxX: -2
+  MaxY: 2
+  renderers: {fileID: 8482224904236073207}

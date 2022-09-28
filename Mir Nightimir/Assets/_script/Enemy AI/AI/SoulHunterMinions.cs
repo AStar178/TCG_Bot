@@ -15,7 +15,6 @@ public class SoulHunterMinions : MonoBehaviour
     [HideInInspector]
     public float AttackCooldown;
     public float SetAttackCooldown;
-    public Damage damage;
     public float TimeToDeath;
     Vector3 RunTo;
     public float MinX;
@@ -36,8 +35,8 @@ public class SoulHunterMinions : MonoBehaviour
     {
         if (TimeToDeath <= 0)
         {
-            Destroy(gameObject);
             Master.GetComponent<SoulHunter>().SoulsDominions.Remove(this);
+            Destroy(gameObject);
         }
 
         TimeToDeath -= Time.deltaTime;

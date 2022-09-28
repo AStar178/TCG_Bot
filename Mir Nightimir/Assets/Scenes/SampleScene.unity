@@ -172,12 +172,13 @@ MonoBehaviour:
   Type: 0
   Raduis: 1.4
   FriendZoon: 0.3
-  ManaCost: 50
-  SetCooldown: 30
   sprite: {fileID: -580823831, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   SummonChance: 17
   MDeathTimer: 30
   SoulsDominions: []
+  MinionCap: 0
+  SetBeforeSkillUp: 10
+  SkillUpAddAmount: 1
 --- !u!1 &20344384
 GameObject:
   m_ObjectHideFlags: 0
@@ -65194,7 +65195,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65689,7 +65690,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65845,9 +65846,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 0.99954563
-    height: 1.0009017
+    y: 0.0012840268
+    width: 1
+    height: 0.99640477
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -66513,7 +66514,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66988,6 +66989,10 @@ MonoBehaviour:
   sprite: {fileID: 1008483382, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
   spawnPos: {fileID: 136189973}
+  amount: 3
+  manaCost: 10
+  SetBeforeSkillUp: 7
+  SkillUpAddAmount: 2
 --- !u!1 &955869189
 GameObject:
   m_ObjectHideFlags: 0
@@ -67139,7 +67144,7 @@ MonoBehaviour:
   MaxMana: 0
   ManaRejyAmount: 0
   TimeToGetMana: 0
-  CurrentWeapons: {fileID: 13715440}
+  CurrentWeapons: {fileID: 970376711}
   TextFonstDamage: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   attackSpeed: 0
   TextColors:
@@ -119893,6 +119898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970376710}
+  - component: {fileID: 970376711}
   m_Layer: 6
   m_Name: block
   m_TagString: Untagged
@@ -119915,6 +119921,30 @@ Transform:
   m_Father: {fileID: 955869190}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970376711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970376709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85e6252236492147baad09bbd8c22d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponName: Spirit User
+  rotationLeftSprite: 1
+  Type: 0
+  Raduis: 1.4
+  FriendZoon: 0.3
+  sprite: {fileID: -1578595067, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  Spit: {fileID: 0}
+  SetBeforeSkillUp: 3
+  SetSkillUpAmount: 1
+  SkillUpAddAmount: 1
+  attacking: 0
+  StandAggroRange: 3
 --- !u!1 &1094031803
 GameObject:
   m_ObjectHideFlags: 0
@@ -120490,7 +120520,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -120966,6 +120996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
   SoulHunterMinions: {fileID: 8482224905265213822, guid: 59e25b38b8569d249a8a336874eceaea, type: 3}
+  Stand: {fileID: 8482224905265213822, guid: f682abf621215094990a451950aa8f63, type: 3}
   TextPrefab: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   graveStoneSprit: {fileID: 514612856, guid: 06a6531b5cfc4d848b81127cd49deb59, type: 3}
   MagicBullet: {fileID: 2974763324393653679, guid: bc53d14d452333d41b1510d166cadf9e, type: 3}
@@ -121267,7 +121298,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
-  m_sharedMaterial: {fileID: -2260941803595052393, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
+  m_sharedMaterial: {fileID: 6936542240145925732, guid: 2d12b8cb37e9f534caf8dbc1f69926a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

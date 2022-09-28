@@ -32,7 +32,7 @@ public class HpRegen : MonoBehaviour
             }
             else if (master.PlayerHp.Currenthp < master.PlayerHp.MaxHp)
             {
-                master.PlayerHp.Currenthp += master.PlayerHp.MaxHp + Heal;
+                master.PlayerHp.Currenthp += master.PlayerHp.Currenthp + Heal;
                 if (master.PlayerHp.Currenthp > master.PlayerHp.MaxHp)
                 {
                     master.PlayerHp.Currenthp = master.PlayerHp.MaxHp;
