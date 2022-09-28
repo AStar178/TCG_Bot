@@ -1,11 +1,17 @@
 using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
-public class SoulHunter : AbilityWeapons 
+public class SoulHunter : AbilityWeapons
 {
+    [SerializeField] float ManaCost;
+    [SerializeField] float SetCooldown;
+    float Cooldown;
     [SerializeField] Sprite sprite;
     [SerializeField] float SummonChance = 17;
     [SerializeField] float MDeathTimer = 30;
+    public List<SoulHunterMinions> SoulsDominions;
     bool canAttack;
 
     public override Transform CoustomTargetSelect()
@@ -20,6 +26,9 @@ public class SoulHunter : AbilityWeapons
 
     public override void UpdateAbilityWp()
     {
+        if (Cooldown > 0)
+            Cooldown -= Time.deltaTime;
+
         if ( Input.GetKeyDown( KeyCode.Space ) )
             canAttack = true;
         
@@ -59,6 +68,7 @@ public class SoulHunter : AbilityWeapons
             b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
             b.GetComponent<SoulHunterMinions>().damage = Rpg.CreatDamage(GetWeaponManger().DamageAd, GetWeaponManger().DamageAp, GetWeaponManger().AmoroReduse, GetWeaponManger().MagicReduse , GetPlayer() , default , GetPlayerTargetSelector().target.transform);
             b.GetComponent<SoulHunterMinions>().TimeToDeath = MDeathTimer;
+            SoulsDominions.Add(b.GetComponent<SoulHunterMinions>());
         }
     }
 

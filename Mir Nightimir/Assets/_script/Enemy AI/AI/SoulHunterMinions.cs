@@ -12,7 +12,7 @@ public class SoulHunterMinions : MonoBehaviour
     public Sprite ProjectileImage;
     [HideInInspector]
     public AbilityWeapons Master;
-//    [HideInInspector]
+    [HideInInspector]
     public float AttackCooldown;
     public float SetAttackCooldown;
     public Damage damage;
@@ -37,6 +37,7 @@ public class SoulHunterMinions : MonoBehaviour
         if (TimeToDeath <= 0)
         {
             Destroy(gameObject);
+            Master.GetComponent<SoulHunter>().SoulsDominions.Remove(this);
         }
 
         TimeToDeath -= Time.deltaTime;
@@ -66,26 +67,14 @@ public class SoulHunterMinions : MonoBehaviour
         else { AttackCooldown -= Time.deltaTime; }
     }
 
-    private List<int> Get_BulitLayer(GameObject b)
-    {
-        List<int> list = new List<int>();
-        if (b.layer == (int)Rpg.EnemyTeam.Player)
-        {
-            list.Add(7);
-            return list;
-        }
-
-        list.Add(10);
-        list.Add(6);
-        return list;
-    }
-
     async void Run()
     {
-        Vector3 PlayPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-        EnemyStatic.randomVector2(RunTo, player.transform.position, MinX, MinY, MaxX, MaxY);
-        gameObject.transform.DOMove(PlayPos + RunToCheak(RunTo), .5f);
-
+        if (TimeToDeath > 1.7)
+        {
+            Vector3 PlayPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+            EnemyStatic.randomVector2(RunTo, player.transform.position, MinX, MinY, MaxX, MaxY);
+            gameObject.transform.DOMove(PlayPos + RunToCheak(RunTo), .5f);
+        }
         await EnemyStatic.Wait(.7f);
         Run();
     }

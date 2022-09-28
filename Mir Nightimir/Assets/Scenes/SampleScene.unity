@@ -172,8 +172,12 @@ MonoBehaviour:
   Type: 0
   Raduis: 1.4
   FriendZoon: 0.3
+  ManaCost: 50
+  SetCooldown: 30
   sprite: {fileID: -580823831, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
+  SummonChance: 17
   MDeathTimer: 30
+  SoulsDominions: []
 --- !u!1 &20344384
 GameObject:
   m_ObjectHideFlags: 0
@@ -65423,6 +65427,11 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 320
+  HitTheWall: 0
+  WallCheck: 0
+  Wall:
+    serializedVersion: 2
+    m_Bits: 4096
   Coward: 1
   CowardenessRange: 2
   Lung: 0
@@ -65492,7 +65501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   EnemyHp: {fileID: 470841537}
   tei: {fileID: 0}
   yurret: {fileID: 0}
@@ -65508,7 +65517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9756740ea0fc5b49a0428d9622fc4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  state: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -65517,6 +65526,11 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 1088
+  HitTheWall: 0
+  WallCheck: 0
+  Wall:
+    serializedVersion: 2
+    m_Bits: 4096
   Coward: 0
   CowardenessRange: 0
   Lung: 1
@@ -66616,6 +66630,11 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 1088
+  HitTheWall: 0
+  WallCheck: 0
+  Wall:
+    serializedVersion: 2
+    m_Bits: 4096
   Coward: 0
   CowardenessRange: 0
   Lung: 0
@@ -66961,11 +66980,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e5ee8af444c98408b6ea94a8d9e730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponName: 
+  WeaponName: Mage
   rotationLeftSprite: 0
-  Type: 0
-  Raduis: 0
-  FriendZoon: 0
+  Type: 1
+  Raduis: 5
+  FriendZoon: 0.3
   sprite: {fileID: 1008483382, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
   spawnPos: {fileID: 136189973}
@@ -67159,7 +67178,7 @@ GameObject:
   - component: {fileID: 962619680}
   - component: {fileID: 962619683}
   - component: {fileID: 962619681}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120815,6 +120834,11 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 1088
+  HitTheWall: 0
+  WallCheck: 0
+  Wall:
+    serializedVersion: 2
+    m_Bits: 4096
   Coward: 0
   CowardenessRange: 0
   Lung: 1
@@ -120985,6 +121009,7 @@ MonoBehaviour:
   - {fileID: 5461275095725942226, guid: 71ee004118b832f41be68ad6df1dbac5, type: 3}
   - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
   - {fileID: 8903194203932834641, guid: 4dfa3adabe670fe4da4ccdf499524a45, type: 3}
+  - {fileID: 5461275095725942226, guid: 0c24203455dea994dbd478584014464d, type: 3}
   MoneyRare: 20
   RareColor: {r: 0, g: 0.94248676, b: 1, a: 1}
   RangeRare: 45
@@ -120995,6 +121020,7 @@ MonoBehaviour:
   - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   - {fileID: 5461275095725942226, guid: 71ee004118b832f41be68ad6df1dbac5, type: 3}
   - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
+  - {fileID: 5461275095725942226, guid: 0c24203455dea994dbd478584014464d, type: 3}
   MoneyEpic: 40
   EpicColor: {r: 0.80887604, g: 0, b: 1, a: 1}
   RangeEpic: 35
@@ -121004,6 +121030,7 @@ MonoBehaviour:
   - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
   - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
   - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
+  - {fileID: 5461275095725942226, guid: 0c24203455dea994dbd478584014464d, type: 3}
   MoneyLegendery: 80
   LegenderyColor: {r: 1, g: 0.6090461, b: 0, a: 1}
   RangeLegendery: 30

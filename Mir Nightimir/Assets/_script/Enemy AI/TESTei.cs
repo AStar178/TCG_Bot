@@ -14,6 +14,9 @@ public abstract class TESTei : MonoBehaviour
     public Collider2D target;
     public List<int> targetLayer = new List<int>();
     public LayerMask targetLayerMask;
+    public bool HitTheWall;
+    public float WallCheck;
+    public LayerMask Wall = 13;
 
     public bool Coward;
     public float CowardenessRange;
@@ -83,11 +86,14 @@ public abstract class TESTei : MonoBehaviour
             SpriteFreeFire();
         if (NoChase == false)
         {
-            if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range && Vector2.Distance(gameObject.transform.position, target.transform.position) >= .35f)
-            { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
-            else 
+            if (HitTheWall == false)
             {
-                target = Physics2D.OverlapCircle( transform.position , Range , targetLayerMask );
+                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range && Vector2.Distance(gameObject.transform.position, target.transform.position) >= .35f)
+                { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
+                else
+                {
+                    target = Physics2D.OverlapCircle(transform.position, Range, targetLayerMask);
+                }
             }
                 
         }
@@ -163,7 +169,17 @@ public abstract class TESTei : MonoBehaviour
             AttackSpeedTime = MeleeAttackSpeed;
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D yes)
+    {
+        if (yes != null)
+        {
+            if (yes.gameObject.layer == Wall)
+                HitTheWall = true;
+        }
+        else { HitTheWall = false; }
+    }
+
     private bool IsEnemy(Collider2D other)
     {
         

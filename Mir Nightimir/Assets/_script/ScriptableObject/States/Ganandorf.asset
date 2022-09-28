@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
+  m_Name: Ganandorf
+  m_EditorClassIdentifier: 
+  AdDamage: 20
+  ApDamage: 0
+  AttackSpeed: 0
+  Amoro: 10
+  MagicReset: 10
+  Ad_DefenceReduser: 0
+  Mp_DefenceReduser: 0
+  MaxHpAmount: 60
+  MoveSpeed: 1
+  AggroRange: 5
+  MaxMana: 0
+  ManaRejyAmount: 0
+  TimeToGetMana: 0
