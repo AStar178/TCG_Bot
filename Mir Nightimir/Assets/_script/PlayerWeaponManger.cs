@@ -82,8 +82,8 @@ public class PlayerWeaponManger : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
             CurrentWeapons.AbilityWeaponsUseAbility();
-
-        CurrentWeapons.UpdateAbilityWp();
+        if (CurrentWeapons != null)
+            CurrentWeapons.UpdateAbilityWp();
     }
 
     public void CreatCoustomTextPopup( string v , Vector3 position , Color color )
@@ -115,7 +115,8 @@ public class PlayerWeaponManger : MonoBehaviour
     }
     public void SweichWeapon(GameObject newWeapons)
     {
-        CurrentWeapons.StopAbilityWp();
+        if (CurrentWeapons != null)
+            CurrentWeapons.StopAbilityWp();
         var newweapos = Instantiate(newWeapons , transform.position , Quaternion.identity);
         CurrentWeapons = newWeapons.GetComponent<AbilityWeapons>();
     }

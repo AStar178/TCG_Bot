@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] public UpgrateEvent upgrateEvent;
     [SerializeField] public GameObject OnLevelEffect;
     [SerializeField] public Transform Body;
+    [SerializeField] public Transform BulletSpwanPoint;
     [SerializeField] Transform PowerUps;
     public int CurrentLevel = 1;
     public int XpMax = 100;

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public abstract class AbilityWeapons : MonoBehaviour 
+public abstract class AbilityWeapons : MonoBehaviour
 {
+    [HideInInspector]
+    public Sprite image;
     public string WeaponName;
+    [TextArea]
+    public string WeaponDescription;
     private Player player;
     public Player GetPlayer() => player;
     public Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse ) => GetPlayer().CreatDamage( ad , ap , amoroReduse , magicReduse , GetPlayerTargetSelector().target);
@@ -38,6 +42,11 @@ public abstract class AbilityWeapons : MonoBehaviour
     }
 
     public virtual void UpdateAbilityWp()
+    {
+
+    }
+
+    public virtual void GetSprite()
     {
 
     }

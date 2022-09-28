@@ -24,6 +24,10 @@ public class SoulHunter : AbilityWeapons
         return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
 
     public override void UpdateAbilityWp()
     {

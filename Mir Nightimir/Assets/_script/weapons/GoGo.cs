@@ -26,6 +26,12 @@ public class GoGo : AbilityWeapons
         return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
+
+
     public Transform GetTarget() => CoustomTargetSelectingMelee(Raduis , FriendZoon );
 
 
@@ -110,10 +116,12 @@ public class GoGo : AbilityWeapons
         {
             if (Spit == null)
             {
-                GameObject b = Instantiate(EnemyStatic.stand, gameObject.transform);
-                b.GetComponent<Spirit>().player = gameObject;
+                GameObject b = Instantiate(EnemyStatic.stand, GetPlayer().Body.transform);
+                b.transform.localScale = new Vector3(0, 0, 0);
+                b.transform.DOMove(new Vector3 (GetPlayer().Body.transform.position.x + .9f, transform.position.y, transform.position.z), 0);
+                b.GetComponent<Spirit>().player = GetPlayer().Body.gameObject;
                 b.GetComponent<Spirit>().Jojo = this;
-                b.GetComponent<Spirit>().ok = true;
+                b.GetComponent<Spirit>().Spawn();
                 Spit = (b.GetComponent<Spirit>());
             }
             else

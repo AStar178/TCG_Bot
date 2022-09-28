@@ -101,6 +101,13 @@ public class Spirit : MonoBehaviour
         }
     }
 
+    public async void Spawn()
+    {
+        await EnemyStatic.Wait(.1f);
+        gameObject.transform.DOScale(new Vector3(1, 1, 1), .4f);
+        ok = true;
+    }
+
     public void Retreat()
     {
         Jojo.Spit = null;

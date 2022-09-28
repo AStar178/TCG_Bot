@@ -16,10 +16,17 @@ public class Magic : AbilityWeapons
     {
         base.StartAbilityWp(newplayer);
 
+        spawnPos = GetPlayer().BulletSpwanPoint;
         levelBeforeUpdate = SetBeforeSkillUp - 1;
         GetPlayer().PlayerTarget.Raduis = Raduis;
         GetPlayer().PlayerMoveMent.SpriteRenderer.sprite = sprite;
     }
+
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
+
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
         if ( GetWeaponManger().attackSpeed > 0 ) { return; }
