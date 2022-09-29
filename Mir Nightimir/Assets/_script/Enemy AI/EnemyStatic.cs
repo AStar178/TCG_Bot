@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyStatic : MonoBehaviour
+public class AIStatic : MonoBehaviour
 {
     public static GameObject project;
     public GameObject Project;
@@ -21,7 +21,7 @@ public class EnemyStatic : MonoBehaviour
     public static GameObject playerSimpBullet;
     public GameObject PlayerSimpBullet;
     [SerializeField] Vector3 OffSet;
-    public static EnemyStatic uI_Upgratededd;
+    public static AIStatic uI_Upgratededd;
     [SerializeField] public UI_Upgrateded tUpgrateded;
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class EnemyStatic : MonoBehaviour
     }
     public static void CreatCoustomTextPopup(string v, Vector3 position, Color color)
     {
-        var text = Instantiate(EnemyStatic.textPrefab, position, Quaternion.identity);
+        var text = Instantiate(AIStatic.textPrefab, position, Quaternion.identity);
         TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
         tMP_Text.text = v;
         tMP_Text.color = color;

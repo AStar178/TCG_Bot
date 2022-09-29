@@ -214,7 +214,7 @@ public class Player : MonoBehaviour
     private void OnUpgrateUis(AbilityPowerUps power)
     {
 
-        EnemyStatic.uI_Upgratededd.tUpgrateded.OnGetUpdate( power.GetDataUIIcon() , power.GetName() , power.GetDiscord() );
+        AIStatic.uI_Upgratededd.tUpgrateded.OnGetUpdate( power.GetDataUIIcon() , power.GetName() , power.GetDiscord() );
 
     }
     public Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse, Transform pos )

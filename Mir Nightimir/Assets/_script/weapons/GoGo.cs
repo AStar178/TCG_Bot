@@ -105,7 +105,7 @@ public class GoGo : AbilityWeapons
         {
             levelBeforeUpdate += SetBeforeSkillUp;
             SkillUpAddAmount += SetSkillUpAmount;
-            EnemyStatic.CreatCoustomTextPopup("PowerUp! " + (15 + SkillUpAddAmount) * 10 + "% more Spirit Power", GetPlayer().Body.transform.position, Color.red);
+            AIStatic.CreatCoustomTextPopup("PowerUp! " + (15 + SkillUpAddAmount) * 10 + "% more Spirit Power", GetPlayer().Body.transform.position, Color.red);
             print("PowerUp! " + (15 + SkillUpAddAmount) * 10 + "% more Spirit Power");
         }
     }
@@ -116,7 +116,7 @@ public class GoGo : AbilityWeapons
         {
             if (Spit == null)
             {
-                GameObject b = Instantiate(EnemyStatic.stand, GetPlayer().Body.transform);
+                GameObject b = Instantiate(AIStatic.stand, GetPlayer().Body.transform);
                 b.transform.localScale = new Vector3(0, 0, 0);
                 b.transform.DOMove(new Vector3 (GetPlayer().Body.transform.position.x + .9f, transform.position.y, transform.position.z), 0);
                 b.GetComponent<Spirit>().player = GetPlayer().Body.gameObject;

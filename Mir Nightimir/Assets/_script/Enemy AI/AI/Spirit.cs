@@ -67,8 +67,8 @@ public class Spirit : MonoBehaviour
             if (Vector2.Distance(gameObject.transform.position, target.position) < .5f)
             {
                 AttackCooldown = ((Jojo.GetPlayer().PlayerWeaponManger.AttackSpeed / 100) / 4) * 3;
-                EnemyStatic.CreatCoustomTextPopup("Muda", gameObject.transform.position, Color.yellow);
-                var Bullet = Instantiate(EnemyStatic.playerSimpBullet, target.position, Quaternion.identity);
+                AIStatic.CreatCoustomTextPopup("Muda", gameObject.transform.position, Color.yellow);
+                var Bullet = Instantiate(AIStatic.playerSimpBullet, target.position, Quaternion.identity);
                 var cp = Bullet.GetComponent<PlayerSimpBullet>();
                 Bullet.GetComponent<SpriteRenderer>().sprite = null;
                 var p = Instantiate(Jojo.GetPlayer().PlayerWeaponManger.OnMeeleHit, target.position, Quaternion.identity);
@@ -114,7 +114,7 @@ public class Spirit : MonoBehaviour
 
     public async void Spawn()
     {
-        await EnemyStatic.Wait(.1f);
+        await AIStatic.Wait(.1f);
         gameObject.transform.DOScale(new Vector3(1, 1, 1), .4f);
         ok = true;
     }

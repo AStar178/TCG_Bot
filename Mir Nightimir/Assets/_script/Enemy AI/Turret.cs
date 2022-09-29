@@ -27,7 +27,7 @@ public class Turret : TESTei
     {
         STBS = 1 / stat.AttackSpeed;
         Range = stat.AggroRange;
-        project = EnemyStatic.project;
+        project = AIStatic.project;
     }
 
     public override void update()

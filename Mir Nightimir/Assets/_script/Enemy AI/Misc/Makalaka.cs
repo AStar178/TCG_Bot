@@ -19,7 +19,7 @@ public class Makalaka : MonoBehaviour
         if (target == null)
         {
             Destroy(gameObject);
-            EnemyStatic.CreatCoustomTextPopup("Dissapeared", gameObject.transform.position,Color.gray);
+            AIStatic.CreatCoustomTextPopup("Dissapeared", gameObject.transform.position,Color.gray);
             return;
         }
         
@@ -31,7 +31,7 @@ public class Makalaka : MonoBehaviour
             {
                 BozzHP.Currenthp = BozzHP.MaxHp;
             }
-            EnemyStatic.CreatCoustomTextPopup("+" + Healing, target.transform.position, Color.green);
+            AIStatic.CreatCoustomTextPopup("+" + Healing, target.transform.position, Color.green);
             Destroy(gameObject);
         }
         SpriteUpdaye();
