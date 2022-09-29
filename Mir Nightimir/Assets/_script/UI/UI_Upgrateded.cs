@@ -11,6 +11,8 @@ public class UI_Upgrateded : MonoBehaviour
     [SerializeField] TMP_Text Names;
     [SerializeField] TMP_Text Discrepen;
     [SerializeField] GameObject gameObjecta;
+    [SerializeField] float Tie;
+    float s;
     public async void OnGetUpdate( Sprite sprite , string name , string dis )
     {
         gameObjecta.SetActive( true );
@@ -18,8 +20,16 @@ public class UI_Upgrateded : MonoBehaviour
         Image.sprite = sprite;
         Names.text = name;
         Discrepen.text = dis;
+        s = Tie;
 
-        await Task.Delay( 5000 );
+        while ( s > 0 )
+        {
+            
+            s -= Time.deltaTime;
+            await Task.Yield();
+
+        }
+            
         gameObjecta.SetActive( false );
     }   
 
