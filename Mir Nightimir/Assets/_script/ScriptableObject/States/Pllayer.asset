@@ -21,7 +21,7 @@ MonoBehaviour:
   Mp_DefenceReduser: 0
   MaxHpAmount: 10
   MoveSpeed: 2
-  AggroRange: 1.3
+  AggroRange: 5
   MaxMana: 100
   ManaRejyAmount: 3
   TimeToGetMana: 5
