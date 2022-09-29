@@ -237,7 +237,7 @@ MonoBehaviour:
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
-  BlockChanse: 30
+  BlockChanse: 10
   spriteRenderer: {fileID: 8482224904236073207}
   OnDieEffect: {fileID: 0}
   xpAmount: 5

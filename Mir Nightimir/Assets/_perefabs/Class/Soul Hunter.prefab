@@ -55,6 +55,10 @@ MonoBehaviour:
   Type: 0
   Raduis: 1.4
   FriendZoon: 0.3
+  AdOnLevelUp: 3
+  ApOnLevelUp: 0
+  HpOnLevelUp: 0
+  ArmorOnLevelUp: 0
   sprite: {fileID: -580823831, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   SummonChance: 17
   MDeathTimer: 30

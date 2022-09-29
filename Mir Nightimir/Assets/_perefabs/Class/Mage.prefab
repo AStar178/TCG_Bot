@@ -51,6 +51,10 @@ MonoBehaviour:
   Type: 1
   Raduis: 5
   FriendZoon: 0.3
+  AdOnLevelUp: 0
+  ApOnLevelUp: 1
+  HpOnLevelUp: 0
+  ArmorOnLevelUp: 0
   sprite: {fileID: 1008483382, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   MagicBullit: {fileID: 2974763324393653679, guid: c1196ea8bb9571643931c4098f1578cc, type: 3}
   spawnPos: {fileID: 0}

@@ -19,7 +19,7 @@ MonoBehaviour:
   MagicReset: 0
   Ad_DefenceReduser: 0
   Mp_DefenceReduser: 1
-  MaxHpAmount: 300
+  MaxHpAmount: 15
   MoveSpeed: 1
   AggroRange: 3
   MaxMana: 0
