@@ -47,5 +47,5 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 950fcce8e10c4dd4e88d61681da45cee, type: 3}
   Name: Circel
   Discripsen: Portected you from Bears
-  CritialAmount: 1.25
+  CritialAmount: 1.75
   Circle: {fileID: 9096269458006205536, guid: 7fec31be1eaa7bf42a0b7512ee789af3, type: 3}

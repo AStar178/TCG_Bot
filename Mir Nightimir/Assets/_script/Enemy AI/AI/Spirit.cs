@@ -73,7 +73,7 @@ public class Spirit : MonoBehaviour
                 cp.magic = Jojo;
                 cp.target = target;
                 #region hide that from my eyes
-                cp.damage = Jojo.CreatDamage(Jojo.GetWeaponManger().DamageAd * ((Modifire + Jojo.SkillUpAddAmount) / 10), Jojo.GetWeaponManger().DamageAp * ((Modifire + Jojo.SkillUpAddAmount) / 10), Jojo.GetWeaponManger().AmoroReduse, Jojo.GetWeaponManger().MagicReduse);
+                cp.damage = Rpg.CreatDamage( Jojo.GetWeaponManger().DamageAd * ((Modifire + Jojo.SkillUpAddAmount) / 10), Jojo.GetWeaponManger().DamageAp * ((Modifire + Jojo.SkillUpAddAmount) / 10), Jojo.GetWeaponManger().AmoroReduse, Jojo.GetWeaponManger().MagicReduse , Jojo.GetPlayer() , default , Jojo.GetPlayerTargetSelector().target );
                 #endregion
                 cp.SetDamage = true;
             }
