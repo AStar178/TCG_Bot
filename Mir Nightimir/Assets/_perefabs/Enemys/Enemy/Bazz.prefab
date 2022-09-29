@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyState: {fileID: 11400000, guid: 3d1f83c5f74f5f84cb86d82ac379fd69, type: 2}
   rigidbody2d: {fileID: 0}
   MaxHp: 0
   Currenthp: 0

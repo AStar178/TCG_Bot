@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
   m_Name: Ganandorf
   m_EditorClassIdentifier: 
-  AdDamage: 20
-  ApDamage: 0
+  AdDamage: 5
+  ApDamage: 15
   AttackSpeed: 0
   Amoro: 10
   MagicReset: 10
   Ad_DefenceReduser: 0
   Mp_DefenceReduser: 0
-  MaxHpAmount: 300
+  MaxHpAmount: 100
   MoveSpeed: 1
   AggroRange: 5
   MaxMana: 0

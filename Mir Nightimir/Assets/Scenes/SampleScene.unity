@@ -121454,7 +121454,6 @@ GameObject:
   - component: {fileID: 1467813525}
   - component: {fileID: 1467813524}
   - component: {fileID: 1467813523}
-  - component: {fileID: 1467813522}
   - component: {fileID: 1467813521}
   m_Layer: 7
   m_Name: Bazz (1)
@@ -121475,7 +121474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 60f3c202b10d32f40b4de0dd56d2402e, type: 2}
+  EnemyState: {fileID: 11400000, guid: 3d1f83c5f74f5f84cb86d82ac379fd69, type: 2}
   rigidbody2d: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
@@ -121488,22 +121487,6 @@ MonoBehaviour:
   xpAmount: 20
   coinsAmount: 6
   resultOfBlocked: 1
---- !u!114 &1467813522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467813520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ad215d0b34db74e8ebf1246e912346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  State: {fileID: 11400000, guid: a35f7b9995a5f524d812e4a7d6e6f41e, type: 2}
-  EnemyHp: {fileID: 1467813521}
-  tei: {fileID: 0}
-  yurret: {fileID: 0}
 --- !u!114 &1467813523
 MonoBehaviour:
   m_ObjectHideFlags: 0

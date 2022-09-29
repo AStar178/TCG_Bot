@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 7aa54c1653b374f4fa159b61b85b2668, type: 2}
+  EnemyState: {fileID: 11400000, guid: 4044cb02727ff3a4e8fb0c7af5b1695d, type: 2}
   rigidbody2d: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
