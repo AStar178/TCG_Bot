@@ -6,6 +6,7 @@ public struct Damage
     public float ApDamage;
     public float Ad_DefenceReduser;
     public float Mp_DefenceReduser;
+    public Vector2 knockback;
     public DamageType type;
     public Player PlayerRefernce;
     public IHpValue GameObjectRefernce;

@@ -8,6 +8,7 @@ public class AbilityPowerUps : MonoBehaviour
     [SerializeField] Sprite Icon;
     [SerializeField] string Name;
     [SerializeField] string Discripsen;
+    protected bool isHim;
     protected Player GetPlayer() => player1;
 
     public virtual void OnPowerUp(Player player)
@@ -17,6 +18,7 @@ public class AbilityPowerUps : MonoBehaviour
     public virtual void OnFirstTime(Player player)
     {
         player1 = player;
+        isHim = true;
     }
     public virtual void OnDealDamage(Transform target , IHpValue targetHp) 
     {
