@@ -51,6 +51,19 @@ public class ClassSelector : MonoBehaviour
         player.WeaponCheck();
     }
 
+    public void SetClassRandom()
+    {
+        Canves.SetActive(false);
+        var b = Instantiate(Classes[Random.Range(1,Classes.Count)]);
+        b.transform.SetParent(player.Body);
+        b.transform.localPosition = Vector3.zero;
+        player.PlayerWeaponManger.CurrentWeapons = b.GetComponent<AbilityWeapons>();
+        if (player.PlayerWeaponManger.CurrentWeapons == null) { return; }
+
+        player.PlayerWeaponManger.CurrentWeapons.StartAbilityWp(Player.Singleton);
+        player.WeaponCheck();
+    }
+
     private void SetClassOnMyFace()
     {
         Classes[SelectedClass].GetComponent<AbilityWeapons>().GetSprite();
