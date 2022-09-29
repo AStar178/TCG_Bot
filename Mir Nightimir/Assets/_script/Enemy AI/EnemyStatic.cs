@@ -10,6 +10,8 @@ public class EnemyStatic : MonoBehaviour
     public GameObject Project;
     public static GameObject soulHunterMinios;
     public GameObject SoulHunterMinions;
+    public static GameObject fireBurstPartical;
+    public GameObject FireBurstPartical;
     public static GameObject stand;
     public GameObject Stand;
     public static GameObject textPrefab;
@@ -26,6 +28,7 @@ public class EnemyStatic : MonoBehaviour
         uI_Upgratededd = this;
         project = Project;
         soulHunterMinios = SoulHunterMinions;
+        fireBurstPartical = FireBurstPartical;
         stand = Stand;
         textPrefab = TextPrefab;
         GraveStoneSprit = graveStoneSprit;

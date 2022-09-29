@@ -37,8 +37,9 @@ public class Spirit : MonoBehaviour
             var yes = Physics2D.OverlapCircle(transform.position, Jojo.StandAggroRange, Jojo.GetPlayer().PlayerTarget.EnemyLayer);
             if (yes != null)
             {
-                if (yes.TryGetComponent<EnemyHp>(out EnemyHp hp))
+                if (yes.TryGetComponent<EnemyHp>(out EnemyHp hp) != false)
                     target = yes.transform;
+                else { target = null; }
             }
 
             Run();
@@ -70,6 +71,8 @@ public class Spirit : MonoBehaviour
                 var Bullet = Instantiate(EnemyStatic.playerSimpBullet, target.position, Quaternion.identity);
                 var cp = Bullet.GetComponent<PlayerSimpBullet>();
                 Bullet.GetComponent<SpriteRenderer>().sprite = null;
+                var p = Instantiate(Jojo.GetPlayer().PlayerWeaponManger.OnMeeleHit, target.position, Quaternion.identity);
+                Destroy(p, 5);
                 cp.magic = Jojo;
                 cp.target = target;
                 #region hide that from my eyes
@@ -82,23 +85,30 @@ public class Spirit : MonoBehaviour
 
     void Run()
     {
-
-        if (JojoTarget != null)
+        if (Vector2.Distance(player.transform.position, gameObject.transform.position) < Jojo.GetAttackRange() * 2.5)
         {
-            if (Vector2.Distance(gameObject.transform.position, target.position) >= .4f)
-                rb.velocity = (JojoTarget.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed;
+            if (JojoTarget != null)
+            {
+                if (Vector2.Distance(gameObject.transform.position, target.position) >= .4f)
+                    rb.velocity = (JojoTarget.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed;
+            }
+            else if (target != null && JojoTarget == null)
+            {
+                if (Vector2.Distance(gameObject.transform.position, target.position) >= .4f)
+                    rb.velocity = (target.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed;
+            }
+            else if (target == null && JojoTarget == null)
+            {
+                if (Vector2.Distance(gameObject.transform.position, player.transform.position) >= 1f)
+                    rb.velocity = (player.transform.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed;
+                else if (Vector2.Distance(gameObject.transform.position, player.transform.position) <= .9f)
+                    rb.velocity = (player.transform.position - transform.position).normalized * 0;
+            }
         }
-        else if (target != null && JojoTarget == null)
+        if (Vector2.Distance(player.transform.position, gameObject.transform.position) > Jojo.GetAttackRange() * 2)
         {
-            if (Vector2.Distance(gameObject.transform.position, target.position) >= .4f)
-                rb.velocity = (target.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed;
-        }
-        else if (target == null && JojoTarget == null)
-        {
-            if (Vector2.Distance(gameObject.transform.position, player.transform.position) >= 1f)
-                rb.velocity = (player.transform.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed;
-            else if (Vector2.Distance(gameObject.transform.position, player.transform.position) <= .9f)
-                rb.velocity = (player.transform.position - transform.position).normalized * 0;
+            target = null;
+            rb.velocity = (player.transform.position - transform.position).normalized * Jojo.GetPlayer().PlayerMoveMent.moveSpeed * 2;
         }
     }
 
