@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
         abilityPowerUps = abilityPower;
         for (int i = 0; i < abilityPower.Count; i++)
         {
+            abilityPower[i].OnFirstTime( this );
             abilityPower[i].OnPowerUp ( this );
         }
 
@@ -220,7 +221,7 @@ public class Player : MonoBehaviour
     public Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse, Transform pos )
     {
         Damage damage = new Damage();
-        damage = Rpg.CreatDamage(  ad , ap , amoroReduse , magicReduse , this , PlayerHp , pos );
+        damage = Rpg.CreatDamage(  ad , ap , amoroReduse , magicReduse , this );
         var damage2 = DamageModifayer( PlayerHp , pos , damage );
 
         return damage2;
