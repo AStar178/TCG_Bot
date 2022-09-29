@@ -19,7 +19,7 @@ public class RangeED : TESTei
     public override void start()
     {
         base.start();
-        project = EnemyStatic.project;
+        project = AIStatic.project;
     }
 
     public override void update()

@@ -58,7 +58,7 @@ public class MakaroniAI : TESTei
     public override void start()
     {
         base.start();
-        project = EnemyStatic.project;
+        project = AIStatic.project;
         speedy = Speed;
         oldColor = SpriteRenderer.material.GetColor( "_Color" );
     }

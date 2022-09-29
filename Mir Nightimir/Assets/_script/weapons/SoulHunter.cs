@@ -68,7 +68,7 @@ public class SoulHunter : AbilityWeapons
         {
             if (UnityEngine.Random.Range(1, 100) <= SummonChance)
             {
-                GameObject b = Instantiate(EnemyStatic.soulHunterMinios, gameObject.transform);
+                GameObject b = Instantiate(AIStatic.soulHunterMinios, gameObject.transform);
                 b.GetComponent<SoulHunterMinions>().player = gameObject;
                 b.GetComponent<SoulHunterMinions>().Master = this;
                 b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
@@ -86,7 +86,7 @@ public class SoulHunter : AbilityWeapons
         {
             levelBeforeUpdate += SetBeforeSkillUp;
             MinionCap += SkillUpAddAmount;
-            EnemyStatic.CreatCoustomTextPopup("Can summon up to " + MinionCap + " Souls", GetPlayer().Body.transform.position, Color.green);
+            AIStatic.CreatCoustomTextPopup("Can summon up to " + MinionCap + " Souls", GetPlayer().Body.transform.position, Color.green);
         }
     }
 

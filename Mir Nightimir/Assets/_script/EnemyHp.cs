@@ -70,7 +70,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
     private void GraveStone()
     {
         sprite = spriteRenderer.sprite;
-        spriteRenderer.sprite = EnemyStatic.GraveStoneSprit;
+        spriteRenderer.sprite = AIStatic.GraveStoneSprit;
         gameObject.layer = (int)Rpg.allLayers.Grave;
         if (TryGetComponent<TESTei>(out var tESTei))
             tESTei.enabled = false;

@@ -53,9 +53,9 @@ public class SoulHunterMinions : MonoBehaviour
             if (target != null)
             {
                 AttackCooldown = SetAttackCooldown;
-                var Bullet = Instantiate(EnemyStatic.playerSimpBullet, target.position, Quaternion.identity);
+                var Bullet = Instantiate(AIStatic.playerSimpBullet, target.position, Quaternion.identity);
                 var cp = Bullet.GetComponent<PlayerSimpBullet>();
-                GameObject p = Instantiate(EnemyStatic.fireBurstPartical, target.position, Quaternion.identity);
+                GameObject p = Instantiate(AIStatic.fireBurstPartical, target.position, Quaternion.identity);
                 Destroy(p, 5);
                 if (ProjectileImage != null)
                 {
@@ -73,10 +73,10 @@ public class SoulHunterMinions : MonoBehaviour
         if (TimeToDeath > 1.7)
         {
             Vector3 PlayPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-            EnemyStatic.randomVector2(RunTo, player.transform.position, MinX, MinY, MaxX, MaxY);
+            AIStatic.randomVector2(RunTo, player.transform.position, MinX, MinY, MaxX, MaxY);
             gameObject.transform.DOMove(PlayPos + RunToCheak(RunTo), .5f);
         }
-        await EnemyStatic.Wait(.7f);
+        await AIStatic.Wait(.7f);
         Run();
     }
 

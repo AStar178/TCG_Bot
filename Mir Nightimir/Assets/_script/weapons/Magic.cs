@@ -69,7 +69,7 @@ public class Magic : AbilityWeapons
         {
             levelBeforeUpdate += SetBeforeSkillUp;
             amount += SkillUpAddAmount;
-            EnemyStatic.CreatCoustomTextPopup("Can summon " + amount + " more magical staff", GetPlayer().Body.transform.position, Color.green);
+            AIStatic.CreatCoustomTextPopup("Can summon " + amount + " more magical staff", GetPlayer().Body.transform.position, Color.green);
         }
     }
 
