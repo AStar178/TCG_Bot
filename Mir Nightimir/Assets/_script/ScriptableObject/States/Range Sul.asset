@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
   m_Name: Range Sul
   m_EditorClassIdentifier: 
-  AdDamage: 10
+  AdDamage: 3
   ApDamage: 0
   AttackSpeed: 0
-  Amoro: 0
+  Amoro: 3
   MagicReset: 0
   Ad_DefenceReduser: 0
   Mp_DefenceReduser: 1
-  MaxHpAmount: 10
+  MaxHpAmount: 200
   MoveSpeed: 1
   AggroRange: 4
+  MaxMana: 0
+  ManaRejyAmount: 0
+  TimeToGetMana: 0
