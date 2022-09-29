@@ -48,6 +48,7 @@ public class ClassSelector : MonoBehaviour
         if (player.PlayerWeaponManger.CurrentWeapons == null) { return; }
 
         player.PlayerWeaponManger.CurrentWeapons.StartAbilityWp(Player.Singleton);
+        player.WeaponCheck();
     }
 
     private void SetClassOnMyFace()

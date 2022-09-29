@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c41359ac02d7b408b40580a75c1473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 333527733, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   WeaponName: Necromancer
   WeaponDescription: A strange man who can raise the dead by saying "MINIONS RISE
     FOR ME!!!"
@@ -58,4 +58,4 @@ MonoBehaviour:
   spawnPos: {fileID: 0}
   graves:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048

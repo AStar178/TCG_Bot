@@ -66478,8 +66478,7 @@ MonoBehaviour:
   PlayerTarget: {fileID: 955869196}
   PlayerWeaponManger: {fileID: 955869195}
   PlayerHp: {fileID: 955869193}
-  abilityPowerUps:
-  - {fileID: 7686070307762517208, guid: 4dfa3adabe670fe4da4ccdf499524a45, type: 3}
+  abilityPowerUps: []
   uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
   upgrateEvent: {fileID: 11400000, guid: 0b458fec6cca3234fb314e744b34aa1d, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}

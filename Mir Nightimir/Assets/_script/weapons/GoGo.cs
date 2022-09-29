@@ -104,8 +104,8 @@ public class GoGo : AbilityWeapons
         if (levelBeforeUpdate <= 0)
         {
             levelBeforeUpdate += SetBeforeSkillUp;
-            EnemyStatic.CreatCoustomTextPopup("PowerUp! " + (15 + SkillUpAddAmount) * 10 + "% more Spirit Power", GetPlayer().Body.transform.position, Color.red);
             SkillUpAddAmount += SetSkillUpAmount;
+            EnemyStatic.CreatCoustomTextPopup("PowerUp! " + (15 + SkillUpAddAmount) * 10 + "% more Spirit Power", GetPlayer().Body.transform.position, Color.red);
             print("PowerUp! " + (15 + SkillUpAddAmount) * 10 + "% more Spirit Power");
         }
     }
