@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] public UpgrateEvent upgrateEvent;
     [SerializeField] public GameObject OnLevelEffect;
     [SerializeField] public Transform Body;
+    [SerializeField] public Transform BulletSpwanPoint;
     [SerializeField] Transform PowerUps;
     public int CurrentLevel = 1;
     public int XpMax = 100;
@@ -104,6 +105,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        WeaponCheck();
 
         List<AbilityPowerUps> abilityPower = new List<AbilityPowerUps>(); 
         abilityPower.AddRange( PowerUps.GetComponentsInChildren<AbilityPowerUps>() );
@@ -127,6 +129,15 @@ public class Player : MonoBehaviour
         }
         
     }
+
+    public void WeaponCheck()
+    {
+        if (PlayerWeaponManger.CurrentWeapons == null)
+        {
+            Body.gameObject.SetActive(false);
+        } else Body.gameObject.SetActive(true);
+    }
+
     public void AddPowerUp( GameObject upgrateObject )
     {
         

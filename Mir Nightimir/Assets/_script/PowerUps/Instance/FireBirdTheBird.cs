@@ -34,7 +34,14 @@ public class FireBirdTheBird : MonoBehaviour
         if ( attackSpeedCoolDown < 0 )
             ShootFireBall();
 
-        renderers.flipX = player1.PlayerMoveMent.SpriteRenderer.flipX == true ? false : true;
+        if (player1.PlayerWeaponManger.CurrentWeapons.rotationLeftSprite == false)
+        {
+            renderers.flipX = player1.PlayerMoveMent.SpriteRenderer.flipX == true ? false : true;
+        }
+        else
+        {
+            renderers.flipX = player1.PlayerMoveMent.SpriteRenderer.flipX == true ? true : false;
+        }
     }
 
     private void ShootFireBall()

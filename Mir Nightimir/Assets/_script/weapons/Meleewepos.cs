@@ -14,6 +14,12 @@ public class Meleewepos : AbilityWeapons
         return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
+
+
     public override bool CoustomRouls(Transform target)
     {
         return CostumRoulsMeleeDefulit(target);

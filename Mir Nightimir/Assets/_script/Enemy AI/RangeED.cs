@@ -26,8 +26,14 @@ public class RangeED : TESTei
     {
         if (NoChase == false)
         {
+            // check if hit a wall
+            if (HitTheWall == false)
+            {
+                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
+                { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
+            }
             if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range)
-            { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); ATTACK = true; }
+            { ATTACK = true; }
             else ATTACK = false;
             if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= 1 + Range * 0.1f)
             { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -Speed * Time.deltaTime); }

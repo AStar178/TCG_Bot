@@ -8,14 +8,25 @@ public class Magic : AbilityWeapons
     [SerializeField] Transform spawnPos;
     [SerializeField] int amount = 3;
     [SerializeField] private float manaCost;
+    [SerializeField] private int SetBeforeSkillUp = 10;
+    [SerializeField] private int SkillUpAddAmount = 1;
+    int levelBeforeUpdate;
 
     public override void StartAbilityWp(Player newplayer)
     {
         base.StartAbilityWp(newplayer);
 
+        spawnPos = GetPlayer().BulletSpwanPoint;
+        levelBeforeUpdate = SetBeforeSkillUp - 1;
         GetPlayer().PlayerTarget.Raduis = Raduis;
         GetPlayer().PlayerMoveMent.SpriteRenderer.sprite = sprite;
     }
+
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
+
     public override void DealDamage(IHpValue enemyHp, Transform pos)
     {
         if ( GetWeaponManger().attackSpeed > 0 ) { return; }
@@ -48,6 +59,18 @@ public class Magic : AbilityWeapons
             cp.target = GetPlayerTargetSelector().target;   
         }
 
+    }
+
+    public override void OnLevelUp()
+    {
+        levelBeforeUpdate--;
+
+        if (levelBeforeUpdate <= 0)
+        {
+            levelBeforeUpdate += SetBeforeSkillUp;
+            amount += SkillUpAddAmount;
+            EnemyStatic.CreatCoustomTextPopup("Can summon " + amount + " more magical staff", GetPlayer().Body.transform.position, Color.green);
+        }
     }
 
 }

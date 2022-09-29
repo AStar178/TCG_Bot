@@ -14,9 +14,16 @@ public class Necromnacers : AbilityWeapons
     {
         base.StartAbilityWp(newplayer);
         WeaponName = "Necromanser";
+        spawnPos = GetPlayer().BulletSpwanPoint;
         GetPlayer().PlayerTarget.Raduis = Raduis;
         GetPlayer().PlayerMoveMent.SpriteRenderer.sprite = sprite;
     }
+
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
+
 
     public override void DealDamage( IHpValue enemyHp , Transform pos )
     {

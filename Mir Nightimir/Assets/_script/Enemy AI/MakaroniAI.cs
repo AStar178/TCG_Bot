@@ -75,9 +75,13 @@ public class MakaroniAI : TESTei
             LastPos = transform.position;
             if (NoChase == false)
             {
-                if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range &&
-                    Vector2.Distance(gameObject.transform.position, target.transform.position) > .35f)
-                { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
+                // check if hit a wall
+                if (HitTheWall == false)
+                {
+                    if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range &&
+                        Vector2.Distance(gameObject.transform.position, target.transform.position) > .35f)
+                    { transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime); }
+                }
                 if (Vector2.Distance(gameObject.transform.position, target.transform.position) <= Range) { ATTACK = true; }
                 else { ATTACK = false; }
             }
@@ -167,12 +171,10 @@ public class MakaroniAI : TESTei
             {
                 randomVector2(transform.position, MinX, MaxX, MinY, MaxY);
                 GameObject b = Instantiate( Ghos, rand, Quaternion.identity);
-                //GameObject c = Instantiate(Ghos, b.transform.position, Quaternion.identity);
                 var effect = Instantiate( SLimeSpawn , b.transform.position , Quaternion.identity );
                 b.GetComponent<TESTei>().ChangeTargetSelecting( targetLayerMask , targetLayer , gameObject.layer == (int)Rpg.EnemyTeam.Player ? Rpg.EnemyTeam.Player : Rpg.EnemyTeam.Enemy);
                 b.GetComponent<TESTei>().target = target;
                 Destroy( effect , 6 );
-                //Destroy(c, 6);
             }
             await Wait(afkF);
             Hp.BlockChanse = 0;

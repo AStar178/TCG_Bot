@@ -1,11 +1,18 @@
 using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
-public class SoulHunter : AbilityWeapons 
+public class SoulHunter : AbilityWeapons
 {
     [SerializeField] Sprite sprite;
     [SerializeField] float SummonChance = 17;
     [SerializeField] float MDeathTimer = 30;
+    public List<SoulHunterMinions> SoulsDominions;
+    public int MinionCap = 0;
+    [SerializeField] private int SetBeforeSkillUp = 10;
+    [SerializeField] private int SkillUpAddAmount = 1;
+    int levelBeforeUpdate;
     bool canAttack;
 
     public override Transform CoustomTargetSelect()
@@ -17,9 +24,14 @@ public class SoulHunter : AbilityWeapons
         return CoustomTargetSelectingMelee( Raduis , FriendZoon );
     }
 
+    public override void GetSprite()
+    {
+        image = sprite;
+    }
 
     public override void UpdateAbilityWp()
     {
+
         if ( Input.GetKeyDown( KeyCode.Space ) )
             canAttack = true;
         
@@ -30,6 +42,7 @@ public class SoulHunter : AbilityWeapons
     {
         base.StartAbilityWp(newplayer);
 
+        levelBeforeUpdate = SetBeforeSkillUp - 1;
         GetPlayer().PlayerTarget.Raduis = Raduis;
         GetPlayer().PlayerMoveMent.SpriteRenderer.sprite = sprite;
     }
@@ -50,15 +63,30 @@ public class SoulHunter : AbilityWeapons
         
         GetWeaponManger().OnDealDamage( ((int)damage.AdDamage + (int)damage.ApDamage)  , pos.position , damage.type , result );
         Destroy(s , 6);
-
-        if (UnityEngine.Random.Range(1,100) <= SummonChance)
+        
+        if (SoulsDominions.Count < MinionCap)
         {
-            GameObject b = Instantiate(EnemyStatic.soulHunterMinios, gameObject.transform);
-            b.GetComponent<SoulHunterMinions>().player = gameObject;
-            b.GetComponent<SoulHunterMinions>().Master = this;
-            b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
-            b.GetComponent<SoulHunterMinions>().damage = Rpg.CreatDamage(GetWeaponManger().DamageAd, GetWeaponManger().DamageAp, GetWeaponManger().AmoroReduse, GetWeaponManger().MagicReduse , GetPlayer() , default , GetPlayerTargetSelector().target.transform);
-            b.GetComponent<SoulHunterMinions>().TimeToDeath = MDeathTimer;
+            if (UnityEngine.Random.Range(1, 100) <= SummonChance)
+            {
+                GameObject b = Instantiate(EnemyStatic.soulHunterMinios, gameObject.transform);
+                b.GetComponent<SoulHunterMinions>().player = gameObject;
+                b.GetComponent<SoulHunterMinions>().Master = this;
+                b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
+                b.GetComponent<SoulHunterMinions>().TimeToDeath = MDeathTimer;
+                SoulsDominions.Add(b.GetComponent<SoulHunterMinions>());
+            }
+        }
+    }
+
+    public override void OnLevelUp()
+    {
+        levelBeforeUpdate--;
+
+        if (levelBeforeUpdate <= 0)
+        {
+            levelBeforeUpdate += SetBeforeSkillUp;
+            MinionCap += SkillUpAddAmount;
+            EnemyStatic.CreatCoustomTextPopup("Can summon up to " + MinionCap + " Souls", GetPlayer().Body.transform.position, Color.green);
         }
     }
 
