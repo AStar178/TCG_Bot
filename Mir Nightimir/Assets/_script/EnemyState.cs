@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class EnemyState : MonoBehaviour {
     
+
     public State State;
     public EnemyHp EnemyHp;
     [HideInInspector]
@@ -12,6 +14,7 @@ public class EnemyState : MonoBehaviour {
     private void Awake() {
         gameObject.TryGetComponent<Turret>(out Turret nodle);
         gameObject.TryGetComponent<TESTei>(out TESTei Makaroni);
+
 
         EnemyHp.MaxHp = State.MaxHpAmount;
         EnemyHp.Currenthp = State.MaxHpAmount;

@@ -35,15 +35,19 @@ public class AbilityPowerUps : MonoBehaviour
     }
 
 
-    public UpdagrateEventdata GetDataUI()
+    public Sprite GetDataUIIcon()
     {
-        UpdagrateEventdata upgrateEventData = new UpdagrateEventdata();
-        upgrateEventData.Image = Icon;
-        upgrateEventData.Name = Name;
-        upgrateEventData.Discripsen = Discripsen;
-        return upgrateEventData;
+        return Icon;
+    }
+    public String GetName()
+    {
+        return Name;
     }
 
+    public String GetDiscord()
+    {
+        return Discripsen;
+    }
     public virtual Damage DamaModifayer(Damage damage, Transform target, IHpValue hpValue )
     {
         return damage;

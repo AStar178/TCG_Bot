@@ -19,8 +19,11 @@ public class EnemyStatic : MonoBehaviour
     public static GameObject playerSimpBullet;
     public GameObject PlayerSimpBullet;
     [SerializeField] Vector3 OffSet;
+    public static EnemyStatic uI_Upgratededd;
+    [SerializeField] public UI_Upgrateded tUpgrateded;
     private void Awake()
     {
+        uI_Upgratededd = this;
         project = Project;
         soulHunterMinios = SoulHunterMinions;
         stand = Stand;

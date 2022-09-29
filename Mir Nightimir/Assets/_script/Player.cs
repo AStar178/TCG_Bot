@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] public PlayerHp PlayerHp;
     [SerializeField] public List<AbilityPowerUps> abilityPowerUps;
     [SerializeField] public UiEvent uiEvent;
-    [SerializeField] public UpdagrateEvent upgrateEvent;
     [SerializeField] public GameObject OnLevelEffect;
     [SerializeField] public Transform Body;
     [SerializeField] public Transform BulletSpwanPoint;
@@ -214,8 +213,8 @@ public class Player : MonoBehaviour
     }
     private void OnUpgrateUis(AbilityPowerUps power)
     {
-        var uy = power.GetDataUI();
-        upgrateEvent?.Rasise( uy );
+
+        EnemyStatic.uI_Upgratededd.tUpgrateded.OnGetUpdate( power.GetDataUIIcon() , power.GetName() , power.GetDiscord() );
 
     }
     public Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse, Transform pos )

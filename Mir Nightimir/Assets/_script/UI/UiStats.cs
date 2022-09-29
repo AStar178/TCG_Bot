@@ -11,11 +11,6 @@ public class UiStats : MonoBehaviour
     [SerializeField] private TMP_Text xp;
     [SerializeField] private TMP_Text coins;
     [SerializeField] private TMP_Text Level;
-
-    public void OnUpgrate(UpdagrateEventdata data)
-    {
-
-    }
     
     public void OnStat(UiEventData data)
     {
