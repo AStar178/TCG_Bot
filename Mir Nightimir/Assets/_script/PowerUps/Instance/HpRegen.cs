@@ -24,8 +24,26 @@ public class HpRegen : MonoBehaviour
     {
         if ( master == null )
             return;
+
+        transform.localPosition = pos;
+
+        if (master.PlayerWeaponManger.CurrentWeapons.rotationLeftSprite == false)
+        {
+            renderers.flipX = master.PlayerMoveMent.SpriteRenderer.flipX == true ? false : true;
+        }
+        else
+        {
+            renderers.flipX = master.PlayerMoveMent.SpriteRenderer.flipX == true ? true : false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
         if (HealTimer >= TimeToHeal)
         {
+            if (master.PlayerHp.Currenthp == master.PlayerHp.MaxHp)
+                return;
+
             if (master.PlayerHp.Currenthp > master.PlayerHp.MaxHp)
             {
                 master.PlayerHp.Currenthp = master.PlayerHp.MaxHp;
@@ -41,17 +59,6 @@ public class HpRegen : MonoBehaviour
             HealTimer = 0;
         }
 
-        transform.localPosition = pos;
-
         HealTimer += Time.deltaTime;
-
-        if (master.PlayerWeaponManger.CurrentWeapons.rotationLeftSprite == false)
-        {
-            renderers.flipX = master.PlayerMoveMent.SpriteRenderer.flipX == true ? false : true;
-        }
-        else 
-        {
-            renderers.flipX = master.PlayerMoveMent.SpriteRenderer.flipX == true ? true : false;
-        }
     }
 }

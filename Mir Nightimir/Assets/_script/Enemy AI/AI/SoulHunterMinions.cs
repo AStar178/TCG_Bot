@@ -53,7 +53,7 @@ public class SoulHunterMinions : MonoBehaviour
             if (target != null)
             {
                 AttackCooldown = SetAttackCooldown;
-                var Bullet = Instantiate(EnemyStatic.magicBullet, target.position, Quaternion.identity);
+                var Bullet = Instantiate(EnemyStatic.playerSimpBullet, target.position, Quaternion.identity);
                 var cp = Bullet.GetComponent<PlayerSimpBullet>();
                 if (ProjectileImage != null)
                 {

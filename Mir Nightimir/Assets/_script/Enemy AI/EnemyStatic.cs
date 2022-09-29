@@ -16,8 +16,8 @@ public class EnemyStatic : MonoBehaviour
     public GameObject TextPrefab;
     public static Sprite GraveStoneSprit;
     public Sprite graveStoneSprit;
-    public static GameObject magicBullet;
-    public GameObject MagicBullet;
+    public static GameObject playerSimpBullet;
+    public GameObject PlayerSimpBullet;
     [SerializeField] Vector3 OffSet;
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class EnemyStatic : MonoBehaviour
         stand = Stand;
         textPrefab = TextPrefab;
         GraveStoneSprit = graveStoneSprit;
-        magicBullet = MagicBullet;
+        playerSimpBullet = PlayerSimpBullet;
     }
     public static void CreatCoustomTextPopup(string v, Vector3 position, Color color)
     {
