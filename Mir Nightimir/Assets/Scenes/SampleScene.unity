@@ -120921,7 +120921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -121602,7 +121602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Project: {fileID: 1316497413315353410, guid: 664cfad93d857e84bb440092097ac2b5, type: 3}
   SoulHunterMinions: {fileID: 8482224905265213822, guid: 59e25b38b8569d249a8a336874eceaea, type: 3}
-  FireBurstPartical: {fileID: 0}
+  FireBurstPartical: {fileID: 889587192077556572, guid: bc5a9e40eb103f140bfafc2e3dd97757, type: 3}
   Stand: {fileID: 8482224905265213822, guid: f682abf621215094990a451950aa8f63, type: 3}
   TextPrefab: {fileID: 600029809456345080, guid: 95de2d2d180c15446852fa3801fcd57e, type: 3}
   graveStoneSprit: {fileID: 514612856, guid: 06a6531b5cfc4d848b81127cd49deb59, type: 3}
