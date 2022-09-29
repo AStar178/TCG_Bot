@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e6252236492147baad09bbd8c22d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: -1578595067, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   WeaponName: Spirit User
   WeaponDescription: A strange person who can summon a spirit to help him in the
     fight.
@@ -54,7 +54,7 @@ MonoBehaviour:
   FriendZoon: 0.3
   sprite: {fileID: -1578595067, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   Spit: {fileID: 0}
-  SetBeforeSkillUp: 3
+  SetBeforeSkillUp: 4
   SetSkillUpAmount: 1
   SkillUpAddAmount: 1
   attacking: 0
