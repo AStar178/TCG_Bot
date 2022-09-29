@@ -35,9 +35,9 @@ public class AbilityPowerUps : MonoBehaviour
     }
 
 
-    public UpgrateEventData GetDataUI()
+    public UpdagrateEventdata GetDataUI()
     {
-        UpgrateEventData upgrateEventData = new UpgrateEventData();
+        UpdagrateEventdata upgrateEventData = new UpdagrateEventdata();
         upgrateEventData.Image = Icon;
         upgrateEventData.Name = Name;
         upgrateEventData.Discripsen = Discripsen;

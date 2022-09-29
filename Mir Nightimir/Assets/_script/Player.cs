@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] public PlayerHp PlayerHp;
     [SerializeField] public List<AbilityPowerUps> abilityPowerUps;
     [SerializeField] public UiEvent uiEvent;
-    [SerializeField] public UpgrateEvent upgrateEvent;
+    [SerializeField] public UpdagrateEvent upgrateEvent;
     [SerializeField] public GameObject OnLevelEffect;
     [SerializeField] public Transform Body;
     [SerializeField] public Transform BulletSpwanPoint;

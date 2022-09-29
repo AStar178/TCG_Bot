@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable] public class UnityUpgrateEventLiseners : UnityEvent<UpgrateEventData> {  }
+[System.Serializable] public class UnityUpgrateEventLiseners : UnityEvent<UpdagrateEventdata> {  }
 

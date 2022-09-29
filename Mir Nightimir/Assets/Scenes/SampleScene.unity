@@ -66004,8 +66004,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.99999994
+    height: 0.99862075
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -67098,7 +67098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7406ab7a84713ee489c62bafafe940d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMeeleHit: {fileID: 3001144307840372890, guid: 70892bdeb782bde4bbf89aefb8c962d6, type: 3}
+  OnMeeleHit: {fileID: 3001144307840372890, guid: 58f946206426f2e4eb6366a097031d5c, type: 3}
   OnMagicHit: {fileID: 903061095572501512, guid: 36b6adf0e4ea43c4c913ecd414e4592b, type: 3}
   AttackSpeed: 0
   DamageAd: 0
@@ -120624,18 +120624,8 @@ MonoBehaviour:
   unityEventRespon:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1218148922}
-        m_TargetAssemblyTypeName: BaseGameEventListener`3[[UiEventData, Assembly-CSharp
-        m_MethodName: OnEventRaise
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 1218148922}, m_TargetAssemblyTypeName: BaseGameEventListener`3[[UiEventData, Assembly-CSharp, m_MethodName: OnEventRaise, m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
 --- !u!114 &1218148923
 MonoBehaviour:
   m_ObjectHideFlags: 0

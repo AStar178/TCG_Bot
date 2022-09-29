@@ -1,11 +1,8 @@
 using UnityEngine;
 
-public struct UpgrateEventData
+public struct UpdagrateEventdata
 {
-    
-
     public Sprite Image;
     public string Name;
     public string Discripsen;
-    
 }
