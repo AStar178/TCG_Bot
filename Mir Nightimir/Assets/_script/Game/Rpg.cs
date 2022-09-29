@@ -15,7 +15,6 @@ public static class Rpg
         damage.Mp_DefenceReduser = magicReduse;
         damage.PlayerRefernce = player;
         damage.GameObjectRefernce = player.PlayerHp;
-        damage = player.DamageModifayer( hp , pos , damage );
 
         return damage;
     }
