@@ -21,7 +21,14 @@ public abstract class AbilityWeapons : MonoBehaviour
     protected float Tau => 6.28318530718f;
     protected float PI => MathF.PI;
     [Range(0.3f , 6)] [SerializeField] protected float FriendZoon;
-    
+
+    #region
+    public float AdOnLevelUp;
+    public float ApOnLevelUp;
+    public float HpOnLevelUp;
+    public float ArmorOnLevelUp;
+    #endregion
+
     public virtual Transform CoustomTargetSelect()
     {
         if (Type == WeaponType.Range)
@@ -39,6 +46,10 @@ public abstract class AbilityWeapons : MonoBehaviour
     public virtual void StartAbilityWp(Player newplayer)
     {
         player = newplayer;
+        player.DamageAdBuff += AdOnLevelUp * player.CurrentLevel;
+        player.intelligence += (ApOnLevelUp * 2) * player.CurrentLevel;
+        player.HpBuff += HpOnLevelUp * player.CurrentLevel;
+        player.AmoroBuff += ArmorOnLevelUp * player.CurrentLevel;
     }
 
     public virtual void UpdateAbilityWp()
@@ -73,10 +84,17 @@ public abstract class AbilityWeapons : MonoBehaviour
     }
     public virtual void OnLevelUp()
     {
-        
+        player.DamageAdBuff += AdOnLevelUp;
+        player.intelligence += ApOnLevelUp * 2;
+        player.HpBuff += HpOnLevelUp;
+        player.AmoroBuff += ArmorOnLevelUp;
     }
     public virtual void StopAbilityWp()
     {
+        player.DamageAdBuff -= AdOnLevelUp * player.CurrentLevel;
+        player.intelligence -= (ApOnLevelUp * 2) * player.CurrentLevel;
+        player.HpBuff -= HpOnLevelUp * player.CurrentLevel;
+        player.AmoroBuff -= ArmorOnLevelUp * player.CurrentLevel;
         Destroy(this.gameObject);
     }
     protected virtual Transform CoustomTargetSelectingMelee(float Raduis , float FrindZoon)

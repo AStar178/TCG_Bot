@@ -44,11 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81053d90b9b38994e9a3a0874ec8267e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: -1317030293, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   WeaponName: Vangaurd
   WeaponDescription: A Classic Warrior Class.
   rotationLeftSprite: 0
   Type: 0
   Raduis: 1.4
   FriendZoon: 0.3
+  AdOnLevelUp: 2
+  ApOnLevelUp: 0
+  HpOnLevelUp: 3
+  ArmorOnLevelUp: 0.1
   sprite: {fileID: -1317030293, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}

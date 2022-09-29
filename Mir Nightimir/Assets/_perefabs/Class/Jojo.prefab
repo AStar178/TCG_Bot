@@ -52,6 +52,10 @@ MonoBehaviour:
   Type: 0
   Raduis: 1.4
   FriendZoon: 0.3
+  AdOnLevelUp: 4
+  ApOnLevelUp: 0
+  HpOnLevelUp: 0
+  ArmorOnLevelUp: 0
   sprite: {fileID: -1578595067, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   Spit: {fileID: 0}
   SetBeforeSkillUp: 4
