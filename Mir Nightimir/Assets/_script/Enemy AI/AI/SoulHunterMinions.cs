@@ -55,6 +55,8 @@ public class SoulHunterMinions : MonoBehaviour
                 AttackCooldown = SetAttackCooldown;
                 var Bullet = Instantiate(EnemyStatic.playerSimpBullet, target.position, Quaternion.identity);
                 var cp = Bullet.GetComponent<PlayerSimpBullet>();
+                GameObject p = Instantiate(EnemyStatic.fireBurstPartical, target.position, Quaternion.identity);
+                Destroy(p, 5);
                 if (ProjectileImage != null)
                 {
                     Bullet.GetComponent<SpriteRenderer>().sprite = ProjectileImage;

@@ -15,6 +15,7 @@ public abstract class AbilityWeapons : MonoBehaviour
     public Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse ) => GetPlayer().CreatDamage( ad , ap , amoroReduse , magicReduse , GetPlayerTargetSelector().target);
     public PlayerWeaponManger GetWeaponManger() => player.PlayerWeaponManger;
     public PlayerTarget GetPlayerTargetSelector() => player.PlayerTarget;
+    public float GetAttackRange() => Raduis;
     public bool rotationLeftSprite;
     public WeaponType Type;
     [SerializeField] protected float Raduis;
