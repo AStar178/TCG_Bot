@@ -128,7 +128,37 @@ public class EnemyHp : MonoBehaviour , IHpValue
             await Task.Yield();
         }
     }
-    private void Start() => rigidbody2d = GetComponent<Rigidbody2D>();
+    private void Start() => StartHp();
+
+    private void StartHp()
+    {
+        rigidbody2d = GetComponent<Rigidbody2D>();
+
+        gameObject.TryGetComponent<Turret>(out Turret nodle);
+        gameObject.TryGetComponent<TESTei>(out TESTei Makaroni);
+
+        MaxHp = EnemyState.MaxHpAmount;
+        Currenthp = EnemyState.MaxHpAmount;
+        Amoro = EnemyState.Amoro;
+        MagicResest = EnemyState.MagicReset;
+
+        if (nodle != null)
+        {
+            Turret b = gameObject.GetComponent<Turret>();
+            b.Range = EnemyState.AggroRange;
+            b.stat = EnemyState;
+        }
+
+        if (Makaroni != null)
+        {
+            TESTei b = gameObject.GetComponent<TESTei>();
+            b.Speed = EnemyState.MoveSpeed;
+            b.Range = EnemyState.AggroRange;
+            b.state = EnemyState;
+        }
+    }
+
+    
     private void Sprite2()
     {
         if (spriteRenderer == null) { return; }

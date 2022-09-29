@@ -7,7 +7,7 @@ using System;
 
 public abstract class TESTei : MonoBehaviour
 {
-    public State state;
+    [HideInInspector] public State state;
     public float Speed;
     public float Range;
     public float MeleeAttackSpeed = 1;
