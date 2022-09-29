@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyHp : MonoBehaviour , IHpValue
 { 
     [SerializeField] State EnemyState;
-
+    [SerializeField] private Rigidbody2D rigidbody2d;
     public float MaxHp;
     public float Currenthp;
     public float Amoro;
@@ -23,6 +23,9 @@ public class EnemyHp : MonoBehaviour , IHpValue
     public void HpValueChange( Damage damage , out DamageResult result )
     {
         if ( Random.value < BlockChanse / 100 ) { result = resultOfBlocked; return; }
+
+        if ( rigidbody2d != null )
+            rigidbody2d.AddForce( damage.knockback );
 
         float AdDamageAmount = 100 - ( Amoro - damage.Ad_DefenceReduser );
         Currenthp -= damage.AdDamage * ( AdDamageAmount / 100 );
@@ -63,6 +66,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
     Sprite sprite;
     bool reve;
     bool AreadyGiveXp;
+
     private void GraveStone()
     {
         sprite = spriteRenderer.sprite;
@@ -124,7 +128,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
             await Task.Yield();
         }
     }
-
+    private void Start() => rigidbody2d = GetComponent<Rigidbody2D>();
     private void Sprite2()
     {
         if (spriteRenderer == null) { return; }

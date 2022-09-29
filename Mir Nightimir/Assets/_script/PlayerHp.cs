@@ -8,6 +8,7 @@ public class PlayerHp : MonoBehaviour, IHpValue
 {
     [SerializeField] Player player;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Rigidbody2D rigidbody2d;
     public float MaxHp;
     public float Currenthp;
     public float DelayDamageTakeTime;
@@ -36,7 +37,8 @@ public class PlayerHp : MonoBehaviour, IHpValue
             return;
         }
             
-        
+        if ( rigidbody2d != null )
+            rigidbody2d.AddForce( damage.knockback );
 
         delayTime = DelayDamageTakeTime;
         float AdDamageAmount = 100 - ( Amoro - damage.Ad_DefenceReduser );
