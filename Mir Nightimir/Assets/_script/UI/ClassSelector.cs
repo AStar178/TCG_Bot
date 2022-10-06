@@ -18,7 +18,7 @@ public class ClassSelector : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = Player.Singleton;
         SetClassOnMyFace();
     }
 
@@ -46,8 +46,7 @@ public class ClassSelector : MonoBehaviour
         b.transform.localPosition = Vector3.zero;
         player.PlayerWeaponManger.CurrentWeapons = b.GetComponent<AbilityWeapons>();
         if (player.PlayerWeaponManger.CurrentWeapons == null) { return; }
-
-        player.PlayerWeaponManger.CurrentWeapons.StartAbilityWp(Player.Singleton);
+        
         player.WeaponCheck();
     }
 

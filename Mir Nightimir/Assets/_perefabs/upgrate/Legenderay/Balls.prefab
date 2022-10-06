@@ -47,5 +47,6 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: c64def44af43f99469e5002459147928, type: 3}
   Name: ggggg
   Discripsen: gggg
-  Change: 1
+  Change: 0.2
   effect: {fileID: 903061095572501512, guid: e68ade4d0264149459951d78362b3d12, type: 3}
+  offset: 0

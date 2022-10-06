@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] public UiEvent uiEvent;
     [SerializeField] public GameObject OnLevelEffect;
     [SerializeField] public Transform Body;
+    [SerializeField] public Collider2D BodyColider;
     [SerializeField] public Transform BulletSpwanPoint;
     [SerializeField] Transform PowerUps;
     public int CurrentLevel = 1;
