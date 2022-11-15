@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
-  m_Name: Devil Little
+  m_Name: Devil General
   m_EditorClassIdentifier: 
-  AdDamage: 2
-  ApDamage: 4
+  AdDamage: 10
+  ApDamage: 20
   AttackSpeed: 0
-  Amoro: 5
-  MagicReset: 5
-  Ad_DefenceReduser: 0
-  Mp_DefenceReduser: 1
-  MaxHpAmount: 10
-  MoveSpeed: 2.5
-  AggroRange: 8
+  Amoro: 25
+  MagicReset: 25
+  Ad_DefenceReduser: 5
+  Mp_DefenceReduser: 10
+  MaxHpAmount: 80
+  MoveSpeed: 2.25
+  AggroRange: 10
   MaxMana: 0
   ManaRejyAmount: 0
   TimeToGetMana: 0

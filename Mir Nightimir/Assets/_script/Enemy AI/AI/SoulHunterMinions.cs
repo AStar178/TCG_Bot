@@ -22,6 +22,9 @@ public class SoulHunterMinions : MonoBehaviour
     public float MaxX;
     public float MaxY;
     [SerializeField] SpriteRenderer renderers;
+    public float DevidedAmount = 1f;
+    public float MultyAmount = 1f;
+    public float PlusAmount = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -55,14 +58,17 @@ public class SoulHunterMinions : MonoBehaviour
                 AttackCooldown = SetAttackCooldown;
                 var Bullet = Instantiate(AIStatic.playerSimpBullet, target.position, Quaternion.identity);
                 var cp = Bullet.GetComponent<PlayerSimpBullet>();
+                cp.magic = Master;
+                cp.target = target;
+                cp.MultyAmount = MultyAmount;
+                cp.DevidedAmount = DevidedAmount;
+                cp.PlusAmount = PlusAmount;
                 GameObject p = Instantiate(AIStatic.fireBurstPartical, target.position, Quaternion.identity);
-                Destroy(p, 5);
+                Destroy(p, 2);
                 if (ProjectileImage != null)
                 {
                     Bullet.GetComponent<SpriteRenderer>().sprite = ProjectileImage;
                 }
-                cp.magic = Master;
-                cp.target = target;
             }
         }
         else { AttackCooldown -= Time.deltaTime; }

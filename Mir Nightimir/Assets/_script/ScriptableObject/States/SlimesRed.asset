@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
   m_Name: SlimesRed
   m_EditorClassIdentifier: 
-  AdDamage: 35
-  ApDamage: 0
+  AdDamage: 6
+  ApDamage: 4
   AttackSpeed: 1
   Amoro: 1
   MagicReset: 1

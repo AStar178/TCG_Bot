@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e28fbe318c1d8e4d94a3eef8016a6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: -580823831, guid: d1ac8dcf4d6e9124d9c092fb2d475067, type: 3}
   WeaponName: Soul Hunter
   WeaponDescription: 'Soul Hunter who ripped many souls from ethier human or non-human
     living biegn.
@@ -63,6 +63,9 @@ MonoBehaviour:
   SummonChance: 17
   MDeathTimer: 30
   SoulsDominions: []
-  MinionCap: 0
+  MinionCap: 1
   SetBeforeSkillUp: 10
   SkillUpAddAmount: 1
+  DevidedAmount: 2
+  MultyAmount: 1
+  PlusAmount: 0

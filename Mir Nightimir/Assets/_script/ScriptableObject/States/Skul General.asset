@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11d03b5a435987458b9f67f4418bf49, type: 3}
   m_Name: Skul General
   m_EditorClassIdentifier: 
-  AdDamage: 5
+  AdDamage: 10
   ApDamage: 0
   AttackSpeed: 0
-  Amoro: 10
-  MagicReset: 10
+  Amoro: 20
+  MagicReset: 20
   Ad_DefenceReduser: 5
   Mp_DefenceReduser: 0
-  MaxHpAmount: 30
+  MaxHpAmount: 50
   MoveSpeed: 1
-  AggroRange: 3
+  AggroRange: 5
   MaxMana: 0
   ManaRejyAmount: 0
   TimeToGetMana: 0

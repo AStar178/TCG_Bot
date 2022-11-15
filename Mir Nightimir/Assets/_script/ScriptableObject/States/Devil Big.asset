@@ -15,12 +15,12 @@ MonoBehaviour:
   AdDamage: 4
   ApDamage: 8
   AttackSpeed: 0
-  Amoro: 5
-  MagicReset: 5
+  Amoro: 10
+  MagicReset: 10
   Ad_DefenceReduser: 0
   Mp_DefenceReduser: 1
-  MaxHpAmount: 20
-  MoveSpeed: 2.5
+  MaxHpAmount: 30
+  MoveSpeed: 2
   AggroRange: 10
   MaxMana: 0
   ManaRejyAmount: 0

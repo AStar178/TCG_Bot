@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2414806221902299341}
   - component: {fileID: 9107274891243033719}
   m_Layer: 7
-  m_Name: Little Devil
+  m_Name: Devil Alpha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4220211249077486540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.2800007, y: -0.8800001, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,18 +95,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1a572f5dc32904da378e0a277ee344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyState: {fileID: 11400000, guid: 17682f011f5154142bb2cd199c4452a8, type: 2}
+  EnemyState: {fileID: 11400000, guid: 7ae25f4aee9c37841be55e3051548013, type: 2}
   rigidbody2d: {fileID: 0}
   MaxHp: 0
   Currenthp: 0
   Amoro: 0
   MagicResest: 0
   DelayDamageTakeTime: 0.5
-  BlockChanse: 15
+  BlockChanse: 0
   spriteRenderer: {fileID: 9107274891243033719}
   OnDieEffect: {fileID: 0}
-  xpAmount: 7
-  coinsAmount: 30
+  xpAmount: 11
+  coinsAmount: 100
   resultOfBlocked: 3
 --- !u!114 &-2414806221902299341
 MonoBehaviour:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9af4c4a9b5a634abe94406c5e0c5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 17682f011f5154142bb2cd199c4452a8, type: 2}
+  state: {fileID: 11400000, guid: 7ae25f4aee9c37841be55e3051548013, type: 2}
   Speed: 0
   Range: 0
   MeleeAttackSpeed: 1
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 195c5d7fdf8ffcf40a6fa32f4fa91926, type: 2}
+  - {fileID: 2100000, guid: dbd0cf0d14bcd524dac51a013b0b21f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -6,12 +6,17 @@ using UnityEngine;
 public class SoulHunter : AbilityWeapons
 {
     [SerializeField] Sprite sprite;
+    [Header("Skill")]
     [SerializeField] float SummonChance = 17;
     [SerializeField] float MDeathTimer = 30;
     public List<SoulHunterMinions> SoulsDominions;
     public int MinionCap = 0;
     [SerializeField] private int SetBeforeSkillUp = 10;
     [SerializeField] private int SkillUpAddAmount = 1;
+    [Header("Minions Damage")]
+    public float DevidedAmount = 1f;
+    public float MultyAmount = 1f;
+    public float PlusAmount = 0f;
     int levelBeforeUpdate;
     bool canAttack;
 
@@ -54,7 +59,7 @@ public class SoulHunter : AbilityWeapons
         GetWeaponManger().attackSpeed = 100/GetWeaponManger().AttackSpeed;
         Damage damage = new Damage();
 
-        damage = CreatDamage( GetWeaponManger().DamageAd / 2 , GetWeaponManger().DamageAp / 2 , GetWeaponManger().AmoroReduse , GetWeaponManger().MagicReduse );
+        damage = CreatDamage( GetWeaponManger().DamageAd , GetWeaponManger().DamageAp , GetWeaponManger().AmoroReduse , GetWeaponManger().MagicReduse );
         print ( damage.ApDamage );
         enemyHp.HpValueChange(damage , out var result);
         
@@ -73,6 +78,10 @@ public class SoulHunter : AbilityWeapons
                 b.GetComponent<SoulHunterMinions>().Master = this;
                 b.GetComponent<SoulHunterMinions>().SetAttackCooldown = GetPlayer().PlayerWeaponManger.AttackSpeed / 100;
                 b.GetComponent<SoulHunterMinions>().TimeToDeath = MDeathTimer;
+                var cp = b.GetComponent<SoulHunter>();
+                cp.MultyAmount = MultyAmount;
+                cp.DevidedAmount = DevidedAmount;
+                cp.PlusAmount = PlusAmount;
                 SoulsDominions.Add(b.GetComponent<SoulHunterMinions>());
             }
         }

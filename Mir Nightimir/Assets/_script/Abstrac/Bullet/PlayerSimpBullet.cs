@@ -5,6 +5,9 @@ public class PlayerSimpBullet : MonoBehaviour
     public AbilityWeapons magic;
     public Transform target;
     public Damage damage;
+    public float DevidedAmount = 1f;
+    public float MultyAmount = 1f;
+    public float PlusAmount = 0f;
     public bool SetDamage;
     [SerializeField] Rigidbody2D rigidbod;
     [SerializeField] float Speed = 1;
@@ -25,7 +28,7 @@ public class PlayerSimpBullet : MonoBehaviour
         if (!other.TryGetComponent(out IHpValue hpValue)) { return; }
         if (SetDamage == false)
         {
-            damage = magic.CreatDamage(magic.GetWeaponManger().DamageAd, magic.GetWeaponManger().DamageAp, magic.GetWeaponManger().AmoroReduse, magic.GetWeaponManger().MagicReduse);
+            damage = magic.CreatDamage((magic.GetWeaponManger().DamageAd / DevidedAmount) * MultyAmount + PlusAmount, (magic.GetWeaponManger().DamageAp / DevidedAmount) * MultyAmount + PlusAmount, magic.GetWeaponManger().AmoroReduse, magic.GetWeaponManger().MagicReduse);
         }
         hpValue.HpValueChange(damage, out var result);
 
