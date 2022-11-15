@@ -66265,6 +66265,7 @@ MonoBehaviour:
   uiEvent: {fileID: 11400000, guid: 2c7ae7a05997ba14d9539be38cb0303d, type: 2}
   OnLevelEffect: {fileID: 903061095572501512, guid: e4214f702bc2df043bfd4ee167a47867, type: 3}
   Body: {fileID: 955869190}
+  BodyColider: {fileID: 955869194}
   BulletSpwanPoint: {fileID: 136189973}
   PowerUps: {fileID: 1308843648}
   CurrentLevel: 1
@@ -66272,7 +66273,7 @@ MonoBehaviour:
   CurrentCoins: 20000
   CurrentXp: 0
   strength: 1
-  vitality: 1
+  vitality: 0.7
   dexterity: 1
   intelligence: 1
   Fart: 1
@@ -120921,7 +120922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -121581,6 +121582,7 @@ GameObject:
   - component: {fileID: 1507572142}
   - component: {fileID: 1507572141}
   - component: {fileID: 1507572144}
+  - component: {fileID: 1507572145}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -121652,24 +121654,8 @@ MonoBehaviour:
   MoneyRare: 20
   RareColor: {r: 0, g: 0.94248676, b: 1, a: 1}
   RangeRare: 45
-  EpicIteams:
-  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
-  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
-  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
-  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
-  - {fileID: 5461275095725942226, guid: 71ee004118b832f41be68ad6df1dbac5, type: 3}
-  - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
-  - {fileID: 5461275095725942226, guid: 0c24203455dea994dbd478584014464d, type: 3}
-  MoneyEpic: 40
-  EpicColor: {r: 0.80887604, g: 0, b: 1, a: 1}
-  RangeEpic: 35
   LegenderyIteams:
-  - {fileID: 3696363678199915862, guid: 04ab7fab38aa4db4eb7083b530409544, type: 3}
-  - {fileID: 2757526517292265430, guid: e0f9a780dc20e3c4fa75a8b016f73ba0, type: 3}
-  - {fileID: 6439544954715063134, guid: 23bf0e00bd813ff4bae1e70848662baf, type: 3}
-  - {fileID: 39215392070717922, guid: be893f664f240fe44821d5e33d308027, type: 3}
-  - {fileID: 5461275095725942226, guid: 315a6926109ffa747a5a90b0156a9708, type: 3}
-  - {fileID: 5461275095725942226, guid: 0c24203455dea994dbd478584014464d, type: 3}
+  - {fileID: 8080156304303294488, guid: 8d144a966641df745a7b26edfc1a7920, type: 3}
   MoneyLegendery: 80
   LegenderyColor: {r: 1, g: 0.6090461, b: 0, a: 1}
   RangeLegendery: 30
@@ -121717,6 +121703,25 @@ MonoBehaviour:
   - {fileID: 4135909409613438633, guid: 05d18f691751b334692434ebc0b836d8, type: 3}
   - {fileID: 7837641015930066077, guid: 3351b683f529f934994b91c95e68015c, type: 3}
   SelectedClass: 0
+--- !u!114 &1507572145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507572140}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8fa308746ae7342b42855a1cb2b25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: []
+  EnemyLegendery: []
+  LegenderyEnemyRange: 0
+  Boss: []
+  BossRange: 0
+  x: 75
+  y: 75
 --- !u!1 &1556330724
 GameObject:
   m_ObjectHideFlags: 0

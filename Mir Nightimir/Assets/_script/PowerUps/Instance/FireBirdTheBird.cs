@@ -52,7 +52,7 @@ public class FireBirdTheBird : MonoBehaviour
         attackSpeedCoolDown = 100 / player1.PlayerWeaponManger.AttackSpeed;
         var fire = Instantiate ( FireBalls , transform.position , Quaternion.identity );
         fire.GetComponent<Rigidbody2D>().AddForce ( ( Target.position - transform.position ).normalized * speed );
-        fire.GetComponent<PlayerBullent>().damage = Rpg.CreatDamage( Weapon().DamageAd * ScalDamage , Weapon().DamageAp * ScalDamage , Weapon().AmoroReduse , Weapon().MagicReduse , player1 , default , Target );
+        fire.GetComponent<PlayerBullent>().damage = Rpg.CreatDamage( Weapon().DamageAd * ScalDamage , Weapon().DamageAp * ScalDamage , Weapon().AmoroReduse , Weapon().MagicReduse , player1 );
         fire.GetComponent<PlayerBullent>().EnemyLayer = (int)Rpg.allLayers.enemylayer;
         print ( "Shoot" );
         Destroy( fire , 10 );

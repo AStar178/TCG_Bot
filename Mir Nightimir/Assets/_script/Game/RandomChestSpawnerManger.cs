@@ -19,10 +19,6 @@ public class RandomChestSpawnerManger : MonoBehaviour
     public int MoneyRare;
     [SerializeField] Color RareColor;
     [Range(0 , 100)] [SerializeField] int RangeRare;
-    public List<GameObject> EpicIteams = new List<GameObject>();
-    public int MoneyEpic;
-    [SerializeField] Color EpicColor;
-    [Range(0 , 100)] [SerializeField] int RangeEpic;
     public List<GameObject> LegenderyIteams = new List<GameObject>();
     public int MoneyLegendery;
     [SerializeField] Color LegenderyColor;
@@ -73,21 +69,14 @@ public class RandomChestSpawnerManger : MonoBehaviour
             money = MoneyGreen;
             return GreenColor * (3 * 3);;
         }
-        if ( Random.value >= ( RangeEpic * .01f ) )
+        if ( Random.value >= ( RangeLegendery * .01f ) )
         {
             RareyValue2 = RareyValue.Rare;
             UpgradeObject = PickRandomRareObject();
             money = MoneyRare;
             return RareColor * (4 * 3);;
         }
-        if ( Random.value >= ( RangeLegendery * .01f ) )
-        {
-            RareyValue2 = RareyValue.Epic;
-            UpgradeObject = PickRandomEpicObject();
-            money = MoneyEpic;
-            return EpicColor * (5 * 3);
-        }
-
+        
         RareyValue2 = RareyValue.Legendery;
         UpgradeObject = PickRandomLegenderyObject();
         money = MoneyLegendery;
@@ -100,13 +89,6 @@ public class RandomChestSpawnerManger : MonoBehaviour
 
         return LegenderyIteams[id];
     }
-    private GameObject PickRandomEpicObject()
-    {
-        var id = Random.Range(0 , EpicIteams.Count);
-
-        return EpicIteams[id];
-    }
-
     private GameObject PickRandomRareObject()
     {
         var id = Random.Range(0 , RareIteams.Count);

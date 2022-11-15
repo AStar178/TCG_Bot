@@ -60,6 +60,7 @@ public class EnemyHp : MonoBehaviour , IHpValue
             return;
         }
         result = DamageResult.DealadDamaged;
+        if (damage.AdDamage == 0 && damage.ApDamage == 0) { return; }
         SpriteRendererOnTakeDamageEffect();
         
     }

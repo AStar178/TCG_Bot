@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public static class Rpg
 {
     public static float Tau => 6.28318530718f;
-    public static Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse , Player player , IHpValue hp , Transform pos )
+    public static Damage CreatDamage( float ad, float ap, float amoroReduse, float magicReduse , Player player )
     {
         Damage damage = new Damage();
 
