@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical") * MovementSpeed;
         characterController.Move((transform.right * horizontal + transform.forward * vertical) * Time.deltaTime);
 
-        bool Ground = Physics.Raycast(transform.position , -transform.up , radius , Grounds);
+        bool Ground = Physics.Raycast(transform.position , Vector3.down , radius , Grounds);
         // Gravity
         if(Ground)
         {
