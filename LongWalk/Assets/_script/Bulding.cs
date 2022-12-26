@@ -8,7 +8,6 @@ public class Bulding : MonoBehaviour
     [SerializeField] List<GameObject> _BulidingBlockPrefabs;
     [SerializeField] private float MaxDistance;
     [SerializeField] private LayerMask GroundLayer;
-
     void Update()
     {
         Vector3 Pos = new Vector3();

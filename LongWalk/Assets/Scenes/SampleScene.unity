@@ -422,7 +422,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860166992
 GameObject:
@@ -519,7 +519,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1086017302
 GameObject:
@@ -647,7 +647,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581426035
 GameObject:
@@ -681,6 +681,75 @@ Transform:
   m_Father: {fileID: 2291412101788751656}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1816879735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2915218121802942029, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.218478
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.352455
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.15358838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.15358838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6902251
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.690225
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661564517186819344, guid: bcb3d9cbe67cf8649a93dadebb0e5570,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 154.91
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bcb3d9cbe67cf8649a93dadebb0e5570, type: 3}
 --- !u!1 &1835747250
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +950,7 @@ Transform:
   - {fileID: 330585546}
   - {fileID: 1086017303}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2127718225
 MonoBehaviour:
@@ -1009,7 +1078,7 @@ Transform:
   - {fileID: 2372694409335761262}
   - {fileID: 1581426036}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2372694409335761262
 Transform:
@@ -1159,7 +1228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e06888c4c368f4f4b97740182df39c4d, type: 2}
+  - {fileID: 2100000, guid: 8f26c9fd977b5cf468d94941b90bbe94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
