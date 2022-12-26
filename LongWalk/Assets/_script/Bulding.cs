@@ -17,10 +17,11 @@ public class Bulding : MonoBehaviour
 
         if (hit.collider == null)
             return;
-        Pos = hit.point;            
+        
+        Pos = hit.point;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            Instantiate(Build(1 - 1)  , Pos , transform.rotation);
+            Instantiate(Build(1 - 1)  , Pos , Quaternion.LookRotation(hit.normal));
         
         
         if (Input.GetKeyDown(KeyCode.Alpha2))
