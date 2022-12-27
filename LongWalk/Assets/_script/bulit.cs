@@ -25,7 +25,7 @@ public class bulit : MonoBehaviour
         {
             var owo = Instantiate(visualEffect , transform.position , Quaternion.identity);
             enemy.TakeDamage(Damage);
-            Destroy(owo , 10);
+            Destroy(owo.gameObject , 10);
 
             Destroy(gameObject);
         }
