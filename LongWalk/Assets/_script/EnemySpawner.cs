@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
-     
+using UnityEngine.Pool;
+using UnityEngine.VFX;
+
 public class EnemySpawner : MonoBehaviour {
      
     public int numObjects = 10;
@@ -9,8 +11,13 @@ public class EnemySpawner : MonoBehaviour {
     public float radius;
     [SerializeField] public static Transform falafa;
     [SerializeField] public Transform sasa;
+    [SerializeField] GameObject Bulit;
+    [SerializeField] VisualEffect Bulitseffects;
+    [SerializeField] int AmountBulit = 100;
     private void Awake() {
         falafa = sasa;
+        Bulits = new ObjectPool<GameObject>( () => { return Instantiate(Bulit); } , p => p.SetActive(true) , p => p.SetActive(false) , p => Destroy(p) , false , 1 , AmountBulit );
+        Bulitseffect = new ObjectPool<GameObject>( () => { return Instantiate(Bulitseffects.gameObject); } , p => p.gameObject.SetActive(true) , p => p.gameObject.SetActive(false) , p => Destroy(p.gameObject) , false , 1 , 100 );
     }
      
     void Start() {
@@ -35,4 +42,7 @@ public class EnemySpawner : MonoBehaviour {
         Handles.DrawWireDisc(transform.position , Vector3.up , radius);
 
     }
+    public static ObjectPool<GameObject> Bulits;
+    public static ObjectPool<GameObject> Bulitseffect;
+
 }

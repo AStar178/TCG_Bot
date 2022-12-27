@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 using UnityEngine.VFX;
+using UnityEngine.Pool;
 
 public class Turret : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class Turret : MonoBehaviour
     [SerializeField] LayerMask EnemyLayer;
     [SerializeField] float Range;
     [SerializeField] float AttackSpeed;
-    [SerializeField] GameObject Bulit;
     [SerializeField] Transform BulitSpawnPos;
     [SerializeField] VisualEffect visualEffect;
     [SerializeField] float BulitSpeed;
@@ -24,8 +24,11 @@ public class Turret : MonoBehaviour
         TimeSpeed = AttackSpeed;
     }
 
+
     void Update()
     {
+
+        
         enemy = null;
         var Colider = Physics.OverlapSphere(Head.transform.position , Range , EnemyLayer);
 
@@ -54,11 +57,13 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        var build = Instantiate(Bulit , BulitSpawnPos.position , Quaternion.LookRotation((enemy.transform.position - BulitSpawnPos.transform.position).normalized));
-        build.GetComponent<Rigidbody>().velocity = (enemy.transform.position - build.transform.position).normalized * BulitSpeed;
+        
+        var buuuuu = EnemySpawner.Bulits.Get();
+
+        buuuuu.transform.position = BulitSpawnPos.position; buuuuu.transform.rotation = Quaternion.LookRotation((enemy.transform.position - BulitSpawnPos.transform.position).normalized);
+        buuuuu.GetComponent<Rigidbody>().velocity = (enemy.transform.position - buuuuu.transform.position).normalized * BulitSpeed;
         TimeSpeed = AttackSpeed;
         visualEffect.Play();
-        Destroy(build , 15);
     }
 
     private void OnDrawGizmosSelected() {

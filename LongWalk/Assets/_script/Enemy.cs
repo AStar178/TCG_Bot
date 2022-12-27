@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
+
     void Start()
     {
         navMeshAgent.SetDestination( EnemySpawner.falafa.position );
