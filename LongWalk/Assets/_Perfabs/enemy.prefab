@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f3834c5b409c14496ef6832e6323c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 100
+  MaxHp: 3
   CurrentHp: 0
 --- !u!195 &4987529052262724845
 NavMeshAgent:
@@ -135,7 +135,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &6739490055811163843
 MonoBehaviour:
   m_ObjectHideFlags: 0
