@@ -19,7 +19,7 @@ public class Playermovement : MonoBehaviour
     float hInput;
     float vInput;
 
-    Vector3 MovementDir;
+    public Vector3 MovementDir;
 
     public float JumpForce;
     public float JumpCoolDown;
@@ -27,6 +27,7 @@ public class Playermovement : MonoBehaviour
     bool readytojump;
 
     [SerializeField] KeyCode jumpKey;
+    [SerializeField] Material sheeeeeeeeeeeh;
     void Start()
     {
         readytojump = true;
