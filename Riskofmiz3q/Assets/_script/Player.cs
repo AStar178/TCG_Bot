@@ -11,9 +11,10 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    
-    void Update()
+
+    void Update() 
     {
-        
+
     }
+
 }
