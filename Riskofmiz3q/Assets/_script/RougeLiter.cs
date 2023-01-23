@@ -14,11 +14,16 @@ public class RougeLiter : MonoBehaviour
         ObjectHolder = GetComponent<ObjectHolder>();
     }
 
-    public static GameObject Create(float destroy, GameObject gameObject, Vector3 pos, GameObject parent = null)
+    public static GameObject Create(float destroy, GameObject gameObject, Vector3 pos)
     {
-        GameObject a = Instantiate(gameObject, parent.transform);
+        GameObject a = Instantiate(gameObject);
         a.transform.position = pos;
         Destroy(a, destroy);
         return a;
+    }
+
+    public static void SetParent(Transform boy, Transform parent)
+    {
+        boy.parent = parent;
     }
 }
