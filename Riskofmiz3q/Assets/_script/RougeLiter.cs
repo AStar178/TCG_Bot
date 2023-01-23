@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class RougeLiter : MonoBehaviour
 {
-    public static InputManager InputManager;
-    public static ObjectHolder ObjectHolder;
+    public InputManager InputManager;
+    public ObjectHolder ObjectHolder;
+    public static RougeLiter rougeLiter;
 
     // Start is called before the first frame update
     void Awake()
     {
+        rougeLiter = this;
         InputManager = GetComponent<InputManager>();
         ObjectHolder = GetComponent<ObjectHolder>();
     }
 
-    public static GameObject Create(float destroy, GameObject gameObject, Vector3 pos, GameObject parent = null)
+    public GameObject Create(float destroy, GameObject gameObject, Vector3 pos, GameObject parent = null)
     {
         GameObject a = Instantiate(gameObject, parent.transform);
         a.transform.position = pos;

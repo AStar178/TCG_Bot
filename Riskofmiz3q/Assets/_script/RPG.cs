@@ -27,8 +27,10 @@ public static class RPG
     public static void CreateBullet(Transform transform, GameObject BulletEffect, GameObject onHit, Damage damage, float explosionSize, float force, float forceUpward = 0)
     {
         Vector3 forceToAdd = transform.forward * force + transform.up * forceUpward;
-        GameObject bullet = RougeLiter.Create(6, RougeLiter.ObjectHolder.Blank, RPG.TransformToVector3(transform));
-        RougeLiter.Create(6, BulletEffect, bullet.transform.position, bullet);
+        Debug.Log("W");
+        GameObject bullet = RougeLiter.rougeLiter.Create(6, RougeLiter.rougeLiter.ObjectHolder.Blank, RPG.TransformToVector3(transform));
+        Debug.Log("W");
+        RougeLiter.rougeLiter.Create(6, BulletEffect, bullet.transform.position, bullet);
         bullet.GetComponent<Rigidbody>().AddForce(forceToAdd, ForceMode.Impulse);
         bullet.GetComponent<Bullet>().Damage = damage;
         bullet.GetComponent<Bullet>().Size = explosionSize;
