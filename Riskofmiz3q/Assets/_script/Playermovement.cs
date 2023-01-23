@@ -16,8 +16,8 @@ public class Playermovement : MonoBehaviour
     [SerializeField] LayerMask Ground;
     bool Grounded;
 
-    float hInput;
-    float vInput;
+    public float hInput;
+    public float vInput;
 
     public Vector3 MovementDir;
 
