@@ -5,9 +5,9 @@ using System.Linq;
 
 public static class RPG
 {
-    public static void CreateDamageColision(Vector3 CreatePos, Vector3 Size, Damage damage)
+    public static void CreateDamageColision(Vector3 CreatePos, float Size, Damage damage)
     {
-        List<Collider2D> a = Physics2D.OverlapBoxAll(CreatePos, Size, LayerMask.GetMask("Enemy")).ToList();
+        List<Collider> a = Physics.OverlapSphere(CreatePos, Size, LayerMask.GetMask("Enemy")).ToList();
 
         // add damage after adding HP script
 
@@ -24,10 +24,31 @@ public static class RPG
         */
     }
 
+    public static void CreateBullet(Transform transform, GameObject BulletEffect, GameObject onHit, Damage damage, float explosionSize, float force, float forceUpward = 0)
+    {
+        Vector3 forceToAdd = transform.forward * force + transform.up * forceUpward;
+        GameObject bullet = RougeLiter.Create(6, RougeLiter.ObjectHolder.Blank, RPG.TransformToVector3(transform));
+        RougeLiter.Create(6, BulletEffect, bullet.transform.position, bullet);
+        bullet.GetComponent<Rigidbody>().AddForce(forceToAdd, ForceMode.Impulse);
+        bullet.GetComponent<Bullet>().Damage = damage;
+        bullet.GetComponent<Bullet>().Size = explosionSize;
+        bullet.GetComponent<Bullet>().onHit = onHit;
+        bullet.GetComponent<Bullet>().target = LayerMask.GetMask("Enemy");
+    }
+
     public static Vector3 TransformToVector3(Transform transform)
     {
         return new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
+
+    public static Damage CreateDamage(int damage, DamageType damageType) 
+    {
+        Damage dam = new Damage();
+        dam.damage = damage;
+        dam.DamageType = damageType;
+        return dam;
+    }
+
 }
 
 public class Damage

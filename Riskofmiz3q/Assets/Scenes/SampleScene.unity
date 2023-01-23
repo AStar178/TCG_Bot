@@ -6336,6 +6336,7 @@ GameObject:
   - component: {fileID: 1206607842}
   - component: {fileID: 1206607843}
   - component: {fileID: 1206607844}
+  - component: {fileID: 1206607845}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -6400,7 +6401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70aad5224364cbe47bfe23caa9265a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Blank: {fileID: 751962751385153714, guid: 56ec2b700d5f45e428f5107e48d680c3, type: 3}
 --- !u!114 &1206607844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6413,6 +6413,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993d829710c3fda4d9e9e89b80b5aae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1206607845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206607839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436b1edc26bf97d479bb7e804b999faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Blank: {fileID: 751962751385153714, guid: 56ec2b700d5f45e428f5107e48d680c3, type: 3}
+  FireBullet: {fileID: 5506810071117760612, guid: c0337392a243f5544b1643abeb1523e7,
+    type: 3}
+  FireOnHit: {fileID: 3327255600860425099, guid: a01794efb6a66c84f80ff38338e55a35,
+    type: 3}
 --- !u!1 &1253115217
 GameObject:
   m_ObjectHideFlags: 0
