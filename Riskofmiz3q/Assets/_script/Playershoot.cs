@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraControle : MonoBehaviour
+public class Playershoot : MonoBehaviour
 {
     [SerializeField] Camera cameras;
     [SerializeField] Transform ora;
