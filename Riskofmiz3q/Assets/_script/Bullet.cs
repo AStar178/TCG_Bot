@@ -13,10 +13,10 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.layer);
-        if (other.gameObject.layer != target)
-            return;
 
-        Destroy(gameObject);
+        if (Contains(target , other.gameObject.layer))
+            Destroy( gameObject );
+        
     }
 
     private void OnDestroy()
@@ -25,5 +25,9 @@ public class Bullet : MonoBehaviour
         onhit.transform.position = transform.position;
         List<Collider> a = Physics.OverlapSphere(transform.position, Size, target).ToList();
         Destroy(onhit, 1);
+    }
+    public static bool Contains(LayerMask mask, int layer)
+    {
+        return mask == (mask | (1 << layer));
     }
 }
