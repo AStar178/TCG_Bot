@@ -29,11 +29,12 @@ public static class RPG
         Vector3 forceToAdd = transform.forward * force + transform.up * forceUpward;
         GameObject bullet = RougeLiter.Create(6, RougeLiter.ObjectHolder.Blank, transform.position);
         RougeLiter.Create(6, BulletEffect, bullet.transform.position).transform.parent = bullet.transform;
+        bullet.transform.eulerAngles = bullet.transform.eulerAngles + RougeLiter.Orientarion.transform.eulerAngles;
         bullet.GetComponent<Rigidbody>().AddForce(forceToAdd, ForceMode.Impulse);
         bullet.GetComponent<Bullet>().Damage = damage;
         bullet.GetComponent<Bullet>().Size = explosionSize;
         bullet.GetComponent<Bullet>().onHit = onHit;
-        bullet.GetComponent<Bullet>().target = LayerMask.GetMask("Enemy");
+        bullet.GetComponent<Bullet>().target = LayerMask.GetMask("Enemy") + LayerMask.GetMask("Ground");
     }
 
     public static Vector3 TransformToVector3(Transform transform)

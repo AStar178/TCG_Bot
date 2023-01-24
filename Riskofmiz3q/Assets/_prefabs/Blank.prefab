@@ -78,5 +78,5 @@ MonoBehaviour:
   onHit: {fileID: 0}
   target:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   Size: 0

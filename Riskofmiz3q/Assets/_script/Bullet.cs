@@ -12,10 +12,18 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.layer);
+        if (other.gameObject.layer != target)
+            return;
+
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
         GameObject onhit = Instantiate(onHit);
         onhit.transform.position = transform.position;
         List<Collider> a = Physics.OverlapSphere(transform.position, Size, target).ToList();
-        Destroy(gameObject);
-        Destroy(onhit, 6);
+        Destroy(onhit, 1);
     }
 }

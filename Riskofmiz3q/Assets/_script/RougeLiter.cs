@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RougeLiter : MonoBehaviour
 {
+    public GameObject orientarion;
+    public static GameObject Orientarion;
     public static InputManager InputManager;
     public static ObjectHolder ObjectHolder;
 
@@ -12,6 +14,7 @@ public class RougeLiter : MonoBehaviour
     {
         InputManager = GetComponent<InputManager>();
         ObjectHolder = GetComponent<ObjectHolder>();
+        Orientarion = orientarion;
     }
 
     public static GameObject Create(float destroy, GameObject gameObject, Vector3 pos)

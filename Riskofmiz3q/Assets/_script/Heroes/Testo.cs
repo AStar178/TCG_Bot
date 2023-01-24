@@ -9,7 +9,7 @@ public class Testo : SkillManager
         base.OnSkill_1();
 
         Damage damage = RPG.CreateDamage(3, DamageType.Fire);
-        RPG.CreateBullet(transform, RougeLiter.ObjectHolder.FireBullet, RougeLiter.ObjectHolder.FireOnHit, damage, 3, 10);
+        RPG.CreateBullet(RougeLiter.Orientarion.transform, RougeLiter.ObjectHolder.FireBullet, RougeLiter.ObjectHolder.FireOnHit, damage, 3, 15, 3);
         Debug.Log("I am CRAZYYYYYYYYYYYYYYYYY");
     }
 }
