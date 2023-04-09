@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8515170734638771565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: bc43cb9b-4405-41f5-8f8c-5e5801c1f835
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Sorry it's a habbit.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 981
+    y: 110
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7315754526527549722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 543d695c-6ab2-487a-9647-dee0cec24c2f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: .....
+  children:
+  - bc43cb9b-4405-41f5-8f8c-5e5801c1f835
+  rect:
+    serializedVersion: 2
+    x: 779
+    y: 108
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4670111435967103045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: d17352aa-a2f6-4007-b9fe-ff47d87f4695
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Look at my latest creation i call it TRANSITION VISION or for short TV.
+  children:
+  - 09d23c4c-31f8-4a75-a02c-4f73db073de8
+  - b7554319-4e16-4126-ae5b-1cd58ea50038
+  rect:
+    serializedVersion: 2
+    x: 100
+    y: 100
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2467051127856491340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 09d23c4c-31f8-4a75-a02c-4f73db073de8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Cesar?
+  children:
+  - baa621a7-4c1a-4b3b-a9e2-94a7ce532cbc
+  rect:
+    serializedVersion: 2
+    x: 350
+    y: 100
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d7e083c594d6845a7ff4f2060c2f3c, type: 3}
+  m_Name: TV
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4670111435967103045}
+  - {fileID: -2467051127856491340}
+  - {fileID: 6803870012469516327}
+  - {fileID: 7462010622379832059}
+  - {fileID: -8515170734638771565}
+  - {fileID: -7315754526527549722}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6803870012469516327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: b7554319-4e16-4126-ae5b-1cd58ea50038
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Bye
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 345
+    y: 210
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7462010622379832059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: baa621a7-4c1a-4b3b-a9e2-94a7ce532cbc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Eeeewwwww
+  children:
+  - 543d695c-6ab2-487a-9647-dee0cec24c2f
+  rect:
+    serializedVersion: 2
+    x: 577
+    y: 110
+    width: 200
+    height: 105
+  onEnterAction: Sound
+  onExitAction: 

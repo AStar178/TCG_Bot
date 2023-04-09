@@ -1,0 +1,366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7620279735051998434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: e9d4edad-1d1f-412a-902a-89ccbf7f8525
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Who sayd that
+  children:
+  - 3334b43f-8dd4-47b7-9088-bdcd4aad23cb
+  rect:
+    serializedVersion: 2
+    x: 284
+    y: 411
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7216964146137456024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 2c73d748-2a8d-4ff8-b2d9-1fea346b0a86
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: It's okay it's only the nature.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1255
+    y: 288
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6127686004123175429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: cb874492-8810-4d61-9737-14ce65441d31
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ok, but keep this as a frienly note, lying wont do any good for you.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 548
+    y: 36.00001
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: Attack
+--- !u!114 &-5918130372407094970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 073d5105-5fc9-45b2-a928-732310e02cbe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yes.
+  children:
+  - 33bc87bf-4205-412f-bb3f-913de8270fcb
+  rect:
+    serializedVersion: 2
+    x: 1013
+    y: 111.000015
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5508659808702098245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 314f6b9a-a719-463c-979f-14d9338f3100
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You don't look like you are from around here.
+  children:
+  - dff40ce8-e5ef-4e3d-84d7-e547de06d205
+  - 882a4f0b-d291-40c3-a7e4-62ba3876ab3c
+  - d86f2f1d-5975-4dc6-9119-ac81944a53e7
+  - e9d4edad-1d1f-412a-902a-89ccbf7f8525
+  rect:
+    serializedVersion: 2
+    x: 43.000015
+    y: 174.00002
+    width: 200
+    height: 105
+  onEnterAction: TestRootEnter
+  onExitAction: 
+--- !u!114 &-5359689057175920329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 33bc87bf-4205-412f-bb3f-913de8270fcb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Thank's. \nI had magical Wand around here but i can't find it.\ni will be
+    really greatfull if you bring it back."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1263
+    y: 111.000015
+    width: 200
+    height: 105
+  onEnterAction: Quest
+  onExitAction: 
+--- !u!114 &-2396640349861781891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 3334b43f-8dd4-47b7-9088-bdcd4aad23cb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: YOU are not from here.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 534
+    y: 411
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1512213360529375430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 882a4f0b-d291-40c3-a7e4-62ba3876ab3c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: And?
+  children:
+  - 41cc0a86-64bb-49b7-8522-51f5b3991b53
+  rect:
+    serializedVersion: 2
+    x: 292
+    y: 169.00002
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-709970001687057607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 72f56f87-0758-4fe7-be88-01cb4ded8334
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No.
+  children:
+  - 2c73d748-2a8d-4ff8-b2d9-1fea346b0a86
+  rect:
+    serializedVersion: 2
+    x: 1005
+    y: 288
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d7e083c594d6845a7ff4f2060c2f3c, type: 3}
+  m_Name: Jojo
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5508659808702098245}
+  - {fileID: 2219629037641839524}
+  - {fileID: -1512213360529375430}
+  - {fileID: -6127686004123175429}
+  - {fileID: 8086097400754236835}
+  - {fileID: 2209345873499858587}
+  - {fileID: 1670251543846388139}
+  - {fileID: -7620279735051998434}
+  - {fileID: -2396640349861781891}
+  - {fileID: 2773660341400837793}
+  - {fileID: -5918130372407094970}
+  - {fileID: -709970001687057607}
+  - {fileID: -7216964146137456024}
+  - {fileID: -5359689057175920329}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1670251543846388139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 6295dc7e-92e9-4d7a-9944-ee4d2afb742a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: YES YES YES YES YES YES YES YES.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 540
+    y: 292
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2209345873499858587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: d86f2f1d-5975-4dc6-9119-ac81944a53e7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: NO NO NO NO NO NO NO.
+  children:
+  - 6295dc7e-92e9-4d7a-9944-ee4d2afb742a
+  rect:
+    serializedVersion: 2
+    x: 290
+    y: 292
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2219629037641839524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: dff40ce8-e5ef-4e3d-84d7-e547de06d205
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'am.
+  children:
+  - cb874492-8810-4d61-9737-14ce65441d31
+  rect:
+    serializedVersion: 2
+    x: 298
+    y: 36.00001
+    width: 200
+    height: 105
+  onEnterAction: TestSelection
+  onExitAction: 
+--- !u!114 &2773660341400837793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 8bbb123b-2a55-49ff-b8c7-71633b1fc3b5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Can you do me a favor?
+  children:
+  - 073d5105-5fc9-45b2-a928-732310e02cbe
+  - 72f56f87-0758-4fe7-be88-01cb4ded8334
+  rect:
+    serializedVersion: 2
+    x: 789
+    y: 171.00002
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8086097400754236835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f510878f1bd328d45a600a2079c26a40, type: 3}
+  m_Name: 41cc0a86-64bb-49b7-8522-51f5b3991b53
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ahh nothing.
+  children:
+  - 8bbb123b-2a55-49ff-b8c7-71633b1fc3b5
+  rect:
+    serializedVersion: 2
+    x: 541
+    y: 168.00002
+    width: 200
+    height: 105
+  onEnterAction: 
+  onExitAction: 

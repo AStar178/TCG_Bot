@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d1a097315f67a44a251a5ac0880134, type: 3}
+  m_Name: sssss
+  m_EditorClassIdentifier: 
+  dialogue:
+  - hahahahahahahaaaaaaaa
+  responses: []
+  talkSFX: {fileID: 8300000, guid: 0cecbe72fd28bed4580d90091c9f9400, type: 3}
+  pitch: 0.5
+  textPerSecond: 25
+  wobbing: 1
+  wobbing1: 20
+  wobbing2: 20

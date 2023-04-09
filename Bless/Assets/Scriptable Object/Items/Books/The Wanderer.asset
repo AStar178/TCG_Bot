@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead598fa5907074687389d7946241b2, type: 3}
+  m_Name: The Wanderer
+  m_EditorClassIdentifier: 
+  bookName: The Wanderer
+  bookDescription: 
+  bookString: 'One day we were having a festival in our village everything was great
+    me my and my little brother were having fun and suddnly an green monster came
+    to our village with rage and was smashing everything in his way my little brother
+    and i were freezed because of the shock and fear and the monster was running
+    by this way but, something was off it was like as if he saw a monster, destroying
+    everything in his way just to run from it; as he was getting closer and closer
+    i hugged my little brother and closed my eyes then i i heared a cutting sound
+    and i relaized that the sound of the running monster has stoped, i opened my
+    eyes to see what happened an then the green monster just fell on his face and
+    it was horryfing, then a sound got me out of the shock "You Okay?" i looked up
+    and there was a man wearing a long and brown cloak with a long and thin sword
+    on his back, "I''am fine thanks" after looking at the monster for one more time
+    i asked him if he was the one who saven us, "You can say it" i thanked him and
+    asked him if there is something we can do for him, "Then let me sleep in your
+    house for this night thats all i need".
+
+    the next day when i woke up he was
+    gone, my brother asked me if he is going to come againg looks like he liked him,
+    he sayd that the man walked on the monster back while he was dragging his sword
+    from the back of the monster cutting it in half, i didn''t put much attention
+    on the monster because i was so scared, i hope that the man is allright.'
