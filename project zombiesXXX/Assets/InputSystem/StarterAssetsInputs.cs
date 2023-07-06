@@ -10,6 +10,7 @@ namespace StarterAssets
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
+		public float Zoom;
 		public bool jump;
 		public bool sprint;
 
@@ -24,6 +25,11 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+		}
+
+		public void OnZoom(InputValue value)
+		{
+			Zoom = value.Get<float>();
 		}
 
 		public void OnLook(InputValue value)

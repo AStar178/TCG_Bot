@@ -322,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
+  Zoom: 0
   jump: 0
   sprint: 0
   analogMovement: 0
@@ -767,6 +768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2070925443028286827}
   - component: {fileID: 2070925443028286826}
+  - component: {fileID: 2070925443028286828}
   m_Layer: 0
   m_Name: PlayerFollowCamera
   m_TagString: Untagged
@@ -829,6 +831,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070925443028286828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070925443028286612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40ac64d696017a4a9c2c9124454fd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineVirtualCamera: {fileID: 2070925443028286826}
+  StarterAssetsInputs: {fileID: 135756641613574975}
+  thirdPersonController: {fileID: 0}
+  min: 2
+  max: 20
 --- !u!1 &2070925443526839464
 GameObject:
   m_ObjectHideFlags: 3
@@ -880,7 +899,7 @@ MonoBehaviour:
   Damping: {x: 0.1, y: 0.25, z: 0.3}
   ShoulderOffset: {x: 0, y: 0, z: 0}
   VerticalArmLength: 0
-  CameraSide: 0.596
+  CameraSide: 0
   CameraDistance: 12
   CameraCollisionFilter:
     serializedVersion: 2
