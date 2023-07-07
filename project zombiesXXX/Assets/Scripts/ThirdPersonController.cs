@@ -15,8 +15,6 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
-        [Tooltip("Move speed of the character in m/s")]
-        public float MoveSpeed = 2.0f;
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
@@ -74,6 +72,7 @@ namespace StarterAssets
 
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
+        [SerializeField] Transform sp;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -125,6 +124,7 @@ namespace StarterAssets
 
         private void Awake()
         {
+            sp.transform.position = Vector3.zero;
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -214,7 +214,7 @@ namespace StarterAssets
         private void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            float targetSpeed = SprintSpeed;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
