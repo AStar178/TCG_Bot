@@ -260,6 +260,39 @@
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Mouse",
+                    "id": "d0d91f7e-740b-497a-b289-6fbd57f91a8f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Negative",
+                    "id": "d936db86-2a25-4dd4-8843-273a4c2ced74",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "Clamp(max=7)",
+                    "groups": "KeyboardMouse",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "3497b409-bcbe-4e1e-bd75-3bafa4c25934",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "Clamp(max=7)",
+                    "groups": "KeyboardMouse",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

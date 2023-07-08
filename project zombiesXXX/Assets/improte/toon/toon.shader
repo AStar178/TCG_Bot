@@ -23,6 +23,7 @@ Shader "Unlit/toon"
 	{
 		Pass
 		{
+
 			// Setup our pass to use Forward rendering, and only receive
 			// data on the main directional light and ambient light.
 			Tags
