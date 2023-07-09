@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace StarterAssets
 {
@@ -9,18 +11,22 @@ namespace StarterAssets
         public StarterAssetsInputs _input;
         public LayerMask EnemyLayer;
         public GameObject Target;
-
+        [SerializeField] Transform Targexxxxx;
+        [SerializeField] Rig rig;
+        bool TargetSelectetMode;
         void Update()
         {
             if (_input.findTarget == true)
             {
+                TargetSelectetMode = TargetSelectetMode == true ? false : true;
+            }
+            TargetSelecting();
+            if (TargetSelectetMode)
+            {
                 // change the color of the old target if possible
                 if (Target != null && Target.GetComponent<Outliner>() != null)
                 {   
-                    if (Target.TryGetComponent<Outliner>( out var outliner ))
-                    {
-                        outliner.enabled = false;
-                    }
+                    Target.GetComponent<Outliner>().enabled = false;
                 }
                     
 
@@ -48,11 +54,33 @@ namespace StarterAssets
                     Target = null;
 
                 // change the color of the new target if possible
-                if (Target != null)
+                if (Target != null && Target.GetComponent<Outliner>() != null)
                     Target.GetComponent<Outliner>().enabled = true;
             }
+            else
+            {
+                if (Target != null && Target.TryGetComponent<Outliner>(out var s))
+                {
+                    s.GetComponent<Outliner>().enabled = false;
+                    Target = null;
+                }
+                
+            }
 
+            
+            
             _input.findTarget = false;
+        }
+
+        private void TargetSelecting()
+        {
+            if (Target != null)
+            {
+                Targexxxxx.transform.position = Target.transform.position;
+                rig.weight = Mathf.Lerp( rig.weight , 1 , 0.1f );
+                return;
+            }
+            rig.weight = Mathf.Lerp( rig.weight , 0 , 0.1f );
         }
     }
 }

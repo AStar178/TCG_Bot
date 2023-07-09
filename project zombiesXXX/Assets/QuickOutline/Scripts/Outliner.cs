@@ -100,6 +100,7 @@ public class Outliner : MonoBehaviour {
   }
 
   void OnEnable() {
+    
     foreach (var renderer in renderers) {
 
       // Append outline shaders
