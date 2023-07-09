@@ -14,6 +14,7 @@ public class StateScriptAbleObject : ScriptableObject {
     public float Deffece;
     public float Luck;
     public bool ModeMulity;
+    public PassiveIteam passiveIteam;
 
 
 }

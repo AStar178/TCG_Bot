@@ -19,7 +19,7 @@ public class PlayerState : PlayerComponetSystem {
     [HideInInspector] public float CalculatedAttackSpeed;
     [HideInInspector] public float CalculatedJumpAmount;
     [HideInInspector] public float CalculatedDeffece;
-    
+
     [HideInInspector] public float ResultDamage;
     [HideInInspector] public float ResultHpMax;
     [HideInInspector] public float ResultHpCurrent;
@@ -31,18 +31,21 @@ public class PlayerState : PlayerComponetSystem {
     public List<StateScriptAbleObject> IteamsAdd = new List<StateScriptAbleObject>();
     public List<StateScriptAbleObject> IteamsMulty = new List<StateScriptAbleObject>();
     public List<PassiveIteam> Passiveiteams = new List<PassiveIteam>();
+    [SerializeField] Transform IteamSpawn;
+    bool startSemelisane;
     private void Start() {
-
-        for (int i = 0; i < Passiveiteams.Count; i++)
-        {
-            Passiveiteams[i].OnStart(this);
-        }
-        StartNoramleCalculater();
+        StartStartNoramleCalculater();
         CalculatedHpCurrent = ResultHpMax;
         ResultHpCurrent = ResultHpMax;
- 
     }
-
+    public void StartStartNoramleCalculater()
+    {
+        ApplyBaseState();
+        AddAllScriptAbleObjectITEMSBuffs();
+        MulityAllScriptAbleObjectITEMSBuffs();
+        ApplyResult();
+        startSemelisane = true;
+    }
     public void StartNoramleCalculater()
     {
         ApplyBaseState();
@@ -82,6 +85,7 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedJumpAmount += IteamsAdd[i].JumpAmount;
             CalculatedDeffece += IteamsAdd[i].Deffece;
             Luck += IteamsAdd[i].Luck;
+            AddIteamPassive(IteamsAdd[i].passiveIteam);
         }
     }
     private void MulityAllScriptAbleObjectITEMSBuffs()
@@ -95,9 +99,12 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedJumpAmount *= IteamsMulty[i].JumpAmount == 0 ? 1 : IteamsMulty[i].JumpAmount;
             CalculatedDeffece *= IteamsMulty[i].Deffece == 0 ? 1 : IteamsMulty[i].Deffece;
             Luck *= IteamsMulty[i].Luck == 0 ? 1 : IteamsMulty[i].Luck;
+            AddIteamPassive(IteamsMulty[i].passiveIteam);
         }
     }
     private void Update() {
+        if (startSemelisane == false)
+            return;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
             Passiveiteams[i].OnUpdate(this);
@@ -105,8 +112,10 @@ public class PlayerState : PlayerComponetSystem {
     }
     public void AddIteamPassive(PassiveIteam passiveIteam)
     {
-        passiveIteam.OnStart(this);
-        Passiveiteams.Add(passiveIteam);
+        var iteasssss = Instantiate(passiveIteam , Vector3.zero , Quaternion.identity);
+        iteasssss.transform.SetParent(IteamSpawn);
+        iteasssss.OnStart(this);
+        Passiveiteams.Add(iteasssss);
     }
     public void AddIteam(StateScriptAbleObject state)
     {
