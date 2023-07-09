@@ -6,13 +6,7 @@ public class StateScriptAbleObject : ScriptableObject {
     public Sprite icone;
     public string namex;
     public string discrapsen;
-    public float Damage;
-    public float Hp;
-    public float SprintSpeed;
-    public float AttackSpeed;
-    public float JumpAmount;
-    public float Deffece;
-    public float Luck;
+    public State state;
     public bool ModeMulity;
     public PassiveIteam passiveIteam;
 

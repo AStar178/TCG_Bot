@@ -5,29 +5,10 @@ using UnityEngine;
 public class PlayerState : PlayerComponetSystem {
     
     
-    public float BaseDamage;
-    public float BaseHpMax;
-    public float BaseSprintSpeed = 8;
-    public float BaseAttackSpeed;
-    public float BaseJumpAmount = 1.2f;
-    public float BaseDeffece;
-    
-    [HideInInspector] public float CalculatedDamage;
-    [HideInInspector] public float CalculatedHpMax;
-    [HideInInspector] public float CalculatedHpCurrent;
-    [HideInInspector] public float CalculatedSprintSpeed;
-    [HideInInspector] public float CalculatedAttackSpeed;
-    [HideInInspector] public float CalculatedJumpAmount;
-    [HideInInspector] public float CalculatedDeffece;
-
-    [HideInInspector] public float ResultDamage;
-    [HideInInspector] public float ResultHpMax;
-    [HideInInspector] public float ResultHpCurrent;
-    [HideInInspector] public float ResultSprintSpeed;
-    [HideInInspector] public float ResultAttackSpeed;
-    [HideInInspector] public float ResultJumpAmount;
-    [HideInInspector] public float ResultDeffece;
-    public float Luck = 1;
+    [SerializeField] public State BaseValue;
+    [HideInInspector] public State CalculatedValue;
+    [HideInInspector] public State ResultValue;
+    public int Luck = 1;
     public List<StateScriptAbleObject> IteamsAdd = new List<StateScriptAbleObject>();
     public List<StateScriptAbleObject> IteamsMulty = new List<StateScriptAbleObject>();
     public List<PassiveIteam> Passiveiteams = new List<PassiveIteam>();
@@ -35,8 +16,8 @@ public class PlayerState : PlayerComponetSystem {
     bool startSemelisane;
     private void Start() {
         StartStartNoramleCalculater();
-        CalculatedHpCurrent = ResultHpMax;
-        ResultHpCurrent = ResultHpMax;
+        CalculatedValue.HpCurrent = ResultValue.HpCurrent;
+        ResultValue.HpCurrent = ResultValue.HpMax;
     }
     public void StartStartNoramleCalculater()
     {
@@ -53,38 +34,29 @@ public class PlayerState : PlayerComponetSystem {
         MulityAllScriptAbleObjectITEMSBuffs();
         ApplyResult();
     }
-    private void ApplyResult()
-    {
-        ResultDamage = CalculatedDamage;
-        ResultHpMax = CalculatedHpMax;
-        ResultSprintSpeed = CalculatedSprintSpeed;
-        ResultAttackSpeed = CalculatedAttackSpeed;;
-        ResultJumpAmount = CalculatedJumpAmount;
-        ResultDeffece = CalculatedDeffece;
-    }
-
     private void ApplyBaseState()
     {
-        CalculatedDamage = BaseDamage;
-        CalculatedHpMax = BaseHpMax;
-        CalculatedSprintSpeed = BaseSprintSpeed;
-        CalculatedAttackSpeed = BaseAttackSpeed;
-        CalculatedJumpAmount = BaseJumpAmount;
-        CalculatedDeffece = BaseDeffece;
+        CalculatedValue.Damage = BaseValue.Damage;
+        CalculatedValue.HpMax = BaseValue.HpMax;
+        CalculatedValue.SprintSpeed = BaseValue.SprintSpeed;
+        CalculatedValue.AttackSpeed = BaseValue.AttackSpeed;
+        CalculatedValue.JumpAmount = BaseValue.JumpAmount;
+        CalculatedValue.Deffece = BaseValue.Deffece;
+        CalculatedValue.AttackRange = BaseValue.AttackRange;
         Luck = 1;
     }
-
     private void AddAllScriptAbleObjectITEMSBuffs()
     {
         for (int i = 0; i < IteamsAdd.Count; i++)
         {
-            CalculatedDamage += IteamsAdd[i].Damage;
-            CalculatedHpMax += IteamsAdd[i].Hp;
-            CalculatedSprintSpeed += IteamsAdd[i].SprintSpeed;
-            CalculatedAttackSpeed += IteamsAdd[i].AttackSpeed;
-            CalculatedJumpAmount += IteamsAdd[i].JumpAmount;
-            CalculatedDeffece += IteamsAdd[i].Deffece;
-            Luck += IteamsAdd[i].Luck;
+            CalculatedValue.Damage += IteamsAdd[i].state.Damage;
+            CalculatedValue.HpMax += IteamsAdd[i].state.HpMax;
+            CalculatedValue.SprintSpeed += IteamsAdd[i].state.SprintSpeed;
+            CalculatedValue.AttackSpeed += IteamsAdd[i].state.AttackSpeed;
+            CalculatedValue.JumpAmount += IteamsAdd[i].state.JumpAmount;
+            CalculatedValue.Deffece += IteamsAdd[i].state.Deffece;
+            CalculatedValue.AttackRange = IteamsAdd[i].state.AttackRange;
+            Luck += IteamsAdd[i].state.Luck;
             AddIteamPassive(IteamsAdd[i].passiveIteam);
         }
     }
@@ -92,23 +64,48 @@ public class PlayerState : PlayerComponetSystem {
     {
         for (int i = 0; i < IteamsMulty.Count; i++)
         {
-            CalculatedDamage *= IteamsMulty[i].Damage == 0 ? 1 : IteamsMulty[i].Damage;
-            CalculatedHpMax *= IteamsMulty[i].Hp == 0 ? 1 : IteamsMulty[i].Hp;
-            CalculatedSprintSpeed *= IteamsMulty[i].SprintSpeed == 0 ? 1 : IteamsMulty[i].SprintSpeed;
-            CalculatedAttackSpeed *= IteamsMulty[i].AttackSpeed == 0 ? 1 : IteamsMulty[i].AttackSpeed;
-            CalculatedJumpAmount *= IteamsMulty[i].JumpAmount == 0 ? 1 : IteamsMulty[i].JumpAmount;
-            CalculatedDeffece *= IteamsMulty[i].Deffece == 0 ? 1 : IteamsMulty[i].Deffece;
-            Luck *= IteamsMulty[i].Luck == 0 ? 1 : IteamsMulty[i].Luck;
+            CalculatedValue.Damage *= IteamsMulty[i].state.Damage == 0 ? 1 : IteamsMulty[i].state.Damage;
+            CalculatedValue.HpMax *= IteamsMulty[i].state.HpMax == 0 ? 1 : IteamsMulty[i].state.HpMax;
+            CalculatedValue.SprintSpeed *= IteamsMulty[i].state.SprintSpeed == 0 ? 1 : IteamsMulty[i].state.SprintSpeed;
+            CalculatedValue.AttackSpeed *= IteamsMulty[i].state.AttackSpeed == 0 ? 1 : IteamsMulty[i].state.AttackSpeed;
+            CalculatedValue.JumpAmount *= IteamsMulty[i].state.JumpAmount == 0 ? 1 : IteamsMulty[i].state.JumpAmount;
+            CalculatedValue.Deffece *= IteamsMulty[i].state.Deffece == 0 ? 1 : IteamsMulty[i].state.Deffece;
+            CalculatedValue.AttackRange *= IteamsMulty[i].state.AttackRange == 0 ? 1 : IteamsMulty[i].state.AttackRange;
+            Luck *= IteamsMulty[i].state.Luck == 0 ? 1 : IteamsMulty[i].state.Luck;
             AddIteamPassive(IteamsMulty[i].passiveIteam);
         }
     }
+    private void ApplyResult()
+    {
+        ResultValue.Damage = CalculatedValue.Damage;
+        ResultValue.HpMax = CalculatedValue.HpMax;
+        ResultValue.SprintSpeed = CalculatedValue.SprintSpeed;
+        ResultValue.AttackSpeed = CalculatedValue.AttackSpeed;;
+        ResultValue.JumpAmount = CalculatedValue.JumpAmount;
+        ResultValue.Deffece = CalculatedValue.Deffece;
+        ResultValue.AttackRange = CalculatedValue.AttackRange;
+    }
+
     private void Update() {
         if (startSemelisane == false)
             return;
+        State state = ResultValue;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-            Passiveiteams[i].OnUpdate(this);
+            Passiveiteams[i].OnUpdateAdd(this , state);
         }
+        for (int i = 0; i < Passiveiteams.Count; i++)
+        {
+            Passiveiteams[i].OnUpdateMultiy(this , state);
+        }
+        ResultValue.Damage = state.Damage;
+        ResultValue.HpMax = state.HpMax;
+        ResultValue.HpCurrent = state.HpCurrent;
+        ResultValue.SprintSpeed = state.SprintSpeed;
+        ResultValue.AttackSpeed = state.AttackSpeed;
+        ResultValue.JumpAmount = state.JumpAmount;
+        ResultValue.Deffece = state.Deffece;
+        ResultValue.AttackRange = state.AttackRange;
     }
     public void AddIteamPassive(PassiveIteam passiveIteam)
     {

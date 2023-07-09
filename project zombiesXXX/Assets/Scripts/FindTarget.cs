@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace StarterAssets
 {
-    public class FindTarget : MonoBehaviour
+    public class FindTarget : PlayerComponetSystem
     {
-        public float range;
         public StarterAssetsInputs _input;
         public LayerMask EnemyLayer;
         public GameObject closest;
@@ -19,7 +18,7 @@ namespace StarterAssets
                 if (closest != null && closest.GetComponent<Outliner>() != null)
                     closest.GetComponent<Outliner>().OutlineColor = Color.white;
 
-                Collider[] objects = Physics.OverlapSphere(transform.position, range, EnemyLayer);
+                Collider[] objects = Physics.OverlapSphere(transform.position, GetPlayer().PlayerState.ResultValue.AttackRange, EnemyLayer);
                 //GameObject[] objects = GameObject.FindGameObjectsWithTag("Objetivo");
                 float dot = -2;
 

@@ -206,7 +206,7 @@ namespace StarterAssets
         private void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = GetPlayer().PlayerState.ResultSprintSpeed;
+            float targetSpeed = GetPlayer().PlayerState.ResultValue.SprintSpeed;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -295,7 +295,7 @@ namespace StarterAssets
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(GetPlayer().PlayerState.ResultJumpAmount * -2f * Gravity);
+                    _verticalVelocity = Mathf.Sqrt(GetPlayer().PlayerState.ResultValue.JumpAmount * -2f * Gravity);
 
                     // update animator if using character
                     if (_hasAnimator)
