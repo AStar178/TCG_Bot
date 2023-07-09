@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Find Target",
+                    "type": "Button",
+                    "id": "dc4890f7-c70b-4b5a-a2e1-654d7fb1b355",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -293,6 +302,17 @@
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "967b11c3-f5d8-4d20-8dc5-d345e03cde0e",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Find Target",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

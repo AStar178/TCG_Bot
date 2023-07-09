@@ -13,6 +13,7 @@ namespace StarterAssets
 		public float Zoom;
 		public bool jump;
 		public bool sprint;
+		public bool findTarget;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,6 +50,11 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnFindTarget(InputValue value)
+		{
+			FindTargetInput(value.isPressed);
+		}
 #endif
 
 
@@ -70,6 +76,11 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void FindTargetInput(bool newFindTargetState)
+		{
+			findTarget = newFindTargetState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
