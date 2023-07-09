@@ -8,21 +8,25 @@ namespace StarterAssets
     {
         public StarterAssetsInputs _input;
         public LayerMask EnemyLayer;
-        public GameObject closest;
+        public GameObject Target;
 
         void Update()
         {
             if (_input.findTarget == true)
             {
                 // change the color of the old target if possible
-                if (closest != null && closest.GetComponent<Outliner>() != null)
-                    closest.GetComponent<Outliner>().OutlineColor = Color.white;
+                if (Target != null && Target.GetComponent<Outliner>() != null)
+                {   
+                    if (Target.TryGetComponent<Outliner>( out var outliner ))
+                    {
+                        outliner.enabled = false;
+                    }
+                }
+                    
 
                 Collider[] objects = Physics.OverlapSphere(transform.position, GetPlayer().PlayerState.ResultValue.AttackRange, EnemyLayer);
                 //GameObject[] objects = GameObject.FindGameObjectsWithTag("Objetivo");
                 float dot = -2;
-
-                print(objects.Length);
 
                 foreach (Collider obj in objects)
                 {
@@ -35,19 +39,17 @@ namespace StarterAssets
                     if (test > dot)
                     {
                         dot = test;
-                        closest = obj.gameObject;
-
-                        print(obj);
+                        Target = obj.gameObject;
                     }
                 }
 
                 // set the target to null if no target found
                 if (objects.Length <= 0)
-                    closest = null;
+                    Target = null;
 
                 // change the color of the new target if possible
-                if (closest != null && closest.GetComponent<Outliner>() != null)
-                    closest.GetComponent<Outliner>().OutlineColor = Color.red;
+                if (Target != null)
+                    Target.GetComponent<Outliner>().enabled = true;
             }
 
             _input.findTarget = false;

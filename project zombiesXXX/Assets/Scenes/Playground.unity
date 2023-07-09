@@ -198,7 +198,7 @@ MonoBehaviour:
     AttackSpeed: 2
     JumpAmount: 1.2
     Deffece: 1
-    AttackRange: 1
+    AttackRange: 20
     Luck: 0
   CalculatedValue:
     Damage: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 1682967199}
   - component: {fileID: 1682967198}
   - component: {fileID: 1682967197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3119,7 +3119,7 @@ MonoBehaviour:
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  closest: {fileID: 0}
+  Target: {fileID: 0}
 --- !u!1 &7129635141153452334
 GameObject:
   m_ObjectHideFlags: 0
