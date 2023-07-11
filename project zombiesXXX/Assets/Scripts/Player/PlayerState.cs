@@ -100,6 +100,10 @@ public class PlayerState : PlayerComponetSystem {
             state = Passiveiteams[i].OnUpdateMultiy(this , state);
         }
         ResultValue = state;
+        for (int i = 0; i < Passiveiteams.Count; i++)
+        {
+            Passiveiteams[i].OnUpdate(this);
+        }
     }
     public void AddIteamPassive(PassiveIteam passiveIteam)
     {
