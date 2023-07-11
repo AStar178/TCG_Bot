@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerState : PlayerComponetSystem {
     
     
     [SerializeField] public State BaseValue;
-    [HideInInspector] public State CalculatedValue;
+    [SerializeField] public State CalculatedValue;
     public State ResultValue;
     public int Luck = 1;
     public List<StateScriptAbleObject> IteamsAdd = new List<StateScriptAbleObject>();
@@ -14,9 +15,12 @@ public class PlayerState : PlayerComponetSystem {
     public List<PassiveIteam> Passiveiteams = new List<PassiveIteam>();
     [SerializeField] Transform IteamSpawn;
     bool startSemelisane;
+
+    public bool Combat;
+
     private void Start() {
         StartStartNoramleCalculater();
-        CalculatedValue.HpCurrent = ResultValue.HpCurrent;
+        CalculatedValue.HpCurrent = ResultValue.HpMax;
         ResultValue.HpCurrent = ResultValue.HpMax;
     }
     public void StartStartNoramleCalculater()
@@ -90,14 +94,14 @@ public class PlayerState : PlayerComponetSystem {
         if (startSemelisane == false)
             return;
         State state = new State();
-        state = ResultValue;
+        state = CalculatedValue;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-            state = Passiveiteams[i].OnUpdateAdd(this , state);
+            state = Passiveiteams[i].OnUpdateAddOverTime(this , ref CalculatedValue);
         }
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-            state = Passiveiteams[i].OnUpdateMultiy(this , state);
+            Passiveiteams[i].OnUpdateMultiyMYHEADISDIEING(this , ref state);
         }
         ResultValue = state;
         for (int i = 0; i < Passiveiteams.Count; i++)
@@ -107,6 +111,14 @@ public class PlayerState : PlayerComponetSystem {
     }
     public void AddIteamPassive(PassiveIteam passiveIteam)
     {
+        for (int i = 0; i < Passiveiteams.Count; i++)
+        {
+           if ( passiveIteam.name + "(Clone)" == Passiveiteams[i].name )
+           {
+                Passiveiteams[i].level++;
+                return;
+           }
+        }
         var iteasssss = Instantiate(passiveIteam , Vector3.zero , Quaternion.identity);
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);

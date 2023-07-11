@@ -4,7 +4,7 @@ public class HpOverTime : PassiveIteam {
 
     [SerializeField] float HellingTimer = 1;
     float t;
-    public override State OnUpdateAdd(PlayerState playerState , State state)
+    public override State OnUpdateAddOverTime(PlayerState playerState , ref State state)
     {
         t -= Time.deltaTime;
 

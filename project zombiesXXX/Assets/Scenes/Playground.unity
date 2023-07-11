@@ -224,9 +224,11 @@ MonoBehaviour:
   Luck: 1
   IteamsAdd:
   - {fileID: 11400000, guid: 10e908c56d66e2b469720116d70094b5, type: 2}
+  - {fileID: 11400000, guid: 2b5fb4b872fd44f4b882f8da83b9589a, type: 2}
   IteamsMulty: []
   Passiveiteams: []
   IteamSpawn: {fileID: 633867970}
+  Combat: 0
 --- !u!1 &499843447
 GameObject:
   m_ObjectHideFlags: 0
