@@ -194,7 +194,7 @@ MonoBehaviour:
   BaseValue:
     Damage: 2
     HpMax: 100
-    HpCurrent: 10
+    HpCurrent: 100
     SprintSpeed: 8
     AttackSpeed: 2
     JumpAmount: 1.2
@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 1682967198}
   - component: {fileID: 1682967197}
   - component: {fileID: 1682967201}
+  - component: {fileID: 1682967202}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
@@ -1317,6 +1318,20 @@ MonoBehaviour:
     - {x: -0.34139428, y: 0.6646524, z: -0.66459554}
     - {x: -0.17685792, y: 0.6958694, z: -0.6960511}
   AlwaysRed: 1
+--- !u!114 &1682967202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682967196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f1882731f82c24cabf87f434cf9bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHp: 0
+  MaxHp: 999
 --- !u!114 &1768730622
 MonoBehaviour:
   m_ObjectHideFlags: 0

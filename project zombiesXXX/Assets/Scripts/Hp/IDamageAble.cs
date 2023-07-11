@@ -1,6 +1,6 @@
 internal interface IDamageAble
 {
 
-    void TakeDamage(DamageData Data);
+    public void TakeDamage(DamageData Data);
 
 }
