@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class FireBird : PassiveIteam
 {
-    [SerializeField] GameObject FIRE;
+    [SerializeField] ParticleSystem FIRE;
     [SerializeField] float DamageCooldown = 1;
     float t;
-    GameObject effect;
+    ParticleSystem effect;
 
+    public override void OnStart(PlayerState playerState)
+    {
+        effect = Instantiate(FIRE , transform.position , Quaternion.identity);
+    }
     public override void OnUpdate(PlayerState playerState)
     {
         t -= Time.deltaTime;
@@ -17,7 +21,7 @@ public class FireBird : PassiveIteam
 
         if (target == null)
         {
-            Destroy(effect);
+            effect.Stop();
         }
 
         if (t > 0)
@@ -25,13 +29,13 @@ public class FireBird : PassiveIteam
         t = DamageCooldown;
 
         DamageData damage = new DamageData();
-        damage.DamageAmount = 1;
+        damage.DamageAmount = playerState.ResultValue.Damage / 2;
 
         if (target != null)
         {
             target.GetComponent<IDamageAble>().TakeDamage(damage);
-            if (effect == null)
-                effect = Instantiate(FIRE, target.transform);
+            effect.Play();
+            effect.transform.SetParent(target.transform);
             effect.transform.localPosition = Vector3.zero;
         }
 

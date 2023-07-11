@@ -51,5 +51,5 @@ MonoBehaviour:
   IconSkill: {fileID: 0}
   namexSkill: 
   dependenciesSkill: 
-  FIRE: {fileID: 8726159074517763790, guid: 1e01afc340de7d94e95471c2c3d37dff, type: 3}
+  FIRE: {fileID: 5183355361633783883, guid: 1e01afc340de7d94e95471c2c3d37dff, type: 3}
   DamageCooldown: 1

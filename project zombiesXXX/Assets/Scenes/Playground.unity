@@ -222,7 +222,8 @@ MonoBehaviour:
     AttackRange: 0
     Luck: 0
   Luck: 1
-  IteamsAdd: []
+  IteamsAdd:
+  - {fileID: 11400000, guid: 10e908c56d66e2b469720116d70094b5, type: 2}
   IteamsMulty: []
   Passiveiteams: []
   IteamSpawn: {fileID: 633867970}
