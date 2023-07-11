@@ -2,9 +2,7 @@ using UnityEngine;
 
 public abstract class PlayerComponetSystem : MonoBehaviour {
 
-    public Player GetPlayer()
-    {
-        return Player.Current;
-    }
-
+    public Player Player => Player.Current;
+    public float GetHpCurrent => Player.PlayerState.ResultValue.HpCurrent;
+    public float SetHpCurrent(float nexw) => Player.PlayerState.ResultValue.HpCurrent = nexw;
 }

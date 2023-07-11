@@ -99,16 +99,19 @@ public class Outliner : MonoBehaviour {
     needsUpdate = true;
   }
 
-  void OnEnable() {
+  async void OnEnable() {
     
     foreach (var renderer in renderers) {
 
       // Append outline shaders
       var materials = renderer.sharedMaterials.ToList();
-
+      while (AlwaysRed == true)
+      {
+          await System.Threading.Tasks.Task.Yield();
+      }
       materials.Add(outlineMaskMaterial);
       materials.Add(outlineFillMaterial);
-
+      
       renderer.materials = materials.ToArray();
     }
   }
@@ -131,6 +134,7 @@ public class Outliner : MonoBehaviour {
   }
 
   void Update() {
+
     if (needsUpdate) {
       needsUpdate = false;
 
@@ -269,11 +273,11 @@ public class Outliner : MonoBehaviour {
     mesh.subMeshCount++;
     mesh.SetTriangles(mesh.triangles, mesh.subMeshCount - 1);
   }
-
+  public bool AlwaysRed;
   void UpdateMaterialProperties() {
 
     // Apply properties according to mode
-    outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
+    outlineFillMaterial.SetColor("_OutlineColor", AlwaysRed == true ? Color.red : outlineColor);
 
     switch (outlineMode) {
       case Mode.OutlineAll:

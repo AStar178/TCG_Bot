@@ -26,11 +26,12 @@ namespace StarterAssets
                 // change the color of the old target if possible
                 if (Target != null && Target.GetComponent<Outliner>() != null)
                 {   
+                    Target.GetComponent<Outliner>().AlwaysRed = true;
                     Target.GetComponent<Outliner>().enabled = false;
                 }
                     
 
-                Collider[] objects = Physics.OverlapSphere(transform.position, GetPlayer().PlayerState.ResultValue.AttackRange, EnemyLayer);
+                Collider[] objects = Physics.OverlapSphere(transform.position, Player.PlayerState.ResultValue.AttackRange, EnemyLayer);
                 //GameObject[] objects = GameObject.FindGameObjectsWithTag("Objetivo");
                 float dot = -2;
 
@@ -54,14 +55,19 @@ namespace StarterAssets
                     Target = null;
 
                 // change the color of the new target if possible
-                if (Target != null && Target.GetComponent<Outliner>() != null)
-                    Target.GetComponent<Outliner>().enabled = true;
+                if (Target != null && Target.TryGetComponent<Outliner>(out var target))
+                {
+                    target.AlwaysRed = false;
+                    target.enabled = true;
+                }
+
             }
             else
             {
-                if (Target != null && Target.TryGetComponent<Outliner>(out var s))
+                if (Target != null && Target.TryGetComponent<Outliner>(out var target))
                 {
-                    s.GetComponent<Outliner>().enabled = false;
+                    target.AlwaysRed = true;
+                    target.enabled = false;
                     Target = null;
                 }
                 

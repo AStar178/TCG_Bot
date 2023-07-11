@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f7b8131377c3c242aa3360a33d47a2a, type: 3}
-  m_Name: OWO
+  m_Name: hpovertime
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
   namex: 
   discrapsen: 
-  Damage: 0
-  Hp: 0
-  SprintSpeed: 2
-  AttackSpeed: 0
-  JumpAmount: 0
-  Deffece: 0
-  Luck: 0
+  state:
+    Damage: 0
+    HpMax: 10
+    HpCurrent: 0
+    SprintSpeed: 0
+    AttackSpeed: 0
+    JumpAmount: 0
+    Deffece: 0
+    AttackRange: 0
+    Luck: 0
   ModeMulity: 0
+  passiveIteam: {fileID: -4299118199258154751, guid: c19baa332a3ce774990323d2f2110e3a,
+    type: 3}

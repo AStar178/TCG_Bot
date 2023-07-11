@@ -6,15 +6,15 @@ public abstract class PassiveIteam : MonoBehaviour {
     public string dependencies;
     public virtual void OnStart(PlayerState playerState)
     {
-        
-    }
-    public virtual void OnUpdateAdd(PlayerState playerState , State state)
-    {
 
     }
-    public virtual void OnUpdateMultiy(PlayerState playerState , State state)
+    public virtual State OnUpdateAdd(PlayerState playerState , State state)
     {
-
+        return state;
+    }
+    public virtual State OnUpdateMultiy(PlayerState playerState , State state)
+    {
+        return state;
     }
     public virtual void OnUseSkill(PlayerState playerState)
     {

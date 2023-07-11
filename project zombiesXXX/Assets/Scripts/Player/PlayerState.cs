@@ -7,7 +7,7 @@ public class PlayerState : PlayerComponetSystem {
     
     [SerializeField] public State BaseValue;
     [HideInInspector] public State CalculatedValue;
-    [HideInInspector] public State ResultValue;
+    public State ResultValue;
     public int Luck = 1;
     public List<StateScriptAbleObject> IteamsAdd = new List<StateScriptAbleObject>();
     public List<StateScriptAbleObject> IteamsMulty = new List<StateScriptAbleObject>();
@@ -55,7 +55,7 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.AttackSpeed += IteamsAdd[i].state.AttackSpeed;
             CalculatedValue.JumpAmount += IteamsAdd[i].state.JumpAmount;
             CalculatedValue.Deffece += IteamsAdd[i].state.Deffece;
-            CalculatedValue.AttackRange = IteamsAdd[i].state.AttackRange;
+            CalculatedValue.AttackRange += IteamsAdd[i].state.AttackRange;
             Luck += IteamsAdd[i].state.Luck;
             AddIteamPassive(IteamsAdd[i].passiveIteam);
         }
@@ -89,23 +89,17 @@ public class PlayerState : PlayerComponetSystem {
     private void Update() {
         if (startSemelisane == false)
             return;
-        State state = ResultValue;
+        State state = new State();
+        state = ResultValue;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-            Passiveiteams[i].OnUpdateAdd(this , state);
+            state = Passiveiteams[i].OnUpdateAdd(this , state);
         }
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-            Passiveiteams[i].OnUpdateMultiy(this , state);
+            state = Passiveiteams[i].OnUpdateMultiy(this , state);
         }
-        ResultValue.Damage = state.Damage;
-        ResultValue.HpMax = state.HpMax;
-        ResultValue.HpCurrent = state.HpCurrent;
-        ResultValue.SprintSpeed = state.SprintSpeed;
-        ResultValue.AttackSpeed = state.AttackSpeed;
-        ResultValue.JumpAmount = state.JumpAmount;
-        ResultValue.Deffece = state.Deffece;
-        ResultValue.AttackRange = state.AttackRange;
+        ResultValue = state;
     }
     public void AddIteamPassive(PassiveIteam passiveIteam)
     {
