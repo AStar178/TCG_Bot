@@ -14,6 +14,13 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool findTarget;
+		public bool Q;
+		public bool E;
+		public bool n1;
+		public bool n2;
+		public bool n3;
+		public bool n4;
+		public bool n5;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -50,6 +57,35 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+		public void OnUseQ(InputValue value)
+		{
+			QInput(value.isPressed);
+		}
+		public void OnUseE(InputValue value)
+		{
+			EInput(value.isPressed);
+		}
+		public void OnUseSkill1(InputValue value)
+		{
+			Skill1Input(value.isPressed);
+		}
+		public void OnUseSkill2(InputValue value)
+		{
+			Skill2Input(value.isPressed);
+		}
+		public void OnUseSkill3(InputValue value)
+		{
+			Skill3Input(value.isPressed);
+		}
+		public void OnUseSkill4(InputValue value)
+		{
+			Skill4Input(value.isPressed);
+		}
+		public void OnUseSkill5(InputValue value)
+		{
+			Skill5Input(value.isPressed);
+		}
+		
 
 		public void OnFindTarget(InputValue value)
 		{
@@ -81,6 +117,34 @@ namespace StarterAssets
 		public void FindTargetInput(bool newFindTargetState)
 		{
 			findTarget = newFindTargetState;
+		}
+		public void QInput(bool value)
+		{
+			Q = value;
+		}
+		public void EInput(bool value)
+		{
+			E = value;
+		}
+		public void Skill1Input(bool value)
+		{
+			n1 = value;
+		}
+		public void Skill2Input(bool value)
+		{
+			n2 = value;
+		}
+		public void Skill3Input(bool value)
+		{
+			n3 = value;
+		}
+		public void Skill4Input(bool value)
+		{
+			n4 = value;
+		}
+		public void Skill5Input(bool value)
+		{
+			n5 = value;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

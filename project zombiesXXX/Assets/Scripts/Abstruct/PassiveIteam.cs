@@ -26,7 +26,7 @@ public abstract class PassiveIteam : MonoBehaviour {
     }
     public virtual void OnUseSkill(PlayerState playerState)
     {
-
+        
     }
 
     public virtual void OnDrop(PlayerState playerState)

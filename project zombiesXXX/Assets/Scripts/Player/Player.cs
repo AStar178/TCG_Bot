@@ -6,6 +6,7 @@ using StarterAssets;
 public class Player : MonoBehaviour
 {
     public static Player Current;
+    public StarterAssetsInputs StarterAssetsInputs;
     public PlayerState PlayerState;
     public FindTarget findTarget;
     public ThirdPersonController PlayerThirdPersonController;

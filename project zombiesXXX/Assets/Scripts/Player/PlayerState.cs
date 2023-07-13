@@ -13,12 +13,20 @@ public class PlayerState : PlayerComponetSystem {
     public List<StateScriptAbleObject> IteamsAdd = new List<StateScriptAbleObject>();
     public List<StateScriptAbleObject> IteamsMulty = new List<StateScriptAbleObject>();
     public List<PassiveIteam> Passiveiteams = new List<PassiveIteam>();
+    public PassiveIteam[] Skill;
+    public PassiveIteam ChampinPassive;
+    public PassiveIteam ChampinSkillQ;
+    public PassiveIteam ChampinSkillE;
     [SerializeField] Transform IteamSpawn;
     bool startSemelisane;
 
     public bool Combat;
 
     private void Start() {
+        Skill = new PassiveIteam[7];
+        AddIteamPassive(ChampinPassive);
+        AddIteamSkill(ChampinSkillQ);
+        AddIteamSkill(ChampinSkillE);
         StartStartNoramleCalculater();
         CalculatedValue.HpCurrent = ResultValue.HpMax;
         ResultValue.HpCurrent = ResultValue.HpMax;
@@ -108,6 +116,63 @@ public class PlayerState : PlayerComponetSystem {
         {
             Passiveiteams[i].OnUpdate(this);
         }
+        if ( Player.StarterAssetsInputs.Q )
+        {
+            if (Skill[0] != null)
+            {
+                Skill[0].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.Q = false;
+        }
+        if ( Player.StarterAssetsInputs.E )
+        {
+            if (Skill[1] != null)
+            {
+                Skill[1].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.E = false;
+        }
+        if ( Player.StarterAssetsInputs.n1 )
+        {
+            if (Skill[2] != null)
+            {
+                Skill[2].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.n1 = false;
+        }
+        if ( Player.StarterAssetsInputs.n2 )
+        {
+            if (Skill[3] != null)
+            {
+                Skill[3].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.n2 = false;
+        }
+        if ( Player.StarterAssetsInputs.n3 )
+        {
+            if (Skill[4] != null)
+            {
+                Skill[4].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.n3 = false;
+        }
+        if ( Player.StarterAssetsInputs.n4 )
+        {
+            if (Skill[5] != null)
+            {
+                Skill[5].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.n4 = false;
+        }
+        if ( Player.StarterAssetsInputs.n5 )
+        {
+            if (Skill[6] != null)
+            {
+                Skill[6].OnUseSkill(this);
+            }
+            Player.StarterAssetsInputs.n5 = false;
+        }
+        
     }
     public void AddIteamPassive(PassiveIteam passiveIteam)
     {
@@ -123,6 +188,20 @@ public class PlayerState : PlayerComponetSystem {
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);
         Passiveiteams.Add(iteasssss);
+    }
+    int SkillsAmount;
+    public void AddIteamSkill(PassiveIteam skill)
+    {
+        SkillsAmount++;
+        if ( SkillsAmount > Skill.Length )
+        {
+            SkillsAmount--;
+            return;
+        }
+        var iteasssss = Instantiate(skill , Vector3.zero , Quaternion.identity);
+        iteasssss.transform.SetParent(IteamSpawn);
+        iteasssss.OnStart(this);
+        Skill[SkillsAmount] = iteasssss;
     }
     public void AddIteam(StateScriptAbleObject state)
     {
