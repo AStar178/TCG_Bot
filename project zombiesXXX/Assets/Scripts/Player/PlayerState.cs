@@ -201,7 +201,7 @@ public class PlayerState : PlayerComponetSystem {
         var iteasssss = Instantiate(skill , Vector3.zero , Quaternion.identity);
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);
-        Skill[SkillsAmount] = iteasssss;
+        Skill[SkillsAmount - 1] = iteasssss;
     }
     public void AddIteam(StateScriptAbleObject state)
     {
