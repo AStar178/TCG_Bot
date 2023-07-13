@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969455b3267cda5438fb0dc15343f12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StarterAssetsInputs: {fileID: 135756641613574975}
   PlayerState: {fileID: 46527105}
   findTarget: {fileID: 6982812147933622151}
   PlayerThirdPersonController: {fileID: 4416926083347132232}
@@ -227,6 +228,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b5fb4b872fd44f4b882f8da83b9589a, type: 2}
   IteamsMulty: []
   Passiveiteams: []
+  Skill: []
+  ChampinPassive: {fileID: 9135249138042124408, guid: d44a7219149ae184dbee0530c6d3452f,
+    type: 3}
+  ChampinSkillQ: {fileID: 8073132404431097830, guid: 1dbfde68356e1b847a46aa018e38e7d8,
+    type: 3}
+  ChampinSkillE: {fileID: -3792605041620262041, guid: 94e22f2e29825f14cb3989f533213fb1,
+    type: 3}
   IteamSpawn: {fileID: 633867970}
   Combat: 0
 --- !u!1 &499843447
@@ -474,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1029087939}
-  - component: {fileID: 1029087940}
+  - component: {fileID: 1029087941}
   m_Layer: 0
   m_Name: postprocess
   m_TagString: Untagged
@@ -497,7 +505,7 @@ Transform:
   m_Father: {fileID: 2114283753834967213}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1029087940
+--- !u!114 &1029087941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -513,7 +521,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 9d074a7660e2ab244a29c84fe21af0c5, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 82c6ebfc143807e4eafe8afe0e27be12, type: 2}
 --- !u!1 &1068293469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1360,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -1651,6 +1659,13 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   findTarget: 0
+  Q: 0
+  E: 0
+  n1: 0
+  n2: 0
+  n3: 0
+  n4: 0
+  n5: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
