@@ -13,6 +13,9 @@ public class FireBird : PassiveIteam
     {
         effect = Instantiate(FIRE , transform.position , Quaternion.identity);
     }
+
+    
+
     public override void OnUpdate(PlayerState playerState)
     {
         t -= Time.deltaTime;
@@ -29,7 +32,7 @@ public class FireBird : PassiveIteam
         t = DamageCooldown;
 
         DamageData damage = new DamageData();
-        damage.DamageAmount = playerState.ResultValue.Damage / 2;
+        damage.DamageAmount = (playerState.ResultValue.Damage / 2 + Scaling());
 
         if (target != null)
         {
