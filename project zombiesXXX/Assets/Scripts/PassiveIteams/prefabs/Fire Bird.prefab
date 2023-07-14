@@ -47,6 +47,33 @@ MonoBehaviour:
   Icon: {fileID: 0}
   namex: 
   dependencies: 
+  level: 0
+  ScaleTheScaling: 1
+  DivedTheScaling: 1
+  ScalingLevel:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.01
+      value: 1
+      inSlope: -4.0094347
+      outSlope: -4.0094347
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.020125786
+    - serializedVersion: 3
+      time: 1.00125
+      value: 0.021226391
+      inSlope: -0.30188715
+      outSlope: -0.30188715
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0630517
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   useskill: 0
   IconSkill: {fileID: 0}
   namexSkill: 

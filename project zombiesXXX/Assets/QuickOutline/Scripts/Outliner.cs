@@ -102,7 +102,10 @@ public class Outliner : MonoBehaviour {
   async void OnEnable() {
     
     foreach (var renderer in renderers) {
-
+      if (renderer.TryGetComponent<ParticleSystem>(out var s))
+      {
+          continue;
+      }
       // Append outline shaders
       var materials = renderer.sharedMaterials.ToList();
       while (AlwaysRed == true)
