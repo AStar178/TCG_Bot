@@ -223,5 +223,16 @@ public class PlayerState : PlayerComponetSystem {
         StartNoramleCalculater();
     }
 
+    public void TakeDamage(float dammen)
+    {
+        ResultValue.HpCurrent -= dammen;
+        if (ResultValue.HpCurrent <= 0)
+        {
+            ResultValue.HpCurrent = 0;
+            Debug.Log("You dead LUL");
+        }
+        else
+            Debug.Log("Off you took " + dammen + " emotional damage");
+    }
 
 }

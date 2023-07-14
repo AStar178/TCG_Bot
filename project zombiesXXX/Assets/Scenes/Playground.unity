@@ -225,7 +225,6 @@ MonoBehaviour:
   Luck: 1
   IteamsAdd:
   - {fileID: 11400000, guid: 10e908c56d66e2b469720116d70094b5, type: 2}
-  - {fileID: 11400000, guid: 2b5fb4b872fd44f4b882f8da83b9589a, type: 2}
   IteamsMulty: []
   Passiveiteams: []
   Skill: []
@@ -700,6 +699,8 @@ GameObject:
   - component: {fileID: 1682967197}
   - component: {fileID: 1682967201}
   - component: {fileID: 1682967202}
+  - component: {fileID: 1682967203}
+  - component: {fileID: 1682967204}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
@@ -1343,6 +1344,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHp: 0
   MaxHp: 999
+--- !u!114 &1682967203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682967196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124dd0077a9b1c5448cb6516f58fb415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 7.35678
+  AttackRange: 0
+  AggroRange: 5
+  RunZone: 2.5
+  AttackCooldownSet: 2
+  AttackDamageMin: 1
+  AttackDamageMax: 5.999
+  target: {fileID: 0}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!54 &1682967204
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682967196}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1768730622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2922,6 +2973,7 @@ GameObject:
   - component: {fileID: 6982812147933622151}
   - component: {fileID: 6982812147933622149}
   - component: {fileID: 6982812147933622150}
+  - component: {fileID: 6982812147933622152}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -2971,6 +3023,8 @@ MonoBehaviour:
   CameraAngleOverride: 0
   LockCameraPosition: 0
   sp: {fileID: 1819158856}
+  _verticalVelocity: 0
+  _controller: {fileID: 0}
 --- !u!143 &4416926083347132233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3724,6 +3778,18 @@ MonoBehaviour:
   Target: {fileID: 0}
   Targexxxxx: {fileID: 499843448}
   rig: {fileID: 1857002175}
+--- !u!114 &6982812147933622152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075848f6e9be6d84492e282ea5c729a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7129635141153452334
 GameObject:
   m_ObjectHideFlags: 0

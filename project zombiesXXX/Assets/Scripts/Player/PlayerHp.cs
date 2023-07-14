@@ -9,6 +9,7 @@ public class PlayerHp : PlayerComponetSystem , IDamageAble
         float Hp = GetHpCurrent - Data.DamageAmount;
         Hp = Mathf.Clamp( Hp , 0 , 100 );
         SetHpCurrent(Hp);
+        Debug.Log("toke '" + Data.DamageAmount + "' damage");
         if (GetHpCurrent <= 0)
             Killed();
 
