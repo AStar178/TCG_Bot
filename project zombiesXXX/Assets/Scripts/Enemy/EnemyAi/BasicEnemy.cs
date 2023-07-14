@@ -99,7 +99,7 @@ public class BasicEnemy : MonoBehaviour
         // everything in here is self explaned bruh
 
         if (target != null)
-            if (AttackCooldwon <= 0)
+            if (AttackCooldwon <= 0 && Vector3.Distance(target.position, transform.position) <= AttackRange)
             {
                 DamageData dammen = new DamageData();
                 dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
