@@ -33,6 +33,13 @@ public abstract class PassiveIteam : MonoBehaviour {
     {
 
     }
+    public DamageData CreatDamage(float damage , PlayerState playerState)
+    {
+        DamageData damageData = new DamageData();
+        damageData.DamageAmount = damage;
+        damageData.target = playerState.Player.findTarget.transform;
+        return damageData;
+    }
     public float Scaling()
     {
         if (level == 0)

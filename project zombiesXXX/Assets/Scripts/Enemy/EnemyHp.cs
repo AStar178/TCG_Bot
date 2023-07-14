@@ -5,11 +5,14 @@ public class EnemyHp : MonoBehaviour, IDamageAble
 {
     [SerializeField] public float CurrentHp;
     [SerializeField] public float MaxHp;
+    public Action<DamageData> TakeDamageEvent;
+    public Action KilledEvent;
     private void Awake() {
         CurrentHp = MaxHp;
     }
     void IDamageAble.TakeDamage(DamageData Data)
     {
+        TakeDamageEvent?.Invoke(Data);
         CurrentHp -= Data.DamageAmount;
         if (CurrentHp < 0)
         {
@@ -19,6 +22,7 @@ public class EnemyHp : MonoBehaviour, IDamageAble
 
     private void Killed()
     {
-        throw new NotImplementedException();
+        KilledEvent?.Invoke();
+        Destroy(this);
     }
 }

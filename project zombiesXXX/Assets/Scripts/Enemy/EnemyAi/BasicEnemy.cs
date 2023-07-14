@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BasicEnemy : MonoBehaviour
 {
-    public float Speed;
     public float AttackRange;
     public float AggroRange;
     // how close the enemy will stay to the player
@@ -13,16 +13,22 @@ public class BasicEnemy : MonoBehaviour
     private float AttackCooldwon;
     public float AttackDamageMin;
     public float AttackDamageMax;
+    public float RangeTime;
 
     [Space]
     public Transform target;
     public LayerMask TargetLayer;
 
-    private Rigidbody rb;
-
+    private NavMeshAgent agent;
+    private void OnEnable() {
+        GetComponent<EnemyHp>().TakeDamageEvent += IamVeryAngery;
+    }
+    private void OnDisable() {
+        GetComponent<EnemyHp>().TakeDamageEvent -= IamVeryAngery;
+    }
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
@@ -33,14 +39,32 @@ public class BasicEnemy : MonoBehaviour
 
         if (target != null && Vector3.Distance(transform.position, target.position) > DeadZone)
         {
-            rb.velocity = (target.position - transform.position).normalized * Speed;
+            agent.isStopped = false;    
+            agent.SetDestination(target.position);
+            return;
         }
-        else
-            rb.velocity = new Vector3(0,rb.velocity.y,0);
-    }
+        else if (target != null)
+        {
+            agent.SetDestination((transform.position - target.position).normalized * DeadZone);
+            agent.isStopped = false;
+            return;
+        }
+            
 
+        agent.isStopped = true;
+    }
+    private void IamVeryAngery(DamageData t)
+    {
+        target = t.target;
+        RangeTime = 5;
+    }
     private void TargetFunction()
     {
+        if (RangeTime > 0)
+        {
+            RangeTime -= Time.deltaTime;
+            return;
+        }
         // check if the target is not null if it wan't then it well check if it's out of aggro range if both were true then set the target to null
         if (target != null && Vector3.Distance(target.position, transform.position) > AggroRange)
             target = null;
@@ -81,7 +105,8 @@ public class BasicEnemy : MonoBehaviour
                 dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
                 target.GetComponentInParent<IDamageAble>().TakeDamage(dammen);
                 AttackCooldwon = AttackCooldownSet;
+                return;
             }
-            else AttackCooldwon -= Time.deltaTime;
+            AttackCooldwon -= Time.deltaTime;
     }
 }

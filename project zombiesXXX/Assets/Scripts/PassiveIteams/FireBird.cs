@@ -31,9 +31,8 @@ public class FireBird : PassiveIteam
             return;
         t = DamageCooldown;
 
-        DamageData damage = new DamageData();
+        DamageData damage = CreatDamage(0 , playerState);
         damage.DamageAmount = (playerState.ResultValue.Damage / 2 + Scaling());
-
         if (target != null)
         {
             target.GetComponent<IDamageAble>().TakeDamage(damage);
