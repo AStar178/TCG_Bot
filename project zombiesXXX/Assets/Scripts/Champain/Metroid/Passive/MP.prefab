@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35456d25340554458e4fe13484cbaa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Oderlayer: 0
   Icon: {fileID: 0}
   namex: 
   dependencies: 
@@ -56,8 +57,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  useskill: 0
-  IconSkill: {fileID: 0}
-  namexSkill: 
-  dependenciesSkill: 
-  JetPackPower: 0
+  JetPackPower: 14
+  FlyTime: 3

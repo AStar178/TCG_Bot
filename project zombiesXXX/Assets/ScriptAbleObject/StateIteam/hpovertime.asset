@@ -28,3 +28,4 @@ MonoBehaviour:
   ModeMulity: 0
   passiveIteam: {fileID: -4299118199258154751, guid: c19baa332a3ce774990323d2f2110e3a,
     type: 3}
+  SkillIteam: {fileID: 0}

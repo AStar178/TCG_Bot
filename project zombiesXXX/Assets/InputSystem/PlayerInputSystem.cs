@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 namespace StarterAssets
 {
-	public class StarterAssetsInputs : MonoBehaviour
+	public class PlayerInputSystem : MonoBehaviour
 	{
 		[Header("Character Input Values")]
+		[SerializeField] PlayerInput playerInput; 
+		public float JumpValue;
 		public Vector2 move;
 		public Vector2 look;
 		public float Zoom;
@@ -51,6 +53,10 @@ namespace StarterAssets
 		public void OnJump(InputValue value)
 		{
 			JumpInput(value.isPressed);
+		}
+		public void OnJumpVlaue(InputValue value)
+		{
+			JumpValue = value.Get<float>();
 		}
 
 		public void OnSprint(InputValue value)

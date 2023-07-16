@@ -44,10 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56ba159bf3476144b8de71e025dc570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Oderlayer: 2
   Icon: {fileID: 0}
   namex: 
   dependencies: 
-  useskill: 0
-  IconSkill: {fileID: 0}
-  namexSkill: 
-  dependenciesSkill: 
+  level: 0
+  ScaleTheScaling: 1
+  DivedTheScaling: 1
+  ScalingLevel:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  HellingTimer: 2

@@ -8,22 +8,24 @@ public class PlayerState : PlayerComponetSystem {
     
     [SerializeField] public State BaseValue;
     [SerializeField] public State CalculatedValue;
+    private State ChangeValue;
     public State ResultValue;
     public int Luck = 1;
+    public float InvisableTime;
     public List<StateScriptAbleObject> IteamsAdd = new List<StateScriptAbleObject>();
     public List<StateScriptAbleObject> IteamsMulty = new List<StateScriptAbleObject>();
-    public List<PassiveIteam> Passiveiteams = new List<PassiveIteam>();
-    public PassiveIteam[] Skill;
-    public PassiveIteam ChampinPassive;
-    public PassiveIteam ChampinSkillQ;
-    public PassiveIteam ChampinSkillE;
+    public List<IteamPassive> Passiveiteams = new List<IteamPassive>();
+    public IteamSkill[] Skill;
+    public IteamPassive ChampinPassive;
+    public IteamSkill ChampinSkillQ;
+    public IteamSkill ChampinSkillE;
     [SerializeField] Transform IteamSpawn;
     bool startSemelisane;
 
     public bool Combat;
 
     private void Start() {
-        Skill = new PassiveIteam[7];
+        Skill = new IteamSkill[7];
         AddIteamPassive(ChampinPassive);
         AddIteamSkill(ChampinSkillQ);
         AddIteamSkill(ChampinSkillE);
@@ -96,86 +98,85 @@ public class PlayerState : PlayerComponetSystem {
         ResultValue.JumpAmount = CalculatedValue.JumpAmount;
         ResultValue.Deffece = CalculatedValue.Deffece;
         ResultValue.AttackRange = CalculatedValue.AttackRange;
+        OderAllIteams();
     }
-
+    public void OderAllIteams()
+    {
+        Passiveiteams = Passiveiteams.OrderBy( s => s.Oderlayer * -1 ).ToList();
+    }
     private void Update() {
         if (startSemelisane == false)
             return;
         State state = new State();
         state = CalculatedValue;
+        
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-            state = Passiveiteams[i].OnUpdateAddOverTime(this , ref CalculatedValue);
-        }
-        for (int i = 0; i < Passiveiteams.Count; i++)
-        {
-            Passiveiteams[i].OnUpdateMultiyMYHEADISDIEING(this , ref state);
+            state = Passiveiteams[i].OnUpdate(this , ref CalculatedValue , ref state);
         }
         ResultValue = state;
-        for (int i = 0; i < Passiveiteams.Count; i++)
-        {
-            Passiveiteams[i].OnUpdate(this);
-        }
-        if ( Player.StarterAssetsInputs.Q )
+        if ( Player.PlayerInputSystem.Q )
         {
             if (Skill[0] != null)
             {
                 Skill[0].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.Q = false;
+            Player.PlayerInputSystem.Q = false;
         }
-        if ( Player.StarterAssetsInputs.E )
+        if ( Player.PlayerInputSystem.E )
         {
             if (Skill[1] != null)
             {
                 Skill[1].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.E = false;
+            Player.PlayerInputSystem.E = false;
         }
-        if ( Player.StarterAssetsInputs.n1 )
+        if ( Player.PlayerInputSystem.n1 )
         {
             if (Skill[2] != null)
             {
                 Skill[2].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.n1 = false;
+            Player.PlayerInputSystem.n1 = false;
         }
-        if ( Player.StarterAssetsInputs.n2 )
+        if ( Player.PlayerInputSystem.n2 )
         {
             if (Skill[3] != null)
             {
                 Skill[3].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.n2 = false;
+            Player.PlayerInputSystem.n2 = false;
         }
-        if ( Player.StarterAssetsInputs.n3 )
+        if ( Player.PlayerInputSystem.n3 )
         {
             if (Skill[4] != null)
             {
                 Skill[4].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.n3 = false;
+            Player.PlayerInputSystem.n3 = false;
         }
-        if ( Player.StarterAssetsInputs.n4 )
+        if ( Player.PlayerInputSystem.n4 )
         {
             if (Skill[5] != null)
             {
                 Skill[5].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.n4 = false;
+            Player.PlayerInputSystem.n4 = false;
         }
-        if ( Player.StarterAssetsInputs.n5 )
+        if ( Player.PlayerInputSystem.n5 )
         {
             if (Skill[6] != null)
             {
                 Skill[6].OnUseSkill(this);
             }
-            Player.StarterAssetsInputs.n5 = false;
+            Player.PlayerInputSystem.n5 = false;
         }
         
     }
-    public void AddIteamPassive(PassiveIteam passiveIteam)
+    public void AddIteamPassive(IteamPassive passiveIteam)
     {
+        if (passiveIteam == null)
+            return;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
            if ( passiveIteam.name + "(Clone)" == Passiveiteams[i].name )
@@ -188,9 +189,10 @@ public class PlayerState : PlayerComponetSystem {
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);
         Passiveiteams.Add(iteasssss);
+        OderAllIteams();
     }
     int SkillsAmount;
-    public void AddIteamSkill(PassiveIteam skill)
+    public void AddIteamSkill(IteamSkill skill)
     {
         SkillsAmount++;
         if ( SkillsAmount > Skill.Length )
@@ -202,6 +204,7 @@ public class PlayerState : PlayerComponetSystem {
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);
         Skill[SkillsAmount - 1] = iteasssss;
+        OderAllIteams();
     }
     public void AddIteam(StateScriptAbleObject state)
     {
@@ -211,28 +214,19 @@ public class PlayerState : PlayerComponetSystem {
             return;
         }
         AddNewIteamAdd(state);
+        OderAllIteams();
     }
     private void AddNewIteamAdd(StateScriptAbleObject state)
     {
         IteamsAdd.Add(state);
         StartNoramleCalculater();
+        OderAllIteams();
     }
     private void AddNewIteamMulty(StateScriptAbleObject state)
     {
         IteamsAdd.Add(state);
         StartNoramleCalculater();
-    }
-
-    public void TakeDamage(float dammen)
-    {
-        ResultValue.HpCurrent -= dammen;
-        if (ResultValue.HpCurrent <= 0)
-        {
-            ResultValue.HpCurrent = 0;
-            Debug.Log("You dead LUL");
-        }
-        else
-            Debug.Log("Off you took " + dammen + " emotional damage");
+        OderAllIteams();
     }
 
 }

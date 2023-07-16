@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "JumpVlaue",
+                    "type": "PassThrough",
+                    "id": "571fdc5e-3a40-4a5e-b30b-5b370fde5d18",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Sprint",
                     "type": "PassThrough",
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
@@ -451,6 +460,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseSkill5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfdf0046-3c9a-485c-badf-bf110c8af5c9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "JumpVlaue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d826fae6-1940-417b-9c02-0b5da4cb1dd5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "JumpVlaue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

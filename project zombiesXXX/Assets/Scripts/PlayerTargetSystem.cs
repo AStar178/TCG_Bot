@@ -6,9 +6,9 @@ using UnityEngine.Animations.Rigging;
 
 namespace StarterAssets
 {
-    public class FindTarget : PlayerComponetSystem
+    public class PlayerTargetSystem : PlayerComponetSystem
     {
-        public StarterAssetsInputs _input;
+        public PlayerInputSystem _input;
         public LayerMask EnemyLayer;
         public GameObject Target;
         [SerializeField] Transform Targexxxxx;

@@ -8,7 +8,8 @@ public class StateScriptAbleObject : ScriptableObject {
     public string discrapsen;
     public State state;
     public bool ModeMulity;
-    public PassiveIteam passiveIteam;
+    public IteamPassive passiveIteam;
+    public IteamSkill SkillIteam;
 
 
 }

@@ -56,7 +56,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  useskill: 0
+  Multiplayer: 0
+  none: 1
+  useskill: 1
   IconSkill: {fileID: 0}
   namexSkill: 
   dependenciesSkill: 

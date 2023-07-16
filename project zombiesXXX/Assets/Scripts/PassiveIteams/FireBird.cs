@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBird : PassiveIteam
+public class FireBird : IteamPassive
 {
     [SerializeField] ParticleSystem FIRE;
     [SerializeField] float DamageCooldown = 1;
@@ -14,13 +14,12 @@ public class FireBird : PassiveIteam
         effect = Instantiate(FIRE , transform.position , Quaternion.identity);
     }
 
-    
 
-    public override void OnUpdate(PlayerState playerState)
+    public override State OnUpdate(PlayerState playerState, ref State CalucatedValue, ref State state)
     {
         t -= Time.deltaTime;
 
-        GameObject target = playerState.Player.findTarget.Target;
+        GameObject target = playerState.Player.PlayerTargetSystem.Target;
 
         if (target == null)
         {
@@ -28,7 +27,7 @@ public class FireBird : PassiveIteam
         }
 
         if (t > 0)
-            return;
+            return state;
         t = DamageCooldown;
 
         DamageData damage = CreatDamage(0 , playerState);
@@ -41,6 +40,6 @@ public class FireBird : PassiveIteam
             effect.transform.localPosition = Vector3.zero;
         }
 
-        base.OnUpdate(playerState);
+        return state;
     }
 }

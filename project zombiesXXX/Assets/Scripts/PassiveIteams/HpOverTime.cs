@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class HpOverTime : PassiveIteam {
+public class HpOverTime : IteamPassive {
 
     [SerializeField] float HellingTimer = 1;
     float t;
-    public override State OnUpdateAddOverTime(PlayerState playerState , ref State state)
+    public override State OnUpdate(PlayerState playerState , ref State Calcuelated , ref State state)
     {
         t -= Time.deltaTime;
 

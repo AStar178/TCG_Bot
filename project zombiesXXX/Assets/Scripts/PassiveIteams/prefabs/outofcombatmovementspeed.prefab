@@ -92,10 +92,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  useskill: 0
-  IconSkill: {fileID: 0}
-  namexSkill: 
-  dependenciesSkill: 
+  Oderlayer: 1
   effect: {fileID: 5887558007889795129, guid: 0e6b50cb7e78d5448b88c6d4c684b4c0, type: 3}
   offset: {x: 0, y: 0.26, z: 0}
   combatTime: 5

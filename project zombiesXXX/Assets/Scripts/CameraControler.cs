@@ -7,7 +7,7 @@ using StarterAssets;
 public class CameraControler : MonoBehaviour
 {
     public CinemachineVirtualCamera cinemachineVirtualCamera;
-    public StarterAssetsInputs StarterAssetsInputs;
+    public PlayerInputSystem StarterAssetsInputs;
     public Cinemachine3rdPersonFollow thirdPersonController;
     [SerializeField] Transform sundir;
     [SerializeField] float min , max;

@@ -6,9 +6,10 @@ using StarterAssets;
 public class Player : MonoBehaviour
 {
     public static Player Current;
-    public StarterAssetsInputs StarterAssetsInputs;
+    public PlayerInputSystem PlayerInputSystem;
     public PlayerState PlayerState;
-    public FindTarget findTarget;
+    public PlayerTargetSystem PlayerTargetSystem;
+    public PlayerEffect PlayerEffect;
     public ThirdPersonController PlayerThirdPersonController;
 
     private void Awake() {

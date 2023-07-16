@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class Movementoutofcombat : PassiveIteam
+public class Movementoutofcombat : IteamPassive
 {
     [SerializeField] VisualEffect effect;
     [SerializeField] Vector3 offset;
@@ -13,9 +13,9 @@ public class Movementoutofcombat : PassiveIteam
     public override void OnStart(PlayerState playerState)
     {
         effectx = Instantiate(effect , transform.position + offset , Quaternion.identity);
-        effectx.transform.SetParent(playerState.Player.findTarget.transform);
+        effectx.transform.SetParent(playerState.Player.PlayerInputSystem.transform);
     }
-    public override State OnUpdateMultiyMYHEADISDIEING(PlayerState playerState, ref State state)
+    public override State OnUpdate(PlayerState playerState , ref State CalculatedValue , ref State state)
     {
         if (playerState.Combat)
         {

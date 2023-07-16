@@ -74,9 +74,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  useskill: 0
-  IconSkill: {fileID: 0}
-  namexSkill: 
-  dependenciesSkill: 
+  Oderlayer: 0
   FIRE: {fileID: 5183355361633783883, guid: 1e01afc340de7d94e95471c2c3d37dff, type: 3}
   DamageCooldown: 1
