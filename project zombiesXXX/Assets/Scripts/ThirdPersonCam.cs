@@ -109,6 +109,7 @@ public class ThirdPersonCam : PlayerComponetSystem
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         sp.transform.position = Vector3.zero;
         // get a reference to our main camera
         if (_mainCamera == null)
@@ -122,7 +123,6 @@ public class ThirdPersonCam : PlayerComponetSystem
         _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
         _hasAnimator = TryGetComponent(out _animator);
-        rb = GetComponent<Rigidbody>();
         _input = GetComponent<PlayerInputSystem>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         _playerInput = GetComponent<PlayerInput>();
