@@ -342,7 +342,7 @@ public class ThirdPersonCam : PlayerComponetSystem
             new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
             GroundedRadius);
     }
-
+    [SerializeField] Transform transformxx;
     private void OnFootstep(AnimationEvent animationEvent)
     {
         if (animationEvent.animatorClipInfo.weight > 0.5f)
@@ -350,7 +350,7 @@ public class ThirdPersonCam : PlayerComponetSystem
             if (FootstepAudioClips.Length > 0)
             {
                 var index = Random.Range(0, FootstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(transform.position), FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transformxx.position, FootstepAudioVolume);
             }
         }
     }

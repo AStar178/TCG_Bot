@@ -5,7 +5,7 @@ using UnityEngine;
 public class MetroidPassive : IteamPassive
 {
     [SerializeField] float JetPackPower = 7.5f;
-    [SerializeField] float JetPackPowerHelper = 8.5f;
+    //[SerializeField] float JetPackPowerHelper = 8.5f;
     [SerializeField] float FlyTime = 1f;
     float t;
     bool on;
