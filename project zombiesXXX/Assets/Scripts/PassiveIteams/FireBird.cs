@@ -11,7 +11,7 @@ public class FireBird : IteamPassive
 
     public override void OnStart(PlayerState playerState)
     {
-        effect = Instantiate(FIRE , transform.position , Quaternion.identity);
+
     }
 
 
@@ -23,7 +23,11 @@ public class FireBird : IteamPassive
 
         if (target == null)
         {
-            effect.Stop();
+            if (effect != null)
+            {
+                effect.Stop();
+                Destroy(effect, 1);
+            }
         }
 
         if (t > 0)
@@ -34,6 +38,8 @@ public class FireBird : IteamPassive
         damage.DamageAmount = (playerState.ResultValue.Damage / 2 + Scaling());
         if (target != null)
         {
+            if (effect == null)
+                effect = Instantiate(FIRE, transform.position, Quaternion.identity);
             target.GetComponent<IDamageAble>().TakeDamage(damage);
             effect.Play();
             effect.transform.SetParent(target.transform);

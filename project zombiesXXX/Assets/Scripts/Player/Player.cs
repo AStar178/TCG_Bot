@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public PlayerState PlayerState;
     public PlayerTargetSystem PlayerTargetSystem;
     public PlayerEffect PlayerEffect;
-    public ThirdPersonController PlayerThirdPersonController;
+    public ThirdPersonCam PlayerThirdPersonController;
 
     private void Awake() {
         

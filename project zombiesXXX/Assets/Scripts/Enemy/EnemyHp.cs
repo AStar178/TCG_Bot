@@ -23,6 +23,6 @@ public class EnemyHp : MonoBehaviour, IDamageAble
     private void Killed()
     {
         KilledEvent?.Invoke();
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

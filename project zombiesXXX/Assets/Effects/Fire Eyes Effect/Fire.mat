@@ -128,7 +128,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 3.3457198, g: 3.9999998, b: 0, a: 1}
+    - _Color: {r: 0, g: 1.522723, b: 3.9999995, a: 1}
     - _Color_1: {r: 0, g: 1.7824348, b: 1.0546498, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Movement: {r: 0, g: -1, b: 0, a: 0}
