@@ -4996,7 +4996,6 @@ GameObject:
   m_Component:
   - component: {fileID: 46527103}
   - component: {fileID: 46527104}
-  - component: {fileID: 46527105}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5037,67 +5036,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInputSystem: {fileID: 135756641613574975}
-  PlayerState: {fileID: 46527105}
+  PlayerState: {fileID: 6982812147933622157}
   PlayerTargetSystem: {fileID: 6982812147933622151}
   PlayerEffect: {fileID: 6982812147933622153}
   PlayerThirdPersonController: {fileID: 6982812147933622155}
---- !u!114 &46527105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46527102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2be33f2d0c5c114cbc9940a1cd7c7ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BaseValue:
-    Damage: 2
-    HpMax: 100
-    HpCurrent: 100
-    SprintSpeed: 8
-    AttackSpeed: 2
-    JumpAmount: 17
-    Deffece: 1
-    AttackRange: 20
-    Luck: 1
-  CalculatedValue:
-    Damage: 0
-    HpMax: 0
-    HpCurrent: 0
-    SprintSpeed: 0
-    AttackSpeed: 0
-    JumpAmount: 0
-    Deffece: 0
-    AttackRange: 0
-    Luck: 0
-  ResultValue:
-    Damage: 0
-    HpMax: 0
-    HpCurrent: 0
-    SprintSpeed: 0
-    AttackSpeed: 0
-    JumpAmount: 0
-    Deffece: 0
-    AttackRange: 0
-    Luck: 0
-  Luck: 1
-  InvisableTime: 0
-  IteamsAdd:
-  - {fileID: 11400000, guid: 10e908c56d66e2b469720116d70094b5, type: 2}
-  IteamsMulty: []
-  Passiveiteams: []
-  Skill: []
-  ChampinPassive: {fileID: 9135249138042124408, guid: d44a7219149ae184dbee0530c6d3452f,
-    type: 3}
-  ChampinSkillQ: {fileID: 8073132404431097830, guid: 1dbfde68356e1b847a46aa018e38e7d8,
-    type: 3}
-  ChampinSkillE: {fileID: -3792605041620262041, guid: 94e22f2e29825f14cb3989f533213fb1,
-    type: 3}
-  IteamSpawn: {fileID: 633867970}
-  Combat: 0
 --- !u!1 &309572860
 GameObject:
   m_ObjectHideFlags: 0
@@ -10165,7 +10107,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.4
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -25203,7 +25145,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.4
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -32491,6 +32433,7 @@ GameObject:
   - component: {fileID: 6982812147933622155}
   - component: {fileID: 6982812147933622154}
   - component: {fileID: 6982812147933622156}
+  - component: {fileID: 6982812147933622157}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -33351,6 +33294,63 @@ CapsuleCollider:
   m_Height: 1.9791121
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6982812147933622157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2be33f2d0c5c114cbc9940a1cd7c7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseValue:
+    Damage: 2
+    HpMax: 100
+    HpCurrent: 100
+    SprintSpeed: 8
+    AttackSpeed: 2
+    JumpAmount: 17
+    Deffece: 1
+    AttackRange: 20
+    Luck: 1
+  CalculatedValue:
+    Damage: 0
+    HpMax: 0
+    HpCurrent: 0
+    SprintSpeed: 0
+    AttackSpeed: 0
+    JumpAmount: 0
+    Deffece: 0
+    AttackRange: 0
+    Luck: 0
+  ResultValue:
+    Damage: 0
+    HpMax: 0
+    HpCurrent: 0
+    SprintSpeed: 0
+    AttackSpeed: 0
+    JumpAmount: 0
+    Deffece: 0
+    AttackRange: 0
+    Luck: 0
+  Luck: 1
+  InvisableTime: 0
+  IteamsAdd:
+  - {fileID: 11400000, guid: 10e908c56d66e2b469720116d70094b5, type: 2}
+  IteamsMulty: []
+  Passiveiteams: []
+  Skill: []
+  ChampinPassive: {fileID: 9135249138042124408, guid: d44a7219149ae184dbee0530c6d3452f,
+    type: 3}
+  ChampinSkillQ: {fileID: 8073132404431097830, guid: 1dbfde68356e1b847a46aa018e38e7d8,
+    type: 3}
+  ChampinSkillE: {fileID: -3792605041620262041, guid: 94e22f2e29825f14cb3989f533213fb1,
+    type: 3}
+  IteamSpawn: {fileID: 633867970}
+  Combat: 0
 --- !u!1 &7129635141153452334
 GameObject:
   m_ObjectHideFlags: 0
