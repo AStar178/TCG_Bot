@@ -89,7 +89,6 @@ public class ThirdPersonCam : PlayerComponetSystem
     private Animator _animator;
     private PlayerInputSystem _input;
     private GameObject _mainCamera;
-    [SerializeField] private Transform Footstep;
 
     private const float _threshold = 0.01f;
 
@@ -351,7 +350,7 @@ public class ThirdPersonCam : PlayerComponetSystem
             if (FootstepAudioClips.Length > 0)
             {
                 var index = Random.Range(0, FootstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], Footstep.transform.position , FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(transform.position), FootstepAudioVolume);
             }
         }
     }
