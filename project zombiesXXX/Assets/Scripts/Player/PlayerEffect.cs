@@ -1,11 +1,15 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerEffect : PlayerComponetSystem {
     
     private float t;
     [SerializeField] Material PlayerMatriale;
     [SerializeField] ParticleSystem[] jetpackparticale;
+    [SerializeField] Transform feetpos;
+    [SerializeField] VisualEffect visualEffect;
+    [SerializeField] ParticleSystem[] thatparicale;
     public async void TurnOnInvisableEffectTime(float time)
     {
         t = time;
@@ -39,6 +43,16 @@ public class PlayerEffect : PlayerComponetSystem {
         for (int i = 0; i < jetpackparticale.Length; i++)
         {
             jetpackparticale[i].Stop();
+        }
+    }
+    public void JumpSomeTimeThing()
+    {
+        var wow = Instantiate( visualEffect , Vector3.zero , Quaternion.identity );
+        wow.transform.position = feetpos.transform.position;
+        Destroy(wow , 5);
+        for (int i = 0; i < thatparicale.Length; i++)
+        {
+            thatparicale[i].Play();
         }
     }
 }

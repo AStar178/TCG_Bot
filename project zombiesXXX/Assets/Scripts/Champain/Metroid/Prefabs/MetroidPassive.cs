@@ -28,6 +28,7 @@ public class MetroidPassive : IteamPassive
             if (holdTimer > .2f && rb.velocity.y <= 0 && t > 0)
             {
                 rb.velocity = new Vector3(rb.velocity.x, playerState.Player.PlayerState.ResultValue.JumpAmount * .5f, rb.velocity.z);
+                playerState.Player.PlayerEffect.JumpSomeTimeThing();
             }
 
             if (t > 0)
