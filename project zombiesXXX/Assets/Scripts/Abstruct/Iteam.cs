@@ -24,4 +24,9 @@ public abstract class Iteam : MonoBehaviour {
         return damageData;
     }
 
+    protected void InCombat()
+    {
+        Player.Current.PlayerState.Combat = true;
+        Player.Current.PlayerState.xc = 5;
+    }
 }

@@ -111,7 +111,7 @@ public class PlayerState : PlayerComponetSystem {
             return;
         State state = new State();
         state = CalculatedValue;
-        
+        CombatTimer();   
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
             state = Passiveiteams[i].OnUpdate(this , ref CalculatedValue , ref state);
@@ -175,6 +175,16 @@ public class PlayerState : PlayerComponetSystem {
         }
         
     }
+    public float xc;
+    private void CombatTimer()
+    {
+        xc -= Time.deltaTime;
+        if (xc < 0)
+        {
+            Combat = false;
+        }
+    }
+
     public void AddIteamPassive(IteamPassive passiveIteam)
     {
         if (passiveIteam == null)

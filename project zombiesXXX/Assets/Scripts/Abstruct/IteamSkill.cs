@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class IteamSkill : Iteam {
@@ -7,8 +8,7 @@ public abstract class IteamSkill : Iteam {
     public string dependenciesSkill;
     public virtual void OnUseSkill(PlayerState playerState)
     {
-        playerState.Combat = true;
+        InCombat();
     }
-
 
 }
