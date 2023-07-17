@@ -31741,6 +31741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652148254370}
+  - component: {fileID: 919132148432116761}
   m_Layer: 0
   m_Name: ShadowDIO
   m_TagString: Untagged
@@ -31748,6 +31749,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148432116761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148432116760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788afd3d6d7c283409b537a8492b4004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 600029809456345080, guid: d5d95acb9d310db4897ffe0ffe512804,
+    type: 3}
 --- !u!1 &1002612321915669736
 GameObject:
   m_ObjectHideFlags: 0
