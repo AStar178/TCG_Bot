@@ -19,6 +19,7 @@ public class PlayerState : PlayerComponetSystem {
     public IteamPassive ChampinPassive;
     public IteamSkill ChampinSkillQ;
     public IteamSkill ChampinSkillE;
+    public IteamSkill ChampinSkillR;
     [SerializeField] Transform IteamSpawn;
     bool startSemelisane;
 
@@ -29,6 +30,7 @@ public class PlayerState : PlayerComponetSystem {
         AddIteamPassive(ChampinPassive);
         AddIteamSkill(ChampinSkillQ);
         AddIteamSkill(ChampinSkillE);
+        AddIteamSkill(ChampinSkillR);
         StartStartNoramleCalculater();
         CalculatedValue.HpCurrent = ResultValue.HpMax;
         ResultValue.HpCurrent = ResultValue.HpMax;
@@ -194,6 +196,8 @@ public class PlayerState : PlayerComponetSystem {
     int SkillsAmount;
     public void AddIteamSkill(IteamSkill skill)
     {
+        if (skill == null)
+            return;
         SkillsAmount++;
         if ( SkillsAmount > Skill.Length )
         {

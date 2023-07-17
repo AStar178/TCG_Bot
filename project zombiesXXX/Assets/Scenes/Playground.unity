@@ -43512,6 +43512,7 @@ MonoBehaviour:
     type: 3}
   ChampinSkillE: {fileID: -3792605041620262041, guid: 94e22f2e29825f14cb3989f533213fb1,
     type: 3}
+  ChampinSkillR: {fileID: 0}
   IteamSpawn: {fileID: 633867970}
   Combat: 0
 --- !u!114 &6982812147933622158
@@ -43529,7 +43530,11 @@ MonoBehaviour:
   EnergyMax: 100
   CooloffSet: 3
   EnergyRegen: 10
-  EnergyImage: {fileID: 1466894917}
+  EnergyImage:
+  - {fileID: 271854546}
+  - {fileID: 1913002267}
+  material: {fileID: 2100000, guid: 13d7e4bf584ed4542a35a55ddf85df18, type: 2}
+  EnergyImagess: {fileID: 1466894917}
   fadeOut: 4
 --- !u!1 &7129635141153452334
 GameObject:
