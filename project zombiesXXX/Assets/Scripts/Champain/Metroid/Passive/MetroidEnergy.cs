@@ -28,12 +28,13 @@ public class MetroidEnergy : MonoBehaviour
         Energy -= dam;
         if (Energy < 0)
             Energy = 0;
-        UpdateImage();
         Debug.Log($"Took {dam} energy and we have {Energy} energy left!");
     }
 
     public void Update()
     {
+        EnergyImage.fillAmount = Mathf.Lerp( EnergyImage.fillAmount , Energy / EnergyMax , 0.1f);
+
         if (Cooloff > 0)
             Cooloff -= Time.deltaTime;
         else
@@ -45,14 +46,9 @@ public class MetroidEnergy : MonoBehaviour
                 if (Energy > EnergyMax)
                 { Energy = EnergyMax; }
                 Debug.Log($"we have {Energy} energy");
-                UpdateImage();
                 t = 0;
             }
         }
     }
 
-    public void UpdateImage()
-    {
-        EnergyImage.fillAmount = Energy / EnergyMax;
-    }
 }
