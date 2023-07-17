@@ -30,12 +30,10 @@ public class MetroidAbillityAttack : IteamSkill
 
     public void Update()
     {
-        Debug.Log(on);
-
         if (playerState.Player.PlayerInputSystem.move != Vector2.zero)
             Input = playerState.Player.PlayerInputSystem.move;
 
-        if (playerState.Player.PlayerInputSystem.EValue == 1 && energy.Energy >= EnergyCost)
+        if (playerState.Player.PlayerInputSystem.EValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
         {
             t += Time.deltaTime;
 
