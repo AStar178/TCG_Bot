@@ -17,24 +17,26 @@ public class MetroidEnergy : MonoBehaviour
 
     public Image EnergyImage;
 
+    private float f;
+
     public void Start()
     {
         Energy = EnergyMax;
+        f = 3;
     }
 
     public void DamageEnergy(float dam)
     {
+        EnergyImage.gameObject.SetActive(true);
+        f = 0;
         Cooloff = CooloffSet;
         Energy -= dam;
         if (Energy < 0)
             Energy = 0;
-        Debug.Log($"Took {dam} energy and we have {Energy} energy left!");
     }
 
     public void Update()
     {
-        EnergyImage.fillAmount = Mathf.Lerp( EnergyImage.fillAmount , Energy / EnergyMax , 0.1f);
-
         if (Cooloff > 0)
             Cooloff -= Time.deltaTime;
         else
@@ -42,13 +44,22 @@ public class MetroidEnergy : MonoBehaviour
             t += Time.deltaTime;
             if (t >= .3f && Energy < EnergyMax)
             {
+                f = 0;
                 Energy += EnergyRegen;
                 if (Energy > EnergyMax)
-                { Energy = EnergyMax; }
-                Debug.Log($"we have {Energy} energy");
+                { 
+                    Energy = EnergyMax; 
+                }
                 t = 0;
             }
+
         }
+
+        if (f < 3)
+            f += Time.deltaTime;
+        else EnergyImage.gameObject.SetActive(false);
+
+        EnergyImage.fillAmount = Mathf.Lerp(EnergyImage.fillAmount, Energy / EnergyMax, 0.1f);
     }
 
 }
