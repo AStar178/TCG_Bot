@@ -26,7 +26,7 @@ public class FireBird : IteamPassive
             if (effect != null)
             {
                 effect.Stop();
-                Destroy(effect, 1);
+                Destroy(effect.gameObject, 1);
             }
         }
 

@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 0
-  useskill: 0
+  useskill: 1
   IconSkill: {fileID: 0}
   namexSkill: 
   dependenciesSkill: 
-  CooldownSet: 10
-  ActiveTimeSet: 5
-  Effect: {fileID: 3992048108205152310, guid: 86b51992d5177de469e1fb77913e7807, type: 3}
-  gravityDevide: {x: 0, y: 0.5, z: 0}
+  DashSpeed: 15
+  EnergyCost: 8
+  EnergyCostTick: 0.1

@@ -4,50 +4,61 @@ using UnityEngine;
 
 public class MetroidAbillityAttack : IteamSkill
 {
-    public float CooldownSet;
-    private float Cooldown;
-    public float ActiveTimeSet;
-    private float ActiveTime;
-    bool active;
-    public GameObject Effect;
-    private GameObject effect;
+    [SerializeField] float DashSpeed;
+    [SerializeField] float EnergyCost;
+    [Tooltip("the lower the more it drain energy; 1 = 1 sec etc.")]
+    [SerializeField] float EnergyCostTick;
 
-    public Vector3 gravityDevide;
-    private Vector3 OriginalGravity;
+    private PlayerState playerState;
+    private MetroidEnergy energy;
+    private Vector2 Input;
+
+    private float t;
+    private bool on;
 
     public override void OnStart(PlayerState playerState)
     {
         base.OnStart(playerState);
-        OriginalGravity = Physics.gravity;
+        this.playerState = playerState;
+        energy = playerState.GetComponent<MetroidEnergy>();
     }
 
     public override void OnUseSkill(PlayerState playerState)
     {
         base.OnUseSkill(playerState);
-
-
-        if (Cooldown <= 0)
-        {
-            Cooldown = CooldownSet;
-            ActiveTime = ActiveTimeSet;
-            Physics.gravity = new Vector3 (0, Physics.gravity.y * gravityDevide.y, 0);
-            effect = Instantiate(Effect, playerState.transform);
-            active = true;
-        }
     }
 
     public void Update()
     {
-        if (Cooldown > 0)
-            Cooldown -= Time.deltaTime;
+        Debug.Log(on);
 
-        if (ActiveTime < 0 && active)
+        if (playerState.Player.PlayerInputSystem.move != Vector2.zero)
+            Input = playerState.Player.PlayerInputSystem.move;
+
+        if (playerState.Player.PlayerInputSystem.EValue == 1 && energy.Energy >= EnergyCost)
         {
-            Physics.gravity = OriginalGravity;
-            Destroy(effect);
-            active = false;
+            t += Time.deltaTime;
+
+            Vector3 goDir = new Vector3(Input.x, 0, Input.y) * (DashSpeed + (playerState.ResultValue.SprintSpeed * 2));
+            goDir.y = .2f;
+
+            playerState.Player.PlayerThirdPersonController.rb.velocity = goDir;
+
+            if (t >= EnergyCostTick)
+            { energy.DamageEnergy(EnergyCost); t = 0; }
+
+            if (on == false)
+            {
+                playerState.Player.PlayerEffect.TurnOnJectPackEffect();
+                on = true;
+            }
+            return;
         }
-        else
-            ActiveTime -= Time.deltaTime;
+
+        if (on == true)
+        {
+            playerState.Player.PlayerEffect.TurnOffJectPackEffect();
+            on = false;
+        }
     }
 }

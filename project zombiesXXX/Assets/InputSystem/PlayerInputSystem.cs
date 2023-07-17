@@ -8,8 +8,10 @@ namespace StarterAssets
 	public class PlayerInputSystem : MonoBehaviour
 	{
 		[Header("Character Input Values")]
-		[SerializeField] PlayerInput playerInput; 
+		[SerializeField] PlayerInput playerInput;
 		public float JumpValue;
+		public float EValue;
+		public float QValue;
 		public Vector2 move;
 		public Vector2 look;
 		public float Zoom;
@@ -57,6 +59,14 @@ namespace StarterAssets
 		public void OnJumpVlaue(InputValue value)
 		{
 			JumpValue = value.Get<float>();
+		}
+		public void OnEVlaue(InputValue value)
+		{
+			EValue = value.Get<float>();
+		}
+		public void OnQVlaue(InputValue value)
+		{
+			QValue = value.Get<float>();
 		}
 
 		public void OnSprint(InputValue value)

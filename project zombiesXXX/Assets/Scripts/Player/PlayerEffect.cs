@@ -49,7 +49,7 @@ public class PlayerEffect : PlayerComponetSystem {
     {
         var wow = Instantiate( visualEffect , Vector3.zero , Quaternion.identity );
         wow.transform.position = feetpos.transform.position;
-        Destroy(wow , 5);
+        Destroy(wow.gameObject , 5);
         for (int i = 0; i < thatparicale.Length; i++)
         {
             thatparicale[i].Play();

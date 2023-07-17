@@ -58,5 +58,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   JetPackPower: 8
-  JetPackPowerHelper: 10
-  FlyTime: 3
+  HelperEnegyCost: 8.5
+  EnergyCost: 5

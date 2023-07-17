@@ -78,10 +78,28 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "QVlaue",
+                    "type": "PassThrough",
+                    "id": "eae9d38c-898f-444f-b4a2-1530388703c3",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "UseE",
                     "type": "Button",
                     "id": "20df26eb-cd11-4b63-b933-a455a679098c",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EVlaue",
+                    "type": "PassThrough",
+                    "id": "f7d4abd1-d360-4776-b58d-b74b2852c6d8",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -482,6 +500,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "JumpVlaue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86d200a6-a280-41c8-9879-174208d288c8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "EVlaue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b289c1ab-3766-42db-ac5b-5c083ba9bc38",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "QVlaue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
