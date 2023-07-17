@@ -18,6 +18,7 @@ public class MetroidEnergy : MonoBehaviour
     public Image EnergyImage;
 
     private float f;
+    [SerializeField] float fadeOut;
 
     public void Start()
     {
@@ -45,6 +46,7 @@ public class MetroidEnergy : MonoBehaviour
             if (t >= .3f && Energy < EnergyMax)
             {
                 f = 0;
+                EnergyImage.gameObject.SetActive(true);
                 Energy += EnergyRegen;
                 if (Energy > EnergyMax)
                 { 
@@ -55,7 +57,7 @@ public class MetroidEnergy : MonoBehaviour
 
         }
 
-        if (f < 3)
+        if (f < fadeOut)
             f += Time.deltaTime;
         else EnergyImage.gameObject.SetActive(false);
 

@@ -43530,6 +43530,7 @@ MonoBehaviour:
   CooloffSet: 3
   EnergyRegen: 10
   EnergyImage: {fileID: 1466894917}
+  fadeOut: 4
 --- !u!1 &7129635141153452334
 GameObject:
   m_ObjectHideFlags: 0
