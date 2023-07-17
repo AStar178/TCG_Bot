@@ -29,7 +29,6 @@ public class MetroidEnergy : MonoBehaviour
         if (Energy < 0)
             Energy = 0;
         UpdateImage();
-        Debug.Log($"Took {dam} energy and we have {Energy} energy left!");
     }
 
     public void Update()
@@ -44,7 +43,6 @@ public class MetroidEnergy : MonoBehaviour
                 Energy += EnergyRegen;
                 if (Energy > EnergyMax)
                 { Energy = EnergyMax; }
-                Debug.Log($"we have {Energy} energy");
                 UpdateImage();
                 t = 0;
             }
