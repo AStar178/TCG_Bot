@@ -22,7 +22,7 @@ public class PlayerState : PlayerComponetSystem {
     public IteamSkill ChampinSkillR;
     [SerializeField] Transform IteamSpawn;
     bool startSemelisane;
-
+    public Action<DamageData> OnAtuoAttackDealDamage;
     public bool Combat;
 
     private void Start() {
@@ -52,13 +52,7 @@ public class PlayerState : PlayerComponetSystem {
     }
     private void ApplyBaseState()
     {
-        CalculatedValue.Damage = BaseValue.Damage;
-        CalculatedValue.HpMax = BaseValue.HpMax;
-        CalculatedValue.SprintSpeed = BaseValue.SprintSpeed;
-        CalculatedValue.AttackSpeed = BaseValue.AttackSpeed;
-        CalculatedValue.JumpAmount = BaseValue.JumpAmount;
-        CalculatedValue.Deffece = BaseValue.Deffece;
-        CalculatedValue.AttackRange = BaseValue.AttackRange;
+        CalculatedValue = BaseValue;
         Luck = 1;
     }
     private void AddAllScriptAbleObjectITEMSBuffs()
@@ -72,6 +66,8 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.JumpAmount += IteamsAdd[i].state.JumpAmount;
             CalculatedValue.Deffece += IteamsAdd[i].state.Deffece;
             CalculatedValue.AttackRange += IteamsAdd[i].state.AttackRange;
+            CalculatedValue.Crit += IteamsAdd[i].state.Crit;
+            CalculatedValue.CritDamageMulty += IteamsAdd[i].state.CritDamageMulty;
             Luck += IteamsAdd[i].state.Luck;
             AddIteamPassive(IteamsAdd[i].passiveIteam);
         }
@@ -87,19 +83,15 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.JumpAmount *= IteamsMulty[i].state.JumpAmount == 0 ? 1 : IteamsMulty[i].state.JumpAmount;
             CalculatedValue.Deffece *= IteamsMulty[i].state.Deffece == 0 ? 1 : IteamsMulty[i].state.Deffece;
             CalculatedValue.AttackRange *= IteamsMulty[i].state.AttackRange == 0 ? 1 : IteamsMulty[i].state.AttackRange;
+            CalculatedValue.Crit *= IteamsMulty[i].state.Crit == 0 ? 1 : IteamsMulty[i].state.Crit;
+            CalculatedValue.CritDamageMulty *= IteamsMulty[i].state.CritDamageMulty == 0 ? 1 : IteamsMulty[i].state.CritDamageMulty;
             Luck *= IteamsMulty[i].state.Luck == 0 ? 1 : IteamsMulty[i].state.Luck;
             AddIteamPassive(IteamsMulty[i].passiveIteam);
         }
     }
     private void ApplyResult()
     {
-        ResultValue.Damage = CalculatedValue.Damage;
-        ResultValue.HpMax = CalculatedValue.HpMax;
-        ResultValue.SprintSpeed = CalculatedValue.SprintSpeed;
-        ResultValue.AttackSpeed = CalculatedValue.AttackSpeed;;
-        ResultValue.JumpAmount = CalculatedValue.JumpAmount;
-        ResultValue.Deffece = CalculatedValue.Deffece;
-        ResultValue.AttackRange = CalculatedValue.AttackRange;
+        ResultValue = CalculatedValue;
         OderAllIteams();
     }
     public void OderAllIteams()

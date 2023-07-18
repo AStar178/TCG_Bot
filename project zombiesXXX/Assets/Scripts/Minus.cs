@@ -8,6 +8,12 @@ public class Minus : MonoBehaviour
 
     public GameObject textPrefab;
 
+    private void Awake() {
+        
+        Instance = this;
+
+    }
+
     public void CreatCoustomTextPopup(string v, Vector3 position, Color color)
     {
         var text = Instantiate(textPrefab, position, Quaternion.identity);

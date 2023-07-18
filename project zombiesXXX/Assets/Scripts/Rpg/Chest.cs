@@ -1,18 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Transform iteamHolder;
+    [SerializeField] StateScriptAbleObject stateScriptAbleObject;
+    [SerializeField] Animation animationx;
+    public ParticleSystem[] particleSystems;
+    public override void OnInteracted()
     {
         
+        OpeanChest();
+        Destroy(this.gameObject);
     }
+    private void Start() {
+        OpeanChest();
+    }
+    private void OpeanChest()
+    {
+        //every iteam have uniqe color particale
+        animationx.Play();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
+    public void SpawnParticale()
+    {
+        for (int i = 0; i < particleSystems.Length; i++)
+        {
+            particleSystems[i].Play();
+        }
+    }
+    
 }

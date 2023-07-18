@@ -16,8 +16,22 @@ public abstract class Iteam : MonoBehaviour {
 
     }
 
-    public DamageData CreatDamage(float damage , PlayerState playerState)
+    public DamageData CreatDamage(float damage , PlayerState playerState , out bool crited)
     {
+        crited = false;
+        DamageData damageData = new DamageData();
+        damageData.DamageAmount = damage;
+        if (Random.value <= playerState.ResultValue.Crit)
+        {
+            damageData.DamageAmount *= playerState.ResultValue.CritDamageMulty == 0 ? 1 : playerState.ResultValue.CritDamageMulty;
+            crited = true;
+        }
+        damageData.target = playerState.Player.PlayerInputSystem.transform;
+        return damageData;
+    }
+    public DamageData CreatDamageWithOutCrit(float damage , PlayerState playerState)
+    {
+;
         DamageData damageData = new DamageData();
         damageData.DamageAmount = damage;
         damageData.target = playerState.Player.PlayerInputSystem.transform;
