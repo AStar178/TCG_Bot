@@ -12,6 +12,7 @@ public class PlayerEffect : PlayerComponetSystem {
     [SerializeField] ParticleSystem[] thatparicale;
     [SerializeField] ParticleSystem[] wakeparticale;
     public VisualEffect Shooteffect;
+    public Animator animator;
     public async void TurnOnInvisableEffectTime(float time)
     {
         t = time;

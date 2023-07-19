@@ -35,6 +35,7 @@ public class MetroidAbillityAttack : IteamSkill
 
         if (playerState.Player.PlayerInputSystem.EValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
         {
+            playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 3 , Time.deltaTime * 3);
             t += Time.deltaTime;
 
             Vector3 goDir = new Vector3(Input.x, 0, Input.y) * (DashSpeed + (playerState.ResultValue.SprintSpeed * 2));
@@ -52,7 +53,7 @@ public class MetroidAbillityAttack : IteamSkill
             }
             return;
         }
-
+        playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 1 , Time.deltaTime * 3);
         if (on == true)
         {
             playerState.Player.PlayerEffect.TurnOffJectPackEffect();

@@ -34960,7 +34960,7 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 85.445015, y: 26.920296, z: 9.2699795, w: 1}
+      - m_Value: {x: 766.9961, y: 241.64969, z: 83.21185, w: 1}
         m_Name: New Color
         m_Overridden: 1
     m_Uint:
@@ -53039,7 +53039,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4416926083347132227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
@@ -53142,6 +53142,7 @@ MonoBehaviour:
   - {fileID: 1215928290}
   - {fileID: 1818201404}
   Shooteffect: {fileID: 1384579511}
+  animator: {fileID: 6982812147933622147}
 --- !u!54 &6982812147933622154
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53252,8 +53253,8 @@ MonoBehaviour:
     Damage: 2
     HpMax: 100
     HpCurrent: 100
-    Crit: 0
-    CritDamageMulty: 0
+    Crit: 0.0000001
+    CritDamageMulty: 2
     SprintSpeed: 8
     AttackSpeed: 1
     JumpAmount: 17
