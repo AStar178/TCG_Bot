@@ -12,7 +12,6 @@ public class MetroidAbillityAttack : IteamSkill
     private PlayerState playerState;
     private MetroidEnergy energy;
     private Vector2 Input;
-
     private float t;
     private bool on;
 
