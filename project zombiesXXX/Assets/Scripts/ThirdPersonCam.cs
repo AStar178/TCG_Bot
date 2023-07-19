@@ -354,6 +354,31 @@ public class ThirdPersonCam : PlayerComponetSystem
             }
         }
     }
+    private void OnFootstepLeft(AnimationEvent animationEvent)
+    {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepAudioClips.Length > 0)
+            {
+                var index = Random.Range(0, FootstepAudioClips.Length);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transformxx.position, FootstepAudioVolume);
+            }
+             Player.PlayerEffect.WakeEffectleft();
+        }
+       
+    }
+    private void OnFootstepRight(AnimationEvent animationEvent)
+    {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepAudioClips.Length > 0)
+            {
+                var index = Random.Range(0, FootstepAudioClips.Length);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transformxx.position, FootstepAudioVolume);
+                Player.PlayerEffect.WakeEffectright();
+            }
+        }
+    }
 
     private void OnLand(AnimationEvent animationEvent)
     {

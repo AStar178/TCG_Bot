@@ -10,6 +10,8 @@ public class PlayerEffect : PlayerComponetSystem {
     [SerializeField] Transform feetpos;
     [SerializeField] VisualEffect visualEffect;
     [SerializeField] ParticleSystem[] thatparicale;
+    [SerializeField] ParticleSystem[] wakeparticale;
+    public VisualEffect Shooteffect;
     public async void TurnOnInvisableEffectTime(float time)
     {
         t = time;
@@ -54,5 +56,15 @@ public class PlayerEffect : PlayerComponetSystem {
         {
             thatparicale[i].Play();
         }
+    }
+    public void WakeEffectleft()
+    {
+        wakeparticale[0].Play();
+    }    
+    public void WakeEffectright()
+    {
+        
+        wakeparticale[1].Play();
+        
     }
 }

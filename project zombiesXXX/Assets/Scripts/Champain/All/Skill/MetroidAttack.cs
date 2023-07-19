@@ -18,6 +18,7 @@ public class MetroidAttack : IteamSkill
         playerState.Player.PlayerTargetSystem.Target.GetComponent<IDamageAble>().TakeDamage(damage);
         t = AttackSpeed * (1/(playerState.ResultValue.AttackSpeed+1));
         playerState.OnAtuoAttackDealDamage?.Invoke(damage);
+        playerState.Player.PlayerEffect.Shooteffect.Play();
         base.OnUseSkill(playerState);
 
     }
