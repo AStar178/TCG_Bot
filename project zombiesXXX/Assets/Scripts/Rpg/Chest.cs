@@ -11,12 +11,8 @@ public class Chest : Interactable
     public ParticleSystem[] particleSystems;
     public override void OnInteracted()
     {
-        
         OpeanChest();
-        Destroy(this.gameObject);
-    }
-    private void Start() {
-        OpeanChest();
+        Destroy(this);
     }
     private void OpeanChest()
     {

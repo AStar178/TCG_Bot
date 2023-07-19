@@ -32,7 +32,7 @@ public class MetroidAbillityAttack : IteamSkill
         if (playerState.Player.PlayerInputSystem.move != Vector2.zero)
             Input = playerState.Player.PlayerInputSystem.move;
 
-        if (playerState.Player.PlayerInputSystem.EValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
+        if (playerState.Player.PlayerInputSystem.RightButtonValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
         {
             playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 3 , Time.deltaTime * 3);
             t += Time.deltaTime;

@@ -10,16 +10,17 @@ namespace StarterAssets
 		[Header("Character Input Values")]
 		[SerializeField] PlayerInput playerInput;
 		public float JumpValue;
-		public float EValue;
-		public float QValue;
+		public float RightButtonValue;
+		public float LeftButtonValue;
 		public Vector2 move;
 		public Vector2 look;
 		public float Zoom;
 		public bool jump;
 		public bool sprint;
 		public bool findTarget;
-		public bool Q;
-		public bool E;
+		public bool LeftButton;
+		public bool RightButton;
+		public bool Intract;
 		public bool n1;
 		public bool n2;
 		public bool n3;
@@ -60,26 +61,30 @@ namespace StarterAssets
 		{
 			JumpValue = value.Get<float>();
 		}
-		public void OnEVlaue(InputValue value)
+		public void OnRightButtonVlaue(InputValue value)
 		{
-			EValue = value.Get<float>();
+			RightButtonValue = value.Get<float>();
 		}
-		public void OnQVlaue(InputValue value)
+		public void OnLeftButtonVlaue(InputValue value)
 		{
-			QValue = value.Get<float>();
+			LeftButtonValue = value.Get<float>();
 		}
 
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
 		}
-		public void OnUseQ(InputValue value)
+		public void OnUseLeftButton(InputValue value)
 		{
-			QInput(value.isPressed);
+			LeftButtonInput(value.isPressed);
 		}
-		public void OnUseE(InputValue value)
+		public void OnUseRightButton(InputValue value)
 		{
-			EInput(value.isPressed);
+			RightButtonInput(value.isPressed);
+		}
+		public void OnIntract(InputValue value)
+		{
+			IntractInput(value.isPressed);
 		}
 		public void OnUseSkill1(InputValue value)
 		{
@@ -134,13 +139,17 @@ namespace StarterAssets
 		{
 			findTarget = newFindTargetState;
 		}
-		public void QInput(bool value)
+		public void LeftButtonInput(bool value)
 		{
-			Q = value;
+			LeftButton = value;
 		}
-		public void EInput(bool value)
+		public void RightButtonInput(bool value)
 		{
-			E = value;
+			RightButton = value;
+		}
+		public void IntractInput(bool value)
+		{
+			Intract = value;
 		}
 		public void Skill1Input(bool value)
 		{

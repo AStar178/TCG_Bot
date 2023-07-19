@@ -109,21 +109,21 @@ public class PlayerState : PlayerComponetSystem {
             state = Passiveiteams[i].OnUpdate(this , ref CalculatedValue , ref state);
         }
         ResultValue = state;
-        if ( Player.PlayerInputSystem.Q )
+        if ( Player.PlayerInputSystem.LeftButton )
         {
             if (Skill[0] != null)
             {
                 Skill[0].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.Q = false;
+            Player.PlayerInputSystem.LeftButton = false;
         }
-        if ( Player.PlayerInputSystem.E )
+        if ( Player.PlayerInputSystem.RightButton )
         {
             if (Skill[1] != null)
             {
                 Skill[1].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.E = false;
+            Player.PlayerInputSystem.RightButton = false;
         }
         if ( Player.PlayerInputSystem.n1 )
         {

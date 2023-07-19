@@ -29948,6 +29948,104 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1001 &1287389321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.704
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.697
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8841983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.46711186
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 55.694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375441504097611630, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615320141800019939, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629995377499314026, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809290488210754120, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: OneText
+      value: Hahaha
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809290488210754120, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: TwoText
+      value: ' IDIOT'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294803024423443378, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_Name
+      value: Chest (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324834691972966256, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b47bce347c518eb4a9ca4e018a428237, type: 3}
 --- !u!1 &1338602063
 GameObject:
   m_ObjectHideFlags: 0
@@ -41282,16 +41380,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 4416926083347132239}
   JumpValue: 0
-  EValue: 0
-  QValue: 0
+  RightButtonValue: 0
+  LeftButtonValue: 0
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
   Zoom: 0
   jump: 0
   sprint: 0
   findTarget: 0
-  Q: 0
-  E: 0
+  LeftButton: 0
+  RightButton: 0
+  Intract: 0
   n1: 0
   n2: 0
   n3: 0
@@ -47552,6 +47651,7 @@ GameObject:
   - component: {fileID: 6982812147933622156}
   - component: {fileID: 6982812147933622157}
   - component: {fileID: 6982812147933622158}
+  - component: {fileID: 6982812147933622159}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -53322,6 +53422,24 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 13d7e4bf584ed4542a35a55ddf85df18, type: 2}
   EnergyImagess: {fileID: 1466894917}
   fadeOut: 4
+--- !u!114 &6982812147933622159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857bce6b372559c48bb1d266da9bae23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IntractLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  Target: {fileID: 0}
+  Text: {fileID: 600029809456345080, guid: 432fc8ad0994ea04bbbfe77a262dd244, type: 3}
+  Range: 4
 --- !u!1 &7129635141153452334
 GameObject:
   m_ObjectHideFlags: 0
@@ -53434,10 +53552,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2615320141800019939, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629995377499314026, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809290488210754120, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: OneText
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809290488210754120, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: TwoText
+      value: ' to intract'
+      objectReference: {fileID: 0}
     - target: {fileID: 3294803024423443378, guid: b47bce347c518eb4a9ca4e018a428237,
         type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324834691972966256, guid: b47bce347c518eb4a9ca4e018a428237,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
