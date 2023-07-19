@@ -7,7 +7,7 @@ public class PlayerEffect : PlayerComponetSystem {
     private float t;
     [SerializeField] Material PlayerMatriale;
     [SerializeField] ParticleSystem[] jetpackparticale;
-    [SerializeField] Transform feetpos;
+    public Transform feetpos;
     [SerializeField] VisualEffect visualEffect;
     [SerializeField] ParticleSystem[] thatparicale;
     [SerializeField] ParticleSystem[] wakeparticale;

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Pathfinding;
 
 public class BasicEnemy : MonoBehaviour
 {
     public float AttackRange;
     public float AggroRange;
     // how close the enemy will stay to the player
+    public float Speed;
     public float DeadZone;
     public float AttackCooldownSet;
     private float AttackCooldwon;
@@ -15,11 +17,20 @@ public class BasicEnemy : MonoBehaviour
     public float AttackDamageMax;
     public float RangeTime;
 
+    public float nextWaypointDistance = 3;
+
+    private int currentWaypoint = 0;
+
+    public bool reachedEndOfPath;
+
+    public Path path;
+
     [Space]
+    public Rigidbody rb;
     public Transform target;
     public LayerMask TargetLayer;
 
-    private NavMeshAgent agent;
+    private Seeker Seeker;
     private void OnEnable() {
         GetComponent<EnemyHp>().TakeDamageEvent += IamVeryAngery;
     }
@@ -28,7 +39,18 @@ public class BasicEnemy : MonoBehaviour
     }
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        Seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    public void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            // Reset the waypoint counter so that we start to move towards the first point in the path
+            currentWaypoint = 0;
+        }
     }
 
     void Update()
@@ -37,21 +59,45 @@ public class BasicEnemy : MonoBehaviour
 
         AttackPlayer();
 
-        if (target != null && Vector3.Distance(transform.position, target.position) > DeadZone)
-        {
-            agent.isStopped = false;    
-            agent.SetDestination(target.position);
-            return;
-        }
-        else if (target != null)
-        {
-            agent.SetDestination((transform.position - target.position).normalized * DeadZone);
-            agent.isStopped = false;
-            return;
-        }
-            
+        if (target != null)
+            Seeker.StartPath(transform.position, target.position, OnPathComplete);
 
-        agent.isStopped = true;
+        if (path == null)
+        {
+            return;
+        }
+
+        reachedEndOfPath = false;
+
+        float distanceToWaypoint;
+        while (true)
+        {
+            distanceToWaypoint = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distanceToWaypoint < nextWaypointDistance)
+            {
+                if (currentWaypoint + 1 < path.vectorPath.Count)
+                {
+                    currentWaypoint++;
+                }
+                else
+                {
+                    reachedEndOfPath = true;
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint / nextWaypointDistance) : 1f;
+
+        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+
+        Vector3 velocity = dir * Speed * speedFactor;
+
+        rb.velocity = velocity;
     }
     private void IamVeryAngery(DamageData t)
     {
@@ -65,28 +111,21 @@ public class BasicEnemy : MonoBehaviour
             RangeTime -= Time.deltaTime;
             return;
         }
-        // check if the target is not null if it wan't then it well check if it's out of aggro range if both were true then set the target to null
+
         if (target != null && Vector3.Distance(target.position, transform.position) > AggroRange)
             target = null;
 
-        // check if the target is null
         if (target == null)
         {
-            // get all the possible targets of the selected layer
             Collider[] objects = Physics.OverlapSphere(transform.position, AggroRange, TargetLayer);
 
-            // do a foreach loop to set the target
             foreach (Collider obj in objects)
             {
-                // if the selected obj in the loop wasn't null continue
                 if (obj != null)
                 {
-                    // if the target wasn't null and check if the obj is closer or the target; if obj is closer then set it as the target.
-                    // we check if the target is not null becuase down we set it if it was null and because this is loop we end up here again so we dont want to set
-                    // the target to the obj if it isn't closer than the target.
                     if (target != null && Vector3.Distance(obj.transform.position, transform.position) < Vector3.Distance(transform.position, target.position))
                         target = obj.transform;
-                    // if the target IS null then set the obj as the target
+
                     else if (target == null)
                         target = obj.transform;
                 }
@@ -101,6 +140,7 @@ public class BasicEnemy : MonoBehaviour
         if (target != null)
             if (AttackCooldwon <= 0 && Vector3.Distance(target.position, transform.position) <= AttackRange)
             {
+                print("Hi iam lion");
                 DamageData dammen = new DamageData();
                 dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
                 target.GetComponentInParent<IDamageAble>().TakeDamage(dammen);

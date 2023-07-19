@@ -19,8 +19,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: -44
     y: -298
-    width: 2553
-    height: 2721
+    width: 2554
+    height: 2703
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1

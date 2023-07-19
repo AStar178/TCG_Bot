@@ -48,13 +48,32 @@ MonoBehaviour:
   Icon: {fileID: 0}
   namex: 
   dependencies: 
-  level: 0
+  level: 1
   ScaleTheScaling: 1
   DivedTheScaling: 1
   ScalingLevel:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  HellingTimer: 2
+  HellingTimer: 1
+  Effect: {fileID: 3789558046748152960, guid: e4ce9cebf21cd384e8b11b1aa5b2a4c6, type: 3}

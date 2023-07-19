@@ -5,7 +5,7 @@ using UnityEngine;
 public class IntractAble : MonoBehaviour
 {
     public LayerMask IntractLayer;
-    public GameObject Target;
+    public Interactable Target;
     public GameObject Text;
     private GameObject text;
     [SerializeField] float Range = 4;
@@ -40,7 +40,7 @@ public class IntractAble : MonoBehaviour
             if (test > dot)
             {
                 dot = test;
-                Target = obj.gameObject;
+                Target = obj.gameObject.GetComponentInParent<Interactable>();
             }
         }
 
@@ -53,7 +53,7 @@ public class IntractAble : MonoBehaviour
 
         if (Target != null)
         {
-            if (Target.GetComponentInParent<Interactable>())
+            if (Target.GetComponentInParent<Interactable>().caninteracted)
             {
                 if (text.activeInHierarchy == false)
                     text.SetActive(true);
@@ -62,16 +62,17 @@ public class IntractAble : MonoBehaviour
                 text.GetComponentInChildren<TMPro.TMP_Text>().text = Target.GetComponentInParent<Interactable>().GetText();
             }
         }
-        else if (text.activeInHierarchy) 
-                text.SetActive(false);
+        else
+            text.SetActive(false);
 
     }
 
     public void Intract()
     {
         Target.transform.GetComponentInParent<Interactable>().OnInteracted();
-        text.SetActive(false);
         Player.Current.PlayerInputSystem.Intract = false;
+        Target = null;
+        text.SetActive(false);
     }
 
 }

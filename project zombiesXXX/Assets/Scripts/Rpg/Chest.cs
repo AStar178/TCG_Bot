@@ -12,12 +12,12 @@ public class Chest : Interactable
     public override void OnInteracted()
     {
         OpeanChest();
-        Destroy(this);
     }
     private void OpeanChest()
     {
         //every iteam have uniqe color particale
         animationx.Play();
+        caninteracted = false;
 
     }
     public void SpawnParticale()
@@ -26,6 +26,7 @@ public class Chest : Interactable
         {
             particleSystems[i].Play();
         }
+        Destroy(this);
     }
     
 }
