@@ -43,7 +43,12 @@ public class MetroidAbillityAttack : IteamSkill
             playerState.Player.PlayerThirdPersonController.rb.velocity = goDir;
 
             if (t >= EnergyCostTick)
-            { energy.DamageEnergy(EnergyCost); t = 0; }
+            { 
+                energy.DamageEnergy(EnergyCost); 
+                t = 0;
+                if (energy.Energy < EnergyCost)
+                    energy.DamageEnergy(EnergyCost);
+            }
 
             if (on == false)
             {

@@ -37,6 +37,10 @@ public class MetroidEnergy : MonoBehaviour
         on = false;
         if (Energy < 0)
             Energy = 0;
+        EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
+
+        if (Energy <= 0)
+            Minus.Instance.CreatCoustomTextPopup("NO ENERGY", transform.position, Color.yellow);
     }
 
     public void Update()
@@ -44,7 +48,6 @@ public class MetroidEnergy : MonoBehaviour
         if (Cooloff > 0)
         {
             Cooloff -= Time.deltaTime;
-                
         } 
         else
         {

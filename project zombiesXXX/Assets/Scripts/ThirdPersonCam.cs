@@ -219,7 +219,6 @@ public class ThirdPersonCam : PlayerComponetSystem
         }
     }
 
-
     private void LateUpdate()
     {
         CameraRotation();
@@ -385,6 +384,12 @@ public class ThirdPersonCam : PlayerComponetSystem
         if (animationEvent.animatorClipInfo.weight > 0.5f)
         {
             AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(transform.position), FootstepAudioVolume);
+            OnGroundHit();
         }
+    }
+
+    public void OnGroundHit()
+    {
+
     }
 }
