@@ -24,11 +24,6 @@ public class MetroidAbillityAttack : IteamSkill
 
     public override void OnUseSkill(PlayerState playerState)
     {
-        base.OnUseSkill(playerState);
-    }
-
-    public void Update()
-    {
         if (playerState.Player.PlayerInputSystem.move != Vector2.zero)
             Input = playerState.Player.PlayerInputSystem.move;
 
@@ -57,11 +52,17 @@ public class MetroidAbillityAttack : IteamSkill
             }
             return;
         }
-        playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 1 , Time.deltaTime * 3);
+
         if (on == true)
         {
             playerState.Player.PlayerEffect.TurnOffJectPackEffect();
             on = false;
         }
+    }
+    private void Update() {
+        
+        if (on == false)
+            playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 1 , Time.deltaTime * 3);
+
     }
 }
