@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6016165523483873831}
   - component: {fileID: -4299118199258154751}
+  - component: {fileID: -7610376719953572197}
   m_Layer: 0
   m_Name: hpovertime
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MonoBehaviour:
     m_RotationOrder: 4
   HellingTimer: 1
   Effect: {fileID: 3789558046748152960, guid: e4ce9cebf21cd384e8b11b1aa5b2a4c6, type: 3}
+--- !u!114 &-7610376719953572197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656069787286927622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afffe74116030845bd2b386fc76115d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateScriptAbleObject: {fileID: 11400000, guid: 2b5fb4b872fd44f4b882f8da83b9589a,
+    type: 2}

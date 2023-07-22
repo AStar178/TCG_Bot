@@ -80,7 +80,7 @@ public class Outliner : MonoBehaviour {
 
   private bool needsUpdate;
 
-  void Awake() {
+  public void Awake() {
 
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
@@ -99,7 +99,7 @@ public class Outliner : MonoBehaviour {
     needsUpdate = true;
   }
 
-  async void OnEnable() {
+  public async void OnEnable() {
     
     foreach (var renderer in renderers) {
       if (renderer.TryGetComponent<ParticleSystem>(out var s))
