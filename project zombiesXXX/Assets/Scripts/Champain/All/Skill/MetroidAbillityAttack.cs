@@ -22,11 +22,20 @@ public class MetroidAbillityAttack : IteamSkill
         energy = playerState.GetComponent<MetroidEnergy>();
     }
 
-    public override void OnUseSkill(PlayerState playerState)
+    public void Update()
     {
+        if (on == false)
+            playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 1 , Time.deltaTime * 3);
         if (playerState.Player.PlayerInputSystem.move != Vector2.zero)
             Input = playerState.Player.PlayerInputSystem.move;
-
+        if (playerState.Player.PlayerInputSystem.RightButtonValue != 1)
+        { 
+            if (on == true)
+            {
+                playerState.Player.PlayerEffect.TurnOffJectPackEffect();
+                on = false;
+            }  
+        }
         if (playerState.Player.PlayerInputSystem.RightButtonValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
         {
             playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 3 , Time.deltaTime * 3);
@@ -58,11 +67,5 @@ public class MetroidAbillityAttack : IteamSkill
             playerState.Player.PlayerEffect.TurnOffJectPackEffect();
             on = false;
         }
-    }
-    private void Update() {
-        
-        if (on == false)
-            playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 1 , Time.deltaTime * 3);
-
     }
 }

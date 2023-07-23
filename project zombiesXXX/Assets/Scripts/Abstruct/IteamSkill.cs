@@ -8,7 +8,7 @@ public abstract class IteamSkill : Iteam {
     public string dependenciesSkill;
     public virtual void OnUseSkill(PlayerState playerState)
     {
-        InCombat();
+       
     }
 
 }

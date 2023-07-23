@@ -29,21 +29,23 @@ public class FireBird : IteamPassive
                 Destroy(effect.gameObject, 1);
             }
         }
-
-        if (t > 0)
-            return state;
-        t = DamageCooldown;
-
-        DamageData damage = CreatDamageWithOutCrit(0 , playerState);
-        damage.DamageAmount = (playerState.ResultValue.Damage / 2 + Scaling());
         if (target != null)
         {
             if (effect == null)
                 effect = Instantiate(FIRE, transform.position, Quaternion.identity);
-            target.GetComponent<IDamageAble>().TakeDamage(damage);
             effect.Play();
-            effect.transform.SetParent(target.transform);
-            effect.transform.localPosition = Vector3.zero;
+            effect.transform.position = target.transform.position;
+        }
+        if (t > 0)
+            return state;
+        t = DamageCooldown;
+        
+        DamageData damage = CreatDamageWithOutCrit(0 , playerState);
+        damage.DamageAmount = (playerState.ResultValue.Damage / 2 + Scaling());
+        if (target != null)
+        {
+            InCombat();
+            target.GetComponent<IDamageAble>().TakeDamage(damage);
         }
 
         return state;
