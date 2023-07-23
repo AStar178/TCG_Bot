@@ -24,38 +24,38 @@ public class Minus : MonoBehaviour
 
     public Material GetRightMatrialColorForIteamRarety(RpgHelper.IteamType iteamType)
     {
-        if (iteamType == RpgHelper.IteamType.TRASHAss)
+        if (iteamType == RpgHelper.IteamType.Tier1)
             return colors[0];
         
-        if (iteamType == RpgHelper.IteamType.NotThatgoodbutokay)
+        if (iteamType == RpgHelper.IteamType.Tier2)
             return colors[1];
             
-        if (iteamType == RpgHelper.IteamType.YESDUDE)
+        if (iteamType == RpgHelper.IteamType.Tier3)
             return colors[2];
             
-        if (iteamType == RpgHelper.IteamType.WTFILOVELIFEIFIGETTHELEGENDERYOFCOURSE)
+        if (iteamType == RpgHelper.IteamType.Tier4)
             return colors[3];
             
-        if (iteamType == RpgHelper.IteamType.THISISTHEGREATESDAYOFMYLIFE)
+        if (iteamType == RpgHelper.IteamType.Tier5)
             return colors[4];
         
         return null;
     }
     public Color GetRightColorForIteamRarety(RpgHelper.IteamType iteamType)
     {
-        if (iteamType == RpgHelper.IteamType.TRASHAss)
+        if (iteamType == RpgHelper.IteamType.Tier1)
             return colorsx[0];
         
-        if (iteamType == RpgHelper.IteamType.NotThatgoodbutokay)
+        if (iteamType == RpgHelper.IteamType.Tier2)
             return colorsx[1];
             
-        if (iteamType == RpgHelper.IteamType.YESDUDE)
+        if (iteamType == RpgHelper.IteamType.Tier3)
             return colorsx[2];
             
-        if (iteamType == RpgHelper.IteamType.WTFILOVELIFEIFIGETTHELEGENDERYOFCOURSE)
+        if (iteamType == RpgHelper.IteamType.Tier4)
             return colorsx[3];
             
-        if (iteamType == RpgHelper.IteamType.THISISTHEGREATESDAYOFMYLIFE)
+        if (iteamType == RpgHelper.IteamType.Tier5)
             return colorsx[4];
         
         return Color.black;

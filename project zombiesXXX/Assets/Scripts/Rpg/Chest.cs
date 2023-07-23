@@ -13,8 +13,10 @@ public class Chest : Interactable
     public ParticleSystem[] particleSystems;
     [SerializeField] Renderer[] particles;
     [SerializeField] Outliner outliner;
+    GameObject w;
     private void Start() {
-        var w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
+        caninteracted = true;
+        w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
         Destroy( w.GetComponent<Iteam>() );
         iteamType = w.GetComponent<IteamforChest>().iteamTypo;
         w.transform.SetParent(iteamHolder.transform);
@@ -34,6 +36,7 @@ public class Chest : Interactable
     }
     public override void OnInteracted()
     {
+        w.GetComponent<IteamforChest>().fixit();
         OpeanChest();
     }
     private void OpeanChest()

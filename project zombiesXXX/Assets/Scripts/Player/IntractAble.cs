@@ -10,14 +10,13 @@ public class IntractAble : MonoBehaviour
     private GameObject text;
     [SerializeField] float Range = 4;
 
-    private void Start()
-    {
-        text = Instantiate(Text);
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if (text == null)
+            text = Instantiate(Text);
+
         // change the color of the old target if possible
         if (Target != null && Target.GetComponent<Outliner>() != null)
         {
@@ -40,7 +39,12 @@ public class IntractAble : MonoBehaviour
             if (test > dot)
             {
                 dot = test;
-                Target = obj.gameObject.GetComponentInParent<Interactable>();
+                if (obj.gameObject.GetComponentInParent<Interactable>() != null)
+                    if (obj.gameObject.GetComponentInParent<Interactable>().caninteracted == true)
+                        Target = obj.gameObject.GetComponentInParent<Interactable>();
+                    else if (obj.gameObject.GetComponent<Interactable>() != null)
+                        if (obj.gameObject.GetComponent<Interactable>().caninteracted == true)
+                            Target = obj.gameObject.GetComponent<Interactable>();
             }
         }
 
@@ -50,6 +54,9 @@ public class IntractAble : MonoBehaviour
 
         if (Target != null && Player.Current.PlayerInputSystem.Intract)
             Intract();
+
+        if (Player.Current.PlayerInputSystem.Intract)
+            Player.Current.PlayerInputSystem.Intract = false;
 
         if (Target != null)
         {
@@ -70,7 +77,6 @@ public class IntractAble : MonoBehaviour
     public void Intract()
     {
         Target.transform.GetComponentInParent<Interactable>().OnInteracted();
-        Player.Current.PlayerInputSystem.Intract = false;
         Target = null;
         text.SetActive(false);
     }
