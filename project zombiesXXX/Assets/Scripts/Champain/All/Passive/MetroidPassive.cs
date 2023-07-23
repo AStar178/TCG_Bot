@@ -33,6 +33,11 @@ public class MetroidPassive : IteamPassive
                 energy.DamageEnergy(HelperEnegyCost);
             }
 
+            if (rb.velocity.y <= 0 && playerState.Player.PlayerThirdPersonController.Grounded)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, playerState.Player.PlayerState.ResultValue.JumpAmount * .35f, rb.velocity.z);
+            }
+
             if (holdTimer > .2f && energy.Energy > 0)
             {
                 rb.velocity += new Vector3(0,

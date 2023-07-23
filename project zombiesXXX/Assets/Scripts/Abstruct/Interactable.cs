@@ -2,9 +2,10 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour {
     
-    [SerializeField] public bool caninteracted = true;
+    [SerializeField] public bool caninteracted = false;
     [SerializeField] public string OneText;
     [SerializeField] public string TwoText;
+
     public virtual void OnInteracted()
     {
 
