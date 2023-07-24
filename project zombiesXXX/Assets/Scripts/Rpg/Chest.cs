@@ -19,6 +19,7 @@ public class Chest : Interactable
         w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
         Destroy( w.GetComponent<Iteam>() );
         iteamType = w.GetComponent<IteamforChest>().iteamTypo;
+        w.GetComponent<IteamforChest>().chest = this;
         w.transform.SetParent(iteamHolder.transform);
         w.transform.localPosition = Vector3.zero;
         
@@ -54,5 +55,9 @@ public class Chest : Interactable
         }
         Destroy(this);
     }
-    
+    public void Des()
+    {
+        Destroy(w.transform.parent.gameObject);
+        Destroy(this);
+    }
 }

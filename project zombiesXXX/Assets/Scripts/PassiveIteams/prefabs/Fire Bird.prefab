@@ -164,6 +164,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   FIRE: {fileID: 5183355361633783883, guid: 1e01afc340de7d94e95471c2c3d37dff, type: 3}
   DamageCooldown: 1
+  effect: {fileID: 0}
 --- !u!114 &-1203635481976635175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +183,7 @@ MonoBehaviour:
   stateScriptAbleObject: {fileID: 11400000, guid: 10e908c56d66e2b469720116d70094b5,
     type: 2}
   iteamTypo: 2
+  chest: {fileID: 0}
 --- !u!65 &7345284765107411226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -263,8 +265,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8463866153361142329}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.103, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 79.39}
+  m_LocalPosition: {x: 0, y: 0.00095, z: 0}
+  m_LocalScale: {x: 90.804, y: 100, z: 79.39}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9020617832688534632}
@@ -346,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8839748988339692455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.00186, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []

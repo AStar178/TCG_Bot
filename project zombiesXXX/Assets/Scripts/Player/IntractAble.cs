@@ -9,7 +9,7 @@ public class IntractAble : MonoBehaviour
     public GameObject Text;
     private GameObject text;
     [SerializeField] float Range = 4;
-
+    [SerializeField] Vector3 offset;
 
     // Update is called once per frame
     void Update()
@@ -64,8 +64,8 @@ public class IntractAble : MonoBehaviour
             {
                 if (text.activeInHierarchy == false)
                     text.SetActive(true);
-                text.transform.SetParent(Target.transform);
-                text.transform.localPosition = Vector3.zero;
+                
+                text.transform.position = Target.transform.position + offset;
                 text.GetComponentInChildren<TMPro.TMP_Text>().text = Target.GetComponentInParent<Interactable>().GetText();
             }
         }

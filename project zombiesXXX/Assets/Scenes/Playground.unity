@@ -53509,8 +53509,7 @@ MonoBehaviour:
   InvisableTime: 0
   IteamsAdd: []
   IteamsMulty: []
-  Passiveiteams:
-  - {fileID: -4299118199258154751, guid: c19baa332a3ce774990323d2f2110e3a, type: 3}
+  Passiveiteams: []
   Skill: []
   ChampinPassive: {fileID: 9135249138042124408, guid: d44a7219149ae184dbee0530c6d3452f,
     type: 3}
@@ -53561,6 +53560,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   Text: {fileID: 600029809456345080, guid: 432fc8ad0994ea04bbbfe77a262dd244, type: 3}
   Range: 4
+  offset: {x: 0, y: -0.6, z: 0}
 --- !u!1 &7129635141153452334
 GameObject:
   m_ObjectHideFlags: 0

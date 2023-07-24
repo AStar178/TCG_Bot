@@ -7,11 +7,11 @@ public class FireBird : IteamPassive
     [SerializeField] ParticleSystem FIRE;
     [SerializeField] float DamageCooldown = 1;
     float t;
-    ParticleSystem effect;
-
+    [SerializeField] ParticleSystem effect;
+    bool on;
     public override void OnStart(PlayerState playerState)
     {
-
+            effect = Instantiate(FIRE, transform.position, Quaternion.identity);
     }
 
 
@@ -26,14 +26,16 @@ public class FireBird : IteamPassive
             if (effect != null)
             {
                 effect.Stop();
-                Destroy(effect.gameObject, 1);
+                on = false;
             }
         }
         if (target != null)
         {
-            if (effect == null)
-                effect = Instantiate(FIRE, transform.position, Quaternion.identity);
-            effect.Play();
+            if (on == false)
+            {
+                effect.Play();
+                on = true;   
+            }
             effect.transform.position = target.transform.position;
         }
         if (t > 0)
