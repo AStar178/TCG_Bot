@@ -29,19 +29,15 @@ public class MetroidPassive : IteamPassive
             if (holdTimer > .2f && rb.velocity.y <= 0 && energy.Energy > 0)
             {
                 rb.velocity = new Vector3(rb.velocity.x, playerState.Player.PlayerState.ResultValue.JumpAmount * .5f, rb.velocity.z);
+                rb.AddForce(playerState.Player.PlayerState.ResultValue.JumpAmount * 10f * transform.up, ForceMode.Impulse);
                 playerState.Player.PlayerEffect.JumpSomeTimeThing();
                 energy.DamageEnergy(HelperEnegyCost);
-            }
-
-            if (rb.velocity.y <= 0 && playerState.Player.PlayerThirdPersonController.Grounded)
-            {
-                rb.velocity = new Vector3(rb.velocity.x, playerState.Player.PlayerState.ResultValue.JumpAmount * .35f, rb.velocity.z);
             }
 
             if (holdTimer > .2f && energy.Energy > 0)
             {
                 rb.velocity += new Vector3(0,
-                    (JetPackPower + playerState.Player.PlayerState.ResultValue.JumpAmount * .1f) * Time.deltaTime, 0);
+                    (JetPackPower + playerState.Player.PlayerState.ResultValue.JumpAmount * 6f) * Time.deltaTime, 0);
                 if (on == false)
                 {
                     playerState.Player.PlayerEffect.TurnOnJectPackEffect();

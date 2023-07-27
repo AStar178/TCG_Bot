@@ -36,7 +36,7 @@ public class MetroidAbillityAttack : IteamSkill
                 on = false;
             }  
         }
-        if (playerState.Player.PlayerInputSystem.RightButtonValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
+        if (playerState.Player.PlayerThirdPersonController.Grounded == true && playerState.Player.PlayerInputSystem.RightButtonValue == 1 && energy.Energy >= EnergyCost && playerState.Player.PlayerInputSystem.move != Vector2.zero)
         {
             playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 3 , Time.deltaTime * 3);
             t += Time.deltaTime;

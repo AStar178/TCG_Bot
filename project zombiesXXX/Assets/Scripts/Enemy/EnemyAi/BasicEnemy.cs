@@ -15,6 +15,9 @@ public class BasicEnemy : MonoBehaviour
     private float AttackCooldwon;
     public float AttackDamageMin;
     public float AttackDamageMax;
+    public float Jump;
+    public float JumpCooldownSet;
+    private float JumpCooldown;
     public float RangeTime;
 
     public float nextWaypointDistance = 3;
@@ -97,7 +100,18 @@ public class BasicEnemy : MonoBehaviour
 
         Vector3 velocity = dir * Speed * speedFactor;
 
+        velocity.y = rb.velocity.y;
+
         rb.velocity = velocity;
+
+        if (JumpCooldown > 0)
+            JumpCooldown -= Time.deltaTime;
+
+        if ( target != null && target.position.y > transform.position.y && JumpCooldown <= 0)
+        {
+            rb.AddForce(Vector3.up * Jump, ForceMode.Impulse);
+            JumpCooldown = JumpCooldownSet;
+        }
     }
     private void IamVeryAngery(DamageData t)
     {

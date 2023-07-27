@@ -49,7 +49,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   namex: 
   dependencies: 
-  level: 0
+  level: 1
   ScaleTheScaling: 1
   DivedTheScaling: 2
   ScalingLevel:
@@ -109,5 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afffe74116030845bd2b386fc76115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caninteracted: 0
+  OneText: 
+  TwoText: 
   stateScriptAbleObject: {fileID: 11400000, guid: e29a3dca448bd664fbef254f830ddedd,
     type: 2}
+  iteamTypo: 0
+  chest: {fileID: 0}
