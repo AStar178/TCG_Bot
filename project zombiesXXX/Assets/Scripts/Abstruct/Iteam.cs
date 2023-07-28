@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public abstract class Iteam : MonoBehaviour {
     public int Oderlayer = 0;
@@ -31,13 +32,21 @@ public abstract class Iteam : MonoBehaviour {
     }
     public DamageData CreatDamageWithOutCrit(float damage , PlayerState playerState)
     {
-;
         DamageData damageData = new DamageData();
         damageData.DamageAmount = damage;
         damageData.target = playerState.Player.PlayerInputSystem.transform;
         return damageData;
     }
-
+    
+    public Vector3 PlayerPos(PlayerState playerState)
+    {
+        return playerState.Player.PlayerState.transform.position;
+    }
+    public GameObject PlayerGameObject(PlayerState playerState)
+    {
+        return playerState.Player.PlayerState.gameObject;
+    }
+    public LayerMask EnmeyLayer => Player.Current.Enemy;
     protected void InCombat()
     {
         Player.Current.PlayerState.Combat = true;

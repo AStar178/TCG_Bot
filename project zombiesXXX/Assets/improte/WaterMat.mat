@@ -138,7 +138,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.0141509175, g: 0.6532305, b: 1, a: 0.7607843}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 2, g: 2, b: 2, a: 1}
     - _FoamTiling: {r: 10000, g: 10000, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SurfaceColor: {r: 0.504717, g: 0.9903985, b: 1, a: 0.69411767}

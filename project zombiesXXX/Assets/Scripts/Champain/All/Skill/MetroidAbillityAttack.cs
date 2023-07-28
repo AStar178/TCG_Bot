@@ -8,7 +8,7 @@ public class MetroidAbillityAttack : IteamSkill
     [SerializeField] float EnergyCost;
     [Tooltip("the lower the more it drain energy; 1 = 1 sec etc.")]
     [SerializeField] float EnergyCostTick;
-
+    [SerializeField] LayerMask layerMask;
     private PlayerState playerState;
     private MetroidEnergy energy;
     private Vector2 Input;
@@ -40,7 +40,7 @@ public class MetroidAbillityAttack : IteamSkill
         {
             playerState.Player.PlayerEffect.animator.speed = Mathf.Lerp(playerState.Player.PlayerEffect.animator.speed , 3 , Time.deltaTime * 3);
             t += Time.deltaTime;
-
+            playerState.Player.PlayerThirdPersonController.rb.AddForce( Vector3.down * 250);
             Vector3 goDir = new Vector3(Input.x, 0, Input.y) * (DashSpeed + (playerState.ResultValue.SprintSpeed * 2));
             goDir.y = .2f;
 

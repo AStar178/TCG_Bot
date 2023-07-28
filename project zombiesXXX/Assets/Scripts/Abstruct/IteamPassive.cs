@@ -21,5 +21,4 @@ public abstract class IteamPassive : Iteam {
         return (x + (level * 0.1f) * ScaleTheScaling) / DivedTheScaling;
     }
 
-
 }

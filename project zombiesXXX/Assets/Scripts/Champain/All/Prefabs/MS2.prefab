@@ -49,6 +49,9 @@ MonoBehaviour:
   IconSkill: {fileID: 0}
   namexSkill: 
   dependenciesSkill: 
-  DashSpeed: 8
-  EnergyCost: 3
+  DashSpeed: 16
+  EnergyCost: 2
   EnergyCostTick: 0.1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
