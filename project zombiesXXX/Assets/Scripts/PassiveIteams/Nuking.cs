@@ -38,10 +38,17 @@ public class Nuking : IteamPassive
         for (int i = 0; i < (current); i++)
         {
             int xc = i;
-            
-            Physics.Raycast( xc >= gays.Count ? collider.OrderBy(s => UnityEngine.Random.value ).FirstOrDefault().transform.position : gays[xc].transform.position , Vector3.down , out var raycastHit , Mathf.Infinity , playerState.Player.PlayerThirdPersonController.GroundLayers );     
-            var wow = Instantiate( Effect , raycastHit.point + (Vector3.up * offset)  , Quaternion.identity );
-            await Task.Delay(1000);
+            var enemy = xc >= gays.Count ? collider.OrderBy(s => UnityEngine.Random.value ).FirstOrDefault().transform: gays[xc].transform;
+            Physics.Raycast( enemy.transform.position+ Vector3.up * 2 , Vector3.down , out var raycastHit , Mathf.Infinity , playerState.Player.PlayerThirdPersonController.GroundLayers );     
+            var wow = Instantiate( Effect , (raycastHit.point + (Vector3.up * offset))  , Quaternion.identity );
+            float wowx = 1;
+            while (wowx > 0)
+            {
+                wowx -= Time.deltaTime;
+                Physics.Raycast( enemy.transform.position + Vector3.up * 2 , Vector3.down , out var raycastHitc , Mathf.Infinity , playerState.Player.PlayerThirdPersonController.GroundLayers );     
+                wow.transform.position = raycastHitc.point + (Vector3.up * offset);
+                await Task.Yield();
+            }
             var colliders = Physics.OverlapSphere( wow.transform.position , DamageRaduis , EnmeyLayer );
             Destroy(wow , 6);
             for (int x = 0; x < colliders.Length; x++)

@@ -59,6 +59,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   Effect: {fileID: 8231225153275547240, guid: 2705b19abde0e484eb50da8e7ef906ae, type: 3}
   CouldDown: 10
-  DamageRaduis: 6
+  DamageRaduis: 4
   Raduis: 50
   offset: 0.01
