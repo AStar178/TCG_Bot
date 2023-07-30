@@ -110,7 +110,7 @@ public class ThirdPersonCam : PlayerComponetSystem
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        sp.transform.position = Vector3.zero;
+        sp.localPosition = Vector3.zero;
         // get a reference to our main camera
         if (_mainCamera == null)
         {

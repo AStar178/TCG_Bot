@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d02760dd74ae4b44841c805d2ed48fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Oderlayer: 2
+  Oderlayer: 0
   Icon: {fileID: 0}
   namex: 
   dependencies: 
-  level: 10
+  level: 0
   ScaleTheScaling: 1
   DivedTheScaling: 1
   ScalingLevel:

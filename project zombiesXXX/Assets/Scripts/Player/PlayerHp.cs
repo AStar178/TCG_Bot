@@ -13,7 +13,6 @@ public class PlayerHp : PlayerComponetSystem , IDamageAble
         float Hp = GetHpCurrent - (Data.DamageAmount * (1 - Armorpers) );
         Hp = Mathf.Clamp( Hp , 0 , Player.PlayerState.ResultValue.HpMax );
         SetHpCurrent(Hp);
-        print(Hp);
         if (GetHpCurrent <= 0)
             Killed();
 

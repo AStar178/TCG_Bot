@@ -25,6 +25,7 @@ public class BasicEnemy : MonoBehaviour
     private int currentWaypoint = 0;
 
     public bool reachedEndOfPath;
+    public float SpeedSlow;
 
     public Path path;
 
@@ -32,7 +33,6 @@ public class BasicEnemy : MonoBehaviour
     public Rigidbody rb;
     public Transform target;
     public LayerMask TargetLayer;
-
     private Seeker Seeker;
     private void OnEnable() {
         GetComponent<EnemyHp>().TakeDamageEvent += IamVeryAngery;
@@ -98,7 +98,7 @@ public class BasicEnemy : MonoBehaviour
 
         Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
 
-        Vector3 velocity = dir * Speed * speedFactor;
+        Vector3 velocity = dir * Speed * speedFactor * ( 1 - SpeedSlow);
 
         velocity.y = rb.velocity.y;
 
@@ -154,7 +154,6 @@ public class BasicEnemy : MonoBehaviour
         if (target != null)
             if (AttackCooldwon <= 0 && Vector3.Distance(target.position, transform.position) <= AttackRange)
             {
-                print("Hi iam lion");
                 DamageData dammen = new DamageData();
                 dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
                 target.GetComponentInParent<IDamageAble>().TakeDamage(dammen);

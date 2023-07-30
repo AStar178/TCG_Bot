@@ -22,7 +22,8 @@ public class PlayerState : PlayerComponetSystem {
     public IteamSkill ChampinSkillR;
     [SerializeField] Transform IteamSpawn;
     bool startSemelisane;
-    public Action<DamageData> OnAtuoAttackDealDamage;
+    public Action<DamageData , EnemyHp> OnAtuoAttackDealDamage;
+    public Action<DamageData , EnemyHp> OnAbilityAttackDealDamage;
     public bool Combat;
 
     private void Start() {
