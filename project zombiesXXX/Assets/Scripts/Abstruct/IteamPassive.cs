@@ -8,6 +8,7 @@ public abstract class IteamPassive : Iteam {
     public float ScaleTheScaling = 1;
     public int DivedTheScaling = 1;
     public AnimationCurve ScalingLevel;
+    public bool itemAdded = false;
 
     public float Scaling()
     {

@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 2
+  id: 2
   Icon: {fileID: 0}
-  namex: 
+  namex: HpOverTime
   dependencies: 
   level: 1
   ScaleTheScaling: 1
@@ -90,5 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afffe74116030845bd2b386fc76115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caninteracted: 0
+  OneText: 
+  TwoText: 
   stateScriptAbleObject: {fileID: 11400000, guid: 2b5fb4b872fd44f4b882f8da83b9589a,
     type: 2}
+  iteamTypo: 0
+  chest: {fileID: 0}

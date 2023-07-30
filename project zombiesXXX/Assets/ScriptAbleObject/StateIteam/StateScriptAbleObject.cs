@@ -10,6 +10,5 @@ public class StateScriptAbleObject : ScriptableObject {
     public bool ModeMulity;
     public IteamPassive passiveIteam;
     public IteamSkill SkillIteam;
-    
 
 }
