@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 0
+  id: 1
   Icon: {fileID: 0}
   namex: Flame Lantern
   dependencies: 

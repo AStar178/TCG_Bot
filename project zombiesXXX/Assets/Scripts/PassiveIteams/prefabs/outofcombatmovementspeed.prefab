@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 1
+  id: 3
   Icon: {fileID: 0}
-  namex: 
+  namex: Movementoutofcombat
   dependencies: 
   level: 1
   ScaleTheScaling: 1

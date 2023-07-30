@@ -70,7 +70,8 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.Crit += IteamsAdd[i].state.Crit;
             CalculatedValue.CritDamageMulty += IteamsAdd[i].state.CritDamageMulty;
             Luck += IteamsAdd[i].state.Luck;
-            AddIteamPassive(IteamsAdd[i].passiveIteam);
+            if (IteamsAdd[i].ModeMulity == false)
+            { AddIteamPassive(IteamsAdd[i].passiveIteam); };
         }
     }
     private void MulityAllScriptAbleObjectITEMSBuffs()
@@ -87,7 +88,8 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.Crit *= IteamsMulty[i].state.Crit == 0 ? 1 : IteamsMulty[i].state.Crit;
             CalculatedValue.CritDamageMulty *= IteamsMulty[i].state.CritDamageMulty == 0 ? 1 : IteamsMulty[i].state.CritDamageMulty;
             Luck *= IteamsMulty[i].state.Luck == 0 ? 1 : IteamsMulty[i].state.Luck;
-            AddIteamPassive(IteamsMulty[i].passiveIteam);
+            if (IteamsAdd[i].ModeMulity == true)
+            { AddIteamPassive(IteamsMulty[i].passiveIteam); }
         }
     }
     private void ApplyResult()
@@ -182,17 +184,23 @@ public class PlayerState : PlayerComponetSystem {
     {
         if (passiveIteam == null)
             return;
+        if (passiveIteam.itemAdded == true)
+            return;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-           if ( passiveIteam.name + "(Clone)" == Passiveiteams[i].name )
-           {
+           if ( ( passiveIteam.id )== Passiveiteams[i].id)
+            {
                 Passiveiteams[i].level++;
+                Debug.Log(passiveIteam.name);
+                Passiveiteams[i].OnLevelUp(this);
+
                 return;
            }
         }
         var iteasssss = Instantiate(passiveIteam , Vector3.zero , Quaternion.identity);
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);
+        iteasssss.itemAdded = true;
         Passiveiteams.Add(iteasssss);
         OderAllIteams();
     }

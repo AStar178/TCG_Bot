@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 0
+  id: 5
   Icon: {fileID: 0}
-  namex: 
+  namex: IsColed
   dependencies: 
   level: 0
   ScaleTheScaling: 1
