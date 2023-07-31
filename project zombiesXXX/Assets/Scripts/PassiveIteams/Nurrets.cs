@@ -7,6 +7,7 @@ public class Nurrets : IteamPassive
 {
     [Header("Iteam")]
     public Transform Target;
+    public Transform Shootpos;
     public float AttackCooldownSet;
     private float AttackCooldown;
     public float AttackDamage, AttackRange;
@@ -68,8 +69,9 @@ public class Nurrets : IteamPassive
                 enemyHp.TakeDamage(dam);
                 playerState.OnAtuoAttackDealDamage?.Invoke(dam, enemyHp);
                 Transform eff = Instantiate(ImpactEffect).transform;
-                eff.position = transform.position;
-                eff.localRotation = transform.localRotation;
+                eff.position = Shootpos.position;
+                eff.localRotation = Shootpos.rotation;
+                eff.transform.SetParent(Shootpos);
                 Destroy(eff.gameObject, 1);
                 AttackCooldown = AttackCooldownSet * Scaling1and0();
             } else

@@ -17,7 +17,7 @@ public class Chest : Interactable
     private void Start() {
         caninteracted = true;
         w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
-        Destroy( w.GetComponent<Iteam>() );
+        w.GetComponent<Iteam>().enabled = false;
         iteamType = w.GetComponent<IteamforChest>().iteamTypo;
         w.GetComponent<IteamforChest>().chest = this;
         w.transform.SetParent(iteamHolder.transform);

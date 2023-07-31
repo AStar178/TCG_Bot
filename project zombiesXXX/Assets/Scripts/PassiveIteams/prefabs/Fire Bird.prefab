@@ -132,7 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 0
-  id: 1
   Icon: {fileID: 0}
   namex: Flame Lantern
   dependencies: 
@@ -163,6 +162,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  itemAdded: 0
   FIRE: {fileID: 5183355361633783883, guid: 1e01afc340de7d94e95471c2c3d37dff, type: 3}
   DamageCooldown: 1
   effect: {fileID: 0}

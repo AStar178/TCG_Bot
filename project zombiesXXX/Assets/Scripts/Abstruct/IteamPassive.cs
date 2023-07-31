@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(IteamforChest))]
+
 public abstract class IteamPassive : Iteam {
     public Sprite Icon;
     public string namex;
