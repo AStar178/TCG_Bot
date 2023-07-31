@@ -22,7 +22,7 @@ public class SwordInTheBottle : IteamPassive
     public override void OnStart(PlayerState playerState)
     {
         swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
-
+        swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
         transform.localPosition = Vector3.zero;
         base.OnStart(playerState);
     }
@@ -68,7 +68,7 @@ public class SwordInTheBottle : IteamPassive
                 DamageData damageData = CreatDamage(Damage, playerState, out var a);
                 target.GetComponent<EnemyHp>().TakeDamage(damageData);
                 EnemyHp enemyHp = target.GetComponent<EnemyHp>();
-                playerState.OnAtuoAttackDealDamage(damageData, enemyHp);
+                playerState.OnAtuoAttackDealDamage?.Invoke(damageData, enemyHp);
                 swordHelper.Aggro = AggroSet;
             }
 
@@ -76,7 +76,7 @@ public class SwordInTheBottle : IteamPassive
         }
         else
         {
-            float f = ((float)i - 1) / (Mathf.PI * 2);
+            float f =  (float)i/swordHelpers.Count;
             float x = Mathf.Cos(f * (Mathf.PI * 2)) * RangeOffset;
             float z = Mathf.Sin(f * (Mathf.PI * 2)) * RangeOffset;
 

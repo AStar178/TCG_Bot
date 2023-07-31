@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 0
-  id: 6
   Icon: {fileID: 0}
   namex: Sword in the Bottle
   dependencies: 
@@ -60,10 +59,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  itemAdded: 0
   RotateSpeed: 3
   Damage: 7
-  RangeOffset: 2
-  StandOffset: {x: 0, y: 3.5, z: 0}
+  RangeOffset: 1
+  StandOffset: {x: 0, y: 1.74, z: 0}
   AggroRange: 25
   speed: 22
   AggroSet: 0.75

@@ -3,7 +3,6 @@ using System.Linq;
 
 public abstract class Iteam : MonoBehaviour {
     public int Oderlayer = 0;
-    public int id;
     public virtual void OnStart(PlayerState playerState)
     {
 

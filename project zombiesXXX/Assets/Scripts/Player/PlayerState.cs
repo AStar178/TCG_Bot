@@ -27,6 +27,39 @@ public class PlayerState : PlayerComponetSystem {
     public bool Combat;
 
     private void Start() {
+
+        var wadsadas = new List<StateScriptAbleObject>();
+        for (int i = 0; i < IteamsAdd.Count; i++)
+        {
+            StateScriptAbleObject stateScriptAbleObjectxx = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject"); 
+            stateScriptAbleObjectxx.icone = IteamsAdd[i].icone;
+            stateScriptAbleObjectxx.namex = IteamsAdd[i].namex;
+            stateScriptAbleObjectxx.discrapsen = IteamsAdd[i].discrapsen;
+            stateScriptAbleObjectxx.state = IteamsAdd[i].state;
+            stateScriptAbleObjectxx.ModeMulity = IteamsAdd[i].ModeMulity;
+            stateScriptAbleObjectxx.passiveIteam = IteamsAdd[i].passiveIteam;
+            stateScriptAbleObjectxx.SkillIteam = IteamsAdd[i].SkillIteam;
+            wadsadas.Add(stateScriptAbleObjectxx);
+        }
+        IteamsAdd.RemoveRange( 0 , IteamsAdd.Count );
+        IteamsAdd.AddRange(wadsadas);
+        var adasdasdasd = new List<StateScriptAbleObject>();
+        for (int i = 0; i < IteamsMulty.Count; i++)
+        {
+            StateScriptAbleObject stateScriptAbleObjectxx = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject"); 
+            stateScriptAbleObjectxx.icone = IteamsMulty[i].icone;
+            stateScriptAbleObjectxx.namex = IteamsMulty[i].namex;
+            stateScriptAbleObjectxx.discrapsen = IteamsMulty[i].discrapsen;
+            stateScriptAbleObjectxx.state = IteamsMulty[i].state;
+            stateScriptAbleObjectxx.ModeMulity = IteamsMulty[i].ModeMulity;
+            stateScriptAbleObjectxx.passiveIteam = IteamsMulty[i].passiveIteam;
+            stateScriptAbleObjectxx.SkillIteam = IteamsMulty[i].SkillIteam;
+            IteamsMulty.RemoveAt(i);
+            adasdasdasd.Add(stateScriptAbleObjectxx);
+        }
+        IteamsMulty.RemoveRange( 0 , IteamsMulty.Count );
+        IteamsMulty.AddRange(IteamsMulty);
+
         Skill = new IteamSkill[7];
         AddIteamPassive(ChampinPassive);
         AddIteamSkill(ChampinSkillQ);
@@ -56,6 +89,7 @@ public class PlayerState : PlayerComponetSystem {
         CalculatedValue = BaseValue;
         Luck = 1;
     }
+
     private void AddAllScriptAbleObjectITEMSBuffs()
     {
         for (int i = 0; i < IteamsAdd.Count; i++)
@@ -70,8 +104,8 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.Crit += IteamsAdd[i].state.Crit;
             CalculatedValue.CritDamageMulty += IteamsAdd[i].state.CritDamageMulty;
             Luck += IteamsAdd[i].state.Luck;
-            if (IteamsAdd[i].ModeMulity == false)
-            { AddIteamPassive(IteamsAdd[i].passiveIteam); };
+            if (IteamsAdd[i].ModeMulity == false && IteamsAdd[i].IteamAddAready == false) 
+            { AddIteamPassive(IteamsAdd[i].passiveIteam); IteamsAdd[i].IteamAddAready = true; }
         }
     }
     private void MulityAllScriptAbleObjectITEMSBuffs()
@@ -88,8 +122,8 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.Crit *= IteamsMulty[i].state.Crit == 0 ? 1 : IteamsMulty[i].state.Crit;
             CalculatedValue.CritDamageMulty *= IteamsMulty[i].state.CritDamageMulty == 0 ? 1 : IteamsMulty[i].state.CritDamageMulty;
             Luck *= IteamsMulty[i].state.Luck == 0 ? 1 : IteamsMulty[i].state.Luck;
-            if (IteamsAdd[i].ModeMulity == true)
-            { AddIteamPassive(IteamsMulty[i].passiveIteam); }
+            if (IteamsAdd[i].ModeMulity == true && IteamsAdd[i].IteamAddAready == false)
+            { AddIteamPassive(IteamsMulty[i].passiveIteam); IteamsAdd[i].IteamAddAready = true; }
         }
     }
     private void ApplyResult()
@@ -188,7 +222,7 @@ public class PlayerState : PlayerComponetSystem {
             return;
         for (int i = 0; i < Passiveiteams.Count; i++)
         {
-           if ( ( passiveIteam.id )== Passiveiteams[i].id)
+           if ( ( passiveIteam.name + ("(Clone)") )== Passiveiteams[i].name)
             {
                 Passiveiteams[i].level++;
                 Debug.Log(passiveIteam.name);
@@ -225,21 +259,37 @@ public class PlayerState : PlayerComponetSystem {
     {
         if(state.ModeMulity == true)
         {
-            AddNewIteamMulty(state);
+            AddNewIteamMulty(ref state);
             return;
         }
-        AddNewIteamAdd(state);
+        AddNewIteamAdd(ref state);
         OderAllIteams();
     }
-    private void AddNewIteamAdd(StateScriptAbleObject state)
+    private void AddNewIteamAdd(ref StateScriptAbleObject state)
     {
-        IteamsAdd.Add(state);
+        StateScriptAbleObject stateScriptAbleObject = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject");
+        stateScriptAbleObject.icone = state.icone;
+        stateScriptAbleObject.namex = state.namex;
+        stateScriptAbleObject.discrapsen = state.discrapsen;
+        stateScriptAbleObject.state = state.state;
+        stateScriptAbleObject.ModeMulity = state.ModeMulity;
+        stateScriptAbleObject.passiveIteam = state.passiveIteam;
+        stateScriptAbleObject.SkillIteam = state.SkillIteam;
+        IteamsAdd.Add(stateScriptAbleObject);
         StartNoramleCalculater();
         OderAllIteams();
     }
-    private void AddNewIteamMulty(StateScriptAbleObject state)
+    private void AddNewIteamMulty(ref StateScriptAbleObject state)
     {
-        IteamsAdd.Add(state);
+        StateScriptAbleObject stateScriptAbleObject = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject");
+        stateScriptAbleObject.icone = state.icone;
+        stateScriptAbleObject.namex = state.namex;
+        stateScriptAbleObject.discrapsen = state.discrapsen;
+        stateScriptAbleObject.state = state.state;
+        stateScriptAbleObject.ModeMulity = state.ModeMulity;
+        stateScriptAbleObject.passiveIteam = state.passiveIteam;
+        stateScriptAbleObject.SkillIteam = state.SkillIteam;
+        IteamsAdd.Add(stateScriptAbleObject);
         StartNoramleCalculater();
         OderAllIteams();
     }
