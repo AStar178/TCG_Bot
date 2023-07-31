@@ -40,7 +40,22 @@ public class MetroidEnergy : MonoBehaviour
         EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
 
         if (Energy <= 0)
-            Minus.Instance.CreatCoustomTextPopup("NO ENERGY", transform.position, Color.yellow);
+            RPGStatic.Instance.CreatCoustomTextPopup("NO ENERGY", transform.position, Color.yellow);
+    }
+
+    public void RestoreEnergy(float dam)
+    {
+        f = 0;
+        Cooloff = CooloffSet;
+        Energy += dam;
+        on = false;
+        if (Energy < 0)
+            Energy = 0;
+        EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
+
+        if (Energy > EnergyMax)
+            Energy = EnergyMax;
+
     }
 
     public void Update()

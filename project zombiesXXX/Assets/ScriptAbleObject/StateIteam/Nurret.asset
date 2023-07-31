@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b8131377c3c242aa3360a33d47a2a, type: 3}
+  m_Name: Nurret
+  m_EditorClassIdentifier: 
+  icone: {fileID: 0}
+  namex: Nurret
+  discrapsen: 
+  state:
+    Damage: 0
+    HpMax: 0
+    HpCurrent: 0
+    Crit: 0
+    CritDamageMulty: 0
+    SprintSpeed: 0
+    AttackSpeed: 0
+    JumpAmount: 0
+    Deffece: 0
+    AttackRange: 0
+    Luck: 0
+  ModeMulity: 0
+  passiveIteam: {fileID: 3616928172083988433, guid: 615341360f0c6334b8c1942bbb68eb21,
+    type: 3}
+  SkillIteam: {fileID: 0}
+  IteamAddAready: 0

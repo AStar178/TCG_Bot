@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6016165523483873831}
   - component: {fileID: 3018390593824053222}
+  - component: {fileID: -1904383069596338814}
   m_Layer: 0
   m_Name: SoundOfGods
   m_TagString: Untagged
@@ -61,3 +62,22 @@ MonoBehaviour:
   Timer: 2
   effect: {fileID: 1193793710732960462, guid: 60947dd1f1451344daac14a6f339f29c, type: 3}
   offset: {x: 0, y: 0.75, z: 0}
+--- !u!114 &-1904383069596338814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656069787286927622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afffe74116030845bd2b386fc76115d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caninteracted: 0
+  OneText: 
+  TwoText: 
+  stateScriptAbleObject: {fileID: 11400000, guid: 77417e9c422d74544a42b3b9eb0cab4b,
+    type: 2}
+  iteamTypo: 4
+  chest: {fileID: 0}

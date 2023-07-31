@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6016165523483873831}
   - component: {fileID: -2447324604328434035}
+  - component: {fileID: 3812015081204985905}
   m_Layer: 0
   m_Name: Nuke
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Oderlayer: 0
-  id: 4
   Icon: {fileID: 0}
   namex: Nuke
   dependencies: 
@@ -58,8 +58,28 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  itemAdded: 0
   Effect: {fileID: 8231225153275547240, guid: 2705b19abde0e484eb50da8e7ef906ae, type: 3}
   CouldDown: 10
   DamageRaduis: 4
   Raduis: 50
   offset: 0.01
+--- !u!114 &3812015081204985905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656069787286927622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afffe74116030845bd2b386fc76115d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caninteracted: 0
+  OneText: 
+  TwoText: 
+  stateScriptAbleObject: {fileID: 11400000, guid: 65804ac254657d94cafede5967bfea0a,
+    type: 2}
+  iteamTypo: 0
+  chest: {fileID: 0}

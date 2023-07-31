@@ -26,12 +26,12 @@ public class Chest : Interactable
         for (int i = 0; i < particles.Length; i++)
         {
             List<Material> f = new List<Material>();
-            f.Add(Minus.Instance.GetRightMatrialColorForIteamRarety(iteamType));
-            f.Add(Minus.Instance.GetRightMatrialColorForIteamRarety(iteamType));
+            f.Add(RPGStatic.Instance.GetRightMatrialColorForIteamRarety(iteamType));
+            f.Add(RPGStatic.Instance.GetRightMatrialColorForIteamRarety(iteamType));
             particles[i].SetMaterials(f);
-            particles[i].material = Minus.Instance.GetRightMatrialColorForIteamRarety(iteamType);
+            particles[i].material = RPGStatic.Instance.GetRightMatrialColorForIteamRarety(iteamType);
         }
-        outliner.OutlineColor = Minus.Instance.GetRightColorForIteamRarety(iteamType);
+        outliner.OutlineColor = RPGStatic.Instance.GetRightColorForIteamRarety(iteamType);
     outliner.Awake();
     outliner.OnEnable();
     }

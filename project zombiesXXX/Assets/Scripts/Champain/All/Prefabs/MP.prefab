@@ -57,6 +57,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  itemAdded: 0
   JetPackPower: 8
   HelperEnegyCost: 8.5
   EnergyCost: 5

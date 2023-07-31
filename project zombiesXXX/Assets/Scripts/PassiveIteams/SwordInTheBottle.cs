@@ -8,6 +8,7 @@ public class SwordInTheBottle : IteamPassive
     public float RotateSpeed;
     public float Damage;
     public float RangeOffset;
+    public float RotationSpeed;
     public Vector3 StandOffset;
     public float AggroRange;
     public float speed;
@@ -43,6 +44,7 @@ public class SwordInTheBottle : IteamPassive
             return base.OnUpdate(playerState, ref CalucatedValue, ref state);
     }
 
+    private float angle;
     public void SwordThings(PlayerState playerState, Transform sword, SwordHelper swordHelper, int i)
     {
         if (playerState.Player.PlayerTargetSystem.Target == null)
@@ -77,13 +79,14 @@ public class SwordInTheBottle : IteamPassive
         else
         {
             float f =  (float)i/swordHelpers.Count;
-            float x = Mathf.Cos(f * (Mathf.PI * 2)) * RangeOffset;
-            float z = Mathf.Sin(f * (Mathf.PI * 2)) * RangeOffset;
+            float x = Mathf.Cos( angle + (f * (Mathf.PI * 2))) * RangeOffset;
+            float z = Mathf.Sin(angle + (f * (Mathf.PI * 2))) * RangeOffset;
 
             swordHelper.rb.velocity = Vector3.zero;
             sword.position = Vector3.Lerp(sword.position, playerState.transform.position + StandOffset + new Vector3(x, 0, z), speed * Time.deltaTime);
 
             sword.localEulerAngles = new Vector3(90, playerState.transform.localEulerAngles.y, 0);
+            angle += Time.deltaTime * RotationSpeed;
         }
     }
 

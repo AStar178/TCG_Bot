@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(IteamforChest))]
 public abstract class IteamPassive : Iteam {
     public Sprite Icon;
     public string namex;
@@ -17,9 +18,16 @@ public abstract class IteamPassive : Iteam {
         float x = 0;
         for (int i = 0; i < level; i++)
         {
-            x += (ScalingLevel.Evaluate(i/10));
+            x += (ScalingLevel.Evaluate(i / 10));
         }
         return (x + (level * 0.1f) * ScaleTheScaling) / DivedTheScaling;
+    }
+
+    public float Scaling1and0()
+    {
+        if (level == 0)
+            return 1;
+        return ScalingLevel.Evaluate(level / 10);
     }
 
 }

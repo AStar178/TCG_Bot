@@ -39,7 +39,7 @@ public class Freeze : IteamPassive {
             target.TakeDamage(data);
             var effet = Instantiate(visualEffect , target.transform.position , transform.localRotation);
             effet.Play();
-            Destroy(effet , 5);
+            Destroy(effet.gameObject , 5);
         }
         target.GetComponent<BasicEnemy>().SpeedSlow = debuff.SpeedSlow;
         target.MainMatrial.material.SetFloat("_FreezAmount" , debuff.SpeedSlow);
