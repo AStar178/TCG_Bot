@@ -49,14 +49,16 @@ public class MetroidUlt : IteamSkill {
             on = true;
         }
         
+        playerState.Player.PlayerEffect.lineRenderer.SetPosition(0 , playerState.Player.PlayerEffect.lineRenderer.transform.position);
+        playerState.Player.PlayerEffect.lineRenderer.SetPosition(1 , playerState.Player.PlayerEffect.lineRenderer.transform.position + playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward * 5);
+        playerState.Player.PlayerEffect.lineRenderer.SetPosition(2 , playerState.Player.PlayerTargetSystem.Target.transform.position);
+
         if (xcxzc > 0)
             return;
 
         var Damage = CreatDamage(playerState.ResultValue.Damage , playerState , out var crited);
         var enemy = playerState.Player.PlayerTargetSystem.Target.GetComponent<EnemyHp>();
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(0 , playerState.Player.PlayerEffect.lineRenderer.transform.position);
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(1 , playerState.Player.PlayerEffect.lineRenderer.transform.position + playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward * 5);
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(2 , playerState.Player.PlayerTargetSystem.Target.transform.position);
+
         enemy.TakeDamage( Damage );
         metr.LostEnergy(1);
         playerState.OnAtuoAttackDealDamage?.Invoke(Damage , enemy);

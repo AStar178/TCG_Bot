@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: 
+  namex: IsColed
   discrapsen: 
   state:
     Damage: 0

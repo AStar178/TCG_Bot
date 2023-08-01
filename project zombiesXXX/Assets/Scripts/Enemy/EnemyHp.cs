@@ -36,7 +36,7 @@ public class EnemyHp : MonoBehaviour, IDamageAble
         TakeDamageEvent?.Invoke(Data);
         CurrentHp -= Data.DamageAmount;
         float a = -Data.DamageAmount;
-        RPGStatic.Instance.CreatCoustomTextPopup(a.ToString(), transform.position, Color.red);
+        RPGStatic.Instance.CreatCoustomTextPopup(a.ToString(), transform.position, Data.Crited == false ? Color.red : Color.yellow );
         if (CurrentHp < 0)
         {
             Killed();

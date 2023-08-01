@@ -12,8 +12,9 @@ public class Movementoutofcombat : IteamPassive
     VisualEffect effectx;
     public override void OnStart(PlayerState playerState)
     {
-        effectx = Instantiate(effect , transform.position + offset , Quaternion.identity);
+        effectx = Instantiate(effect , transform.position , Quaternion.identity);
         effectx.transform.SetParent(playerState.Player.PlayerInputSystem.transform);
+        effectx.transform.localPosition = Vector3.zero + offset;
     }
     public override State OnUpdate(PlayerState playerState , ref State CalculatedValue , ref State state)
     {

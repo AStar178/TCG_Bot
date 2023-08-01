@@ -33,6 +33,7 @@ public abstract class Iteam : MonoBehaviour {
             crited = true;
         }
         damageData.target = playerState.Player.PlayerInputSystem.transform;
+        damageData.Crited = crited;
         return damageData;
     }
     public DamageData CreatDamageWithOutCrit(float damage , PlayerState playerState)
