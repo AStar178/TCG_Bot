@@ -114,16 +114,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseSkill1",
-                    "type": "Button",
+                    "name": "RButtonVlaue",
+                    "type": "PassThrough",
                     "id": "597a4750-9171-4b55-815a-7e8f304b20c9",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseSkill2",
+                    "name": "UseSkill1",
                     "type": "Button",
                     "id": "d3633a46-8685-4742-a3b6-3bef82fa072b",
                     "expectedControlType": "Button",
@@ -132,7 +132,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseSkill3",
+                    "name": "UseSkill2",
                     "type": "Button",
                     "id": "6a9dd64a-b654-4bf8-aa2b-86d4d76ff1f5",
                     "expectedControlType": "Button",
@@ -141,7 +141,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseSkill4",
+                    "name": "UseSkill3",
                     "type": "Button",
                     "id": "9356db31-aa91-4894-ad16-c24d0765d89e",
                     "expectedControlType": "Button",
@@ -150,7 +150,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseSkill5",
+                    "name": "UseSkill4",
                     "type": "Button",
                     "id": "66726b32-d9e4-433c-a120-a0318c6a5087",
                     "expectedControlType": "Button",
@@ -442,7 +442,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "UseSkill1",
+                    "action": "RButtonVlaue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -453,7 +453,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseSkill2",
+                    "action": "UseSkill1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -464,7 +464,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseSkill3",
+                    "action": "UseSkill2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -475,7 +475,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseSkill4",
+                    "action": "UseSkill3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -486,7 +486,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseSkill5",
+                    "action": "UseSkill4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

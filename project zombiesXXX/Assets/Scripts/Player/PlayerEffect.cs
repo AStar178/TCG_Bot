@@ -11,6 +11,8 @@ public class PlayerEffect : PlayerComponetSystem {
     [SerializeField] VisualEffect visualEffect;
     [SerializeField] ParticleSystem[] thatparicale;
     [SerializeField] ParticleSystem[] wakeparticale;
+    [SerializeField] ParticleSystem[] LazerParicale;
+    [SerializeField] public LineRenderer lineRenderer;
     public VisualEffect Shooteffect;
     public Animator animator;
     public async void TurnOnInvisableEffectTime(float time)
@@ -66,6 +68,70 @@ public class PlayerEffect : PlayerComponetSystem {
     {
         
         wakeparticale[1].Play();
+        
+    }
+
+    public async void StopLazer()
+    {
+        for (int i = 0; i < LazerParicale.Length; i++)
+        {
+            
+            LazerParicale[i].Stop();
+
+        }
+        var t = 1f;
+        //1 , 0.21875
+        float x = 1;
+        float y = 0.5f;
+        float z = 0.21875f;
+        while ( t > 0 )
+        {
+            t -= Time.deltaTime;
+            AnimationCurve curve = new AnimationCurve();
+            x = Mathf.Lerp( x , 0 , 8 * Time.deltaTime );
+            y = Mathf.Lerp( y , 0 , 8 * Time.deltaTime );
+            z = Mathf.Lerp( z , 0 , 8 * Time.deltaTime );
+            curve.AddKey(0, x);
+            curve.AddKey(.5f, y);
+            curve.AddKey(1f, z);
+            lineRenderer.widthCurve = curve;
+
+            await Task.Yield();
+        }
+        
+        lineRenderer.enabled = false;
+
+    }
+    public async void StartLazer()
+    {
+        for (int i = 0; i < LazerParicale.Length; i++)
+        {
+            
+            LazerParicale[i].Play();
+
+        }
+        lineRenderer.enabled = true;
+        var t = 1f;
+        //1 , 0.21875
+        float x = 0;
+        float y = 0f;
+        float z = 0f;
+        while ( t > 0 )
+        {
+            t -= Time.deltaTime;
+            AnimationCurve curve = new AnimationCurve();
+            x = Mathf.Lerp( x , 1 , 8 * Time.deltaTime );
+            y = Mathf.Lerp( y , 0.5f , 8 * Time.deltaTime );
+            z = Mathf.Lerp( z , 0.21875f , 8 * Time.deltaTime );
+            curve.AddKey(0, x);
+            curve.AddKey(.5f, y);
+            curve.AddKey(1f, z);
+            lineRenderer.widthCurve = curve;
+
+            await Task.Yield();
+        }
+        
+
         
     }
 }

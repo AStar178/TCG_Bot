@@ -12,6 +12,7 @@ namespace StarterAssets
 		public float JumpValue;
 		public float RightButtonValue;
 		public float LeftButtonValue;
+		public float RButtonValue;
 		public Vector2 move;
 		public Vector2 look;
 		public float Zoom;
@@ -21,11 +22,11 @@ namespace StarterAssets
 		public bool LeftButton;
 		public bool RightButton;
 		public bool Intract;
+		public bool R;
 		public bool n1;
 		public bool n2;
 		public bool n3;
 		public bool n4;
-		public bool n5;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -69,6 +70,10 @@ namespace StarterAssets
 		{
 			LeftButtonValue = value.Get<float>();
 		}
+		public void OnRButtonVlaue(InputValue value)
+		{
+			RButtonValue = value.Get<float>();
+		}
 
 		public void OnSprint(InputValue value)
 		{
@@ -82,6 +87,11 @@ namespace StarterAssets
 		{
 			RightButtonInput(value.isPressed);
 		}
+		public void OnUseR(InputValue value)
+		{
+			SkillRInput(value.isPressed);
+		}
+		
 		public void OnIntract(InputValue value)
 		{
 			IntractInput(value.isPressed);
@@ -102,11 +112,7 @@ namespace StarterAssets
 		{
 			Skill4Input(value.isPressed);
 		}
-		public void OnUseSkill5(InputValue value)
-		{
-			Skill5Input(value.isPressed);
-		}
-		
+
 
 		public void OnFindTarget(InputValue value)
 		{
@@ -147,6 +153,11 @@ namespace StarterAssets
 		{
 			RightButton = value;
 		}
+
+		public void SkillRInput(bool isPressed)
+        {
+            R = isPressed;
+        }
 		public void IntractInput(bool value)
 		{
 			Intract = value;
@@ -167,10 +178,7 @@ namespace StarterAssets
 		{
 			n4 = value;
 		}
-		public void Skill5Input(bool value)
-		{
-			n5 = value;
-		}
+
 
 		private void OnApplicationFocus(bool hasFocus)
 		{

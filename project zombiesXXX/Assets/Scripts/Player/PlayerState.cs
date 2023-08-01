@@ -162,45 +162,45 @@ public class PlayerState : PlayerComponetSystem {
             }
             Player.PlayerInputSystem.RightButton = false;
         }
-        if ( Player.PlayerInputSystem.n1 )
+        if ( Player.PlayerInputSystem.RButtonValue  != 0 )
         {
             if (Skill[2] != null)
             {
                 Skill[2].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.n1 = false;
+            Player.PlayerInputSystem.R = false;
         }
-        if ( Player.PlayerInputSystem.n2 )
+        if ( Player.PlayerInputSystem.n1 )
         {
             if (Skill[3] != null)
             {
                 Skill[3].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.n2 = false;
+            Player.PlayerInputSystem.n1 = false;
         }
-        if ( Player.PlayerInputSystem.n3 )
+        if ( Player.PlayerInputSystem.n2 )
         {
             if (Skill[4] != null)
             {
                 Skill[4].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.n3 = false;
+            Player.PlayerInputSystem.n2 = false;
         }
-        if ( Player.PlayerInputSystem.n4 )
+        if ( Player.PlayerInputSystem.n3 )
         {
             if (Skill[5] != null)
             {
                 Skill[5].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.n4 = false;
+            Player.PlayerInputSystem.n3 = false;
         }
-        if ( Player.PlayerInputSystem.n5 )
+        if ( Player.PlayerInputSystem.n4 )
         {
             if (Skill[6] != null)
             {
                 Skill[6].OnUseSkill(this);
             }
-            Player.PlayerInputSystem.n5 = false;
+            Player.PlayerInputSystem.n4 = false;
         }
         
     }

@@ -102,7 +102,7 @@ public class Outliner : MonoBehaviour {
   public async void OnEnable() {
     
     foreach (var renderer in renderers) {
-      if (renderer.TryGetComponent<ParticleSystem>(out var s))
+      if (renderer.TryGetComponent<ParticleSystem>(out var s) || renderer.TryGetComponent<LineRenderer>(out var yes))
       {
           continue;
       }

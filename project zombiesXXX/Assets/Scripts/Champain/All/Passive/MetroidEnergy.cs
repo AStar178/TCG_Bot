@@ -57,6 +57,20 @@ public class MetroidEnergy : MonoBehaviour
             Energy = EnergyMax;
 
     }
+    public void LostEnergy(float dam)
+    {
+        f = 0;
+        Cooloff = CooloffSet;
+        Energy -= dam;
+        on = false;
+        if (Energy < 0)
+            Energy = 0;
+        EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
+
+        if (Energy > EnergyMax)
+            Energy = EnergyMax;
+
+    }
 
     public void Update()
     {

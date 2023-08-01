@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -13,6 +14,10 @@ namespace StarterAssets
         public GameObject Target;
         [SerializeField] Transform Targexxxxx;
         [SerializeField] Rig rig;
+        [SerializeField] AvatarMask animator;
+        [SerializeField] AvatarMask animatorWhenAiming;
+        [SerializeField] AvatarMask animatorWhenNotAiming;
+        [SerializeField] int indexc;
         bool TargetSelectetMode;
         void Update()
         {
@@ -77,16 +82,26 @@ namespace StarterAssets
             
             _input.findTarget = false;
         }
-
         private void TargetSelecting()
         {
             if (Target != null)
             {
                 Targexxxxx.transform.position = Vector3.Lerp( Targexxxxx.transform.position , Target.transform.position , 5 * Time.deltaTime  ) ;
+                
+                for (int i = 0; i < indexc; i++)
+                {
+                    animator.SetHumanoidBodyPartActive( (AvatarMaskBodyPart)i , animatorWhenAiming.GetHumanoidBodyPartActive( (AvatarMaskBodyPart)i ));
+                }
+
                 rig.weight = Mathf.Lerp( rig.weight , 1 , 0.1f );
                 return;
             }
+            for (int i = 0; i < indexc; i++)
+            {
+                animator.SetHumanoidBodyPartActive( (AvatarMaskBodyPart)i , animatorWhenNotAiming.GetHumanoidBodyPartActive( (AvatarMaskBodyPart)i ));
+            }
             rig.weight = Mathf.Lerp( rig.weight , 0 , 0.1f );
         }
+        
     }
 }
