@@ -6,6 +6,7 @@ public class MetroidAttack : IteamSkill
 {
     [SerializeField] float AttackSpeed;
     float t;
+    [SerializeField] float EnergyPerHit;
     private MetroidEnergy MetroidEnergy;
 
     public override void OnStart(PlayerState playerState)
@@ -29,7 +30,7 @@ public class MetroidAttack : IteamSkill
         t = AttackSpeed * (1/(playerState.ResultValue.AttackSpeed+1));
         playerState.OnAtuoAttackDealDamage?.Invoke(damage , enemy);
         playerState.OnAbilityAttackDealDamage?.Invoke(damage , enemy);
-        MetroidEnergy.RestoreEnergy(10);
+        MetroidEnergy.RestoreEnergy(EnergyPerHit);
         playerState.Player.PlayerEffect.Shooteffect.Play();
         base.OnUseSkill(playerState);
 

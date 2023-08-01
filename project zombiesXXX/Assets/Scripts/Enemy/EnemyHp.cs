@@ -37,8 +37,15 @@ public class EnemyHp : MonoBehaviour, IDamageAble
         CurrentHp -= Data.DamageAmount;
         float a = -Data.DamageAmount;
         RPGStatic.Instance.CreatCoustomTextPopup(a.ToString(), transform.position, Data.Crited == false ? Color.red : Color.yellow );
+
+        if (Data.Crited)
+        {
+            Data.target.OnCritied?.Invoke(Data, this);
+        }
+
         if (CurrentHp < 0)
         {
+            Data.target.OnKilledEnemy?.Invoke(Data, this);
             Killed();
         }
     }

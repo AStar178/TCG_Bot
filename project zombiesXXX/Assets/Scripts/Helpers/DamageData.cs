@@ -3,7 +3,7 @@ using UnityEngine;
 public struct DamageData
 {
     public float DamageAmount;
-    public Transform target;
+    public PlayerState target;
     public GameObject enemyHp;
     public bool Crited;
 }

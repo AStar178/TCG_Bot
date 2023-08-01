@@ -29,7 +29,7 @@ public class Movementoutofcombat : IteamPassive
         if (time < 0)
         {
             effectx.Play();
-            state.SprintSpeed = state.SprintSpeed * (2 + Scaling());
+            state.SprintSpeed = state.SprintSpeed + (2 + Scaling());
 
         }
 

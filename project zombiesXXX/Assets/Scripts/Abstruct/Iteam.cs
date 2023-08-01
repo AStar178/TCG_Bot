@@ -32,7 +32,7 @@ public abstract class Iteam : MonoBehaviour {
             damageData.DamageAmount *= playerState.ResultValue.CritDamageMulty == 0 ? 1 : playerState.ResultValue.CritDamageMulty;
             crited = true;
         }
-        damageData.target = playerState.Player.PlayerInputSystem.transform;
+        damageData.target = playerState;
         damageData.Crited = crited;
         return damageData;
     }
@@ -40,7 +40,7 @@ public abstract class Iteam : MonoBehaviour {
     {
         DamageData damageData = new DamageData();
         damageData.DamageAmount = damage;
-        damageData.target = playerState.Player.PlayerInputSystem.transform;
+        damageData.target = playerState;
         return damageData;
     }
     

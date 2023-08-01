@@ -4,8 +4,10 @@ using UnityEngine;
 using System.Linq;
 
 public class PlayerState : PlayerComponetSystem {
-    
-    
+
+    [SerializeField]
+    private string Name;
+    public string GetName() => Name;
     [SerializeField] public State BaseValue;
     [SerializeField] public State CalculatedValue;
     private State ChangeValue;
@@ -24,6 +26,8 @@ public class PlayerState : PlayerComponetSystem {
     bool startSemelisane;
     public Action<DamageData , EnemyHp> OnAtuoAttackDealDamage;
     public Action<DamageData , EnemyHp> OnAbilityAttackDealDamage;
+    public Action<DamageData, EnemyHp> OnCritied;
+    public Action<DamageData, EnemyHp> OnKilledEnemy;
     public bool Combat;
 
     private void Start() {

@@ -4,6 +4,7 @@ public class MetroidUlt : IteamSkill {
 
     [SerializeField] float CouldDown = 2;
     [SerializeField] float AttackSpeed = 0.1f;
+    [SerializeField] float EnerhyCost;
     float xcxzc;
     float tt;
     bool on;
@@ -26,7 +27,7 @@ public class MetroidUlt : IteamSkill {
     {
         tt -= Time.deltaTime;
         xcxzc -= Time.deltaTime;
-        if ( metr.Energy < 1 )
+        if ( metr.Energy < EnerhyCost )
         {
             DIESDASDASDAS();
             return;
@@ -60,7 +61,7 @@ public class MetroidUlt : IteamSkill {
         var enemy = playerState.Player.PlayerTargetSystem.Target.GetComponent<EnemyHp>();
 
         enemy.TakeDamage( Damage );
-        metr.LostEnergy(1);
+        metr.LostEnergy(EnerhyCost);
         playerState.OnAtuoAttackDealDamage?.Invoke(Damage , enemy);
         if (crited == true)
         {

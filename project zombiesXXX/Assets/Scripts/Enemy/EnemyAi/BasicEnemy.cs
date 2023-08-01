@@ -115,7 +115,7 @@ public class BasicEnemy : MonoBehaviour
     }
     private void IamVeryAngery(DamageData t)
     {
-        target = t.target;
+        target = t.target.transform;
         RangeTime = 5;
     }
     private void TargetFunction()

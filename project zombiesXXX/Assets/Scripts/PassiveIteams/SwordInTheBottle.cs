@@ -14,6 +14,12 @@ public class SwordInTheBottle : IteamPassive
     public float speed;
     public float AggroSet;
     public List<SwordHelper> swordHelpers;
+    public int MaxLevelScaling;
+    public bool OnAbilityTrigger = false;
+    public bool OnAttackTrigger = false;
+    public bool IncreaseOnLvl = true;
+    public float NumberOfSwords = 1;
+    public float DamageScaling = .1f;
 
     public Transform target;
     public LayerMask Enemy;
@@ -22,15 +28,17 @@ public class SwordInTheBottle : IteamPassive
 
     public override void OnStart(PlayerState playerState)
     {
-        swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
-        swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
+        for (int i = 0; i < NumberOfSwords; i++)
+            swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
+
         transform.localPosition = Vector3.zero;
         base.OnStart(playerState);
     }
 
     public override void OnLevelUp(PlayerState playerState)
     {
-        swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
+        if (IncreaseOnLvl)
+            swordHelpers.Add(Instantiate(SwordPrefab.GetComponent<SwordHelper>(), transform));
 
         base.OnLevelUp(playerState);
     }
@@ -67,10 +75,15 @@ public class SwordInTheBottle : IteamPassive
 
             if (Vector3.Distance(sword.position, target.position) < .5f && swordHelper.Aggro <= 0)
             {
-                DamageData damageData = CreatDamage(Damage, playerState, out var a);
+                DamageData damageData = CreatDamage((Damage * Scaling1and0(MaxLevelScaling)) + (playerState.ResultValue.Damage * DamageScaling), playerState, out var a);
                 target.GetComponent<EnemyHp>().TakeDamage(damageData);
                 EnemyHp enemyHp = target.GetComponent<EnemyHp>();
-                playerState.OnAtuoAttackDealDamage?.Invoke(damageData, enemyHp);
+
+                if (OnAttackTrigger)
+                    playerState.OnAtuoAttackDealDamage?.Invoke(damageData, enemyHp);
+                if (OnAbilityTrigger)
+                    playerState.OnAbilityAttackDealDamage?.Invoke(damageData, enemyHp);
+
                 swordHelper.Aggro = AggroSet;
             }
 

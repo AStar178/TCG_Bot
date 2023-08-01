@@ -48,14 +48,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Oderlayer: 0
   Icon: {fileID: 0}
-  namex: Sword in the Bottle
+  namex: Sword of Mir
   dependencies: 
   level: 0
   ScaleTheScaling: 1
   DivedTheScaling: 1
   ScalingLevel:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -69,6 +87,12 @@ MonoBehaviour:
   speed: 22
   AggroSet: 0.75
   swordHelpers: []
+  MaxLevelScaling: 1
+  OnAbilityTrigger: 0
+  OnAttackTrigger: 1
+  IncreaseOnLvl: 1
+  NumberOfSwords: 2
+  DamageScaling: 0.1
   target: {fileID: 0}
   Enemy:
     serializedVersion: 2

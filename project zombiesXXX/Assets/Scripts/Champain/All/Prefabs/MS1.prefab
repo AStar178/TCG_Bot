@@ -50,3 +50,4 @@ MonoBehaviour:
   namexSkill: 
   dependenciesSkill: 
   AttackSpeed: 1
+  EnergyPerHit: 7

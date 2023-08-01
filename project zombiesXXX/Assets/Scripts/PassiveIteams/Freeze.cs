@@ -11,10 +11,10 @@ public class Freeze : IteamPassive {
     PlayerState playerState1;
 
     private void OnEnable() {
-        Player.Current.PlayerState.OnAtuoAttackDealDamage += Freezing;  
+        Player.Current.PlayerState.OnAbilityAttackDealDamage += Freezing;  
     }
     private void OnDisable() {
-        Player.Current.PlayerState.OnAtuoAttackDealDamage += Freezing;
+        Player.Current.PlayerState.OnAbilityAttackDealDamage -= Freezing;
     }
 
     private void Freezing(DamageData data , EnemyHp target)

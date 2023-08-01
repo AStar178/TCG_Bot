@@ -46,7 +46,6 @@ public class MetroidEnergy : MonoBehaviour
     public void RestoreEnergy(float dam)
     {
         f = 0;
-        Cooloff = CooloffSet;
         Energy += dam;
         on = false;
         if (Energy < 0)

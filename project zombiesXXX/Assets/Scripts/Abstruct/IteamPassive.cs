@@ -23,11 +23,11 @@ public abstract class IteamPassive : Iteam {
         return (x + (level * 0.1f) * ScaleTheScaling) / DivedTheScaling;
     }
 
-    public float Scaling1and0()
+    public float Scaling1and0(float a)
     {
         if (level == 0)
             return 1;
-        return ScalingLevel.Evaluate(level / 10);
+        return ScalingLevel.Evaluate(level / a);
     }
 
 }

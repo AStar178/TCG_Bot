@@ -8,6 +8,9 @@ public class Nurrets : IteamPassive
     [Header("Iteam")]
     public Transform Target;
     public Transform Shootpos;
+    public float ScalingMaxLevel = 20;
+    public int AbilityApplyLevel = 5;
+    private bool ApplyAbility = false;
     public float AttackCooldownSet;
     private float AttackCooldown;
     public float AttackDamage, AttackRange;
@@ -31,11 +34,21 @@ public class Nurrets : IteamPassive
 
     private float angle;
 
+    public override void OnStart(PlayerState playerState)
+    {
+        ApplyAbility = false;
+
+        base.OnStart(playerState);
+    }
+
     public override State OnUpdate(PlayerState playerState, ref State CalucatedValue, ref State state)
     {
         Circling(playerState.transform);
 
         Attack(playerState);
+
+        if (level == AbilityApplyLevel)
+            ApplyAbility = true;
 
         return base.OnUpdate(playerState, ref CalucatedValue, ref state);
     }
@@ -68,19 +81,21 @@ public class Nurrets : IteamPassive
                 EnemyHp enemyHp = Target.GetComponent<EnemyHp>();
                 enemyHp.TakeDamage(dam);
                 playerState.OnAtuoAttackDealDamage?.Invoke(dam, enemyHp);
+                if (ApplyAbility)
+                    playerState.OnAbilityAttackDealDamage?.Invoke(dam, enemyHp);
                 Transform eff = Instantiate(ImpactEffect).transform;
                 eff.position = Shootpos.position;
                 eff.localRotation = Shootpos.rotation;
                 eff.transform.SetParent(Shootpos);
                 Destroy(eff.gameObject, 1);
-                AttackCooldown = AttackCooldownSet * Scaling1and0();
+                AttackCooldown = AttackCooldownSet * Scaling1and0(ScalingMaxLevel);
             } else
             {
                 AttackCooldown -= Time.deltaTime;
             }
         }
         else
-            transform.localRotation = Quaternion.identity;
+            transform.localRotation = playerState.transform.localRotation;
     }
 
     public Transform FindTarget(float AttackRange, Transform position, Transform SelectedTarget)
