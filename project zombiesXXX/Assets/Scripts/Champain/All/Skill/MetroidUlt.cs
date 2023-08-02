@@ -49,9 +49,9 @@ public class MetroidUlt : IteamSkill {
             Player.Current.PlayerEffect.StartLazer();
             on = true;
         }
-        
+        var s = Vector3.Distance(playerState.Player.PlayerEffect.lineRenderer.transform.position , playerState.Player.PlayerTargetSystem.Target.transform.position) < 5f ? playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward  : playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward * 5;
         playerState.Player.PlayerEffect.lineRenderer.SetPosition(0 , playerState.Player.PlayerEffect.lineRenderer.transform.position);
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(1 , playerState.Player.PlayerEffect.lineRenderer.transform.position + playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward * 5);
+        playerState.Player.PlayerEffect.lineRenderer.SetPosition(1 , playerState.Player.PlayerEffect.lineRenderer.transform.position + s);
         playerState.Player.PlayerEffect.lineRenderer.SetPosition(2 , playerState.Player.PlayerTargetSystem.Target.transform.position);
 
         if (xcxzc > 0)

@@ -51,4 +51,4 @@ MonoBehaviour:
   dependenciesSkill: 
   CouldDown: 1
   AttackSpeed: 0.05
-  EnerhyCost: 4
+  EnerhyCost: 2
