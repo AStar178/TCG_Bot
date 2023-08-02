@@ -109,7 +109,7 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.CritDamageMulty += IteamsAdd[i].state.CritDamageMulty;
             Luck += IteamsAdd[i].state.Luck;
             if (IteamsAdd[i].ModeMulity == false && IteamsAdd[i].IteamAddAready == false) 
-            { AddIteamPassive(IteamsAdd[i].passiveIteam); IteamsAdd[i].IteamAddAready = true; }
+            { AddIteamPassive(IteamsAdd[i].passiveIteam); AddIteamSkill( IteamsAdd[i].SkillIteam ); IteamsAdd[i].IteamAddAready = true;  }
         }
     }
     private void MulityAllScriptAbleObjectITEMSBuffs()
@@ -127,7 +127,7 @@ public class PlayerState : PlayerComponetSystem {
             CalculatedValue.CritDamageMulty *= IteamsMulty[i].state.CritDamageMulty == 0 ? 1 : IteamsMulty[i].state.CritDamageMulty;
             Luck *= IteamsMulty[i].state.Luck == 0 ? 1 : IteamsMulty[i].state.Luck;
             if (IteamsAdd[i].ModeMulity == true && IteamsAdd[i].IteamAddAready == false)
-            { AddIteamPassive(IteamsMulty[i].passiveIteam); IteamsAdd[i].IteamAddAready = true; }
+            { AddIteamPassive(IteamsMulty[i].passiveIteam); AddIteamSkill( IteamsAdd[i].SkillIteam ); IteamsAdd[i].IteamAddAready = true;  }
         }
     }
     private void ApplyResult()

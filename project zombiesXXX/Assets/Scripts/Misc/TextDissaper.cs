@@ -14,7 +14,7 @@ public class TextDissaper : MonoBehaviour
 
         if (t >= .05f)
         {
-            transform.position += new Vector3(0f, .05f, 0f);
+            transform.position += new Vector3(0f, .1f, 0f);
             f++;
             t = 0f;
         }
