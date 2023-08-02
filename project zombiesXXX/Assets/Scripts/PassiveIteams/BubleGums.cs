@@ -32,6 +32,12 @@ public class BubleGums : IteamSkill
         x -= Time.deltaTime;
         t -= Time.deltaTime;
         xc -= Time.deltaTime;
+        if ( t < 0  && CurrentBubble != null)
+            {
+                var s = Instantiate(bubblepartical , CurrentBubble.transform.position , Quaternion.identity );
+                Destroy(CurrentBubble);
+                Destroy(s , 2);
+            }
         if ( Player.Current.PlayerTargetSystem.Target == null)
         {
             if ( CurrentBubble == null )
@@ -56,13 +62,6 @@ public class BubleGums : IteamSkill
 
         if ( Vector3.Distance( CurrentBubble.transform.position , Player.Current.PlayerTargetSystem.Target.transform.position ) < 1f )
         {
-
-            if ( t < 0 )
-            {
-                var s = Instantiate(bubblepartical , CurrentBubble.transform.position , Quaternion.identity );
-                Destroy(CurrentBubble);
-                Destroy(s , 2);
-            }
 
             
             enemyRigidBody = Player.Current.PlayerTargetSystem.Target.GetComponent<Rigidbody>();

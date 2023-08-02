@@ -5,9 +5,8 @@ using UnityEngine;
 public class TextDissaper : MonoBehaviour
 {
     float t;
-    float f;
+    public float f;
 
-    // Update is called once per frame
     void Update()
     {
         t += Time.deltaTime;
@@ -20,6 +19,6 @@ public class TextDissaper : MonoBehaviour
         }
 
         if (f > 50)
-            Destroy(gameObject);
+            RPGStatic.Instance.objectPools.Release(this);
     }
 }

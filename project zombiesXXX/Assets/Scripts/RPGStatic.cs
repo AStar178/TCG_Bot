@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Pool;
 using UnityEngine;
 
 public class RPGStatic : MonoBehaviour
@@ -8,20 +9,43 @@ public class RPGStatic : MonoBehaviour
     public GameObject textPrefab;
     [SerializeField] Material[] colors;
     [SerializeField] Color[] colorsx;
+    public ObjectPool<TextDissaper> objectPools;
     private void Awake() {
-        
+        objectPools = new ObjectPool<TextDissaper>(() => {
+            return Instantiate(textPrefab , Vector3.zero , Quaternion.identity).GetComponent<TextDissaper>();
+        }
+        , s => {
+            s.gameObject.SetActive(true);
+        }
+        ,
+        s => 
+        {
+            s.gameObject.SetActive(false);
+        }
+        ,
+        s =>
+        {
+            Destroy(s.gameObject);
+        }
+        ,
+        false
+        , 1000
+        , 1000
+        );
         Instance = this;
 
     }
 
     public void CreatCoustomTextPopup(string v, Vector3 position, Color color)
     {
-        var text = Instantiate(textPrefab, position, Quaternion.identity);
+        var text = objectPools.Get();
+        text.f = 0;
+        text.transform.position = position;
         TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
         tMP_Text.text = v;
         tMP_Text.color = color;
     }
-
+    
     public Material GetRightMatrialColorForIteamRarety(RpgHelper.IteamType iteamType)
     {
         if (iteamType == RpgHelper.IteamType.Tier1)

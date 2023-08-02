@@ -18,6 +18,7 @@ public class MetroidEnergy : MonoBehaviour
 
     public Image[] EnergyImage;
     [SerializeField] Material material;
+    [SerializeField] Material materiall;
     [SerializeField] Image EnergyImagess; 
 
     private float f;
@@ -73,6 +74,7 @@ public class MetroidEnergy : MonoBehaviour
 
     public void Update()
     {
+        materiall.SetFloat("_Float", Mathf.Lerp( materiall.GetFloat("_Float") , Mathf.InverseLerp( 0 , EnergyMax , Energy ) , 4 * Time.deltaTime));
         if (Cooloff > 0)
         {
             Cooloff -= Time.deltaTime;
