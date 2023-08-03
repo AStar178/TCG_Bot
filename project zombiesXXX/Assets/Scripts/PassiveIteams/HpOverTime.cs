@@ -28,6 +28,8 @@ public class HpOverTime : IteamPassive {
         float f = playerState.CalculatedValue.HpCurrent + playerState.ResultValue.HpMax * 0.01f;
         f = Mathf.Clamp(f , 0 , playerState.ResultValue.HpMax);
         playerState.SetHpCurrent(f);
+        DamageData a = CreatDamageWithOutCrit(f, playerState);
+        playerState.OnHeal(a);
         return state;
     }
 }

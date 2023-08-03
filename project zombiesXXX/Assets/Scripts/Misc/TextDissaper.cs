@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class TextDissaper : MonoBehaviour
 {
-    float t;
+    [HideInInspector]
     public float f;
+    public Vector3 newPoisition;
+
 
     void Update()
     {
-        t += Time.deltaTime;
+        f += Time.deltaTime;
 
-        if (t >= .05f)
-        {
-            transform.position += new Vector3(0f, .1f, 0f);
-            f++;
-            t = 0f;
-        }
+        transform.position = Vector3.Lerp(transform.position, newPoisition, 4 * Time.deltaTime);
 
-        if (f > 50)
+        if (f > 1.5f)
             RPGStatic.Instance.objectPools.Release(this);
     }
 }

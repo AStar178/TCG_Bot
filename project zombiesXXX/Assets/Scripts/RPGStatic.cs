@@ -10,6 +10,9 @@ public class RPGStatic : MonoBehaviour
     [SerializeField] Material[] colors;
     [SerializeField] Color[] colorsx;
     public ObjectPool<TextDissaper> objectPools;
+
+    public Vector3 TextMinMove, TextMaxMove;
+
     private void Awake() {
         objectPools = new ObjectPool<TextDissaper>(() => {
             return Instantiate(textPrefab , Vector3.zero , Quaternion.identity).GetComponent<TextDissaper>();
@@ -44,6 +47,18 @@ public class RPGStatic : MonoBehaviour
         TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
         tMP_Text.text = v;
         tMP_Text.color = color;
+        text.newPoisition = text.transform.position + randomVector();
+    }
+
+    public Vector3 randomVector()
+    {
+        Vector3 a = new Vector3()
+        {
+            x = Random.Range(TextMinMove.x, TextMaxMove.x + 1),
+            y = Random.Range(TextMinMove.x, TextMaxMove.x + 1),
+            z = Random.Range(TextMinMove.x, TextMaxMove.x + 1)
+        };
+        return a;
     }
     
     public Material GetRightMatrialColorForIteamRarety(RpgHelper.IteamType iteamType)

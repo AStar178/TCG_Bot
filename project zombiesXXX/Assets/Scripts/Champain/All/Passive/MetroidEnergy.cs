@@ -19,7 +19,9 @@ public class MetroidEnergy : MonoBehaviour
     public Image[] EnergyImage;
     [SerializeField] Material material;
     [SerializeField] Material materiall;
-    [SerializeField] Image EnergyImagess; 
+    [SerializeField] Image EnergyImagess;
+
+    public Color ImageColor;
 
     private float f;
     [SerializeField] float fadeOut;
@@ -27,6 +29,7 @@ public class MetroidEnergy : MonoBehaviour
     public void Start()
     {
         Energy = EnergyMax;
+        Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
         f = 3;
     }
 
@@ -39,9 +42,13 @@ public class MetroidEnergy : MonoBehaviour
         if (Energy < 0)
             Energy = 0;
         EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
+        Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
 
         if (Energy <= 0)
+        {
             RPGStatic.Instance.CreatCoustomTextPopup("NO ENERGY", transform.position, Color.yellow);
+            Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
+        }
     }
 
     public void RestoreEnergy(float dam)
@@ -52,23 +59,13 @@ public class MetroidEnergy : MonoBehaviour
         if (Energy < 0)
             Energy = 0;
         EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
+        Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
 
         if (Energy > EnergyMax)
+        {
             Energy = EnergyMax;
-
-    }
-    public void LostEnergy(float dam)
-    {
-        f = 0;
-        Cooloff = CooloffSet;
-        Energy -= dam;
-        on = false;
-        if (Energy < 0)
-            Energy = 0;
-        EnergyImagess.fillAmount = Mathf.Lerp(EnergyImagess.fillAmount, Energy / EnergyMax, 5 * Time.deltaTime);
-
-        if (Energy > EnergyMax)
-            Energy = EnergyMax;
+            Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
+        }
 
     }
 
@@ -87,9 +84,11 @@ public class MetroidEnergy : MonoBehaviour
                 f = 0;
                 on = false;
                 Energy += EnergyRegen;
+                Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
                 if (Energy > EnergyMax)
                 { 
-                    Energy = EnergyMax; 
+                    Energy = EnergyMax;
+                    Player.Current.UIManager.SetLeftBar(Energy, EnergyMax, ImageColor);
                 }
                 t = 0;
             }

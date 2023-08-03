@@ -61,7 +61,7 @@ public class MetroidUlt : IteamSkill {
         var enemy = playerState.Player.PlayerTargetSystem.Target.GetComponent<EnemyHp>();
 
         enemy.TakeDamage( Damage );
-        metr.LostEnergy(EnerhyCost);
+        metr.DamageEnergy(EnerhyCost);
         playerState.OnAtuoAttackDealDamage?.Invoke(Damage , enemy);
         if (crited == true)
         {

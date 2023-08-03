@@ -55,4 +55,9 @@ public class EnemyHp : MonoBehaviour, IDamageAble
         KilledEvent?.Invoke();
         Destroy(gameObject);
     }
+
+    public void Heal(DamageData Data)
+    {
+        // NO
+    }
 }

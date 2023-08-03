@@ -8,6 +8,9 @@ public class PlayerState : PlayerComponetSystem {
     [SerializeField]
     private string Name;
     public string GetName() => Name;
+    [SerializeField]
+    private bool hasSecondBar = false;
+    public bool HasSecondBar() => hasSecondBar;
     [SerializeField] public State BaseValue;
     [SerializeField] public State CalculatedValue;
     private State ChangeValue;
@@ -28,6 +31,8 @@ public class PlayerState : PlayerComponetSystem {
     public Action<DamageData , EnemyHp> OnAbilityAttackDealDamage;
     public Action<DamageData, EnemyHp> OnCritied;
     public Action<DamageData, EnemyHp> OnKilledEnemy;
+    public Action<DamageData> OnDamageTaken;
+    public Action<DamageData> OnHealed;
     public bool Combat;
 
     private void Start() {
@@ -72,6 +77,8 @@ public class PlayerState : PlayerComponetSystem {
         StartStartNoramleCalculater();
         CalculatedValue.HpCurrent = ResultValue.HpMax;
         ResultValue.HpCurrent = ResultValue.HpMax;
+
+        Player.UIManager.SetHealth(ResultValue.HpCurrent, ResultValue.HpMax, this);
     }
     public void StartStartNoramleCalculater()
     {
@@ -298,4 +305,14 @@ public class PlayerState : PlayerComponetSystem {
         OderAllIteams();
     }
 
+    public void OnDamageTake(DamageData data)
+    {
+        Player.UIManager.SetHealth(ResultValue.HpCurrent, ResultValue.HpMax, this);
+        OnDamageTaken?.Invoke(data);
+    }
+    public void OnHeal(DamageData data)
+    {
+        Player.UIManager.SetHealth(ResultValue.HpCurrent, ResultValue.HpMax, this);
+        OnHealed?.Invoke(data);
+    }
 }
