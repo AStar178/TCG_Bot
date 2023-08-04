@@ -48,10 +48,15 @@ public abstract class Iteam : MonoBehaviour {
     {
         return playerState.Player.PlayerState.transform.position;
     }
+    public Vector3 PlayerGetpos => Player.Current.PlayerState.transform.position;
+    
     public GameObject PlayerGameObject(PlayerState playerState)
     {
         return playerState.Player.PlayerState.gameObject;
     }
+    public PlayerState PlayerState => Player.Current.PlayerState;
+
+    
     public LayerMask EnmeyLayer => Player.Current.Enemy;
     protected void InCombat()
     {
