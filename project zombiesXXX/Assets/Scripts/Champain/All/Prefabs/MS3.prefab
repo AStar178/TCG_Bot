@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Oderlayer: 0
   useskill: 0
-  IconSkill: {fileID: 0}
+  IconSkill: {fileID: 21300000, guid: 5d52c3379a857644ab7ba788f3452946, type: 3}
   namexSkill: 
   dependenciesSkill: 
   CouldDown: 1

@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
     private ImageBar HealthBar;
     [SerializeField]
     private ImageBar LeftBar;
+    [SerializeField]
+    List<Icons> Icons;
+
+    #region UI Bars
 
     public void SetHealth(float current, float max, PlayerState playerState)
     {
@@ -22,4 +26,20 @@ public class UIManager : MonoBehaviour
     {
         LeftBar.Set(current, max, Color);
     }
+
+    #endregion
+
+    public void SetIcons(List<IteamSkill> iteamSkills)
+    {
+        foreach (var icon in Icons)
+        {
+            icon.SetIconImage(null);
+        }
+
+        for (int i = 0; i < iteamSkills.Count; i++)
+        {
+            Icons[i].SetIconImage(iteamSkills[i].IconSkill);
+        }
+    }
+
 }

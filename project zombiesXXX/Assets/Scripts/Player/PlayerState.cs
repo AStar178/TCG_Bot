@@ -79,6 +79,8 @@ public class PlayerState : PlayerComponetSystem {
         ResultValue.HpCurrent = ResultValue.HpMax;
 
         Player.UIManager.SetHealth(ResultValue.HpCurrent, ResultValue.HpMax, this);
+        List<IteamSkill> iteamSkills = new List<IteamSkill>(Skill);
+        Player.UIManager.SetIcons(iteamSkills);
     }
     public void StartStartNoramleCalculater()
     {
