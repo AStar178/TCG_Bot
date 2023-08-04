@@ -27,7 +27,7 @@ public class MetroidUlt : IteamSkill {
     {
         tt -= Time.deltaTime;
         xcxzc -= Time.deltaTime;
-        if ( metr.Energy < EnerhyCost )
+        if ( metr.Energy <= 0 )
         {
             DIESDASDASDAS();
             return;

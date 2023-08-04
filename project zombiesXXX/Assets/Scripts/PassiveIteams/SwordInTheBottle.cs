@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class SwordInTheBottle : IteamPassive
@@ -20,7 +22,7 @@ public class SwordInTheBottle : IteamPassive
     public bool IncreaseOnLvl = true;
     public float NumberOfSwords = 1;
     public float DamageScaling = .1f;
-
+    [SerializeField] GameObject jessy;
     public Transform target;
     public LayerMask Enemy;
 
@@ -82,7 +84,11 @@ public class SwordInTheBottle : IteamPassive
                 if (OnAttackTrigger)
                     playerState.OnAtuoAttackDealDamage?.Invoke(damageData, enemyHp);
                 if (OnAbilityTrigger)
+                {
                     playerState.OnAbilityAttackDealDamage?.Invoke(damageData, enemyHp);
+                    JESUSETHEENEMY(damageData , enemyHp);
+                }
+                    
 
                 swordHelper.Aggro = AggroSet;
             }
@@ -103,6 +109,21 @@ public class SwordInTheBottle : IteamPassive
         }
     }
 
+    private async void JESUSETHEENEMY(DamageData damageData, EnemyHp enemyHp)
+    {
+        float x = level == 0 ? 1 : level;
+        for (int i = 0; i < level * level; i++)
+        {
+            if (enemyHp == null)
+                return;
+            var s = Instantiate( jessy , enemyHp.transform.position + (1.25f * (PlayerGetpos - enemyHp.transform.position).normalized)  + Vector3.up * 0.5f, Quaternion.identity );
+            enemyHp.TakeDamage(damageData);
+            Destroy(s , 2);
+            PlayerState.OnAtuoAttackDealDamage?.Invoke(damageData, enemyHp);
+            await Task.Delay( (int)((1f/(level * level)) * 1000) );
+
+        }
+    }
 
     public Transform FindTarget(float AttackRange, Transform position, Transform SelectedTarget)
     {
