@@ -58,6 +58,7 @@ public class FlamingHell : IteamPassive
                     BORNIGGALIVE[i].refEffect.Stop();
                     Destroy(BORNIGGALIVE[i].refEffect , 5);
                     owod.Add(BORNIGGALIVE[i]);
+                    continue;
                 }
                 BORNIGGALIVE[i].enemyHp.TakeDamage(CreatDamageWithOutCrit( BURNDAMAGE , PlayerState ));
 
@@ -76,7 +77,11 @@ public class FlamingHell : IteamPassive
         {
             if ( BORNIGGALIVE[i].enemyHp.gameObject.GetInstanceID() == hp.gameObject.GetInstanceID() )
             {
-                BORNIGGALIVE[i].SetTime( BURNAMOUNT );
+                var b = new BURN();
+                b = BORNIGGALIVE[i];
+                b.tc = BURNAMOUNT;
+
+                BORNIGGALIVE[i] = b;
                 return;
             }
 
@@ -85,6 +90,7 @@ public class FlamingHell : IteamPassive
             x.SetTime(BURNAMOUNT);
             x.enemyHp = hp;
             x.refEffect = Instantiate(BurnObject , Vector3.zero , Quaternion.identity);
+            x.refEffect.transform.localScale = x.enemyHp.transform.localScale;
             BORNIGGALIVE.Add( x );
     }
 

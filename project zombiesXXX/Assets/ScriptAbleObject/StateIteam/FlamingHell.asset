@@ -28,7 +28,7 @@ MonoBehaviour:
     AttackRange: 0
     Luck: 0
   ModeMulity: 0
-  passiveIteam: {fileID: -615498868214291055, guid: 1e4d534b8deef574d852a468def03a72,
+  passiveIteam: {fileID: 8521185155851882867, guid: e22b04be2d7efbb48b2056189b5b5dc1,
     type: 3}
   SkillIteam: {fileID: 0}
   IteamAddAready: 0

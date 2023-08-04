@@ -85,7 +85,7 @@ MonoBehaviour:
   StandOffset: {x: 0, y: 3.5, z: 0}
   AggroRange: 30
   speed: 40
-  AggroSet: 0.2
+  AggroSet: 0.3
   swordHelpers: []
   MaxLevelScaling: 4
   OnAbilityTrigger: 1
