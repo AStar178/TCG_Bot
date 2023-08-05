@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class PlayerEffect : PlayerComponetSystem {
+public class MetroidEffect : PlayerComponetSystem {
     
     private float t;
     [SerializeField] Material PlayerMatriale;

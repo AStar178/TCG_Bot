@@ -266,6 +266,7 @@ public class PlayerState : PlayerComponetSystem {
         iteasssss.transform.SetParent(IteamSpawn);
         iteasssss.OnStart(this);
         Skill[SkillsAmount - 1] = iteasssss;
+        iteasssss.Icons = Player.UIManager.GetIcon(SkillsAmount - 1);
         OderAllIteams();
     }
     public void AddIteam(StateScriptAbleObject state)

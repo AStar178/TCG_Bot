@@ -6,6 +6,7 @@ public abstract class IteamSkill : Iteam {
     public Sprite IconSkill;
     public string namexSkill;
     public string dependenciesSkill;
+    public Icons Icons;
     public virtual void OnUseSkill(PlayerState playerState)
     {
        

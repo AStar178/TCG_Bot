@@ -29,6 +29,11 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    public Icons GetIcon(int i)
+    {
+        return Icons[i];
+    }
+
     public void SetIcons(List<IteamSkill> iteamSkills)
     {
         foreach (var icon in Icons)
@@ -38,12 +43,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < iteamSkills.Count; i++)
         {
-            if (i > 7)
-                return;
-            if (i < 3)
-                Icons[i].SetIconImage(iteamSkills[i].IconSkill);
-            else
-                Icons[i + 2].SetIconImage(iteamSkills[i].IconSkill);
+            Icons[i].SetIconImage(iteamSkills[i].IconSkill);
         }
     }
 

@@ -21,7 +21,9 @@ public class Turret : IteamSkill {
 
     }
     private void Update() {
-        xczx -= Time.deltaTime;
+        if (xczx > 0)
+            xczx -= Time.deltaTime;
+        Icons.SetCooldown(xczx, Coldown);
         for (int i = 0; i < turrents.Count; i++)
         {
             turrents[i].CoolDown -= Time.deltaTime;

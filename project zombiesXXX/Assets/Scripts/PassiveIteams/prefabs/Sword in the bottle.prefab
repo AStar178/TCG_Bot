@@ -93,6 +93,7 @@ MonoBehaviour:
   IncreaseOnLvl: 1
   NumberOfSwords: 2
   DamageScaling: 0.1
+  jessy: {fileID: 0}
   target: {fileID: 0}
   Enemy:
     serializedVersion: 2

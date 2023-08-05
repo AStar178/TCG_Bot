@@ -16,6 +16,11 @@ public class Icons : MonoBehaviour
 
     private float NewValue;
 
+    public void Awake()
+    {
+        SetIconImage(null);
+    }
+
     public void Start()
     {
         CooldownText.text = "";
@@ -34,7 +39,9 @@ public class Icons : MonoBehaviour
     public void SetCooldown(float CurrentTime, float CooldownSet)
     {
         NewValue = CurrentTime / CooldownSet;
-        CooldownText.text = $"{(int)CurrentTime}";
+        if (CurrentTime > 0)
+            CooldownText.text = $"{(int)CurrentTime}";
+        else CooldownText.text = "";
     }
 
     public void Update()
