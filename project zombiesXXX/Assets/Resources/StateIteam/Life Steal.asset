@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f7b8131377c3c242aa3360a33d47a2a, type: 3}
-  m_Name: Battery
+  m_Name: Life Steal
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: Battery
+  namex: Life Steal
   discrapsen: 
   state:
-    Damage: 5
+    Damage: 0
     HpMax: 0
     HpCurrent: 0
     Crit: 0
     CritDamageMulty: 0
-    SprintSpeed: 1
+    SprintSpeed: 0
     AttackSpeed: 0
     JumpAmount: 0
     Deffece: 0
     AttackRange: 0
     Luck: 0
   ModeMulity: 0
-  passiveIteam: {fileID: -2341857504352333629, guid: 13ff95790ab1bf448acde702048cf4ea,
+  passiveIteam: {fileID: 220355520001455106, guid: d1608ec6b54f1a54e9af4e7598868407,
     type: 3}
   SkillIteam: {fileID: 0}
   IteamAddAready: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerHp : PlayerComponetSystem , IDamageAble
 {
-    void IDamageAble.TakeDamage(DamageData Data)
+    public void TakeDamage(DamageData Data)
     {
         if (Player.PlayerState.InvisableTime > 0)
         {
@@ -18,7 +18,7 @@ public class PlayerHp : PlayerComponetSystem , IDamageAble
             Killed();
 
     }
-    void IDamageAble.Heal(DamageData Data)
+    public void Heal(DamageData Data)
     {
 
         if (Player.PlayerState.InvisableTime > 0)
