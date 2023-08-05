@@ -58,6 +58,7 @@ public abstract class Iteam : MonoBehaviour {
 
     
     public LayerMask EnmeyLayer => Player.Current.Enemy;
+    public LayerMask GroundLayer => Player.Current.PlayerThirdPersonController.GroundLayers;
     protected void InCombat()
     {
         Player.Current.PlayerState.Combat = true;
