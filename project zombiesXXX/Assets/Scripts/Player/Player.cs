@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public PlayerInputSystem PlayerInputSystem;
     public PlayerState PlayerState;
     public PlayerTargetSystem PlayerTargetSystem;
-    public PlayerEffect PlayerEffect;
+    public PlayerEffectControler PlayerEffect;
     public ThirdPersonCam PlayerThirdPersonController;
     public UIManager UIManager;
     public LayerMask Enemy;

@@ -9,6 +9,9 @@ public class SpiritBox : MonoBehaviour
     [SerializeField]
     private GameObject Sword;
 
+    public ParticleSystem Bulletref;
+    public ParticleSystem Bulletrefd;
+
     public void ActiveSword()
     {
         Sword.SetActive(true);

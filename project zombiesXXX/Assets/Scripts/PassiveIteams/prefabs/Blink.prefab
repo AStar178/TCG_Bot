@@ -92,5 +92,5 @@ MonoBehaviour:
   namexSkill: 
   dependenciesSkill: 
   Icons: {fileID: 0}
-  Range: 75
+  Range: 1000
   CooldownSet: 2

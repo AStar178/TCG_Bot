@@ -30,7 +30,7 @@ public class MetroidPassive : IteamPassive
             {
                 rb.velocity = new Vector3(rb.velocity.x, playerState.Player.PlayerState.ResultValue.JumpAmount * .5f, rb.velocity.z);
                 rb.AddForce(playerState.Player.PlayerState.ResultValue.JumpAmount * 10f * transform.up, ForceMode.Impulse);
-                playerState.Player.PlayerEffect.JumpSomeTimeThing();
+                MetroidEffect.Current.JumpSomeTimeThing();
                 energy.DamageEnergy(HelperEnegyCost);
             }
 
@@ -40,7 +40,7 @@ public class MetroidPassive : IteamPassive
                     (JetPackPower + playerState.Player.PlayerState.ResultValue.JumpAmount * 6f) * Time.deltaTime, 0);
                 if (on == false)
                 {
-                    playerState.Player.PlayerEffect.TurnOnJectPackEffect();
+                    MetroidEffect.Current.TurnOnJectPackEffect();
                     on = true;
                 }
 
@@ -53,7 +53,7 @@ public class MetroidPassive : IteamPassive
             if (on == true)
             {
                 on = false;
-                playerState.Player.PlayerEffect.TurnOffJectPackEffect();
+                MetroidEffect.Current.TurnOffJectPackEffect();
             }
             return state;
         }
@@ -64,7 +64,7 @@ public class MetroidPassive : IteamPassive
 
         if (on == true)
         {
-            playerState.Player.PlayerEffect.TurnOffJectPackEffect();
+            MetroidEffect.Current.TurnOffJectPackEffect();
             on = false;
             holdTimer = 0;
         }

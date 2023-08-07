@@ -26,6 +26,10 @@ namespace StarterAssets
                 TargetSelectetMode = TargetSelectetMode == true ? false : true;
             }
             TargetSelecting();
+            if (Target != null)
+            {
+                Targexxxxx.transform.position = Vector3.Lerp( Targexxxxx.transform.position , Target.transform.position , 5 * Time.deltaTime  ) ;
+            }
             if (TargetSelectetMode)
             {
                 // change the color of the old target if possible

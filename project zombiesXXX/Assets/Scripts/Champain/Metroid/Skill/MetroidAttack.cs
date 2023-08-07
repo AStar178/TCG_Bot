@@ -31,7 +31,7 @@ public class MetroidAttack : IteamSkill
         playerState.OnAtuoAttackDealDamage?.Invoke(damage , enemy);
         playerState.OnAbilityAttackDealDamage?.Invoke(damage , enemy);
         MetroidEnergy.RestoreEnergy(EnergyPerHit);
-        playerState.Player.PlayerEffect.Shooteffect.Play();
+        MetroidEffect.Current.Shooteffect.Play();
         base.OnUseSkill(playerState);
 
     }

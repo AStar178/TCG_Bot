@@ -32,7 +32,7 @@ public class MetroidAbillityAttack : IteamSkill
         { 
             if (on == true)
             {
-                playerState.Player.PlayerEffect.TurnOffJectPackEffect();
+                MetroidEffect.Current.TurnOffJectPackEffect();
                 on = false;
             }  
         }
@@ -56,7 +56,7 @@ public class MetroidAbillityAttack : IteamSkill
 
             if (on == false)
             {
-                playerState.Player.PlayerEffect.TurnOnJectPackEffect();
+                MetroidEffect.Current.TurnOnJectPackEffect();
                 on = true;
             }
             return;
@@ -64,7 +64,7 @@ public class MetroidAbillityAttack : IteamSkill
 
         if (on == true)
         {
-            playerState.Player.PlayerEffect.TurnOffJectPackEffect();
+            MetroidEffect.Current.TurnOffJectPackEffect();
             on = false;
         }
     }

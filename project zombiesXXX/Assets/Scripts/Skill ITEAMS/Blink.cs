@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Blink : IteamSkill
@@ -11,18 +12,18 @@ public class Blink : IteamSkill
     private float CooldownSet;
     private float Cooldown;
 
-    public override void OnUseSkill(PlayerState playerState)
+    public override async void OnUseSkill(PlayerState playerState)
     {
         if (Cooldown <= 0)
         {
             var Camerax = Camera.main;
-            var ray = Physics.Raycast(Camerax.transform.position, Camerax.transform.forward, out var hs, 100, GroundLayer);
+            var ray = Physics.Raycast(Camerax.transform.position, Camerax.transform.forward, out var hs, Range, GroundLayer);
             if (hs.collider == null)
                 return;
-
             Cooldown = CooldownSet;
             Icons.SetCooldown(Cooldown, CooldownSet);
-            playerState.transform.position = hs.point;
+            await Task.Delay( 2000 );
+            playerState.Player.PlayerThirdPersonController.rb.position = hs.point;
         }
 
         base.OnUseSkill(playerState);
@@ -36,4 +37,5 @@ public class Blink : IteamSkill
             Icons.SetCooldown(Cooldown, CooldownSet);
         }
     }
+
 }

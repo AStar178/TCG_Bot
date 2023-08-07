@@ -65,7 +65,7 @@ MonoBehaviour:
   Range: 10
   bullet: {fileID: 1884350067674425131, guid: 92aef1bc2b6b27c47876032ac322b19c, type: 3}
   Offset: {x: 2, y: 3, z: 0}
-  ShotCooldownSet: 1
+  ShotCooldownSet: 0.5
   BulletSpeed: 6
   ChargeTarget: {fileID: 0}
   ChargeSpeed: 0

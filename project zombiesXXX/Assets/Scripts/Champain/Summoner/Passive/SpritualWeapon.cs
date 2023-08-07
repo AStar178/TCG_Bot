@@ -21,7 +21,8 @@ public class SpritualWeapon : IteamPassive
     private float Range;
 
     [SerializeField]
-    private Rigidbody bullet;
+    private ParticleSystem bullet;
+    private ParticleSystem bulleteffecrt;
 
     [SerializeField]
     private Vector3 Offset;
@@ -53,11 +54,24 @@ public class SpritualWeapon : IteamPassive
     {
         Spiritual = Instantiate(Spiritual, transform);
         Spiritual.transform.position = playerState.transform.position + Offset;
+        Spiritual.Bulletref.GetComponent<ParticalClide>().unityEvent.AddListener(OnDealDamage);
+        bullet = Spiritual.Bulletref;
+        bulleteffecrt = Spiritual.Bulletrefd;
         rb = Spiritual.GetComponent<Rigidbody>();
 
         Spiritual.ActiveOrb();
 
         base.OnStart(playerState);
+    }
+
+    private void OnDealDamage(EnemyHp arg0)
+    {
+        var d = CreatDamage(PlayerState.ResultValue.Damage , PlayerState , out var crited);
+        arg0.TakeDamage(d);
+
+
+        PlayerState.OnAbilityAttackDealDamage?.Invoke(d , arg0);
+
     }
 
     public override State OnUpdate(PlayerState playerState, ref State CalucatedValue, ref State state)
@@ -84,13 +98,14 @@ public class SpritualWeapon : IteamPassive
     private void Shoot(PlayerState playerState)
     {
         LookAt(target);
-
+        
+        bullet.transform.position = target.transform.position;
+        var shape = bullet.shape;
+        shape.position = bullet.transform.InverseTransformPoint(Spiritual.transform.position);
         if (ShotCooldown <= 0)
         {
-            Rigidbody g = Instantiate(bullet);
-            g.transform.position = Spiritual.transform.position;
-            g.velocity = (target.position - Spiritual.transform.position).normalized * BulletSpeed;
-            Destroy(g.gameObject, 3);
+            bullet.Play();
+            bulleteffecrt.Play();
             ShotCooldown = ShotCooldownSet;
         } else ShotCooldown -= Time.deltaTime;
     }

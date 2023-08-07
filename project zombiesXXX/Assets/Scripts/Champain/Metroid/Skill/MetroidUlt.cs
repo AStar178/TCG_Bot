@@ -46,13 +46,13 @@ public class MetroidUlt : IteamSkill {
 
         if (on == false)
         {
-            Player.Current.PlayerEffect.StartLazer();
+            MetroidEffect.Current.StartLazer();
             on = true;
         }
-        var s = Vector3.Distance(playerState.Player.PlayerEffect.lineRenderer.transform.position , playerState.Player.PlayerTargetSystem.Target.transform.position) < 5f ? playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward  : playerState.Player.PlayerEffect.lineRenderer.transform.parent.forward * 5;
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(0 , playerState.Player.PlayerEffect.lineRenderer.transform.position);
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(1 , playerState.Player.PlayerEffect.lineRenderer.transform.position + s);
-        playerState.Player.PlayerEffect.lineRenderer.SetPosition(2 , playerState.Player.PlayerTargetSystem.Target.transform.position);
+        var s = Vector3.Distance(MetroidEffect.Current.lineRenderer.transform.position , playerState.Player.PlayerTargetSystem.Target.transform.position) < 5f ? MetroidEffect.Current.transform.parent.forward  : MetroidEffect.Current.transform.parent.forward * 5;
+        MetroidEffect.Current.lineRenderer.SetPosition(0 , MetroidEffect.Current.transform.position);
+        MetroidEffect.Current.lineRenderer.SetPosition(1 , MetroidEffect.Current.transform.position + s);
+        MetroidEffect.Current.lineRenderer.SetPosition(2 , playerState.Player.PlayerTargetSystem.Target.transform.position);
 
         if (xcxzc > 0)
             return;
@@ -82,7 +82,7 @@ public class MetroidUlt : IteamSkill {
             if (on == true)
             {
                 tt = CouldDown;
-                Player.Current.PlayerEffect.StopLazer();
+                MetroidEffect.Current.StopLazer();
                 on = false;
             }
         

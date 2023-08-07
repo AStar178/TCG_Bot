@@ -42,8 +42,9 @@ public class UIManager : MonoBehaviour
         }
 
         for (int i = 0; i < iteamSkills.Count; i++)
-        {
-            Icons[i].SetIconImage(iteamSkills[i].IconSkill);
+        {   
+            if (iteamSkills[i] != null)
+                Icons[i].SetIconImage(iteamSkills[i].IconSkill);
         }
     }
 

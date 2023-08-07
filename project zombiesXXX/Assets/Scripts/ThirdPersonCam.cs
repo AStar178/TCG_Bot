@@ -362,7 +362,7 @@ public class ThirdPersonCam : PlayerComponetSystem
                 var index = Random.Range(0, FootstepAudioClips.Length);
                 AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transformxx.position, FootstepAudioVolume);
             }
-             Player.PlayerEffect.WakeEffectleft();
+            Player.PlayerEffect.WakeEffectleft();
         }
        
     }
