@@ -84,6 +84,9 @@ namespace StarterAssets
         }
         private void TargetSelecting()
         {
+            if (rig == null)
+                return;
+
             if (Target != null)
             {
                 Targexxxxx.transform.position = Vector3.Lerp( Targexxxxx.transform.position , Target.transform.position , 5 * Time.deltaTime  ) ;

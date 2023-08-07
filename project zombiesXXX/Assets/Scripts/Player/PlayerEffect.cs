@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class MetroidEffect : PlayerComponetSystem {
-    
+public abstract class PlayerEffect : PlayerComponetSystem
+{
     private float t;
     [SerializeField] Material PlayerMatriale;
     [SerializeField] ParticleSystem[] jetpackparticale;
@@ -21,7 +21,7 @@ public class MetroidEffect : PlayerComponetSystem {
         while (t > 0)
         {
             t -= Time.deltaTime;
-            PlayerMatriale.SetFloat( "_Float_2" , Mathf.Lerp( PlayerMatriale.GetFloat("_Float_2") , 0 , 0.025f ) );
+            PlayerMatriale.SetFloat("_Float_2", Mathf.Lerp(PlayerMatriale.GetFloat("_Float_2"), 0, 0.025f));
 
             await Task.Yield();
         }
@@ -31,10 +31,10 @@ public class MetroidEffect : PlayerComponetSystem {
         while (newtime > 0)
         {
             newtime -= Time.deltaTime;
-            PlayerMatriale.SetFloat( "_Float_2" , Mathf.Lerp( PlayerMatriale.GetFloat("_Float_2") , 1 ,  0.025f ) );
-            await Task.Yield();     
+            PlayerMatriale.SetFloat("_Float_2", Mathf.Lerp(PlayerMatriale.GetFloat("_Float_2"), 1, 0.025f));
+            await Task.Yield();
         }
-        PlayerMatriale.SetFloat( "_Float_2" , 1 );
+        PlayerMatriale.SetFloat("_Float_2", 1);
     }
     public void TurnOnJectPackEffect()
     {
@@ -52,9 +52,9 @@ public class MetroidEffect : PlayerComponetSystem {
     }
     public void JumpSomeTimeThing()
     {
-        var wow = Instantiate( visualEffect , Vector3.zero , Quaternion.identity );
+        var wow = Instantiate(visualEffect, Vector3.zero, Quaternion.identity);
         wow.transform.position = feetpos.transform.position;
-        Destroy(wow.gameObject , 5);
+        Destroy(wow.gameObject, 5);
         for (int i = 0; i < thatparicale.Length; i++)
         {
             thatparicale[i].Play();
@@ -63,19 +63,19 @@ public class MetroidEffect : PlayerComponetSystem {
     public void WakeEffectleft()
     {
         wakeparticale[0].Play();
-    }    
+    }
     public void WakeEffectright()
     {
-        
+
         wakeparticale[1].Play();
-        
+
     }
 
     public async void StopLazer()
     {
         for (int i = 0; i < LazerParicale.Length; i++)
         {
-            
+
             LazerParicale[i].Stop();
 
         }
@@ -84,13 +84,13 @@ public class MetroidEffect : PlayerComponetSystem {
         float x = 1;
         float y = 0.5f;
         float z = 0.21875f;
-        while ( t > 0 )
+        while (t > 0)
         {
             t -= Time.deltaTime;
             AnimationCurve curve = new AnimationCurve();
-            x = Mathf.Lerp( x , 0 , 8 * Time.deltaTime );
-            y = Mathf.Lerp( y , 0 , 8 * Time.deltaTime );
-            z = Mathf.Lerp( z , 0 , 8 * Time.deltaTime );
+            x = Mathf.Lerp(x, 0, 8 * Time.deltaTime);
+            y = Mathf.Lerp(y, 0, 8 * Time.deltaTime);
+            z = Mathf.Lerp(z, 0, 8 * Time.deltaTime);
             curve.AddKey(0, x);
             curve.AddKey(.5f, y);
             curve.AddKey(1f, z);
@@ -98,7 +98,7 @@ public class MetroidEffect : PlayerComponetSystem {
 
             await Task.Yield();
         }
-        
+
         lineRenderer.enabled = false;
 
     }
@@ -106,7 +106,7 @@ public class MetroidEffect : PlayerComponetSystem {
     {
         for (int i = 0; i < LazerParicale.Length; i++)
         {
-            
+
             LazerParicale[i].Play();
 
         }
@@ -116,13 +116,13 @@ public class MetroidEffect : PlayerComponetSystem {
         float x = 0;
         float y = 0f;
         float z = 0f;
-        while ( t > 0 )
+        while (t > 0)
         {
             t -= Time.deltaTime;
             AnimationCurve curve = new AnimationCurve();
-            x = Mathf.Lerp( x , 1 , 8 * Time.deltaTime );
-            y = Mathf.Lerp( y , 0.5f , 8 * Time.deltaTime );
-            z = Mathf.Lerp( z , 0.21875f , 8 * Time.deltaTime );
+            x = Mathf.Lerp(x, 1, 8 * Time.deltaTime);
+            y = Mathf.Lerp(y, 0.5f, 8 * Time.deltaTime);
+            z = Mathf.Lerp(z, 0.21875f, 8 * Time.deltaTime);
             curve.AddKey(0, x);
             curve.AddKey(.5f, y);
             curve.AddKey(1f, z);
@@ -130,8 +130,9 @@ public class MetroidEffect : PlayerComponetSystem {
 
             await Task.Yield();
         }
-        
 
-        
+
+
     }
+
 }
