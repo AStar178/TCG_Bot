@@ -169,6 +169,15 @@ public class SpritualWeapon : IteamPassive
     public void Charge(PlayerState playerState)
     {
         Stop = true;
+
+        if (ChargeTarget == null)
+        {
+            Stop = false;
+            ChargeTarget = null;
+            rb.velocity = Vector3.zero;
+            Spiritual.ActiveOrb();
+        }
+
         rb.velocity = (ChargeTarget.transform.position - Spiritual.transform.position).normalized * ChargeSpeed;
         LookAt(ChargeTarget.transform);
 
