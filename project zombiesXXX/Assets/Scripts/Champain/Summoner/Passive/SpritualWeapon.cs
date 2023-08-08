@@ -45,8 +45,6 @@ public class SpritualWeapon : IteamPassive
 
     [Header("Charge")]
 
-    private bool inCharge;
-
     [SerializeField]
     private float ChargeDam;
 
@@ -123,16 +121,8 @@ public class SpritualWeapon : IteamPassive
 
         if (ChargeTarget != null)
             Charge(playerState);
-        else if (ChargeTarget == null && Stop && inCharge)
+        else
         {
-            rb.velocity = Vector3.zero; Stop = false; inCharge = false;
-            Spiritual.ActiveOrb();
-            SummonerEffects.S1.Failed();
-        }
-
-        if (!Stop)
-        {
-            rb.velocity = Vector3.zero;
             ShootUpdate(playerState);
         }
 
@@ -176,11 +166,17 @@ public class SpritualWeapon : IteamPassive
         } else ShotCooldown -= Time.deltaTime;
     }
 
-    private float t;
     public void Charge(PlayerState playerState)
     {
         Stop = true;
-        inCharge = true;
+
+        if (ChargeTarget == null)
+        {
+            Stop = false;
+            ChargeTarget = null;
+            rb.velocity = Vector3.zero;
+            Spiritual.ActiveOrb();
+        }
 
         rb.velocity = (ChargeTarget.transform.position - Spiritual.transform.position).normalized * ChargeSpeed;
         LookAt(ChargeTarget.transform);
@@ -197,7 +193,6 @@ public class SpritualWeapon : IteamPassive
             rb.velocity = Vector3.zero;
             Spiritual.ActiveOrb();
             InCombat();
-            t = 0;
         }
     }
 
@@ -243,7 +238,6 @@ public class SpritualWeapon : IteamPassive
     public void Vorting(PlayerState playerState)
     {
         TickChecker += Time.deltaTime;
-        InCombat();
         if (TickChecker >= 0.1f)
         {
             TickChecker = 0;

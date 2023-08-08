@@ -35,11 +35,6 @@ public class SummonerS1 : IteamSkill
         base.OnUseSkill(playerState);
     }
 
-    public void Failed()
-    {
-        Cooldown = .1f;
-    }
-
     public void Update()
     {
         if (Cooldown > 0)
