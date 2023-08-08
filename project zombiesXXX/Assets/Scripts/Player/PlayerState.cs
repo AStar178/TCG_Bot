@@ -221,9 +221,15 @@ public class PlayerState : PlayerComponetSystem {
     private void CombatTimer()
     {
         xc -= Time.deltaTime;
-        if (xc < 0)
+        if (xc < 0 && Combat == true)
         {
             Combat = false;
+            Player.CameraControler.OutCombatMode();
+        }
+        if (xc > 0 && Combat == false)
+        {
+            Combat = true;
+            Player.Current.CameraControler.CombatMode();
         }
     }
 

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerEffectControler PlayerEffect;
     public ThirdPersonCam PlayerThirdPersonController;
     public UIManager UIManager;
+    public CameraControler CameraControler;
     public LayerMask Enemy;
     private void Awake() {
         

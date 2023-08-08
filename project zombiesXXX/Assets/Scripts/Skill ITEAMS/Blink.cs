@@ -12,7 +12,7 @@ public class Blink : IteamSkill
     private float CooldownSet;
     private float Cooldown;
 
-    public override async void OnUseSkill(PlayerState playerState)
+    public override void OnUseSkill(PlayerState playerState)
     {
         if (Cooldown <= 0)
         {
@@ -22,7 +22,7 @@ public class Blink : IteamSkill
                 return;
             Cooldown = CooldownSet;
             Icons.SetCooldown(Cooldown, CooldownSet);
-            await Task.Delay( 2000 );
+
             playerState.Player.PlayerThirdPersonController.rb.position = hs.point;
         }
 

@@ -32,3 +32,4 @@ MonoBehaviour:
   SkillIteam: {fileID: -8590828422059099916, guid: 389895abe9b45e84baf39048a6f4cc05,
     type: 3}
   IteamAddAready: 0
+  iteamTypo: 2

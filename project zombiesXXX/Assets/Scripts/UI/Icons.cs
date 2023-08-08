@@ -39,9 +39,20 @@ public class Icons : MonoBehaviour
     public void SetCooldown(float CurrentTime, float CooldownSet)
     {
         NewValue = CurrentTime / CooldownSet;
+        if (CurrentTime == CooldownSet)
+        {
+            CooldownImage.fillAmount = 1;
+        }
+
         if (CurrentTime > 0)
             CooldownText.text = $"{(int)CurrentTime}";
         else CooldownText.text = "";
+    }
+
+    public void SetChargeTime(float CurrentTime, float CooldownSet)
+    {
+        NewValue = CurrentTime / CooldownSet;
+        CooldownText.text = "";
     }
 
     public void Update()

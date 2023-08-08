@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class SpritualWeapon : IteamPassive
 {
+    public bool Stop { get; private set; }
+
     [Header("Clean")]
 
     [SerializeField]
@@ -15,7 +17,7 @@ public class SpritualWeapon : IteamPassive
     private Rigidbody rb;
 
     [SerializeField]
-    private float Dam;
+    private float ShootDam;
 
     [SerializeField]
     private float Range;
@@ -23,9 +25,6 @@ public class SpritualWeapon : IteamPassive
     [SerializeField]
     private ParticleSystem bullet;
     private ParticleSystem bulleteffecrt;
-
-    [SerializeField]
-    private Vector3 Offset;
 
     private Transform target;
 
@@ -36,7 +35,18 @@ public class SpritualWeapon : IteamPassive
     [SerializeField]
     private float BulletSpeed;
 
+    private SummonerEffects SummonerEffects;
+
+    [SerializeField]
+    private int SoulNeded;
+    [SerializeField]
+    private int SoulNededAdd;
+    private int Souls;
+
     [Header("Charge")]
+
+    [SerializeField]
+    private float ChargeDam;
 
     [SerializeField]
     private EnemyHp ChargeTarget;
@@ -44,55 +54,96 @@ public class SpritualWeapon : IteamPassive
     [SerializeField]
     private float ChargeSpeed;
 
-    public void StartChargeAtTarget(EnemyHp target)
+    [Header("Vortex")]
+
+    [SerializeField]
+    private float VortTimeSet;
+    private float VortTime;
+
+    [SerializeField]
+    private int VortDamPerTickSet;
+    private int VortDamPerTick;
+
+    [SerializeField]
+    private float VortDam;
+
+    [SerializeField]
+    private float VortRange;
+
+    [SerializeField]
+    private int VortApplyPerTicksSet;
+    private int VortApplyPerTicks;
+
+    [SerializeField]
+    private float VortForce;
+
+    private List<EnemyHp> VortTargets;
+    private float TickChecker;
+    private Vector3 VortPoint;
+
+    public bool StartChargeAtTarget()
     {
-        ChargeTarget = target;
-        Spiritual.ActiveSword();
+        if (target != null)
+        {
+            ChargeTarget = target.GetComponent<EnemyHp>();
+            Spiritual.ActiveSword();
+            return true;
+        }
+        return false;
     }
 
     public override void OnStart(PlayerState playerState)
     {
+
+        SummonerEffects = playerState.GetComponent<SummonerEffects>();
+        SummonerEffects.SetPassive(this);
+
         Spiritual = Instantiate(Spiritual, transform);
-        Spiritual.transform.position = playerState.transform.position + Offset;
+        Spiritual.transform.position = SummonerEffects.SpiritualPos().position;
         Spiritual.Bulletref.GetComponent<ParticalClide>().unityEvent.AddListener(OnDealDamage);
         bullet = Spiritual.Bulletref;
         bulleteffecrt = Spiritual.Bulletrefd;
         rb = Spiritual.GetComponent<Rigidbody>();
+        playerState.OnKilledEnemy += Absorb;
+        level++;
 
         Spiritual.ActiveOrb();
 
         base.OnStart(playerState);
     }
 
-    private void OnDealDamage(EnemyHp arg0)
-    {
-        var d = CreatDamage(PlayerState.ResultValue.Damage , PlayerState , out var crited);
-        arg0.TakeDamage(d);
-
-
-        PlayerState.OnAbilityAttackDealDamage?.Invoke(d , arg0);
-
-    }
-
     public override State OnUpdate(PlayerState playerState, ref State CalucatedValue, ref State state)
     {
+        if (VortPoint != Vector3.zero)
+        {
+            Vortex(playerState);
+        }
 
         if (ChargeTarget != null)
             Charge(playerState);
         else
         {
-            Spiritual.transform.position = Vector3.Lerp(Spiritual.transform.position, playerState.transform.position + Offset, 5 * Time.deltaTime);
-
-            if (playerState.Player.PlayerTargetSystem.Target != null)
-                target = playerState.Player.PlayerTargetSystem.Target.transform;
-            else
-                target = FindTarget(playerState.ResultValue.AttackRange, playerState.transform, target);
-
-            if (target != null)
-                Shoot(playerState);
+            ShootUpdate(playerState);
         }
 
         return base.OnUpdate(playerState, ref CalucatedValue, ref state);
+    }
+
+    public void ShootUpdate(PlayerState playerState)
+    {
+        if (Stop == true)
+            return;
+
+        Spiritual.transform.position = Vector3.Lerp(Spiritual.transform.position, SummonerEffects.SpiritualPos().position, 5 * Time.deltaTime);
+
+        if (playerState.Player.PlayerTargetSystem.Target != null)
+            target = playerState.Player.PlayerTargetSystem.Target.transform;
+        else
+            target = FindTarget(playerState.ResultValue.AttackRange, playerState.transform, target);
+
+        if (target != null)
+            Shoot(playerState);
+        else Spiritual.transform.rotation = playerState.transform.rotation;
     }
 
     private void Shoot(PlayerState playerState)
@@ -106,13 +157,154 @@ public class SpritualWeapon : IteamPassive
         {
             bullet.Play();
             bulleteffecrt.Play();
-            ShotCooldown = ShotCooldownSet;
+            float b = (level) / 4;
+            if (b > 10)
+                b = 10;
+            else if (b < 1)
+                b = 1;
+            ShotCooldown = ShotCooldownSet / b;
         } else ShotCooldown -= Time.deltaTime;
     }
 
     public void Charge(PlayerState playerState)
     {
+        Stop = true;
+        rb.velocity = (ChargeTarget.transform.position - Spiritual.transform.position).normalized * ChargeSpeed;
+        LookAt(ChargeTarget.transform);
 
+        if (Vector3.Distance(ChargeTarget.transform.position, Spiritual.transform.position) <= .5f)
+        {
+            DamageData dam = CreatDamage(PlayerState.ResultValue.Damage + (ChargeDam * level / 4f), PlayerState, out var crited);
+            ChargeTarget.TakeDamage(dam);
+
+
+            Stop = false;
+            PlayerState.OnAbilityAttackDealDamage?.Invoke(dam, ChargeTarget);
+            ChargeTarget = null;
+            rb.velocity = Vector3.zero;
+            Spiritual.ActiveOrb();
+            InCombat();
+        }
+    }
+
+    public void StartVortex(Vector3 point)
+    {
+        VortPoint = point;
+        VortTime = VortTimeSet;
+    }
+
+    public void Vortex(PlayerState playerState)
+    {
+        if (VortPoint == Vector3.zero)
+            return;
+
+        Stop = true;
+        rb.velocity = (VortPoint - Spiritual.transform.position).normalized * ChargeSpeed;
+        if (Vector3.Distance(VortPoint, Spiritual.transform.position) < .5f)
+        {
+            rb.velocity = Vector3.zero;
+            Spiritual.transform.position = VortPoint;
+            Vorting(playerState);
+
+            if (VortTime > 0)
+            {
+                VortTime -= Time.deltaTime;
+            }
+
+            if (VortTime <= 0)
+            {
+                VortPoint = Vector3.zero;
+
+                Stop = false;
+
+                foreach (EnemyHp enemyHp in VortTargets)
+                {
+                    if (enemyHp != null)
+                        enemyHp.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                }
+            }
+        }
+    }
+
+    public void Vorting(PlayerState playerState)
+    {
+        TickChecker += Time.deltaTime;
+        if (TickChecker >= 0.1f)
+        {
+            TickChecker = 0;
+            VortApplyPerTicks--;
+            VortDamPerTick--;
+        }
+
+        var _targets = Physics.OverlapSphere(Spiritual.transform.position, VortRange, PlayerState.Player.Enemy);
+        List<EnemyHp> targetsHp = new List<EnemyHp>();
+
+        foreach (var target in _targets)
+        {
+            targetsHp.Add(target.GetComponent<EnemyHp>());
+        }
+
+        VortTargets = targetsHp;
+
+        if (VortDamPerTick <= 0)
+        {
+            VortDamPerTick = VortDamPerTickSet;
+            foreach (EnemyHp enemyHp in VortTargets)
+            {
+                float b = (level) / 20;
+                if (b > 2)
+                    b = 2;
+                else if (b < .1f)
+                    b = .1f;
+
+                DamageData data = CreatDamage(VortDam + playerState.ResultValue.Damage * (level * b), playerState, out bool a);
+
+                if (VortApplyPerTicks <= 0)
+                {
+                    if (enemyHp != null)
+                        playerState.OnAbilityAttackDealDamage?.Invoke(data, enemyHp);
+                }
+
+                if (enemyHp != null)
+                    enemyHp.TakeDamage(data);
+
+            }
+        }
+
+        if (VortApplyPerTicks <= 0)
+            VortApplyPerTicks = VortApplyPerTicksSet;
+
+        float c = (level) / 4;
+        if (c > 10)
+            c = 10;
+        else if (c < 1)
+            c = 1;
+
+        foreach (EnemyHp enemyHp in VortTargets)
+        {
+            enemyHp.transform.position = Vector3.Lerp(enemyHp.transform.position, Spiritual.transform.position, (VortForce * c) * Time.deltaTime);
+        }
+
+    }
+
+    private void OnDealDamage(EnemyHp targ)
+    {
+        DamageData d = CreatDamage(PlayerState.ResultValue.Damage + (ShootDam * level / 8), PlayerState, out var crited);
+        targ.TakeDamage(d);
+
+
+        PlayerState.OnAbilityAttackDealDamage?.Invoke(d, targ);
+    }
+
+    public void Absorb( DamageData data, EnemyHp enemyHp)
+    {
+        Souls++;
+        if (Souls >= SoulNeded)
+        {
+            Souls = 0;
+            SoulNeded += SoulNededAdd;
+            level += 2 + SoulNeded / 70;
+        }
     }
 
     public void LookAt(Transform target)

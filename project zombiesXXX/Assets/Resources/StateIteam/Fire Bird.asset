@@ -31,3 +31,5 @@ MonoBehaviour:
   passiveIteam: {fileID: -5460795512882827951, guid: 92b184390f0cb4241a1da0ee275c30b0,
     type: 3}
   SkillIteam: {fileID: 0}
+  IteamAddAready: 0
+  iteamTypo: 1

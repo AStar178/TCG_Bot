@@ -11,10 +11,14 @@ public class SpiritBox : MonoBehaviour
 
     public ParticleSystem Bulletref;
     public ParticleSystem Bulletrefd;
+    [SerializeField]
+    private ParticleSystem Trail;
+
 
     public void ActiveSword()
     {
         Sword.SetActive(true);
+        Trail.Play();
         Orb.SetActive(false);
     }
 
@@ -22,5 +26,6 @@ public class SpiritBox : MonoBehaviour
     {
         Orb.SetActive(true);
         Sword.SetActive(false);
+        Trail.Stop();
     }
 }

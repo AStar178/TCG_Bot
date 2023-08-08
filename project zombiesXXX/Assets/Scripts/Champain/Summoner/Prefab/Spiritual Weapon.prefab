@@ -48,7 +48,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   namex: 
   dependencies: 
-  level: 0
+  level: 1
   ScaleTheScaling: 1
   DivedTheScaling: 1
   ScalingLevel:
@@ -61,11 +61,19 @@ MonoBehaviour:
   Spiritual: {fileID: 8033824819908690925, guid: 67de753f85efe8946b048d03e8469678,
     type: 3}
   rb: {fileID: 0}
-  Dam: 1
+  ShootDam: 2
   Range: 10
   bullet: {fileID: 1884350067674425131, guid: 92aef1bc2b6b27c47876032ac322b19c, type: 3}
-  Offset: {x: 2, y: 3, z: 0}
   ShotCooldownSet: 0.5
   BulletSpeed: 6
+  SoulNeded: 1
+  SoulNededAdd: 2
+  ChargeDam: 3
   ChargeTarget: {fileID: 0}
-  ChargeSpeed: 0
+  ChargeSpeed: 36
+  VortTimeSet: 3.5
+  VortDamPerTickSet: 2
+  VortDam: 1
+  VortRange: 10
+  VortApplyPerTicksSet: 5
+  VortForce: 0.8
