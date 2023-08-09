@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SpiritBox : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SpiritBox : MonoBehaviour
     public ParticleSystem Bulletrefd;
     [SerializeField]
     private ParticleSystem Trail;
+    [SerializeField]
+    private VisualEffect BlackHole;
 
 
     public void ActiveSword()
@@ -27,5 +30,13 @@ public class SpiritBox : MonoBehaviour
         Orb.SetActive(true);
         Sword.SetActive(false);
         Trail.Stop();
+    }
+
+    public void ActiveBlackHole(bool d)
+    {
+        if (d)
+            BlackHole.Play();
+        else
+            BlackHole.Stop();
     }
 }

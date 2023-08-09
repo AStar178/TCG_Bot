@@ -176,7 +176,6 @@ public class SpritualWeapon : IteamPassive
         } else ShotCooldown -= Time.deltaTime;
     }
 
-    private float t;
     public void Charge(PlayerState playerState)
     {
         Stop = true;
@@ -197,7 +196,6 @@ public class SpritualWeapon : IteamPassive
             rb.velocity = Vector3.zero;
             Spiritual.ActiveOrb();
             InCombat();
-            t = 0;
         }
     }
 
@@ -205,6 +203,7 @@ public class SpritualWeapon : IteamPassive
     {
         VortPoint = point;
         VortTime = VortTimeSet;
+        Spiritual.ActiveBlackHole(true);
     }
 
     public void Vortex(PlayerState playerState)
@@ -223,6 +222,7 @@ public class SpritualWeapon : IteamPassive
             if (VortTime > 0)
             {
                 VortTime -= Time.deltaTime;
+                Spiritual.transform.rotation = Quaternion.identity;
             }
 
             if (VortTime <= 0)
@@ -231,11 +231,7 @@ public class SpritualWeapon : IteamPassive
 
                 Stop = false;
 
-                foreach (EnemyHp enemyHp in VortTargets)
-                {
-                    if (enemyHp != null)
-                        enemyHp.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                }
+                Spiritual.ActiveBlackHole(false);
             }
         }
     }

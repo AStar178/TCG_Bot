@@ -72,8 +72,8 @@ MonoBehaviour:
   ChargeTarget: {fileID: 0}
   ChargeSpeed: 36
   VortTimeSet: 3.5
-  VortDamPerTickSet: 2
-  VortDam: 1
+  VortDamPerTickSet: 3
+  VortDam: 2
   VortRange: 10
   VortApplyPerTicksSet: 5
   VortForce: 0.8
