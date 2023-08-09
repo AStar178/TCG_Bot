@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_New Shader Graph 1
-  m_Shader: {fileID: -6465566751694194690, guid: 4cd90367cfc8c3949bd8a81e40b74bc9,
+  m_Name: Shader Graphs_FireWorlk
+  m_Shader: {fileID: -6465566751694194690, guid: 45068a50273c5c84a87441cdacecd9db,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -38,14 +38,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 24.988638, g: 7.1993833, b: 1.060838, a: 1}
-    - _Color_1: {r: 0.08962265, g: 0.08962265, b: 0.08962265, a: 1}
+    - _Color: {r: 14.259475, g: 7.992475, b: 0.87440217, a: 0}
+    - _Color_1: {r: 0, g: 0.0680313, b: 7.999999, a: 0}
+    - _speeed: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2150364719093598125
+--- !u!114 &1771163405549952020
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

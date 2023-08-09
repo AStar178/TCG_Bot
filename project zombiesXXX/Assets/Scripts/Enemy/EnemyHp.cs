@@ -11,7 +11,9 @@ public class EnemyHp : MonoBehaviour, IDamageAble
     public Action KilledEvent;
     public MeshRenderer MainMatrial;
     public Mesh MainMesh;
+    public Rigidbody rb;
     private void Awake() {
+        rb = GetComponent<Rigidbody>();
         CurrentHp = MaxHp;
     }
     /*private void Update() {

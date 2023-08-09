@@ -14,9 +14,13 @@ public class Player : MonoBehaviour
     public UIManager UIManager;
     public CameraControler CameraControler;
     public LayerMask Enemy;
+    public TMPro.TMP_Text text;
     private void Awake() {
         
         Current = this;
 
+    }
+    private void Update() {
+        text.text = "FPS:" + 1f / Time.deltaTime;
     }
 }

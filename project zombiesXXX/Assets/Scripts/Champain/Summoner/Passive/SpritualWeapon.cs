@@ -192,7 +192,7 @@ public class SpritualWeapon : IteamPassive
 
 
             Stop = false;
-            PlayerState.OnAbilityAttackDealDamage?.Invoke(dam, ChargeTarget);
+            PlayerState.OnAtuoAttackDealDamage?.Invoke(dam, ChargeTarget);
             ChargeTarget = null;
             rb.velocity = Vector3.zero;
             Spiritual.ActiveOrb();
