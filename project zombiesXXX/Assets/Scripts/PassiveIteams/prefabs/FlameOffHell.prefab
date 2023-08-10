@@ -103,5 +103,5 @@ MonoBehaviour:
   TwoText: 
   stateScriptAbleObject: {fileID: 11400000, guid: 95962531e642561458a6abade68ae396,
     type: 2}
-  iteamTypo: 2
+  iteamTypo: 4
   chest: {fileID: 0}

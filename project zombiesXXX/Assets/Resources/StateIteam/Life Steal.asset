@@ -16,7 +16,7 @@ MonoBehaviour:
   namex: Life Steal
   discrapsen: 
   state:
-    Damage: 0
+    Damage: 2
     HpMax: 0
     HpCurrent: 0
     Crit: 0

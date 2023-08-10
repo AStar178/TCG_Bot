@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bubble
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: Bubble
+  namex: Bubble Gun
   discrapsen: 
   state:
     Damage: 0

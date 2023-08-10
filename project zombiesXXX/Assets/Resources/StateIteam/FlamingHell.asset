@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FlamingHell
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: Sword in the Bottle
+  namex: Flame of Hell
   discrapsen: 
   state:
     Damage: 0

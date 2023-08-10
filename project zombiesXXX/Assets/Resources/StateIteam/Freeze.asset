@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: IsColed
+  namex: Freeze
   discrapsen: 
   state:
     Damage: 0
@@ -32,4 +32,4 @@ MonoBehaviour:
     type: 3}
   SkillIteam: {fileID: 0}
   IteamAddAready: 0
-  iteamTypo: 3
+  iteamTypo: 4

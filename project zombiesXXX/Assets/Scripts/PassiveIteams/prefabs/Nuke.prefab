@@ -80,7 +80,7 @@ MonoBehaviour:
   caninteracted: 0
   OneText: 
   TwoText: 
-  stateScriptAbleObject: {fileID: 11400000, guid: 65804ac254657d94cafede5967bfea0a,
+  stateScriptAbleObject: {fileID: 11400000, guid: 64d771b32cffcdc48bb464df9a9d5c1a,
     type: 2}
   iteamTypo: 2
   chest: {fileID: 0}

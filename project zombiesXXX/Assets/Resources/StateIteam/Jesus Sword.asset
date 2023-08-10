@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jesus Sword
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: Jesus
+  namex: Jesus Sword
   discrapsen: 
   state:
     Damage: 0

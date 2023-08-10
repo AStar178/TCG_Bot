@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CombatShowTime
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: 
+  namex: Wind
   discrapsen: 
   state:
     Damage: 0

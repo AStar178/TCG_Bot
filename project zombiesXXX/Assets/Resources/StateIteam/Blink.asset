@@ -21,7 +21,7 @@ MonoBehaviour:
     HpCurrent: 0
     Crit: 0
     CritDamageMulty: 0
-    SprintSpeed: 0
+    SprintSpeed: 2
     AttackSpeed: 0
     JumpAmount: 0
     Deffece: 0

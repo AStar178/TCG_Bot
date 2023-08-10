@@ -82,7 +82,7 @@ MonoBehaviour:
   Damage: 10
   RangeOffset: 0
   RotationSpeed: 0
-  StandOffset: {x: 0, y: 3.5, z: 0}
+  StandOffset: {x: 0, y: 4, z: 0}
   AggroRange: 30
   speed: 40
   AggroSet: 0.3
@@ -115,7 +115,7 @@ MonoBehaviour:
   caninteracted: 0
   OneText: 
   TwoText: 
-  stateScriptAbleObject: {fileID: 11400000, guid: 77417e9c422d74544a42b3b9eb0cab4b,
+  stateScriptAbleObject: {fileID: 11400000, guid: 8fc5ccf3b58e8cd4884145b5179f56d0,
     type: 2}
   iteamTypo: 4
   chest: {fileID: 0}

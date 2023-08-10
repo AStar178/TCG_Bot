@@ -16,8 +16,8 @@ MonoBehaviour:
   namex: Battery
   discrapsen: 
   state:
-    Damage: 3
-    HpMax: 0
+    Damage: 0
+    HpMax: 3
     HpCurrent: 0
     Crit: 0
     CritDamageMulty: 0

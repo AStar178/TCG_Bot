@@ -11548,7 +11548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 1.59
   precomputeOutline: 0
   bakeKeys: []
@@ -11688,7 +11688,8 @@ MonoBehaviour:
   InvisableTime: 0
   IteamsAdd:
   - {fileID: 11400000, guid: 1a9554d8dbd25584599e7cd722821525, type: 2}
-  - {fileID: 11400000, guid: 8fc5ccf3b58e8cd4884145b5179f56d0, type: 2}
+  - {fileID: 11400000, guid: 974eea568cafc26419a7a98e61292d13, type: 2}
+  - {fileID: 11400000, guid: 02856187e3005cc4797ec1b33ffa2b44, type: 2}
   IteamsMulty: []
   Passiveiteams: []
   Skill: []
@@ -11696,8 +11697,10 @@ MonoBehaviour:
     type: 3}
   ChampinSkillQ: {fileID: 2348877295334199009, guid: 471c129bec902ce498d71285290d36d8,
     type: 3}
-  ChampinSkillE: {fileID: 0}
-  ChampinSkillR: {fileID: 0}
+  ChampinSkillE: {fileID: 8646905262151482716, guid: a7a09b679a3f69e4dac8df0e677dee28,
+    type: 3}
+  ChampinSkillR: {fileID: 3437785610056036043, guid: 7a94207346713b744acb0c009e33a6a4,
+    type: 3}
   IteamSpawn: {fileID: 0}
   Combat: 0
   xc: 0
