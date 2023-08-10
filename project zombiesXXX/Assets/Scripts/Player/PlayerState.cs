@@ -138,10 +138,12 @@ public class PlayerState : PlayerComponetSystem {
             if (IteamsAdd[i].ModeMulity == true && IteamsAdd[i].IteamAddAready == false)
             { AddIteamPassive(IteamsMulty[i].passiveIteam); AddIteamSkill( IteamsAdd[i].SkillIteam ); IteamsAdd[i].IteamAddAready = true;  }
         }
+        
     }
     private void ApplyResult()
     {
         ResultValue = CalculatedValue;
+        CalculatedValue.HpCurrent = CalculatedValue.HpMax;
         OderAllIteams();
     }
     public void OderAllIteams()
@@ -274,6 +276,8 @@ public class PlayerState : PlayerComponetSystem {
         Skill[SkillsAmount - 1] = iteasssss;
         iteasssss.Icons = Player.UIManager.GetIcon(SkillsAmount - 1);
         OderAllIteams();
+        List<IteamSkill> iteamSkills = new List<IteamSkill>(Skill);
+        Player.UIManager.SetIcons(iteamSkills);
     }
     public void AddIteam(StateScriptAbleObject state)
     {

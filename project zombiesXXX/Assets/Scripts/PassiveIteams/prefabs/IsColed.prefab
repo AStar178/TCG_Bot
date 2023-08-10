@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7417434918395189238}
   - component: {fileID: 7446923689673150153}
   - component: {fileID: -8303387079138919153}
-  m_Layer: 0
+  - component: {fileID: -78307216716528846}
+  m_Layer: 10
   m_Name: IsColed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,3 +83,24 @@ MonoBehaviour:
     type: 2}
   iteamTypo: 4
   chest: {fileID: 0}
+--- !u!65 &-78307216716528846
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594087090067416614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}

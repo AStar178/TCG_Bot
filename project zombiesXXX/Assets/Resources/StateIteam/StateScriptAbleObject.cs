@@ -44,4 +44,10 @@ public class StateScriptAbleObject : ScriptableObject {
        }
 
     }
+    public GameObject GiveIteam()
+    {
+        if (SkillIteam != null)
+            return SkillIteam.gameObject;
+        return passiveIteam.gameObject;
+    }
 }

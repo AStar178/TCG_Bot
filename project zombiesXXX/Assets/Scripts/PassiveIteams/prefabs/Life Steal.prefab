@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1550767053967612377}
   - component: {fileID: 8665206600524214238}
   - component: {fileID: 220355520001455106}
+  - component: {fileID: 5177935277827982276}
   m_Layer: 0
   m_Name: Life Steal
   m_TagString: Untagged
@@ -102,3 +103,24 @@ MonoBehaviour:
   itemAdded: 0
   LifePercSet: 1
   LifePerc: 0
+--- !u!65 &5177935277827982276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951494477315736654}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}

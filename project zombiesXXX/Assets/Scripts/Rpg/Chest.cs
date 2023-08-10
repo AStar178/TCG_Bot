@@ -1,23 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using static RpgHelper;
 
 public class Chest : Interactable
 {
     [SerializeField] Transform iteamHolder;
-    [SerializeField] GameObject Iteam;
+    [SerializeField] public GameObject Iteam;
     [SerializeField] Animation animationx;
     [SerializeField] IteamType iteamType;
     public ParticleSystem[] particleSystems;
     [SerializeField] Renderer[] particles;
     [SerializeField] Outliner outliner;
     GameObject w;
-    private void Start() {
+    private async void Start() {
+        await Task.Delay(1000);
+        if (Iteam != null)
+            return;
+        GetReady();
+
+    }
+    
+    public void GetReady() {
         caninteracted = true;
         w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
-        w.GetComponent<Iteam>().enabled = false;
+        if (w.TryGetComponent<Iteam>(out var s))
+            s.enabled = false;
         iteamType = w.GetComponent<IteamforChest>().iteamTypo;
         w.GetComponent<IteamforChest>().chest = this;
         w.transform.SetParent(iteamHolder.transform);
@@ -34,10 +44,13 @@ public class Chest : Interactable
         outliner.OutlineColor = RPGStatic.Instance.GetRightColorForIteamRarety(iteamType);
     outliner.Awake();
     outliner.OnEnable();
+    outliner.enabled = false;
     }
     public override void OnInteracted()
     {
         w.GetComponent<IteamforChest>().fixit();
+        outliner.enabled = true;
+        w.gameObject.layer = 10;
         OpeanChest();
     }
     private void OpeanChest()
@@ -53,11 +66,11 @@ public class Chest : Interactable
         {
             particleSystems[i].Play();
         }
-        Destroy(this);
+        Destroy(this , 6);
     }
     public void Des()
     {
         Destroy(w.transform.parent.gameObject);
-        Destroy(this);
+        Destroy(this , 6);
     }
 }

@@ -91,6 +91,7 @@ MonoBehaviour:
   IconSkill: {fileID: 21300000, guid: 6ea6d4a344085254ba71d8b73db02ee9, type: 3}
   namexSkill: 
   dependenciesSkill: 
+  Icons: {fileID: 0}
   Turretx: {fileID: 7354812559804921307, guid: 4f5972f6844f3734e9f6ad5b7ad92a7d, type: 3}
   Coldown: 15
   DamageAmount: 20

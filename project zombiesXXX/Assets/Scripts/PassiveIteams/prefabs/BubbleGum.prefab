@@ -51,6 +51,7 @@ MonoBehaviour:
   IconSkill: {fileID: 21300000, guid: 35e34fdc953399e4382fa47238d215f4, type: 3}
   namexSkill: wow
   dependenciesSkill: 
+  Icons: {fileID: 0}
   coldDown: 60
   bubble: {fileID: 4060734776102764402, guid: 420f6c6083ca64a4fa86a3ae38932546, type: 3}
   bubblepartical: {fileID: 693129961192120623, guid: 4fbe1b037791fbe40a685fd077710ea0,

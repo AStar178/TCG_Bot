@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -615498868214291055}
   - component: {fileID: -5287972418818164798}
   - component: {fileID: 5088126283918781066}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Sword in the bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9044522896254266643}
   - component: {fileID: 8521185155851882867}
   - component: {fileID: 5088126283918781066}
+  - component: {fileID: 734691490071180473}
   m_Layer: 10
   m_Name: FlameOffHell
   m_TagString: Untagged
@@ -85,3 +86,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &734691490071180473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838608961783109528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afffe74116030845bd2b386fc76115d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caninteracted: 0
+  OneText: 
+  TwoText: 
+  stateScriptAbleObject: {fileID: 11400000, guid: 95962531e642561458a6abade68ae396,
+    type: 2}
+  iteamTypo: 2
+  chest: {fileID: 0}

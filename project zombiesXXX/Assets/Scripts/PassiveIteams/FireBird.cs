@@ -48,7 +48,7 @@ public class FireBird : IteamPassive
         {
             InCombat();
             target.GetComponent<EnemyHp>().TakeDamage(damage);
-            playerState.OnAbilityAttackDealDamage(damage, target.GetComponent<EnemyHp>());
+            playerState.OnAbilityAttackDealDamage?.Invoke(damage, target.GetComponent<EnemyHp>());
         }
 
         return state;
