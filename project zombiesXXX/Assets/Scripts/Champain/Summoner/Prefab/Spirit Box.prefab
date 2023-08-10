@@ -15117,6 +15117,8 @@ MonoBehaviour:
   Bulletrefd: {fileID: 7841633281153438747}
   Trail: {fileID: 3108660773939374006}
   BlackHole: {fileID: 3256468371401314581}
+  Explosive: {fileID: 8491367171190940872, guid: b925c02955e6f5e4b953c7edc721be85,
+    type: 3}
 --- !u!54 &7997280952495932490
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -9,11 +9,13 @@ public class SummonerEffects : MonoBehaviour
     private SpritualWeapon weapon;
     private SummonerS1 SummonerS1;
     private SummonerS2 SummonerS2;
+    private SummonerS3 SummonerS3;
 
     public Transform SpiritualPos() => spiritualPos;
     public SpritualWeapon Passive => weapon;
     public SummonerS1 S1 => SummonerS1;
     public SummonerS2 S2 => SummonerS2;
+    public SummonerS3 S3 => SummonerS3;
 
     public void SetPassive(SpritualWeapon weapon)
     {
@@ -26,5 +28,9 @@ public class SummonerEffects : MonoBehaviour
     public void SetS2(SummonerS2 weapon)
     {
         SummonerS2 = weapon;
+    }
+    public void SetS3(SummonerS3 weapon)
+    {
+        SummonerS3 = weapon;
     }
 }

@@ -16,6 +16,8 @@ public class SpiritBox : MonoBehaviour
     private ParticleSystem Trail;
     [SerializeField]
     private VisualEffect BlackHole;
+    [SerializeField]
+    private GameObject Explosive;
 
 
     public void ActiveSword()
@@ -37,6 +39,16 @@ public class SpiritBox : MonoBehaviour
         if (d)
             BlackHole.Play();
         else
-            BlackHole.Stop();
+        {
+            Orb.SetActive(false);
+            Orb.SetActive(true);
+        }
+    }
+
+    public void SpawnExplosive(Vector3 pos)
+    {
+        var b = Instantiate(Explosive);
+        b.transform.position = pos;
+        Destroy(b, 1f);
     }
 }
