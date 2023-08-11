@@ -60,6 +60,16 @@ public class BasicEnemy : MonoBehaviour
     {
         TargetFunction();
 
+        if (ZAWARDO.Current != null)
+        {
+            if (ZAWARDO.Current.ZawardoTimeded)
+            {
+                rb.isKinematic = true;
+                return;
+            }
+            rb.isKinematic = false;
+        }
+
         AttackPlayer();
 
         if (target != null)

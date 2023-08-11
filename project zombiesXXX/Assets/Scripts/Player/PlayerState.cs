@@ -33,6 +33,7 @@ public class PlayerState : PlayerComponetSystem {
     public Action<DamageData, EnemyHp> OnKilledEnemy;
     public Action<DamageData> OnDamageTaken;
     public Action<DamageData> OnHealed;
+    public bool ShowForwardIndecater;
     public bool Combat;
 
     private void Start() {
@@ -151,6 +152,10 @@ public class PlayerState : PlayerComponetSystem {
         Passiveiteams = Passiveiteams.OrderBy( s => s.Oderlayer * -1 ).ToList();
     }
     private void Update() {
+        if (ShowForwardIndecater)
+        {
+            RenderInceter();
+        }
         if (startSemelisane == false)
             return;
         State state = new State();
@@ -219,6 +224,21 @@ public class PlayerState : PlayerComponetSystem {
         }
         
     }
+    [SerializeField] GameObject incader;
+    private void RenderInceter()
+    {
+        
+        Physics.Raycast( Player.Current.CameraControler.transform.position , Player.Current.CameraControler.transform.forward , out var hitInfo , Mathf.Infinity  , Player.PlayerThirdPersonController.GroundLayers );
+        if (hitInfo.collider == null)
+        {
+            incader.SetActive(false);
+            return;
+        }
+            
+        incader.transform.position = hitInfo.point;
+        incader.SetActive(true);
+    }
+
     public float xc;
     private void CombatTimer()
     {

@@ -15,7 +15,7 @@ public class SummonerS2 : IteamSkill
     {
         Summoner = playerState.GetComponent<SummonerEffects>();
         Summoner.SetS2(this);
-
+        playerState.ShowForwardIndecater = true;
         base.OnStart(playerState);
     }
 

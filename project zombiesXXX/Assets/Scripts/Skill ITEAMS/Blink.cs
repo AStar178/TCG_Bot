@@ -11,7 +11,10 @@ public class Blink : IteamSkill
     [SerializeField]
     private float CooldownSet;
     private float Cooldown;
-
+    public override void OnStart(PlayerState playerState)
+    {
+        playerState.ShowForwardIndecater = true;
+    }
     public override void OnUseSkill(PlayerState playerState)
     {
         if (Cooldown <= 0)
@@ -22,7 +25,7 @@ public class Blink : IteamSkill
                 return;
             Cooldown = CooldownSet;
             Icons.SetCooldown(Cooldown, CooldownSet);
-
+            
             playerState.Player.PlayerThirdPersonController.rb.position = hs.point;
         }
 
