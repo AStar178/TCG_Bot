@@ -38,6 +38,7 @@ public class PlayerState : PlayerComponetSystem {
 
     private void Start() {
 
+        Instantiate(Player.PlayerMap, transform);
         var wadsadas = new List<StateScriptAbleObject>();
         for (int i = 0; i < IteamsAdd.Count; i++)
         {
@@ -246,12 +247,10 @@ public class PlayerState : PlayerComponetSystem {
         if (xc < 0 && Combat == true)
         {
             Combat = false;
-            Player.CameraControler.OutCombatMode();
         }
         if (xc > 0 && Combat == false)
         {
             Combat = true;
-            Player.Current.CameraControler.CombatMode();
         }
     }
 

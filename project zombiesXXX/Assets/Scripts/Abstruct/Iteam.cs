@@ -62,7 +62,6 @@ public abstract class Iteam : MonoBehaviour {
     protected void InCombat()
     {
         Player.Current.PlayerState.Combat = true;
-        Player.Current.CameraControler.CombatMode();
         Player.Current.PlayerState.xc = 5;
     }
 }

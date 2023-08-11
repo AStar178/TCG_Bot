@@ -12,8 +12,6 @@ public class CameraControler : MonoBehaviour
     public Transform LookRoot { get; private set; }
     [SerializeField] Transform sundir;
     [SerializeField] float min , max;
-    [SerializeField] Vector3 CombatOffset;
-    private Vector3 newValue;
     private void Awake() {
         thirdPersonController = cinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         LookRoot = thirdPersonController.LookAtTarget;
@@ -29,8 +27,6 @@ public class CameraControler : MonoBehaviour
         thirdPersonController.CameraDistance = Mathf.Clamp(thirdPersonController.CameraDistance , min , max);
         Shader.SetGlobalVector("_sundir" , sundir.forward);
 
-        thirdPersonController.ShoulderOffset = Vector3.Lerp(thirdPersonController.ShoulderOffset, newValue, 5 * Time.deltaTime);
-
         if (shakeTimer > 0)
         {
             shakeTimer -= Time.deltaTime;
@@ -39,16 +35,6 @@ public class CameraControler : MonoBehaviour
         }
         else if (shakeTimer <= 0 && c.m_NoiseProfile != NoiseOG)
             c.m_NoiseProfile = NoiseOG;
-    }
-
-    public void CombatMode()
-    {
-        newValue = CombatOffset;
-    }
-
-    public void OutCombatMode()
-    {
-        newValue = Vector3.zero;
     }
 
     private CinemachineVirtualCamera cam;
@@ -62,8 +48,11 @@ public class CameraControler : MonoBehaviour
     public NoiseSettings ShakeNoise;
     private NoiseSettings NoiseOG;
 
-    public void CameraShakers(float intensity, float time)
+    public void CameraShakers(float intensity, float time, bool f = false)
     {
+        if (f == false)
+            return;
+
         c.m_NoiseProfile = ShakeNoise;
         c.m_AmplitudeGain = intensity;
 

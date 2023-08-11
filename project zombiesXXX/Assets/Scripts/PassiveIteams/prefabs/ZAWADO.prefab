@@ -90,7 +90,7 @@ MonoBehaviour:
   Oderlayer: 0
   useskill: 0
   IconSkill: {fileID: 21300000, guid: f6860882070eaaf40b9c3b8709010389, type: 3}
-  namexSkill: 
+  namexSkill: THE WORLD
   dependenciesSkill: 
   Icons: {fileID: 0}
   ZawardoTime: 10

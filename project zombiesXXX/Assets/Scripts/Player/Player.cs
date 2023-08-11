@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public CameraControler CameraControler;
     public LayerMask Enemy;
     public TMPro.TMP_Text text;
+    public GameObject PlayerMap;
+    public GameObject EnemyMap;
+
     private void Awake() {
         
         Current = this;
