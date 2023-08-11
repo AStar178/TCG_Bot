@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 2659299763292263843}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4579120375333065425
 GameObject:
@@ -91,6 +91,9 @@ VisualEffect:
       m_Array:
       - m_Value: {x: 13.155959, y: 6.2372327, z: 2.2836757, w: 1}
         m_Name: Flame Color
+        m_Overridden: 1
+      - m_Value: {x: 0.36320752, y: 0.46783993, z: 1, w: 1}
+        m_Name: Smoke Color
         m_Overridden: 1
     m_Uint:
       m_Array: []

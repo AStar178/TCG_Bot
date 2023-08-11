@@ -64,4 +64,14 @@ public abstract class Iteam : MonoBehaviour {
         Player.Current.PlayerState.Combat = true;
         Player.Current.PlayerState.xc = 5;
     }
+    protected RaycastHit raycastHit => Player.Current.PlayerState.RaycastHitHit;
+    protected bool DistanceCheakPlayerCameraRayCast(float Range)
+    {
+        if (Player.Current.PlayerState.RaycastHitHit.collider == null)
+            return false;
+        if (Vector3.Distance( Player.Current.CameraControler.transform.position , Player.Current.PlayerState.RaycastHitHit.point ) < Range)
+            return true;
+        return false;
+
+    }
 }

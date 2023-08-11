@@ -226,10 +226,12 @@ public class PlayerState : PlayerComponetSystem {
         
     }
     [SerializeField] GameObject incader;
+    public RaycastHit RaycastHitHit;
     private void RenderInceter()
     {
         
         Physics.Raycast( Player.Current.CameraControler.transform.position , Player.Current.CameraControler.transform.forward , out var hitInfo , Mathf.Infinity  , Player.PlayerThirdPersonController.GroundLayers );
+        RaycastHitHit = hitInfo;
         if (hitInfo.collider == null)
         {
             incader.SetActive(false);

@@ -12,7 +12,13 @@ public class Turret : IteamSkill {
     public float Coldown;
     public float DamageAmount;
     public float Attackspeed;
+    public float SpawnRange = 10;
     float xczx;
+    
+    public override void OnStart(PlayerState playerState)
+    {
+        playerState.ShowForwardIndecater = true;
+    }
     public override void OnUseSkill(PlayerState playerState)
     {
         SpawnTurret();
@@ -23,7 +29,15 @@ public class Turret : IteamSkill {
     private void Update() {
         if (xczx > 0)
             xczx -= Time.deltaTime;
+        
         Icons.SetCooldown(xczx, Coldown);
+
+        Icons.SetIconMode( DistanceCheakPlayerCameraRayCast(SpawnRange) );
+        
+            
+        
+            
+        
         for (int i = 0; i < turrents.Count; i++)
         {
             turrents[i].CoolDown -= Time.deltaTime;
@@ -51,13 +65,15 @@ public class Turret : IteamSkill {
         if (xczx > 0)
             return;
         
-        var Camerax = Camera.main;
-        var ray = Physics.Raycast( Camerax.transform.position , Camerax.transform.forward , out var hs  , 100  , GroundLayer   );
-        if (hs.collider == null)
+        
+        if (raycastHit.collider == null)
+            return;
+
+        if (!DistanceCheakPlayerCameraRayCast(SpawnRange))
             return;
 
         xczx = Coldown;
-        var Turrent = Instantiate(Turretx , hs.point , Quaternion.identity);
+        var Turrent = Instantiate(Turretx , raycastHit.point , Quaternion.identity);
         var s = Turrent.GetComponent<Turrents>();
         s.Aim.localEulerAngles = new Vector3( 0 , UnityEngine.Random.Range(0 , 360) );
 

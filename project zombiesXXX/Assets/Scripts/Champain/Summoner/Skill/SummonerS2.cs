@@ -25,19 +25,21 @@ public class SummonerS2 : IteamSkill
             return;
 
         var Camerax = Camera.main;
-        var ray = Physics.Raycast(Camerax.transform.position, Camerax.transform.forward, out var hs, Range, GroundLayer);
 
-        if (hs.collider == null)
+        if (raycastHit.collider == null)
+            return;
+        if (DistanceCheakPlayerCameraRayCast(Range) == false)
             return;
 
         Cooldown = CooldownSet;
-        Summoner.Passive.StartVortex(hs.point);
+        Summoner.Passive.StartVortex(raycastHit.point);
 
         base.OnUseSkill(playerState);
     }
 
     public void Update()
     {
+        Icons.SetIconMode( DistanceCheakPlayerCameraRayCast(Range) );
         if (Cooldown > 0)
         {
             Cooldown -= Time.deltaTime;

@@ -19,14 +19,13 @@ public class Blink : IteamSkill
     {
         if (Cooldown <= 0)
         {
-            var Camerax = Camera.main;
-            var ray = Physics.Raycast(Camerax.transform.position, Camerax.transform.forward, out var hs, Range, GroundLayer);
-            if (hs.collider == null)
+            if (DistanceCheakPlayerCameraRayCast(Range) == false)
                 return;
+
             Cooldown = CooldownSet;
             Icons.SetCooldown(Cooldown, CooldownSet);
             
-            playerState.Player.PlayerThirdPersonController.rb.position = hs.point;
+            playerState.Player.PlayerThirdPersonController.rb.position = raycastHit.point;
         }
 
         base.OnUseSkill(playerState);
@@ -34,6 +33,7 @@ public class Blink : IteamSkill
 
     public void Update()
     {
+        Icons.SetIconMode( DistanceCheakPlayerCameraRayCast(Range) );
         if (Cooldown > 0)
         {
             Cooldown -= Time.deltaTime;

@@ -48,6 +48,16 @@ public class Icons : MonoBehaviour
             CooldownText.text = $"{(int)CurrentTime}";
         else CooldownText.text = "";
     }
+    public void SetIconMode(bool mode)
+    {
+
+        if (mode == false)
+        {
+            IconImage.color = Color.red;
+            return;
+        }
+        IconImage.color = Color.white;
+    }
 
     public void SetChargeTime(float CurrentTime, float CooldownSet)
     {

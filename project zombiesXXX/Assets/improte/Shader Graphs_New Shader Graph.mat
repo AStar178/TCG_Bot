@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D_1:
-        m_Texture: {fileID: 2800000, guid: 3c05786e40fba3d4c8b03164c70966fe, type: 3}
+        m_Texture: {fileID: 2800000, guid: 805f3297a3e073e4faf058b8f6312bf6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -47,6 +47,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Float: 250
+    - _Float_1: 1
+    - _Float_2: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SandHeatht: 0
@@ -56,10 +58,10 @@ Material:
     - _minHeight: -20
     m_Colors:
     - _Color: {r: 1.304119, g: 1.304119, b: 1.304119, a: 1}
-    - _Color_1: {r: 0, g: 2.5635583, b: 1.0468981, a: 1}
+    - _Color_1: {r: 0, g: 4.9008675, b: 5.1271167, a: 1}
     - _Color_2: {r: 4, g: 2.893992, b: 0.8867925, a: 1}
-    - _Color_3: {r: 0, g: 3.0188684, b: 0.30839962, a: 1}
-    - _Vector2: {r: 150, g: 150, b: 0, a: 0}
+    - _Color_3: {r: 3.018869, g: 0.8358286, b: 0, a: 1}
+    - _Vector2: {r: 250, g: 250, b: 0, a: 0}
     - _Vector2_1: {r: 150, g: 150, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6337019234353243318
