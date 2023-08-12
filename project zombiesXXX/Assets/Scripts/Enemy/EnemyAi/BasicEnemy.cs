@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Pathfinding;
+using System.Threading.Tasks;
 
 public class BasicEnemy : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class BasicEnemy : MonoBehaviour
     public float JumpCooldownSet;
     private float JumpCooldown;
     public float RangeTime;
+    public GameObject AttackEffec;
 
     public float nextWaypointDistance = 3;
 
@@ -157,19 +159,37 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-    private void AttackPlayer()
+    private async void AttackPlayer()
     {
         // everything in here is self explaned bruh
 
         if (target != null)
             if (AttackCooldwon <= 0 && Vector3.Distance(target.position, transform.position) <= AttackRange)
             {
+                AttackCooldwon = AttackCooldownSet;
+                
+                var d = Instantiate(AttackEffec , transform.position + transform.forward * 1.5f , Quaternion.identity);
+                float xc = 0.6f;
+                while (xc > 0)
+                {
+                    xc -= Time.deltaTime;
+                    transform.LookAt(target.position + Vector3.up );
+                    d.transform.position = transform.position + transform.forward * 1.5f;
+                    await Task.Yield();
+                }
                 DamageData dammen = new DamageData();
+                var x = Physics.OverlapBox(transform.position + transform.forward * AttackRange , boxHitSize , default , TargetLayer );
                 dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
                 target.GetComponentInParent<IDamageAble>().TakeDamage(dammen);
-                AttackCooldwon = AttackCooldownSet;
+                Destroy(d , 2);
                 return;
             }
             AttackCooldwon -= Time.deltaTime;
+    }
+    [SerializeField] Vector3 boxHitSize; 
+    private void OnDrawGizmosSelected() {
+        
+        Gizmos.DrawWireCube( transform.position + transform.forward * AttackRange , boxHitSize );
+
     }
 }

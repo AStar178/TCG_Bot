@@ -121,6 +121,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Lerp: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -152,6 +153,7 @@ Material:
     - _Color: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
     - _Color_1: {r: 0.3204188, g: 0.3204188, b: 0.3204188, a: 1}
     - _Color_2: {r: 0, g: 21.396406, b: 28.51895, a: 1}
+    - _Color_3: {r: 14.259479, g: 2.1954658, b: 1.194511, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

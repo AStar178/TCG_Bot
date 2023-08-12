@@ -153,6 +153,7 @@ public class PlayerState : PlayerComponetSystem {
         Passiveiteams = Passiveiteams.OrderBy( s => s.Oderlayer * -1 ).ToList();
     }
     private void Update() {
+        Player.UIManager.SetHealth(ResultValue.HpCurrent, ResultValue.HpMax, this);
         if (ShowForwardIndecater)
         {
             RenderInceter();
