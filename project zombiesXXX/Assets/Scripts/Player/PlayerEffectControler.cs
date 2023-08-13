@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -9,6 +12,7 @@ public abstract class PlayerEffectControler : PlayerComponetSystem
     public Transform feetpos;
     [SerializeField] ParticleSystem[] wakeparticale;
     public Animator animator;
+    [SerializeField] public float LOR;
     public async void TurnOnInvisableEffectTime(float time)
     {
         t = time;
@@ -30,7 +34,31 @@ public abstract class PlayerEffectControler : PlayerComponetSystem
         }
         PlayerMatriale.SetFloat("_Float_2", 1);
     }
+    float x;
+    private void Update() {
+        
+        x -= Time.deltaTime;
 
+        if (x > 0)
+            return;
+
+        x = 0.25f;
+
+        var collider = Physics.OverlapSphere( transform.position , LOR , SpawnerManager.Current.LoFLayerMask ).ToList();
+
+        for (int i = 0; i < collider.Count; i++)
+        {
+            if (collider[i].gameObject.TryGetComponent<LOF>(out var lOF) && Vector3.Dot( Player.Current.CameraControler.transform.forward , (Player.Current.CameraControler.transform.position - collider[i].transform.position).normalized ) < 0)
+                lOF.Enable();
+        }
+        for (int i = 0; i < SpawnerManager.Current.ListOfObject.Count; i++)
+        {
+            if (SpawnerManager.Current.ListOfObject[i].anibale == true)
+                continue;
+            SpawnerManager.Current.ListOfObject[i].DISABLE();
+        }
+
+    }
     public void WakeEffectleft()
     {
         wakeparticale[0].Play();
@@ -42,6 +70,10 @@ public abstract class PlayerEffectControler : PlayerComponetSystem
 
     }
 
+    private void OnDrawGizmosSelected() {
+        
+        Gizmos.DrawWireSphere(transform.position , LOR);
 
+    }
 
 }
