@@ -6,16 +6,19 @@ using System.Linq;
 using System;
 
 public class SpawnerManager : MonoBehaviour {
+    public static SpawnerManager Current;
     public List<StateScriptAbleObject> stateScriptAbleObjects = new List<StateScriptAbleObject>();
     [SerializeField] private GameObject Chest;
     [SerializeField] private Transform World;
     [SerializeField] private AstarPath astarPath;
     [SerializeField] private Vector3 SpawnBox;
     [SerializeField] private int CheastAmount;
-    [SerializeField] private GrassComputeScript GrassComputeScript;
+    [SerializeField] public List<LOF> ListOfObject = new();
+    [SerializeField] public LayerMask InteractebleLayerMask;
+    [SerializeField] public LayerMask LoFLayerMask;
     private void Awake() {
         
-
+        Current = this;
 
         stateScriptAbleObjects.AddRange( Resources.LoadAll<StateScriptAbleObject>("StateIteam") );
 
@@ -44,6 +47,9 @@ public class SpawnerManager : MonoBehaviour {
             var x = s[i].GetComponent<Chest>();
             x.Iteam = stateScriptAbleObjects.OrderBy( c => UnityEngine.Random.value ).FirstOrDefault().GiveIteam();
             x.GetReady();
+            var sx = x.gameObject.GetComponentInChildren<LOF>();
+            sx.DISABLE();
+            ListOfObject.Add(sx);
         }
     }
 
@@ -52,7 +58,7 @@ public class SpawnerManager : MonoBehaviour {
         //SpawnGrass();
     }
 
-    private void SpawnGrass()
+    /*private void SpawnGrass()
     {
         
         List<GrassData> grass = new();
@@ -76,7 +82,7 @@ public class SpawnerManager : MonoBehaviour {
         }
         GrassComputeScript.Reset();
         GrassComputeScript.SetGrassPaintedDataList = (grass);  
-    }
+    }*/
 
     private void PathFindingGenerate()
     {
@@ -111,6 +117,9 @@ public class SpawnerManager : MonoBehaviour {
         return hit;
     }
 }
+
+
+
 struct SpawnObejct
 {
     
