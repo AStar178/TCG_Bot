@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     private ImageBar LeftBar;
     [SerializeField]
     List<Icons> Icons;
+    [SerializeField]
+    private GameObject uiObj;
 
     #region UI Bars
 
@@ -28,6 +30,11 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+
+    public void SetUIActive(bool b)
+    {
+        uiObj.SetActive(b);
+    }
 
     public Icons GetIcon(int i)
     {

@@ -1,13 +1,20 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using System.Linq;
 
 public class PlayerState : PlayerComponetSystem {
 
     [SerializeField]
+    private bool Selected = false;
+
+    [SerializeField]
     private string Name;
+    [SerializeField] [TextArea]
+    private string Description;
     public string GetName() => Name;
+    public string GetDescription() => Description;
     [SerializeField]
     private bool hasSecondBar = false;
     public bool HasSecondBar() => hasSecondBar;
@@ -37,12 +44,44 @@ public class PlayerState : PlayerComponetSystem {
     public bool Combat;
 
     private void Start() {
+        if (Selected == false)
+        {
+            GetComponent<ThirdPersonCam>().Stop = true;
+            GetComponent<ThirdPersonCam>().rb.useGravity = false;
 
+
+            GetComponent<PlayerInputSystem>().cursorLocked = false;
+            GetComponent<PlayerInputSystem>().cursorInputForLook = false;
+            GetComponent<PlayerInputSystem>().SetCursorState(false);
+            return; 
+        }
+
+        OnStart();
+    }
+
+    public void SetHero(GameObject Iteam, GameObject Incader)
+    {
+        Selected = true;
+        IteamSpawn = Iteam.transform;
+        incader = Incader;
+
+        GetComponent<ThirdPersonCam>().Stop = false;
+        GetComponent<ThirdPersonCam>().rb.useGravity = true;
+
+
+        GetComponent<PlayerInputSystem>().cursorLocked = true;
+        GetComponent<PlayerInputSystem>().cursorInputForLook = true;
+        GetComponent<PlayerInputSystem>().SetCursorState(true);
+
+        OnStart();
+    }
+    public void OnStart()
+    {
         Instantiate(Player.PlayerMap, transform);
         var wadsadas = new List<StateScriptAbleObject>();
         for (int i = 0; i < IteamsAdd.Count; i++)
         {
-            StateScriptAbleObject stateScriptAbleObjectxx = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject"); 
+            StateScriptAbleObject stateScriptAbleObjectxx = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject");
             stateScriptAbleObjectxx.icone = IteamsAdd[i].icone;
             stateScriptAbleObjectxx.namex = IteamsAdd[i].namex;
             stateScriptAbleObjectxx.discrapsen = IteamsAdd[i].discrapsen;
@@ -52,12 +91,12 @@ public class PlayerState : PlayerComponetSystem {
             stateScriptAbleObjectxx.SkillIteam = IteamsAdd[i].SkillIteam;
             wadsadas.Add(stateScriptAbleObjectxx);
         }
-        IteamsAdd.RemoveRange( 0 , IteamsAdd.Count );
+        IteamsAdd.RemoveRange(0, IteamsAdd.Count);
         IteamsAdd.AddRange(wadsadas);
         var adasdasdasd = new List<StateScriptAbleObject>();
         for (int i = 0; i < IteamsMulty.Count; i++)
         {
-            StateScriptAbleObject stateScriptAbleObjectxx = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject"); 
+            StateScriptAbleObject stateScriptAbleObjectxx = (StateScriptAbleObject)ScriptableObject.CreateInstance("StateScriptAbleObject");
             stateScriptAbleObjectxx.icone = IteamsMulty[i].icone;
             stateScriptAbleObjectxx.namex = IteamsMulty[i].namex;
             stateScriptAbleObjectxx.discrapsen = IteamsMulty[i].discrapsen;
@@ -68,7 +107,7 @@ public class PlayerState : PlayerComponetSystem {
             IteamsMulty.RemoveAt(i);
             adasdasdasd.Add(stateScriptAbleObjectxx);
         }
-        IteamsMulty.RemoveRange( 0 , IteamsMulty.Count );
+        IteamsMulty.RemoveRange(0, IteamsMulty.Count);
         IteamsMulty.AddRange(IteamsMulty);
 
         Skill = new IteamSkill[7];
@@ -153,7 +192,10 @@ public class PlayerState : PlayerComponetSystem {
         Passiveiteams = Passiveiteams.OrderBy( s => s.Oderlayer * -1 ).ToList();
     }
     private void Update() {
-        
+        if (Selected == false)
+            return;
+
+
         if (ShowForwardIndecater)
         {
             RenderInceter();
@@ -226,6 +268,7 @@ public class PlayerState : PlayerComponetSystem {
         }
         
     }
+
     [SerializeField] GameObject incader;
     public RaycastHit RaycastHitHit;
     private void RenderInceter()
