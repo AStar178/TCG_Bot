@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     public ThirdPersonCam PlayerThirdPersonController;
     public UIManager UIManager;
     public CameraControler CameraControler;
-    public GameObject Target;
     public LayerMask Enemy;
+    public TMPro.TMP_Text text;
     public GameObject PlayerMap;
     public GameObject EnemyMap;
 
@@ -22,5 +22,8 @@ public class Player : MonoBehaviour
         
         Current = this;
 
+    }
+    private void Update() {
+        text.text = "FPS:" + 1f / Time.deltaTime;
     }
 }

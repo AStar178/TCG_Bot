@@ -6,10 +6,8 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonCam : PlayerComponetSystem
 {
-    public bool Stop = false;
     [Header("References")]
     public Rigidbody rb;
-    private float Mass;
 
     #region Hell
     [Header("Player")]
@@ -90,7 +88,6 @@ public class ThirdPersonCam : PlayerComponetSystem
 #endif
     private Animator _animator;
     private PlayerInputSystem _input;
-    public PlayerInputSystem getInput() => _input;
     private GameObject _mainCamera;
 
     private const float _threshold = 0.01f;
@@ -113,7 +110,6 @@ public class ThirdPersonCam : PlayerComponetSystem
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Mass = rb.mass;
         sp.localPosition = Vector3.zero;
         // get a reference to our main camera
         if (_mainCamera == null)
@@ -143,18 +139,12 @@ public class ThirdPersonCam : PlayerComponetSystem
 
     public void Update()
     {
-        if (Stop)
-            return;
-
         GroundedCheck();
         JumpAndGravity();
     }
 
     public void FixedUpdate()
     {
-        if (Stop)
-            return;
-
         Move();
     }
 

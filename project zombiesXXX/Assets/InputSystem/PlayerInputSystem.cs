@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 #endif
 
+namespace StarterAssets
+{
 	public class PlayerInputSystem : MonoBehaviour
 	{
 		[Header("Character Input Values")]
@@ -183,9 +185,10 @@ using UnityEngine.InputSystem;
 			SetCursorState(cursorLocked);
 		}
 
-		public void SetCursorState(bool newState)
+		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
 	
+}
