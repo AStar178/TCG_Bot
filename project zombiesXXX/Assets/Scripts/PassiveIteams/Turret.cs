@@ -32,7 +32,7 @@ public class Turret : IteamSkill {
         
         Icons.SetCooldown(xczx, Coldown);
 
-        Icons.SetIconMode( DistanceCheakPlayerCameraRayCast(SpawnRange) );
+        Icons.SetIconMode( DistanceCheakPlayerRayCast(SpawnRange) );
         
             
         
@@ -65,11 +65,7 @@ public class Turret : IteamSkill {
         if (xczx > 0)
             return;
         
-        
-        if (raycastHit.collider == null)
-            return;
-
-        if (!DistanceCheakPlayerCameraRayCast(SpawnRange))
+        if (!DistanceCheakPlayerRayCast(SpawnRange))
             return;
 
         xczx = Coldown;

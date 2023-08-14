@@ -69,7 +69,16 @@ public abstract class Iteam : MonoBehaviour {
     {
         if (Player.Current.PlayerState.RaycastHitHit.collider == null)
             return false;
-        if (Vector3.Distance( Player.Current.CameraControler.transform.position , Player.Current.PlayerState.RaycastHitHit.point ) < Range)
+        if (Vector3.Distance(Player.Current.CameraControler.transform.position, Player.Current.PlayerState.RaycastHitHit.point) < Range)
+            return true;
+        return false;
+
+    }
+    protected bool DistanceCheakPlayerRayCast(float Range)
+    {
+        if (Player.Current.PlayerState.RaycastHitHit.collider == null)
+            return false;
+        if (Vector3.Distance(Player.Current.PlayerState.transform.position, Player.Current.PlayerState.RaycastHitHit.point) < Range)
             return true;
         return false;
 

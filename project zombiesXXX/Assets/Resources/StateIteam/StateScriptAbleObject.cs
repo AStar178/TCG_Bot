@@ -32,16 +32,24 @@ public class StateScriptAbleObject : ScriptableObject {
     }
     public void Applay()
     {
-        
-       var wo = AssetDatabase.LoadAssetAtPath<GameObject>(CreatedGameObject);
+        var wo = AssetDatabase.LoadAssetAtPath<GameObject>(CreatedGameObject);
+        if (wo == null)
+        {
+            string msg = $"Assets/Scripts/PassiveIteams/prefabs/{namex}.prefab";
+            wo = AssetDatabase.LoadAssetAtPath<GameObject>(msg);
+        }
+        wo.GetComponent<IteamforChest>().stateScriptAbleObject = this;
+        wo.GetComponent<IteamforChest>().iteamTypo = iteamTypo;
        if (wo.TryGetComponent<IteamPassive>(out var s))
        {
             passiveIteam = s;
+            s.namex = namex;
        }
         if (wo.TryGetComponent<IteamSkill>(out var sx))
        {
             SkillIteam = sx;
-       }
+            sx.namexSkill = namex;
+        }
 
     }
     public GameObject GiveIteam()

@@ -12,6 +12,7 @@ public class Nuking : IteamPassive
     [SerializeField] float CouldDown;
     [SerializeField] float DamageRaduis;
     [SerializeField] float Raduis;
+    [SerializeField] float Delay = 1f;
     float coulddown;
     [SerializeField] float offset = 0.01f;
     public override State OnUpdate(PlayerState playerState, ref State CalucatedValue, ref State state)
@@ -41,7 +42,7 @@ public class Nuking : IteamPassive
             var enemy = xc >= gays.Count ? collider.OrderBy(s => UnityEngine.Random.value ).FirstOrDefault().transform: gays[xc].transform;
             Physics.Raycast( enemy.transform.position+ Vector3.up * 2 , Vector3.down , out var raycastHit , Mathf.Infinity , playerState.Player.PlayerThirdPersonController.GroundLayers );     
             var wow = Instantiate( Effect , (raycastHit.point + (Vector3.up * offset))  , Quaternion.identity );
-            float wowx = 1;
+            float wowx = Delay;
             while (wowx > 0)
             {
                 wowx -= Time.deltaTime;

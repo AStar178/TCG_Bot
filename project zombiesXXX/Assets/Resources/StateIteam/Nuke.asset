@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nuke
   m_EditorClassIdentifier: 
   icone: {fileID: 0}
-  namex: 
+  namex: Nuke
   discrapsen: 
   state:
     Damage: 0
