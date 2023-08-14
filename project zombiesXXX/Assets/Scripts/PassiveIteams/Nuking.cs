@@ -15,6 +15,8 @@ public class Nuking : IteamPassive
     [SerializeField] float Delay = 1f;
     float coulddown;
     [SerializeField] float offset = 0.01f;
+    [SerializeField] private bool isLighting;
+    [SerializeField] private ParticleSystem LightingEffectSystem;
     public override State OnUpdate(PlayerState playerState, ref State CalucatedValue, ref State state)
     {
 
@@ -54,9 +56,18 @@ public class Nuking : IteamPassive
             Destroy(wow , 6);
             for (int x = 0; x < colliders.Length; x++)
             {
-
-                colliders[x].GetComponent<IDamageAble>().TakeDamage( CreatDamage( playerState.ResultValue.Damage * 3 , playerState , out var crited ) );
-                
+                var s = colliders[x].GetComponent<EnemyHp>();
+                s.TakeDamage( CreatDamage( playerState.ResultValue.Damage * 3 , playerState , out var crited ) );
+                if (isLighting)
+                {
+                    var xcc = Instantiate(LightingEffectSystem , s.transform);
+                    s.GetComponent<BasicEnemy>().Stuned(3.5f);
+                    await Task.Delay(3500);
+                    if (xcc == null)
+                        return;
+                    xcc.Stop();
+                    Destroy(xcc , 1);
+                }
             }
 
         }

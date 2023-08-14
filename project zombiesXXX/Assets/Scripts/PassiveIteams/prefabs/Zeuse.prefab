@@ -66,6 +66,9 @@ MonoBehaviour:
   Raduis: 10
   Delay: 0
   offset: 0.01
+  isLighting: 1
+  LightingEffectSystem: {fileID: 7191660034902519440, guid: 3e22240fe9a37784a89afb63001f0ebe,
+    type: 3}
 --- !u!114 &3812015081204985905
 MonoBehaviour:
   m_ObjectHideFlags: 0

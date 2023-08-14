@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Pathfinding;
 using System.Threading.Tasks;
+using TMPro;
 
 public class BasicEnemy : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class BasicEnemy : MonoBehaviour
     public Transform target;
     public LayerMask TargetLayer;
     private Seeker Seeker;
+    public float StunnedTimer;
+    public GameObject Text;
+    TMP_Text text;
     private void OnEnable() {
         GetComponent<EnemyHp>().TakeDamageEvent += IamVeryAngery;
     }
@@ -44,6 +48,8 @@ public class BasicEnemy : MonoBehaviour
     }
     private void Start()
     {
+        text = Instantiate(Text , transform).GetComponentInChildren<TMP_Text>();
+        text.transform.position += Vector3.up * transform.localScale.y;
         Seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody>();
     }
@@ -71,7 +77,15 @@ public class BasicEnemy : MonoBehaviour
             }
             rb.isKinematic = false;
         }
-
+        if (StunnedTimer > 0)
+        {
+            rb.velocity = Vector2.zero;
+            StunnedTimer -= Time.deltaTime;
+            text.enabled = true;
+            text.text = "Stunned";
+            return;
+        }
+        text.enabled = false;
         AttackPlayer();
 
         if (target != null)
@@ -191,5 +205,11 @@ public class BasicEnemy : MonoBehaviour
         
         Gizmos.DrawWireCube( transform.position + transform.forward * AttackRange , boxHitSize );
 
+    }
+    float MaxTimer;
+    public void Stuned(float v)
+    {
+        StunnedTimer += v;
+        MaxTimer = StunnedTimer;
     }
 }
