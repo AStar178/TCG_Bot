@@ -97,6 +97,8 @@ MonoBehaviour:
   ColdDown: 60
   audioSource: {fileID: 100109057548541729}
   Effectl: {fileID: 4390776346964032205, guid: fdf26244e28fc4d47a5cecb8e32ae24a, type: 3}
+  material: {fileID: 2100000, guid: 4d94ecde21ec2e947a4fc203d117cad2, type: 2}
+  material2: {fileID: 2100000, guid: 04ec8dae8c07b0b48bb1e292e81e8038, type: 2}
   ZawardoTimeded: 0
 --- !u!82 &100109057548541729
 AudioSource:

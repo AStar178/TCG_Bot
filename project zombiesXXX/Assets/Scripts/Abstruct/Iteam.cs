@@ -74,6 +74,10 @@ public abstract class Iteam : MonoBehaviour {
         return false;
 
     }
+    public float GetAttackSpeed()
+    {
+        return (1/(Player.Current.PlayerState.ResultValue.AttackSpeed+1));
+    }
     protected bool DistanceCheakPlayerRayCast(float Range)
     {
         if (Player.Current.PlayerState.RaycastHitHit.collider == null)

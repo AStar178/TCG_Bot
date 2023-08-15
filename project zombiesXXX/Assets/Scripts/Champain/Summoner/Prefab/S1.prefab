@@ -50,4 +50,4 @@ MonoBehaviour:
   namexSkill: 
   dependenciesSkill: 
   Icons: {fileID: 0}
-  CooldownSet: 1
+  CooldownSet: 2

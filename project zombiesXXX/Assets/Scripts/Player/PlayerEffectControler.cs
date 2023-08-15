@@ -13,6 +13,7 @@ public abstract class PlayerEffectControler : PlayerComponetSystem
     [SerializeField] ParticleSystem[] wakeparticale;
     public Animator animator;
     [SerializeField] public float LOR;
+    [SerializeField] public SkinnedMeshRenderer meshFilter;
     public async void TurnOnInvisableEffectTime(float time)
     {
         t = time;

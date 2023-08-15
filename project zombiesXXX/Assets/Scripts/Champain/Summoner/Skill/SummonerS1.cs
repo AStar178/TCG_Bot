@@ -16,7 +16,7 @@ public class SummonerS1 : IteamSkill
 
         base.OnStart(playerState);
     }
-
+    int b;
     public override void OnUseSkill(PlayerState playerState)
     {
         if (Summoner.Passive.Stop == true || Cooldown > 0)
@@ -24,13 +24,13 @@ public class SummonerS1 : IteamSkill
 
         if (Summoner.Passive.StartChargeAtTarget()  == true)
         {
-            int b = (Summoner.Passive.level) / 10;
+            b = (Summoner.Passive.level) / 10;
             if (b > 10)
                 b = 10;
             else if (b < 1)
                 b = 1;
-            Cooldown = CooldownSet / b;
-            Icons.SetCooldown(Cooldown, CooldownSet / b);
+            Cooldown = (CooldownSet / b) * GetAttackSpeed();
+            Icons.SetCooldown(Cooldown, (CooldownSet / b) * GetAttackSpeed());
         }
         base.OnUseSkill(playerState);
     }
@@ -43,6 +43,6 @@ public class SummonerS1 : IteamSkill
     public void Update()
     {
         if (Cooldown > 0)
-        { Cooldown -= Time.deltaTime; Icons.SetCooldown(Cooldown, CooldownSet); }
+        { Cooldown -= Time.deltaTime; Icons.SetCooldown(Cooldown, (CooldownSet / b) * GetAttackSpeed()); }
     }
 }

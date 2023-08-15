@@ -11688,8 +11688,10 @@ MonoBehaviour:
   InvisableTime: 0
   IteamsAdd:
   - {fileID: 11400000, guid: 1a9554d8dbd25584599e7cd722821525, type: 2}
-  - {fileID: 11400000, guid: 974eea568cafc26419a7a98e61292d13, type: 2}
-  - {fileID: 11400000, guid: 02856187e3005cc4797ec1b33ffa2b44, type: 2}
+  - {fileID: 11400000, guid: 6c89b6846bd389f40aa6f3832e2e6805, type: 2}
+  - {fileID: 11400000, guid: 3aa65588e1f89ce4d86b1a737f034cba, type: 2}
+  - {fileID: 11400000, guid: 7d9d22e029d8ac145978350d85529f27, type: 2}
+  - {fileID: 11400000, guid: da2dc00d2c816da4eb395e1cff2c9757, type: 2}
   IteamsMulty: []
   Passiveiteams: []
   Skill: []
@@ -11702,7 +11704,9 @@ MonoBehaviour:
   ChampinSkillR: {fileID: 3437785610056036043, guid: 7a94207346713b744acb0c009e33a6a4,
     type: 3}
   IteamSpawn: {fileID: 0}
+  ShowForwardIndecater: 0
   Combat: 0
+  incader: {fileID: 0}
   xc: 0
 --- !u!114 &1034294200415615744
 MonoBehaviour:
@@ -11907,6 +11911,9 @@ MonoBehaviour:
   - {fileID: 627964360084311175}
   - {fileID: 7276927770109173390}
   animator: {fileID: 7957678132453316705}
+  LOR: 200
+  meshFilter: {fileID: 0}
+  mesh: {fileID: 0}
 --- !u!114 &5624648993973627495
 MonoBehaviour:
   m_ObjectHideFlags: 0
