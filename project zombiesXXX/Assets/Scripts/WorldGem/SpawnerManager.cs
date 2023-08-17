@@ -45,7 +45,9 @@ public class SpawnerManager : MonoBehaviour {
         for (int i = 0; i < s.Count; i++)
         {
             var x = s[i].GetComponent<Chest>();
-            x.Iteam = stateScriptAbleObjects.OrderBy( c => UnityEngine.Random.value ).FirstOrDefault().GiveIteam();
+            var v = stateScriptAbleObjects.OrderBy( c => UnityEngine.Random.value ).FirstOrDefault();
+            x.Iteam = v.GiveIteam();
+            x.stateScriptAbleObject = v;
             x.GetReady();
             var sx = x.gameObject.GetComponentInChildren<LOF>();
             sx.DISABLE();

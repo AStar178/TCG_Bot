@@ -7,6 +7,7 @@ public class RPGStatic : MonoBehaviour
 {
     public static RPGStatic Instance;
     public GameObject textPrefab;
+    public GameObject EmpetyIteam;
     [SerializeField] Material[] colors;
     [SerializeField] Color[] colorsx;
     public ObjectPool<TextDissaper> objectPools;
@@ -48,6 +49,36 @@ public class RPGStatic : MonoBehaviour
         tMP_Text.text = v;
         tMP_Text.color = color;
         text.newPoisition = text.transform.position + randomVector();
+    }
+    public void CreatCoustomTextPopupOnlyUp(string v, Vector3 position, Color color)
+    {
+        var text = objectPools.Get();
+        text.f = 0;
+        text.transform.position = position;
+        TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
+        tMP_Text.text = v;
+        tMP_Text.color = color;
+        text.newPoisition = text.transform.position + Vector3.up * 2;
+    }
+    public void CreatCoustomTextPopupMatrial(string v, Vector3 position, Color color)
+    {
+        var text = objectPools.Get();
+        text.f = 0;
+        text.transform.position = position;
+        TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
+        tMP_Text.text = v;
+        tMP_Text.material.color = color;
+        text.newPoisition = text.transform.position + randomVector();
+    }
+    public void CreatCoustomTextPopupOnlyUpMatrial(string v, Vector3 position, Color color , float w)
+    {
+        var text = objectPools.Get();
+        text.f = 0;
+        text.transform.position = position;
+        TMPro.TMP_Text tMP_Text = text.GetComponentInChildren<TMPro.TMP_Text>();
+        tMP_Text.text = v;
+        tMP_Text.material.SetColor( "_FaceColor" , color * w );
+        text.newPoisition = text.transform.position + Vector3.up * 2;
     }
 
     public Vector3 randomVector()

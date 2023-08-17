@@ -9,6 +9,8 @@ public class Chest : Interactable
 {
     [SerializeField] Transform iteamHolder;
     [SerializeField] public GameObject Iteam;
+    [HideInInspector]
+    public StateScriptAbleObject stateScriptAbleObject;
     [SerializeField] Animation animationx;
     [SerializeField] IteamType iteamType;
     public ParticleSystem[] particleSystems;
@@ -25,7 +27,16 @@ public class Chest : Interactable
     
     public void GetReady() {
         caninteracted = true;
-        w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
+        if (Iteam == null)
+        {
+            Iteam = Instantiate(RPGStatic.Instance.EmpetyIteam , iteamHolder.transform.position , Quaternion.identity);
+            Iteam.GetComponent<IteamforChest>().stateScriptAbleObject = stateScriptAbleObject;
+            Iteam.GetComponent<IteamforChest>().iteamTypo = stateScriptAbleObject.iteamTypo;
+            w = Iteam;
+        }
+        else
+            w = Instantiate(Iteam , iteamHolder.transform.position , Quaternion.identity);
+
         if (w.TryGetComponent<Iteam>(out var s))
             s.enabled = false;
         iteamType = w.GetComponent<IteamforChest>().iteamTypo;

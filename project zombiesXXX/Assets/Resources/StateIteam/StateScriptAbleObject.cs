@@ -52,10 +52,22 @@ public class StateScriptAbleObject : ScriptableObject {
         }
 
     }
+    public void AdditToPlayer()
+    {
+        var s = FindFirstObjectByType<PlayerState>();
+        if (ModeMulity == true)
+        {
+            s.IteamsMulty.Add(this);
+            return;
+        }
+        s.IteamsAdd.Add(this);
+    }
     public GameObject GiveIteam()
     {
         if (SkillIteam != null)
             return SkillIteam.gameObject;
-        return passiveIteam.gameObject;
+        if (passiveIteam != null)
+            return passiveIteam.gameObject;
+        return null;
     }
 }

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7b8131377c3c242aa3360a33d47a2a, type: 3}
+  m_Name: SwearingGod
+  m_EditorClassIdentifier: 
+  icone: {fileID: 21300000, guid: eafd59536a33c7e478948adf72249989, type: 3}
+  namex: I GOING TO BE RASISE
+  discrapsen: 
+  state:
+    Damage: 0
+    HpMax: 0
+    HpCurrent: 0
+    Crit: 0
+    CritDamageMulty: 0
+    SprintSpeed: 0
+    AttackSpeed: 0
+    JumpAmount: 0
+    Deffece: 0
+    AttackRange: 0
+    Luck: 0
+  ModeMulity: 0
+  passiveIteam: {fileID: 0}
+  SkillIteam: {fileID: 0}
+  IteamAddAready: 0
+  iteamTypo: 2

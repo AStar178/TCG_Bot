@@ -56,7 +56,12 @@ public class Nuking : IteamPassive
             Destroy(wow , 6);
             for (int x = 0; x < colliders.Length; x++)
             {
-                var s = colliders[x].GetComponent<EnemyHp>();
+                if (colliders[x] == null)
+                    continue;
+                
+                if (!colliders[x].TryGetComponent<EnemyHp>(out var s))
+                    continue;
+                
                 s.TakeDamage( CreatDamage( playerState.ResultValue.Damage * 3 , playerState , out var crited ) );
                 if (isLighting)
                 {

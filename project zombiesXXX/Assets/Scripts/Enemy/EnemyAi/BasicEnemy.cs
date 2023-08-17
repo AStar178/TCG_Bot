@@ -191,10 +191,19 @@ public class BasicEnemy : MonoBehaviour
                     d.transform.position = transform.position + transform.forward * 1.5f;
                     await Task.Yield();
                 }
-                DamageData dammen = new DamageData();
+                DamageData dammen = CreatNewDamage();
                 var x = Physics.OverlapBox(transform.position + transform.forward * AttackRange , boxHitSize , default , TargetLayer );
-                dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
-                target.GetComponentInParent<IDamageAble>().TakeDamage(dammen);
+                for (int i = 0; i < x.Length; i++)
+                {
+                    
+                    if (x[i].TryGetComponent<IDamageAble>(out var component))
+                    {
+                        dammen.DamageAmount = Random.Range(AttackDamageMin, AttackDamageMax);
+                        target.GetComponentInParent<IDamageAble>().TakeDamage(dammen);
+                    }
+
+                }
+
                 Destroy(d , 2);
                 return;
             }
@@ -211,5 +220,11 @@ public class BasicEnemy : MonoBehaviour
     {
         StunnedTimer += v;
         MaxTimer = StunnedTimer;
+    }
+    public DamageData CreatNewDamage()
+    {
+        DamageData damageData = new();
+        damageData.enemyHp = this.gameObject;
+        return damageData;
     }
 }

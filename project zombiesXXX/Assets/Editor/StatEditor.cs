@@ -14,5 +14,9 @@ public class StatEditor : Editor {
         {
             stateScriptAbleObject.Applay();
         }
+        if (GUILayout.Button ("Add To Player"))
+        {
+            stateScriptAbleObject.AdditToPlayer();
+        }
     }
 }
