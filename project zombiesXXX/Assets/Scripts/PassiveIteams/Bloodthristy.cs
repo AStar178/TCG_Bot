@@ -1,0 +1,1 @@
+//every time you kill enemy you gain 1 stack of blood thirty max 10 stack when you take damage you lose half of the stack

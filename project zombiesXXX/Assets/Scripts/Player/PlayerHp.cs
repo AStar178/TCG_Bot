@@ -33,9 +33,15 @@ public class PlayerHp : PlayerComponetSystem , IDamageAble
             SetHpCurrent(Player.PlayerState.ResultValue.HpMax);
 
     }
-
+    public bool jesus;
     private void Killed()
     {
+        if (jesus)
+        {
+            JessusSecoundChance.Current.JesusTime();
+            return;
+        }
+
         Debug.Log("DIED");
     }
 

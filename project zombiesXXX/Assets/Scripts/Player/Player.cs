@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public PlayerTargetSystem PlayerTargetSystem;
     public PlayerEffectControler PlayerEffect;
     public ThirdPersonCam PlayerThirdPersonController;
+    public PlayerHp PlayerHp;
     public UIManager UIManager;
     public CameraControler CameraControler;
     public LayerMask Enemy;

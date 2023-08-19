@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.VFX;
 
 public abstract class Iteam : MonoBehaviour {
     public int Oderlayer = 0;
@@ -86,5 +87,16 @@ public abstract class Iteam : MonoBehaviour {
             return true;
         return false;
 
+    }
+    protected VisualEffect InstatedEffect(VisualEffect effect , Vector3 pos , float DestroyTime)
+    {
+        var s = Instantiate(effect , pos , Quaternion.identity);
+        Destroy(s , DestroyTime);
+        return s;
+    }
+    protected VisualEffect InstatedEffectInPlayerTrasform(VisualEffect effect)
+    {
+        var s = Instantiate(effect , Player.Current.PlayerEffect.transform);
+        return s;
     }
 }
