@@ -66,6 +66,8 @@ public class ItemDatabase : EditorWindow
         //Hook up button click events
         rootVisualElement.Q<Button>("Btn_AddItem").clicked += AddItem_OnClick;
         rootVisualElement.Q<Button>("Btn_DeleteItem").clicked += DeleteItem_OnClick;
+        rootVisualElement.Q<Button>("LogicBottumadd").clicked += AddLogicIteam_OnClick;
+        rootVisualElement.Q<Button>("LogicBottumremove").clicked += RemoveLogicIteam_OnClick;
 
         //Register Value Changed Callbacks for new items added to the ListView
         m_DetailSection.Q<TextField>("ItemName").RegisterValueChangedCallback(evt => 
@@ -86,10 +88,21 @@ public class ItemDatabase : EditorWindow
 
     }
 
+    private void RemoveLogicIteam_OnClick()
+    {
+        m_activeItem.iteamActions.Remove(m_activeItem.iteamActions.Last());
+    }
+
+
+    private void AddLogicIteam_OnClick()
+    {
+        m_activeItem.iteamActions.Add(new ActionStruct());
+    }
+
     /// <summary>
     /// Delete the active Item asset from the Asset/Data folder
     /// </summary>
-private void DeleteItem_OnClick()
+    private void DeleteItem_OnClick()
 {
     //Get the path of the fie and delete it through AssetDatabase
     string path = AssetDatabase.GetAssetPath(m_activeItem);

@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1ECBF080-3B13-47CB-8D20-B28643C911E3
   FriendlyName: Sword
-  Description: asdasda
-  Category: 0
+  Description: 'SWORD
+
+'
+  Category: 3
   Stackable: 1
-  BuyPrice: 0
+  BuyPrice: 14
   SellPercentage: 0.301
-  Icon: {fileID: 21300000, guid: 638e550995b3b8b459c936864bfe0c45, type: 3}
-  Damage: 18.4
+  Icon: {fileID: 21300000, guid: 65452b0a51fe12e409315103f8a835a1, type: 3}
+  Damage: 18
