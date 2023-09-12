@@ -1,1 +1,0 @@
-//Every Enemy Get Immoblise they Take 2 time the damage

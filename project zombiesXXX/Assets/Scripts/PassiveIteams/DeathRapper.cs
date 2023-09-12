@@ -1,1 +1,0 @@
-//every time killing a enemy you gain 20% damage 
